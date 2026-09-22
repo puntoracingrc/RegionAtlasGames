@@ -1,37 +1,41 @@
 {
   "schemaVersion": 2,
-  "generation": 15,
+  "generation": 16,
   "workerId": "switch",
-  "state": "RESULT_READY",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": 11,
-  "currentItemResearchId": "drive-rally-special-edition-switch-2026-09-21",
+  "resultOrderTemplateVersion": null,
+  "currentItemResearchId": "1-2-switch-switch-2026-09-22",
   "workPackage": {
-    "packageId": "switch-2026-09-21-003",
+    "packageId": "switch-2026-09-22-004",
     "grouping": {
-      "type": "related_pair",
-      "basis": "Dos entradas consecutivas del mismo juego en Switch: edición estándar USA y Special Edition PAL España. Cada una conserva orden y resultado independientes."
+      "type": "independent",
+      "basis": "Primera entrada pending de Switch no cubierta por un resultado previo, según el orden estable y la regla anti-repetición."
     },
     "items": [
       {
-        "queueId": "catalog:switch-drive-rally-special-edition",
+        "queueId": "catalog-group:switch-1-2-switch",
         "platform": "switch",
-        "title": "#Drive Rally [Special Edition]",
-        "catalogIds": ["switch-drive-rally-special-edition"],
-        "researchId": "drive-rally-special-edition-switch-2026-09-21",
-        "orderPath": "research/workers/switch/orders/drive-rally-special-edition-switch-2026-09-21.md",
-        "resultPath": "research/results/drive-rally-special-edition-switch-2026-09-21.json",
-        "status": "RESULT_READY",
-        "checkpointPath": "research/workers/switch/checkpoints/drive-rally-special-edition-switch-2026-09-21.json"
+        "title": "1-2 Switch",
+        "catalogIds": [
+          "switch-1-2-switch",
+          "switch-japon-1-2-switch",
+          "switch-usa-1-2-switch"
+        ],
+        "researchId": "1-2-switch-switch-2026-09-22",
+        "orderPath": "research/workers/switch/orders/1-2-switch-switch-2026-09-22.md",
+        "resultPath": "research/results/1-2-switch-switch-2026-09-22.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/switch/checkpoints/1-2-switch-switch-2026-09-22.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-22T10:27:55Z",
+  "updatedAt": "2026-09-22T11:16:56Z",
   "updatedBy": "codex",
-  "note": "#DRIVE Rally Standard USA validado, publicado y consumido. La investigación separada de Special Edition permanece RESULT_READY para la siguiente ejecución."
+  "note": "#DRIVE Rally Special Edition validado, publicado y consumido. Siguiente orden preparada para 1-2 Switch."
 }

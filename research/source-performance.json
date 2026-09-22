@@ -919,28 +919,29 @@
     "switch": {
       "researchIds": [
         "blud-switch-2026-09-21",
+        "drive-rally-special-edition-switch-2026-09-21",
         "drive-rally-switch-2026-09-21"
       ],
-      "observationCount": 2,
+      "observationCount": 3,
       "queryTotals": {
-        "exact_identifier": 28,
-        "general": 31,
-        "image": 12,
-        "marketplace": 35,
-        "source_specific": 25
+        "exact_identifier": 31,
+        "general": 34,
+        "image": 15,
+        "marketplace": 39,
+        "source_specific": 31
       },
       "sourceAttemptTotals": {
-        "total": 51,
-        "useful": 47,
+        "total": 61,
+        "useful": 56,
         "byOutcome": {
-          "CONFIRMED_EVIDENCE": 40,
+          "CONFIRMED_EVIDENCE": 49,
           "CONTEXT_ONLY": 9,
-          "TECHNICAL_FAILURE": 1,
+          "TECHNICAL_FAILURE": 2,
           "CANDIDATE": 1
         },
         "byAccessStatus": {
-          "BLOCKED": 1,
-          "OPENED": 50
+          "BLOCKED": 2,
+          "OPENED": 59
         }
       },
       "recommendations": [
@@ -953,9 +954,22 @@
             "regional_release_identity",
             "release_date"
           ],
-          "attempts": 7,
-          "usefulAttempts": 4,
-          "distinctResearchIds": 2
+          "attempts": 9,
+          "usefulAttempts": 6,
+          "distinctResearchIds": 3
+        },
+        {
+          "domain": "gamefaqs.gamespot.com",
+          "targetCategories": [
+            "age_rating",
+            "game_metadata",
+            "identifiers",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "distinctResearchIds": 3
         },
         {
           "domain": "nintendo.com",
@@ -968,6 +982,30 @@
           ],
           "attempts": 3,
           "usefulAttempts": 3,
+          "distinctResearchIds": 2
+        },
+        {
+          "domain": "proshop.dk",
+          "targetCategories": [
+            "front_back_images",
+            "game_metadata",
+            "identifiers",
+            "physical_contents"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "distinctResearchIds": 2
+        },
+        {
+          "domain": "videogamesplus.ca",
+          "targetCategories": [
+            "age_rating",
+            "front_back_images",
+            "game_metadata",
+            "physical_contents"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 2,
           "distinctResearchIds": 2
         }
       ],
@@ -1235,10 +1273,10 @@
           "lastObservedAt": "2026-09-21"
         },
         "ebay.com": {
-          "attempts": 7,
-          "usefulAttempts": 4,
-          "usefulnessRate": 0.5714,
-          "confirmedEvidenceAttempts": 3,
+          "attempts": 9,
+          "usefulAttempts": 6,
+          "usefulnessRate": 0.6667,
+          "confirmedEvidenceAttempts": 5,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 4,
           "noRelevantDataAttempts": 0,
@@ -1247,9 +1285,10 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "distinctResearchIds": 3,
           "researchIds": [
             "blud-switch-2026-09-21",
+            "drive-rally-special-edition-switch-2026-09-21",
             "drive-rally-switch-2026-09-21"
           ],
           "sourceTypes": [
@@ -1267,7 +1306,7 @@
           "queryTypeCounts": {
             "exact_identifier": 12,
             "image": 2,
-            "marketplace": 39,
+            "marketplace": 43,
             "source_specific": 5
           },
           "exampleSourceIds": [],
@@ -1348,11 +1387,11 @@
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-22"
         },
-        "gamefaqs.gamespot.com": {
-          "attempts": 2,
-          "usefulAttempts": 2,
+        "game.es": {
+          "attempts": 1,
+          "usefulAttempts": 1,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 2,
+          "confirmedEvidenceAttempts": 1,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -1361,9 +1400,43 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gamefaqs.gamespot.com": {
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 3,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 3,
           "researchIds": [
             "blud-switch-2026-09-21",
+            "drive-rally-special-edition-switch-2026-09-21",
             "drive-rally-switch-2026-09-21"
           ],
           "sourceTypes": [
@@ -1377,13 +1450,14 @@
             "release_date"
           ],
           "queryTypeCounts": {
-            "general": 1,
-            "source_specific": 3
+            "general": 2,
+            "source_specific": 3,
+            "exact_identifier": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-22"
         },
@@ -1568,10 +1642,10 @@
           "lastObservedAt": "2026-09-21"
         },
         "meridiem-games.com": {
-          "attempts": 1,
-          "usefulAttempts": 1,
+          "attempts": 2,
+          "usefulAttempts": 2,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 1,
+          "confirmedEvidenceAttempts": 2,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -1580,8 +1654,9 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
             "drive-rally-switch-2026-09-21"
           ],
           "sourceTypes": [
@@ -1593,7 +1668,7 @@
             "regional_release_identity"
           ],
           "queryTypeCounts": {
-            "general": 2
+            "general": 3
           },
           "exampleSourceIds": [],
           "status": "observed",
@@ -1678,10 +1753,10 @@
           "lastObservedAt": "2026-09-21"
         },
         "pm-studios.com": {
-          "attempts": 1,
-          "usefulAttempts": 1,
+          "attempts": 2,
+          "usefulAttempts": 2,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 1,
+          "confirmedEvidenceAttempts": 2,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -1690,8 +1765,9 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
             "drive-rally-switch-2026-09-21"
           ],
           "sourceTypes": [
@@ -1699,11 +1775,12 @@
           ],
           "targetCategories": [
             "credits_distribution",
+            "game_metadata",
             "regional_release_identity",
             "release_date"
           ],
           "queryTypeCounts": {
-            "general": 2,
+            "general": 3,
             "source_specific": 1
           },
           "exampleSourceIds": [],
@@ -1829,10 +1906,10 @@
           "lastObservedAt": "2026-09-22"
         },
         "proshop.dk": {
-          "attempts": 2,
-          "usefulAttempts": 2,
+          "attempts": 3,
+          "usefulAttempts": 3,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 2,
+          "confirmedEvidenceAttempts": 3,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -1841,8 +1918,9 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
             "drive-rally-switch-2026-09-21"
           ],
           "sourceTypes": [
@@ -1856,12 +1934,13 @@
             "physical_contents"
           ],
           "queryTypeCounts": {
-            "image": 2
+            "image": 3,
+            "source_specific": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-22"
         },
@@ -2079,77 +2158,6 @@
           "lastObservedAt": "2026-09-21"
         },
         "tradergames.fr": {
-          "attempts": 1,
-          "usefulAttempts": 1,
-          "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 1,
-          "candidateAttempts": 0,
-          "contextOnlyAttempts": 0,
-          "noRelevantDataAttempts": 0,
-          "technicalFailures": 0,
-          "blockedAttempts": 0,
-          "notFoundAttempts": 0,
-          "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
-          "researchIds": [
-            "drive-rally-switch-2026-09-21"
-          ],
-          "sourceTypes": [
-            "retailer"
-          ],
-          "targetCategories": [
-            "identifiers",
-            "physical_contents"
-          ],
-          "queryTypeCounts": {
-            "general": 1,
-            "image": 1
-          },
-          "exampleSourceIds": [],
-          "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
-          "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
-        },
-        "vastvideogames.com": {
-          "attempts": 1,
-          "usefulAttempts": 1,
-          "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 1,
-          "candidateAttempts": 0,
-          "contextOnlyAttempts": 0,
-          "noRelevantDataAttempts": 0,
-          "technicalFailures": 0,
-          "blockedAttempts": 0,
-          "notFoundAttempts": 0,
-          "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
-          "researchIds": [
-            "drive-rally-switch-2026-09-21"
-          ],
-          "sourceTypes": [
-            "retailer"
-          ],
-          "targetCategories": [
-            "identifiers",
-            "languages",
-            "physical_contents"
-          ],
-          "queryTypeCounts": {
-            "exact_identifier": 2,
-            "source_specific": 1
-          },
-          "exampleSourceIds": [],
-          "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
-          "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
-        },
-        "videogamesplus.ca": {
           "attempts": 2,
           "usefulAttempts": 2,
           "usefulnessRate": 1,
@@ -2162,8 +2170,87 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "languages",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {
+            "general": 1,
+            "image": 1,
+            "exact_identifier": 1,
+            "source_specific": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "vastvideogames.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "languages",
+            "physical_contents",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "source_specific": 1,
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "videogamesplus.ca": {
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "usefulnessRate": 0.6667,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 1,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
             "drive-rally-switch-2026-09-21"
           ],
           "sourceTypes": [
@@ -2178,7 +2265,45 @@
           ],
           "queryTypeCounts": {
             "exact_identifier": 2,
-            "image": 2
+            "image": 3
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "wog.ch": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 2,
+          "researchIds": [
+            "drive-rally-special-edition-switch-2026-09-21",
+            "drive-rally-switch-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "game_metadata",
+            "identifiers",
+            "languages"
+          ],
+          "queryTypeCounts": {
+            "image": 1,
+            "source_specific": 5,
+            "exact_identifier": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
@@ -2187,7 +2312,7 @@
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-22"
         },
-        "wog.ch": {
+        "xtralife.com": {
           "attempts": 1,
           "usefulAttempts": 1,
           "usefulnessRate": 1,
@@ -2202,18 +2327,15 @@
           "searchResultOnlyAttempts": 0,
           "distinctResearchIds": 1,
           "researchIds": [
-            "drive-rally-switch-2026-09-21"
+            "drive-rally-special-edition-switch-2026-09-21"
           ],
           "sourceTypes": [
             "retailer"
           ],
           "targetCategories": [
-            "game_metadata",
-            "identifiers",
-            "languages"
+            "regional_release_identity"
           ],
           "queryTypeCounts": {
-            "image": 1,
             "source_specific": 2
           },
           "exampleSourceIds": [],
