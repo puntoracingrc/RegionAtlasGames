@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 3,
+  "generation": 10,
   "workerId": "ps4",
   "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -11,24 +11,29 @@
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": null,
   "workPackage": {
-    "packageId": "ps4-2026-09-21-001",
-    "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."},
+    "packageId": "ps4-2026-09-22-001",
+    "grouping": {
+      "type": "single",
+      "basis": "Primera entrada HIGH elegible tras consumir el resultado anterior; no se ha supuesto afinidad con entradas posteriores."
+    },
     "items": [
       {
-        "queueId": "catalog-group:ps4-hack-gu-last-recode",
+        "queueId": "catalog:ps4-2dark-limited-edition",
         "platform": "ps4",
-        "title": ".hack GU Last Recode",
-        "catalogIds": ["ps4-hack-gu-last-recode", "ps4-usa-hack-gu-last-recode"],
-        "researchId": "hack-gu-last-recode-ps4-2026-09-21",
-        "orderPath": "research/workers/ps4/orders/hack-gu-last-recode-ps4-2026-09-21.md",
-        "resultPath": "research/results/hack-gu-last-recode-ps4-2026-09-21.json",
+        "title": "2Dark [Limited Edition]",
+        "catalogIds": [
+          "ps4-2dark-limited-edition"
+        ],
+        "researchId": "2dark-limited-edition-ps4-2026-09-22",
+        "orderPath": "research/workers/ps4/orders/2dark-limited-edition-ps4-2026-09-22.md",
+        "resultPath": "research/results/2dark-limited-edition-ps4-2026-09-22.json",
         "status": "PENDING",
-        "checkpointPath": "research/workers/ps4/checkpoints/hack-gu-last-recode-ps4-2026-09-21.json"
+        "checkpointPath": "research/workers/ps4/checkpoints/2dark-limited-edition-ps4-2026-09-22.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T05:14:52Z",
+  "updatedAt": "2026-09-22T03:15:00Z",
   "updatedBy": "codex",
-  "note": "Paquete inicial preparado con una sola entrada para validar el aislamiento del worker."
+  "note": "Resultado de .hack//G.U. Last Recode consumido tras validación y publicación; siguiente propuesta PS4 preparada."
 }

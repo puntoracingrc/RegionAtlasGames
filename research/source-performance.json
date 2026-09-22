@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21",
+  "updatedAt": "2026-09-22",
   "updatedBy": "codex_after_contract_validation",
   "methodology": {
     "unit": "validated source attempt for one platform and target field",
@@ -1546,6 +1546,878 @@
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-21"
+        }
+      }
+    },
+    "ps4": {
+      "researchIds": [
+        "hack-gu-last-recode-ps4-2026-09-21"
+      ],
+      "observationCount": 1,
+      "queryTotals": {
+        "exact_identifier": 11,
+        "general": 1,
+        "image": 9,
+        "marketplace": 10,
+        "source_specific": 5
+      },
+      "sourceAttemptTotals": {
+        "total": 34,
+        "useful": 32,
+        "byOutcome": {
+          "CANDIDATE": 4,
+          "CONFIRMED_EVIDENCE": 27,
+          "CONTEXT_ONLY": 2,
+          "TECHNICAL_FAILURE": 1
+        },
+        "byAccessStatus": {
+          "BLOCKED": 1,
+          "OPENED": 33
+        }
+      },
+      "recommendations": [],
+      "recommendationStatus": "INSUFFICIENT_CROSS_RESEARCH_EVIDENCE",
+      "domains": {
+        "bandainamcoent.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official"
+          ],
+          "targetCategories": [
+            "developer",
+            "genre",
+            "identity",
+            "regionalPublisher",
+            "releaseDate"
+          ],
+          "queryTypeCounts": {
+            "general": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "bol.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "EAN 5092",
+            "media"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "books.rakuten.co.jp": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "Japan Standard identifiers",
+            "contents"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "ebay.de": {
+          "attempts": 4,
+          "usefulAttempts": 4,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 4,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "complete price",
+            "sealed price"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 8
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "ecommerce.datablitz.com.ph": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "USA UPC",
+            "front image",
+            "packaging languages"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "es.bandainamcoent.eu": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official"
+          ],
+          "targetCategories": [
+            "European release",
+            "releaseDate"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gamefaqs.gamespot.com": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 1,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical-database"
+          ],
+          "targetCategories": [
+            "Japan product codes",
+            "dates"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gameshop-twente.nl": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "European EAN variants"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "gamesmen.com.au": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "Australia EAN",
+            "date",
+            "rating"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "hackgul.bn-ent.net": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "official"
+          ],
+          "targetCategories": [
+            "Japan editions",
+            "date",
+            "rating"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "japanzon.com": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "Japan identifiers",
+            "software language"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "jp.mercari.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "Premium contents",
+            "complete price"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "kaitori-world.jp": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "specialist-retailer"
+          ],
+          "targetCategories": [
+            "Premium identifiers",
+            "Welcome Price identifiers",
+            "contents",
+            "rating"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "paypayfleamarket.yahoo.co.jp": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace-image"
+          ],
+          "targetCategories": [
+            "Japan Standard front image"
+          ],
+          "queryTypeCounts": {
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "play-asia.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer",
+            "retailer-image"
+          ],
+          "targetCategories": [
+            "Australia version",
+            "Welcome Price front image"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "image": 1,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "pricecharting.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "aggregator-technical"
+          ],
+          "targetCategories": [
+            "CUSA",
+            "EAN 4972",
+            "disc count",
+            "rating"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "proshop.se": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "EAN 4972",
+            "front image"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "retroplace.com": {
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical-database"
+          ],
+          "targetCategories": [
+            "Australia EAN",
+            "Austria Switzerland EAN",
+            "CUSA",
+            "USA UPC",
+            "date",
+            "productCode"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 4
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "rickiegames.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "USA back image",
+            "packaging languages",
+            "price"
+          ],
+          "queryTypeCounts": {
+            "image": 1,
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "saturn.de": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "German EAN",
+            "disc count",
+            "rating"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "serialstation.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "technical-database"
+          ],
+          "targetCategories": [
+            "CUSA",
+            "EAN 5092"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "store.shopping.yahoo.co.jp": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "marketplace-retailer",
+            "retailer"
+          ],
+          "targetCategories": [
+            "Japan Standard identifiers",
+            "Welcome Price identifiers",
+            "price"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "suruga-ya.jp": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "specialist-retailer"
+          ],
+          "targetCategories": [
+            "Premium identifiers",
+            "Welcome Price identifiers"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "wog.ch": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "hack-gu-last-recode-ps4-2026-09-21"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "German EAN",
+            "software languages"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
         }
       }
     }
