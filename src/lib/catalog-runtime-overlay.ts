@@ -55,6 +55,11 @@ function revalidateCatalogOverlayPaths(game: CatalogGame): void {
   }
 }
 
+export function revalidateCatalogOverlayGame(game: CatalogGame): void {
+  revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
+  revalidateCatalogOverlayPaths(game);
+}
+
 export type CatalogOverlayIndex = {
   updatedAt: string;
   ids: string[];
@@ -199,8 +204,7 @@ export async function writeCatalogOverlay(input: {
   });
 
   await registerOverlayGame(input.game);
-  revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
-  revalidateCatalogOverlayPaths(input.game);
+  revalidateCatalogOverlayGame(input.game);
   return { ok: true };
 }
 
