@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 8,
+  "generation": 9,
   "workerId": "ps2",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
-  "currentItemResearchId": null,
+  "currentItemResearchId": "hack-gu-vol-2-reminisce-ps2-2026-09-22",
   "workPackage": {
     "packageId": "ps2-2026-09-22-003",
     "grouping": {
@@ -45,8 +45,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T09:53:28Z",
-  "updatedBy": "codex",
-  "note": "_summer## validado y publicado como ficha central V2 con Standard, First Print Limited Edition y Best Version. Resultado consumido para la primera pasada; se prepara el siguiente paquete relacionado de .Hack G.U. Vol.2 y Vol.3."
+  "lease": {
+    "runId": "ps2-20260922T100716Z-4d8f2a",
+    "claimedAt": "2026-09-22T10:07:16Z",
+    "expiresAt": "2026-09-22T10:52:16Z"
+  },
+  "updatedAt": "2026-09-22T10:07:16Z",
+  "updatedBy": "chatgpt",
+  "note": "Investigación reclamada para .Hack - G.U. Vol.2 - Reminisce."
 }
