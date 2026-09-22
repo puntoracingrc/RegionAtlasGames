@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 24,
+  "generation": 25,
   "workerId": "ps4",
-  "state": "RUNNING",
+  "state": "PAUSED",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps4",
   "queuePath": "research/queue.json",
@@ -10,11 +10,6 @@
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": "2dark-limited-edition-ps4-2026-09-22",
-  "lease": {
-    "runId": "ps4-20260922T193944Z-turn11",
-    "claimedAt": "2026-09-22T19:39:44Z",
-    "expiresAt": "2026-09-22T20:39:44Z"
-  },
   "workPackage": {
     "packageId": "ps4-2026-09-22-001",
     "grouping": {
@@ -35,7 +30,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-22T19:39:44Z",
+  "updatedAt": "2026-09-22T20:01:37Z",
   "updatedBy": "chatgpt",
-  "note": "Lease vencido recuperado desde runId ps4-20260922T183744Z-turn11; continuar exclusivamente el elemento CHECKPOINTED desde su checkpoint persistido en esta misma ejecución."
+  "note": "Bloqueo real de infraestructura al serializar el resultado ya corregido: el checkpoint conserva el draft gzip+base64 completo; se verificó de nuevo que decodifica a 79364 bytes, SHA-256 afd51a7732b142a1006082f0d12b1b0ed0900f19686531a33246b39368f3c629, JSON válido y referencias internas válidas. El conector de escritura trunca el payload necesario para crear el blob JSON exacto en resultPath; no se publicó ningún resultado parcial y el blob huérfano de una prueba fallida no está referenciado por la rama. Lease liberado. Requiere revisión/serialización por una vía de infraestructura que acepte el JSON completo antes de reanudar este worker."
 }
