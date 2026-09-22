@@ -367,7 +367,7 @@ export default async function CatalogGamePage({ params, searchParams }: Props) {
     physicalEditionIdentity?.coverAlt ||
     details?.seoMeta?.coverAlt?.trim() ||
     `Portada de ${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel})`;
-  const photographedCover = details?.ps2Edition?.graphics.find(asset =>
+  const photographedCover = details?.ps2Edition?.graphics?.find(asset =>
     asset.url === game.coverUrl && asset.layout === "listing_front_photo");
   const guideRendersCurrentScans = editionGuide?.schemaVersion === 2 && Boolean(currentPhysicalEdition?.scanSetIds.includes(game.id));
   const physicalVariantActionStates = editionGuide?.editionFamilies.length

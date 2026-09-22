@@ -765,7 +765,7 @@ export type UpdatePublishedResult =
 export async function updatePublishedCatalogGame(
   originalCatalogId: string,
   draft: AdminGameDraft,
-  options: { triggerDeploy?: boolean } = {},
+  options: { triggerDeploy?: boolean; preserveCatalogId?: boolean } = {},
 ): Promise<UpdatePublishedResult> {
   const original = originalCatalogId.trim();
   if (!original) return { error: "Falta el id de catálogo." };
@@ -776,7 +776,7 @@ export async function updatePublishedCatalogGame(
   if ("error" in localizedDraft) return { error: localizedDraft.error };
   applyLocalizedDraftCover(draft, localizedDraft);
 
-  draft.catalogId = recomputeCatalogId(draft);
+  draft.catalogId = options.preserveCatalogId ? original : recomputeCatalogId(draft);
 
   const resolved = await getPublishedGameForAdmin(original);
   if (!resolved) return { error: "Juego no encontrado en el catálogo." };
