@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 20,
+  "generation": 21,
   "workerId": "ps4",
   "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -11,9 +11,9 @@
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": "2dark-limited-edition-ps4-2026-09-22",
   "lease": {
-    "runId": "ps4-20260922T154110Z-turn11-recovery",
-    "claimedAt": "2026-09-22T15:41:10Z",
-    "expiresAt": "2026-09-22T16:41:10Z"
+    "runId": "ps4-20260922T173747Z-turn11-recovery",
+    "claimedAt": "2026-09-22T17:37:47Z",
+    "expiresAt": "2026-09-22T18:37:47Z"
   },
   "workPackage": {
     "packageId": "ps4-2026-09-22-001",
@@ -26,9 +26,7 @@
         "queueId": "catalog:ps4-2dark-limited-edition",
         "platform": "ps4",
         "title": "2Dark [Limited Edition]",
-        "catalogIds": [
-          "ps4-2dark-limited-edition"
-        ],
+        "catalogIds": ["ps4-2dark-limited-edition"],
         "researchId": "2dark-limited-edition-ps4-2026-09-22",
         "orderPath": "research/workers/ps4/orders/2dark-limited-edition-ps4-2026-09-22.md",
         "resultPath": "research/results/2dark-limited-edition-ps4-2026-09-22.json",
@@ -37,7 +35,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-22T15:41:10Z",
+  "updatedAt": "2026-09-22T17:37:47Z",
   "updatedBy": "chatgpt",
-  "note": "Lease vencido ps4-20260922T143703Z-turn11-recovery recuperado por ps4-20260922T154110Z-turn11-recovery; continuar exclusivamente el elemento actual desde checkpoint/resultPath y cerrar esta ejecución."
+  "note": "Lease vencido ps4-20260922T154110Z-turn11-recovery recuperado por ps4-20260922T173747Z-turn11-recovery; continuar exclusivamente el elemento actual desde checkpoint/resultPath y cerrar esta ejecución."
 }
