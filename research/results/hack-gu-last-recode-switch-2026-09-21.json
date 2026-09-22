@@ -1,0 +1,4248 @@
+{
+  "researchId": "hack-gu-last-recode-switch-2026-09-21",
+  "orderTemplateVersion": 11,
+  "triggerQueueEntry": {
+    "queueId": "catalog-group:switch-japon-hack-gu-last-recode",
+    "platform": "switch",
+    "catalogIds": [
+      "switch-japon-hack-gu-last-recode",
+      "switch-usa-hack-gu-last-recode"
+    ]
+  },
+  "researchedTitle": ".hack//G.U. Last Recode",
+  "platformsInvestigated": [
+    "switch"
+  ],
+  "gameFacts": {
+    "officialTitle": {
+      "value": ".hack//G.U. Last Recode",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_us",
+        "s_bandai_asia",
+        "s_gamefaqs"
+      ]
+    },
+    "originalTitle": {
+      "value": ".hack//G.U. Last Recode",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_us",
+        "s_kaitori_jp_std"
+      ]
+    },
+    "alternateTitles": {
+      "value": [
+        ".hack//G.U. LAST RECODE"
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_asia"
+      ]
+    },
+    "developer": {
+      "value": "CyberConnect2",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_nintendo_us",
+        "s_vgcollect_tw_begins"
+      ]
+    },
+    "publisher": {
+      "value": "Bandai Namco Entertainment",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_us",
+        "s_nintendo_us"
+      ]
+    },
+    "series": {
+      "value": ".hack//G.U.",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_us",
+        "s_bandai_asia"
+      ]
+    },
+    "franchise": {
+      "value": ".hack",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_eu"
+      ]
+    },
+    "genres": {
+      "value": [
+        "Action RPG"
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_us",
+        "s_nintendo_us"
+      ]
+    },
+    "players": {
+      "value": {
+        "local": 1,
+        "online": 0
+      },
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_nintendo_us",
+        "s_gamefaqs",
+        "s_kaitori_jp_std"
+      ]
+    },
+    "modes": {
+      "value": [
+        "single-player"
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_nintendo_us",
+        "s_gamefaqs"
+      ]
+    },
+    "includedGames": {
+      "value": [
+        ".hack//G.U. Vol. 1: Rebirth",
+        ".hack//G.U. Vol. 2: Reminisce",
+        ".hack//G.U. Vol. 3: Redemption",
+        ".hack//G.U. Vol. 4: Reconnection"
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_us",
+        "s_bandai_asia"
+      ]
+    },
+    "mediaType": {
+      "value": "cartridge",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_nointro_us"
+      ]
+    }
+  },
+  "releases": [
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Japan",
+      "distributionMarkets": [
+        "Japan"
+      ],
+      "packagingLanguages": [
+        "Japanese"
+      ],
+      "softwareLanguages": [
+        "Japanese",
+        "English"
+      ],
+      "barcode": "4571577983080",
+      "productCode": "HAC-P-A334A",
+      "serial": "TRA-HAC-A334A-JPN",
+      "releaseDate": "2022-03-10",
+      "releaseType": "Physical retail game card",
+      "ratingSystem": "CERO B",
+      "regionalPublisher": "Bandai Namco Entertainment",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "Nintendo Switch game card",
+        "retail case"
+      ],
+      "components": [
+        {
+          "component": "product",
+          "barcode": "4571577983080",
+          "productCode": "HAC-P-A334A",
+          "serial": "TRA-HAC-A334A-JPN",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_kaitori_jp_std",
+            "s_ninnin_jp_std",
+            "s_gamefaqs"
+          ]
+        }
+      ],
+      "notes": [
+        "Kaitori World identifies the Japanese physical product, its 2022-03-10 release date, HAC-P-A334A product code, JAN 4571577983080, CERO B rating and one-player specification.",
+        "Nin-Nin independently identifies the Japanese edition, JAN 4571577983080, Japanese package/manual language and Japanese/English game languages.",
+        "GameFAQs records the Japanese technical identifier TRA-HAC-A334A-JPN for the same barcode and date."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_kaitori_jp_std",
+        "s_ninnin_jp_std",
+        "s_gamefaqs"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "s_kaitori_jp_std",
+          "s_ninnin_jp_std"
+        ],
+        "packagingLanguages": [
+          "s_ninnin_jp_std"
+        ],
+        "softwareLanguages": [
+          "s_ninnin_jp_std"
+        ],
+        "barcode": [
+          "s_kaitori_jp_std",
+          "s_ninnin_jp_std",
+          "s_gamefaqs"
+        ],
+        "productCode": [
+          "s_kaitori_jp_std"
+        ],
+        "serial": [
+          "s_gamefaqs"
+        ],
+        "releaseDate": [
+          "s_kaitori_jp_std",
+          "s_ninnin_jp_std",
+          "s_gamefaqs"
+        ],
+        "ratingSystem": [
+          "s_kaitori_jp_std"
+        ],
+        "regionalPublisher": [
+          "s_kaitori_jp_std"
+        ]
+      }
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition",
+      "market": "Japan",
+      "distributionMarkets": [
+        "Japan"
+      ],
+      "packagingLanguages": [
+        "Japanese"
+      ],
+      "softwareLanguages": [
+        "Japanese"
+      ],
+      "barcode": "4571577983097",
+      "productCode": "BNEI-00077",
+      "serial": null,
+      "releaseDate": "2022-03-10",
+      "releaseType": "Physical limited bundle",
+      "ratingSystem": "CERO B",
+      "regionalPublisher": "Bandai Namco Entertainment",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "Nintendo Switch game",
+        "special outer box",
+        ".hack//G.U. Begins manga and settings/materials booklet",
+        "soundtrack CD"
+      ],
+      "components": [
+        {
+          "component": "product",
+          "barcode": "4571577983097",
+          "productCode": "BNEI-00077",
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_kaitori_jp_begins",
+            "s_japanzon_jp_begins",
+            "s_gamefaqs"
+          ]
+        },
+        {
+          "component": "outer_box",
+          "barcode": null,
+          "productCode": null,
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_kaitori_jp_begins"
+          ]
+        },
+        {
+          "component": "book",
+          "barcode": null,
+          "productCode": null,
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_kaitori_jp_begins"
+          ]
+        },
+        {
+          "component": "soundtrack_cd",
+          "barcode": null,
+          "productCode": null,
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_kaitori_jp_begins"
+          ]
+        }
+      ],
+      "notes": [
+        "Japanese Begins Edition product metadata identifies JAN 4571577983097, BNEI-00077, CERO B and the bundle contents.",
+        "The exact Japanese bundle sources inspected support Japanese language; English support was not promoted from the separate Japanese Standard product because edition-specific software-language confirmation is required."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_kaitori_jp_begins",
+        "s_japanzon_jp_begins",
+        "s_gamefaqs"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "s_kaitori_jp_begins",
+          "s_japanzon_jp_begins"
+        ],
+        "packagingLanguages": [
+          "s_japanzon_jp_begins"
+        ],
+        "softwareLanguages": [
+          "s_japanzon_jp_begins"
+        ],
+        "barcode": [
+          "s_kaitori_jp_begins",
+          "s_japanzon_jp_begins",
+          "s_gamefaqs"
+        ],
+        "productCode": [
+          "s_kaitori_jp_begins"
+        ],
+        "releaseDate": [
+          "s_kaitori_jp_begins",
+          "s_japanzon_jp_begins",
+          "s_gamefaqs"
+        ],
+        "physicalContents": [
+          "s_kaitori_jp_begins"
+        ]
+      }
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Asia (English packaging)",
+      "distributionMarkets": [
+        "Asia"
+      ],
+      "packagingLanguages": [
+        "English"
+      ],
+      "softwareLanguages": [
+        "German",
+        "English",
+        "French",
+        "Japanese"
+      ],
+      "barcode": "8885011016323",
+      "productCode": "SXA-HAC-A334A-JPN",
+      "serial": "HAC-P-A334A (JPN)",
+      "releaseDate": "2022-03-10",
+      "releaseType": "Physical retail game card",
+      "ratingSystem": null,
+      "regionalPublisher": "Bandai Namco Entertainment",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "Nintendo Switch game card",
+        "retail case"
+      ],
+      "components": [
+        {
+          "component": "outer_case",
+          "barcode": "8885011016323",
+          "productCode": "SXA-HAC-A334A-JPN",
+          "serial": "HAC-P-A334A (JPN)",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_datablitz_asia_en",
+            "s_datablitz_asia_back_image",
+            "s_wog_asia_en"
+          ]
+        }
+      ],
+      "notes": [
+        "DataBlitz physically depicts an Asian English-packaging case whose back shows barcode 8885011016323, SXA-HAC-A334A-JPN and HAC-P-A334A (JPN).",
+        "WOG independently identifies the product as Asia Version, EAN 8885011016323, English packaging and German/English/French/Japanese game languages.",
+        "Bandai Namco Asia and GameFAQs support a 2022-03-10 Asian release, while WOG states 2022-03-24; that date conflict is preserved below rather than silently harmonized."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_asia",
+        "s_wog_asia_en",
+        "s_datablitz_asia_en",
+        "s_datablitz_asia_back_image",
+        "s_gamefaqs"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "s_wog_asia_en",
+          "s_datablitz_asia_en"
+        ],
+        "packagingLanguages": [
+          "s_wog_asia_en",
+          "s_datablitz_asia_back_image"
+        ],
+        "softwareLanguages": [
+          "s_wog_asia_en"
+        ],
+        "barcode": [
+          "s_wog_asia_en",
+          "s_datablitz_asia_back_image"
+        ],
+        "productCode": [
+          "s_datablitz_asia_back_image"
+        ],
+        "serial": [
+          "s_datablitz_asia_back_image"
+        ],
+        "releaseDate": [
+          "s_bandai_asia",
+          "s_gamefaqs"
+        ]
+      }
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Asia (Traditional Chinese)",
+      "distributionMarkets": [
+        "Asia"
+      ],
+      "packagingLanguages": [],
+      "softwareLanguages": [
+        "Traditional Chinese subtitles",
+        "Japanese voices",
+        "English voices"
+      ],
+      "barcode": "4713014353975",
+      "productCode": "TRA-HAC-A334C-CHT",
+      "serial": null,
+      "releaseDate": "2022-03-10",
+      "releaseType": "Physical retail game card",
+      "ratingSystem": null,
+      "regionalPublisher": "Bandai Namco Entertainment",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "Nintendo Switch game card",
+        "retail case"
+      ],
+      "components": [
+        {
+          "component": "product",
+          "barcode": "4713014353975",
+          "productCode": "TRA-HAC-A334C-CHT",
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_gpoint_zh_std",
+            "s_gamefaqs"
+          ]
+        }
+      ],
+      "notes": [
+        "G POINT identifies the local physical Nintendo Switch product with JAN 4713014353975, Traditional Chinese subtitles and Japanese/English voice audio.",
+        "GameFAQs independently records the Traditional Chinese Asian product code TRA-HAC-A334C-CHT, barcode and 2022-03-10 date.",
+        "Packaging language remains unresolved because no explicit packaging-language metadata or retained legible package image was available."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gpoint_zh_std",
+        "s_gamefaqs"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "s_gpoint_zh_std",
+          "s_gamefaqs"
+        ],
+        "softwareLanguages": [
+          "s_gpoint_zh_std"
+        ],
+        "barcode": [
+          "s_gpoint_zh_std",
+          "s_gamefaqs"
+        ],
+        "productCode": [
+          "s_gamefaqs"
+        ],
+        "releaseDate": [
+          "s_gamefaqs"
+        ]
+      }
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition / Limited Edition",
+      "market": "Taiwan (Traditional Chinese)",
+      "distributionMarkets": [
+        "Taiwan"
+      ],
+      "packagingLanguages": [],
+      "softwareLanguages": [
+        "Traditional Chinese subtitles",
+        "Japanese voices",
+        "English voices"
+      ],
+      "barcode": "4713014353982",
+      "productCode": null,
+      "serial": null,
+      "releaseDate": "2022-03-10",
+      "releaseType": "Physical limited bundle",
+      "ratingSystem": "GSRR 12+",
+      "regionalPublisher": "Bandai Namco Entertainment",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "Nintendo Switch game",
+        "special illustrated box",
+        "188-page .hack//G.U. Begins manga/materials book",
+        "15-track The Best of G.U. soundtrack CD"
+      ],
+      "components": [
+        {
+          "component": "product",
+          "barcode": "4713014353982",
+          "productCode": null,
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_gpoint_zh_begins",
+            "s_vgcollect_tw_begins"
+          ]
+        },
+        {
+          "component": "outer_box",
+          "barcode": null,
+          "productCode": null,
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_gpoint_zh_begins",
+            "s_vgcollect_tw_begins"
+          ]
+        },
+        {
+          "component": "book",
+          "barcode": null,
+          "productCode": null,
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_gpoint_zh_begins",
+            "s_vgcollect_tw_begins"
+          ]
+        },
+        {
+          "component": "soundtrack_cd",
+          "barcode": null,
+          "productCode": null,
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_gpoint_zh_begins",
+            "s_vgcollect_tw_begins"
+          ]
+        }
+      ],
+      "notes": [
+        "VGCollect marks the release [TW], official, with barcode 4713014353982, 2022-03-10 release date, Bandai Namco publisher, CyberConnect2 developer and GSRR 12+ rating.",
+        "G POINT independently identifies the same 4713014353982 bundle and details Chinese subtitles, Japanese/English voices, 188-page book, 15-track soundtrack and special box.",
+        "Product/card code and packaging language remain unresolved."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gpoint_zh_begins",
+        "s_vgcollect_tw_begins"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "s_vgcollect_tw_begins"
+        ],
+        "softwareLanguages": [
+          "s_gpoint_zh_begins"
+        ],
+        "barcode": [
+          "s_gpoint_zh_begins",
+          "s_vgcollect_tw_begins"
+        ],
+        "releaseDate": [
+          "s_vgcollect_tw_begins"
+        ],
+        "ratingSystem": [
+          "s_vgcollect_tw_begins"
+        ],
+        "physicalContents": [
+          "s_gpoint_zh_begins",
+          "s_vgcollect_tw_begins"
+        ]
+      }
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition",
+      "market": "United States",
+      "distributionMarkets": [
+        "United States",
+        "Canada"
+      ],
+      "packagingLanguages": [
+        "English",
+        "French"
+      ],
+      "softwareLanguages": [
+        "English",
+        "French",
+        "German"
+      ],
+      "barcode": "722674840583",
+      "productCode": "HAC-P-A334B",
+      "serial": "LA-H-A334B-USA",
+      "releaseDate": null,
+      "releaseType": "Physical Begins Edition bundle",
+      "ratingSystem": "ESRB Teen",
+      "regionalPublisher": "Bandai Namco Entertainment America Inc.",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "Nintendo Switch game",
+        ".hack//G.U. Begins manga and concept-art booklet",
+        "Original Soundtrack The Best of G.U."
+      ],
+      "components": [
+        {
+          "component": "game_card",
+          "barcode": null,
+          "productCode": null,
+          "serial": "LA-H-A334B-USA",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_nointro_us"
+          ]
+        },
+        {
+          "component": "inner_game_case",
+          "barcode": "722674840583",
+          "productCode": "HAC-P-A334B",
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_nointro_us",
+            "s_nointro_us_back_page",
+            "s_nointro_us_back_image"
+          ]
+        },
+        {
+          "component": "booklet",
+          "barcode": null,
+          "productCode": null,
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_bandai_us"
+          ]
+        },
+        {
+          "component": "soundtrack",
+          "barcode": null,
+          "productCode": null,
+          "serial": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_bandai_us"
+          ]
+        }
+      ],
+      "notes": [
+        "Bandai Namco's North American product page explicitly offers the physical Switch product as Begins Edition and lists the full game, Begins manga/concept-art booklet and Original Soundtrack The Best of G.U.; no separate North American Standard physical offer was found in that official page.",
+        "No-Intro's physical US dump record binds cart serial LA-H-A334B-USA, box code HAC-P-A334B and UPC 7-22674-84058-3 (normalized digits 722674840583).",
+        "Inspected No-Intro rear cover scan shows English/French packaging, one-player text, a French game-content notice, HAC P A334B, UPC 7 22674 84058 3 and Made in Japan.",
+        "Nintendo's official digital software page lists English, French and German software languages; because it is digital metadata, German is not used as packaging evidence and is flagged below as lower-confidence edition-specific software-language applicability.",
+        "Physical release date remains unresolved because GameFAQs records the physical Begins Edition on 2022-03-10, while Nintendo's software page and a launch-day article use 2022-03-11."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_us",
+        "s_nintendo_us",
+        "s_esrb",
+        "s_gamefaqs",
+        "s_nointro_us",
+        "s_nointro_us_front_page",
+        "s_nointro_us_front_image",
+        "s_nointro_us_back_page",
+        "s_nointro_us_back_image"
+      ],
+      "fieldSourceRefs": {
+        "market": [
+          "s_bandai_us",
+          "s_nointro_us"
+        ],
+        "distributionMarkets": [
+          "s_ebay_us_begins_active"
+        ],
+        "packagingLanguages": [
+          "s_nointro_us_back_image"
+        ],
+        "softwareLanguages": [
+          "s_nintendo_us"
+        ],
+        "barcode": [
+          "s_nointro_us",
+          "s_nointro_us_back_image"
+        ],
+        "productCode": [
+          "s_nointro_us",
+          "s_nointro_us_back_image"
+        ],
+        "serial": [
+          "s_nointro_us"
+        ],
+        "ratingSystem": [
+          "s_esrb",
+          "s_nointro_us_front_image"
+        ],
+        "physicalContents": [
+          "s_bandai_us"
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "s_bandai_us",
+      "url": "https://www.bandainamcoent.com/games/hack-gu-last-recode-for-nintendo-switch",
+      "title": ".hack//G.U. Last Recode for Nintendo Switch | Bandai Namco Entertainment America",
+      "accessedAt": "2026-09-21",
+      "supports": "Official North American product page: Switch title identity, Bandai Namco publisher context, four included G.U. volumes, Begins Edition physical offering and its included manga/concept-art booklet and Original Soundtrack The Best of G.U."
+    },
+    {
+      "sourceId": "s_nintendo_us",
+      "url": "https://www.nintendo.com/us/store/products/hack-g-u-last-recode-switch/",
+      "title": ".hack//G.U. Last Recode for Nintendo Switch - Nintendo Official Site",
+      "accessedAt": "2026-09-21",
+      "supports": "Official Nintendo software page: title, developer CyberConnect2, publisher Bandai Namco, one-player specification, software languages and March 11 2022 Nintendo eShop software date."
+    },
+    {
+      "sourceId": "s_esrb",
+      "url": "https://www.esrb.org/ratings/37929/hack-g-u-last-recode/",
+      "title": ".hack//G.U. Last Recode - ESRB",
+      "accessedAt": "2026-09-21",
+      "supports": "ESRB rating record for Nintendo Switch version: Teen rating and descriptors."
+    },
+    {
+      "sourceId": "s_bandai_asia",
+      "url": "https://www.bandainamcoent.asia/sea/news/the-world-is-back-on-nintendo-switch-hack-g-u-last-recode-will-be-released-on-10-march-and-the-original-comics-will-be-available-from-16-march",
+      "title": "The world is back on Nintendo Switch! .hack//G.U. Last Recode will be released on 10 March | Bandai Namco Entertainment Asia",
+      "accessedAt": "2026-09-21",
+      "supports": "Official Asia announcement: Nintendo Switch identity, all four G.U. games, and 10 March 2022 regional release announcement."
+    },
+    {
+      "sourceId": "s_bandai_eu",
+      "url": "https://en.bandainamcoent.eu/hack/news/bandai-namco-celebrates-20th-anniversary-of-hack-franchise-hackgu-last-recode-remaster",
+      "title": "Bandai Namco celebrates 20th anniversary of .hack franchise | Bandai Namco Europe",
+      "accessedAt": "2026-09-21",
+      "supports": "Official Europe page identifies the .hack franchise and states Switch availability digitally on March 11, 2022; this is used to avoid inventing an EU physical SKU."
+    },
+    {
+      "sourceId": "s_kaitori_jp_std",
+      "url": "https://www.kaitori-world.jp/products/detail/223287",
+      "title": "[買取] .hack//G.U. Last Recode Nintendo Switch",
+      "accessedAt": "2026-09-21",
+      "supports": "Japanese retail metadata for Standard physical release: 2022-03-10, HAC-P-A334A, JAN 4571577983080, CERO B and one player."
+    },
+    {
+      "sourceId": "s_ninnin_jp_std",
+      "url": "https://www.nin-nin-game.com/en/japanese-import-nintendo-switch-softs-and-systems/96579-hackgu-last-recode-english-switch-.html",
+      "title": ".hack//G.U. Last Recode [English] (Switch) - Nin-Nin-Game.com",
+      "accessedAt": "2026-09-21",
+      "supports": "Japanese Edition metadata: JAN 4571577983080, Japanese package/manual, Japanese and English game languages, and 2022-03-10 release date."
+    },
+    {
+      "sourceId": "s_tradergames_jp_std",
+      "url": "https://www.tradergames.fr/fr/nintendo-switch/319058-hackgu-last-recode-switch-japan-new-game-in-english-4571577983080.html",
+      "title": ".hack//G.U. Last Recode Switch Japan New Game in English - Trader Games",
+      "accessedAt": "2026-09-21",
+      "supports": "Candidate Japanese Standard product URL discovered by search; direct page retrieval failed in this run and it is not used as sole confirmation."
+    },
+    {
+      "sourceId": "s_kaitori_jp_begins",
+      "url": "https://www.kaitori-world.jp/products/detail/223288",
+      "title": "[買取] .hack//G.U. Last Recode Begins Edition Nintendo Switch",
+      "accessedAt": "2026-09-21",
+      "supports": "Japanese Begins Edition: 2022-03-10, BNEI-00077, JAN 4571577983097, CERO B and detailed physical bundle contents."
+    },
+    {
+      "sourceId": "s_japanzon_jp_begins",
+      "url": "https://www.japanzon.com/en/game/35086-bandai-namco-hackgu-last-recode-for-nintendo-switch-4571577983097.html",
+      "title": "Bandai Namco .hack//G.U. Last Recode for Nintendo Switch",
+      "accessedAt": "2026-09-21",
+      "supports": "Japanese product page for JAN 4571577983097, Japanese release/edition language metadata and 2022-03-10 date."
+    },
+    {
+      "sourceId": "s_wog_asia_en",
+      "url": "https://www.wog.ch/en/index.cfm/details/product/136839-hack-G-U-Last-Recode",
+      "title": ".hack//G.U. Last Recode - Asia Version - Nintendo Switch - World of Games",
+      "accessedAt": "2026-09-21",
+      "supports": "Asia Version product page: EAN 8885011016323, English packaging, German/English/French/Japanese game languages and retailer release date 2022-03-24."
+    },
+    {
+      "sourceId": "s_datablitz_asia_en",
+      "url": "https://ecommerce.datablitz.com.ph/products/nsw-hack-g-u-last-recode-asian",
+      "title": "Nintendo Switch .hack//G.U. Last Recode (Asian) - DataBlitz",
+      "accessedAt": "2026-09-21",
+      "supports": "Exact Asian physical product page and image provenance for the English-packaging Standard release."
+    },
+    {
+      "sourceId": "s_gamefaqs",
+      "url": "https://gamefaqs.gamespot.com/switch/327427-hack-gu-last-recode/data",
+      "title": ".hack//G.U. Last Recode Release Information for Nintendo Switch - GameFAQs",
+      "accessedAt": "2026-09-21",
+      "supports": "Technical release table distinguishing Japan Standard, Japan Begins, Asia Standard, Asia Traditional Chinese and North American Begins physical SKUs with dates, product IDs and barcodes."
+    },
+    {
+      "sourceId": "s_gpoint_zh_std",
+      "url": "https://www.gpointhobby.store/item/(%E8%A1%8C%E7%89%88)-Nintendo-Switch-NS-.hack-%E5%89%B5%E4%B8%96%E7%B4%80%E5%82%B3%E8%AA%AA-/4573506802155520",
+      "title": "(行版) Nintendo Switch NS .hack//創世紀傳說 Last Recode",
+      "accessedAt": "2026-09-21",
+      "supports": "Traditional Chinese local-version Standard physical product: barcode/JAN 4713014353975, Chinese subtitles, Japanese/English voices and Bandai Namco publisher."
+    },
+    {
+      "sourceId": "s_gpoint_zh_begins",
+      "url": "https://www.gpointhobby.store/item/(%E8%A1%8C%E7%89%88)-Nintendo-Switch-NS-.hack-%E5%89%B5%E4%B8%96%E7%B4%80%E5%82%B3%E8%AA%AA-%2B-%2B2c18/5831320086380544",
+      "title": "(行版) Nintendo Switch NS .hack//創世紀傳說 Last Recode 限定版",
+      "accessedAt": "2026-09-21",
+      "supports": "Traditional Chinese limited/Begins bundle: barcode 4713014353982, Chinese subtitles, Japanese/English voices, 188-page manga/materials book, 15-track soundtrack and special box."
+    },
+    {
+      "sourceId": "s_vgcollect_tw_begins",
+      "url": "https://vgcollect.com/item/232864",
+      "title": ".hack//G.U. Last Recode Begins Edition [TW] - VGCollect",
+      "accessedAt": "2026-09-21",
+      "supports": "Technical collector record for Taiwan Begins Edition: official release, 2022-03-10, barcode 4713014353982, Bandai Namco, CyberConnect2, GSRR 12+ and bundle contents."
+    },
+    {
+      "sourceId": "s_nointro_us",
+      "url": "https://wiki.no-intro.org/index.php?title=Nintendo_-_Nintendo_Switch_undumped",
+      "title": "Nintendo - Nintendo Switch undumped - No-Intro Wiki",
+      "accessedAt": "2026-09-21",
+      "supports": "Physical US A334B record connecting cart serial LA-H-A334B-USA, box code HAC-P-A334B and barcode 7-22674-84058-3."
+    },
+    {
+      "sourceId": "s_nointro_us_front_page",
+      "url": "https://wiki.no-intro.org/index.php?title=File%3ADothackusa.jpg",
+      "title": "File:Dothackusa.jpg - No-Intro Wiki",
+      "accessedAt": "2026-09-21",
+      "supports": "Provenance page for exact US Nintendo Switch front-cover scan."
+    },
+    {
+      "sourceId": "s_nointro_us_front_image",
+      "url": "https://wiki.no-intro.org/images/e/ea/Dothackusa.jpg",
+      "title": "Dothackusa.jpg",
+      "accessedAt": "2026-09-21",
+      "supports": "Direct inspected US front-cover image: .hack//G.U. Last Recode title, ESRB Teen and Bandai Namco branding."
+    },
+    {
+      "sourceId": "s_nointro_us_back_page",
+      "url": "https://wiki.no-intro.org/index.php?title=File%3ADothackusb.jpg",
+      "title": "File:Dothackusb.jpg - No-Intro Wiki",
+      "accessedAt": "2026-09-21",
+      "supports": "Provenance page for exact US Nintendo Switch rear-cover scan."
+    },
+    {
+      "sourceId": "s_nointro_us_back_image",
+      "url": "https://wiki.no-intro.org/images/3/32/Dothackusb.jpg",
+      "title": "Dothackusb.jpg",
+      "accessedAt": "2026-09-21",
+      "supports": "Direct inspected US rear-cover image: English/French package text, one player, French content notice, HAC P A334B, UPC 7 22674 84058 3 and Made in Japan."
+    },
+    {
+      "sourceId": "s_datablitz_asia_front_image",
+      "url": "https://ecommerce.datablitz.com.ph/cdn/shop/products/1_e8596721-b61d-4c4c-8b76-c964ca4e48be_1024x.jpg?v=1676863261",
+      "title": "DataBlitz Asian front cover image",
+      "accessedAt": "2026-09-21",
+      "supports": "Direct inspected front image associated with DataBlitz Asian Standard product."
+    },
+    {
+      "sourceId": "s_datablitz_asia_back_image",
+      "url": "https://ecommerce.datablitz.com.ph/cdn/shop/products/hack_1024x.jpg?v=1676863283",
+      "title": "DataBlitz Asian rear cover image",
+      "accessedAt": "2026-09-21",
+      "supports": "Direct inspected rear image: English package text, one-player marker, HAC-P-A334A (JPN), SXA-HAC-A334A-JPN and barcode 8 885011 016323."
+    },
+    {
+      "sourceId": "s_pricecharting_us",
+      "url": "https://www.pricecharting.com/game/nintendo-switch/hack-gu-last-recode",
+      "title": ".hack//G.U. Last Recode Prices Nintendo Switch | Compare Loose, CIB & New Prices",
+      "accessedAt": "2026-09-21",
+      "supports": "Context-only aggregate pricing/identity page; not counted toward current regional price sample because the contract requires active direct listings."
+    },
+    {
+      "sourceId": "s_digitalchumps_na",
+      "url": "https://digitalchumps.com/2022/03/11/hack-g-u-last-recode-makes-it-to-switch/",
+      "title": ".hack//G.U. Last Recode makes it to Switch - Digital Chumps",
+      "accessedAt": "2026-09-21",
+      "supports": "Contemporaneous North American March 11 2022 launch article; used only to document release-date conflict with the physical-release table."
+    },
+    {
+      "sourceId": "s_ebay_asia_worlddeals",
+      "url": "https://www.ebay.com/itm/234555236470",
+      "title": ".hack//G.U. Last Recode (Multi-Language) English Nintendo Switch New | eBay",
+      "accessedAt": "2026-09-21",
+      "supports": "Active independent sealed Asia-English listing from World Deals: item 234555236470, $69.99, free shipping, UPC 8885011016323."
+    },
+    {
+      "sourceId": "s_ebay_asia_tokyo",
+      "url": "https://www.ebay.com/itm/317107280136",
+      "title": ".hack//G.U. Last Recode Nintendo Switch Asian Game in English | eBay",
+      "accessedAt": "2026-09-21",
+      "supports": "Active independent sealed Asia-English listing from Tokyo Game Story: item 317107280136, $82.48 plus $11.75 shipping, UPC 8885011016323."
+    },
+    {
+      "sourceId": "s_ebay_us_begins_active",
+      "url": "https://www.ebay.de/itm/227503722615",
+      "title": ".hack//G.U. Last Recode Begins Edition Nintendo Switch New | eBay",
+      "accessedAt": "2026-09-21",
+      "supports": "Active exact US/Canada Begins Edition listing: item 227503722615, new, EUR 202.96, UPC 722674840583; only one qualifying active listing, so no confirmed price."
+    },
+    {
+      "sourceId": "s_ebay_us_begins_old",
+      "url": "https://www.ebay.ca/itm/195495311796",
+      "title": ".hack//G.U. Last Recode Begins Edition Nintendo Switch Brand New USA Version | eBay",
+      "accessedAt": "2026-09-21",
+      "supports": "Out-of-stock historical exact US Begins Edition listing, item 195495311796, USA Version/Collector's Edition, UPC 722674840583; retained as context only and excluded from sampleSize."
+    },
+    {
+      "sourceId": "s_ruten_search_zh",
+      "url": "https://www.ruten.com.tw/find/?cateid=0022002500030001&normalshipment=1&q=%E6%91%A9%E5%8A%9B%E7%A7%91&sort=prc%2Fac",
+      "title": "Ruten search - Traditional Chinese Switch listings",
+      "accessedAt": "2026-09-21",
+      "supports": "Marketplace discovery search that surfaced Traditional Chinese .hack candidates; no stable direct exact active listing satisfying all price-evidence requirements was retained."
+    }
+  ],
+  "images": [
+    {
+      "sourceRefs": [
+        "s_nointro_us_front_page",
+        "s_nointro_us_front_image"
+      ],
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition",
+      "market": "United States",
+      "pageUrl": "https://wiki.no-intro.org/index.php?title=File%3ADothackusa.jpg",
+      "imageUrl": "https://wiki.no-intro.org/images/e/ea/Dothackusa.jpg",
+      "component": "front cover of inner game case",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Nintendo Switch front cover is for .hack//G.U. Last Recode",
+        "ESRB Teen badge is visible",
+        "Bandai Namco branding is visible"
+      ],
+      "observedText": [
+        ".hack//G.U. Last Recode",
+        "T",
+        "BANDAI NAMCO Entertainment"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "s_nointro_us_back_page",
+        "s_nointro_us_back_image"
+      ],
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition",
+      "market": "United States",
+      "pageUrl": "https://wiki.no-intro.org/index.php?title=File%3ADothackusb.jpg",
+      "imageUrl": "https://wiki.no-intro.org/images/3/32/Dothackusb.jpg",
+      "component": "rear cover of inner game case",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Rear package contains English and French text",
+        "one-player icon/text is visible",
+        "French game-content notice is visible",
+        "case code HAC P A334B is visible",
+        "UPC digits 7 22674 84058 3 are visible",
+        "Made in Japan is visible"
+      ],
+      "observedText": [
+        "1 player",
+        "1 joueur",
+        "FR Contenu du jeu en français",
+        "HAC P A334B",
+        "7 22674 84058 3",
+        "Made in Japan"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "s_datablitz_asia_en",
+        "s_datablitz_asia_front_image"
+      ],
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Asia (English packaging)",
+      "pageUrl": "https://ecommerce.datablitz.com.ph/products/nsw-hack-g-u-last-recode-asian",
+      "imageUrl": "https://ecommerce.datablitz.com.ph/cdn/shop/products/1_e8596721-b61d-4c4c-8b76-c964ca4e48be_1024x.jpg?v=1676863261",
+      "component": "front cover",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Front cover is for Nintendo Switch .hack//G.U. Last Recode",
+        "Bandai Namco branding is visible"
+      ],
+      "observedText": [
+        ".hack//G.U. Last Recode",
+        "BANDAI NAMCO Entertainment"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "s_datablitz_asia_en",
+        "s_datablitz_asia_back_image"
+      ],
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Asia (English packaging)",
+      "pageUrl": "https://ecommerce.datablitz.com.ph/products/nsw-hack-g-u-last-recode-asian",
+      "imageUrl": "https://ecommerce.datablitz.com.ph/cdn/shop/products/hack_1024x.jpg?v=1676863283",
+      "component": "back cover",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Rear package text is English",
+        "one-player marker is visible",
+        "HAC-P-A334A (JPN) is visible",
+        "SXA-HAC-A334A-JPN is visible",
+        "barcode digits 8 885011 016323 are visible"
+      ],
+      "observedText": [
+        "1 Player",
+        "HAC-P-A334A (JPN)",
+        "SXA-HAC-A334A-JPN",
+        "8 885011 016323"
+      ],
+      "confidence": "confirmed"
+    }
+  ],
+  "regionalPrices": [
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Japan",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": "JPY",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active independent exact Japanese Standard sealed listings with direct auditable URLs and exact-release evidence were retained in this run."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Japan",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": "JPY",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active independent exact Japanese Standard complete listings with direct auditable URLs and exact-release evidence were retained in this run."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Japan",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": "JPY",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active independent exact Japanese Standard loose listings with direct auditable URLs and exact-release evidence were retained in this run."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition",
+      "market": "Japan",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": "JPY",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active independent exact Japanese Begins Edition sealed listings with direct auditable URLs and exact-release evidence were retained in this run."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition",
+      "market": "Japan",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": "JPY",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active independent exact Japanese Begins Edition complete listings with direct auditable URLs and exact-release evidence were retained in this run."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition",
+      "market": "Japan",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": "JPY",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "Loose applies to the game cartridge component only; no two active exact Japanese Begins cartridge-only listings were retained."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Asia (English packaging)",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": "USD",
+      "observations": [
+        {
+          "sourceId": "s_ebay_asia_worlddeals",
+          "listingId": "234555236470",
+          "marketplace": "eBay",
+          "listingUrl": "https://www.ebay.com/itm/234555236470",
+          "accessedAt": "2026-09-21",
+          "listingStatus": "active",
+          "sellerId": "World Deals",
+          "askingPriceWithoutShipping": 69.99,
+          "shippingPrice": 0.0,
+          "currency": "USD",
+          "conditionBucket": "sealed",
+          "regionEvidence": [
+            "UPC 8885011016323 exactly matches the independently verified Asia English physical product"
+          ],
+          "editionEvidence": [
+            "Listing title identifies .hack//G.U. Last Recode for Nintendo Switch as new and multi-language; exact UPC binds the Standard Asia English SKU"
+          ],
+          "includedContents": [
+            "sealed/new Nintendo Switch retail game"
+          ]
+        },
+        {
+          "sourceId": "s_ebay_asia_tokyo",
+          "listingId": "317107280136",
+          "marketplace": "eBay",
+          "listingUrl": "https://www.ebay.com/itm/317107280136",
+          "accessedAt": "2026-09-21",
+          "listingStatus": "active",
+          "sellerId": "Tokyo Game Story",
+          "askingPriceWithoutShipping": 82.48,
+          "shippingPrice": 11.75,
+          "currency": "USD",
+          "conditionBucket": "sealed",
+          "regionEvidence": [
+            "Listing states Asian Game in English and UPC 8885011016323 exactly matches the independently verified Asia English physical product"
+          ],
+          "editionEvidence": [
+            "Exact UPC 8885011016323 binds the Standard Asia English SKU"
+          ],
+          "includedContents": [
+            "brand-new Nintendo Switch retail game"
+          ]
+        }
+      ],
+      "sampleSize": 2,
+      "calculationMethod": "median of two active independent asking prices excluding shipping: median(69.99, 82.48)",
+      "marketMin": 69.99,
+      "marketMax": 82.48,
+      "proposedBasePrice": 76.235,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_ebay_asia_worlddeals",
+        "s_ebay_asia_tokyo",
+        "s_wog_asia_en",
+        "s_datablitz_asia_back_image"
+      ],
+      "unresolvedReason": null
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Asia (English packaging)",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": "USD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active independent exact Asia English complete listings were retained."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Asia (English packaging)",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": "USD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active independent exact Asia English loose listings were retained."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Asia (Traditional Chinese)",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": "TWD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "s_ruten_search_zh"
+      ],
+      "unresolvedReason": "Marketplace discovery surfaced candidates, but no two stable direct active listings with exact barcode/product linkage were retained."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Asia (Traditional Chinese)",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": "TWD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "s_ruten_search_zh"
+      ],
+      "unresolvedReason": "No two auditable active exact-release complete listings were retained."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Standard",
+      "market": "Asia (Traditional Chinese)",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": "TWD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "s_ruten_search_zh"
+      ],
+      "unresolvedReason": "No two auditable active exact-release cartridge-only listings were retained."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition / Limited Edition",
+      "market": "Taiwan (Traditional Chinese)",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": "TWD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "s_ruten_search_zh"
+      ],
+      "unresolvedReason": "No two active independent exact 4713014353982 sealed bundle listings with stable direct URLs were retained."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition / Limited Edition",
+      "market": "Taiwan (Traditional Chinese)",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": "TWD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "s_ruten_search_zh"
+      ],
+      "unresolvedReason": "No two active independent exact 4713014353982 complete bundle listings with stable direct URLs were retained."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition / Limited Edition",
+      "market": "Taiwan (Traditional Chinese)",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": "TWD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "s_ruten_search_zh"
+      ],
+      "unresolvedReason": "Loose applies to the game cartridge component only; no two exact Taiwan limited-edition cartridge-only listings were retained."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition",
+      "market": "United States",
+      "mediaType": "cartridge",
+      "conditionBucket": "sealed",
+      "currency": "EUR",
+      "observations": [
+        {
+          "sourceId": "s_ebay_us_begins_active",
+          "listingId": "227503722615",
+          "marketplace": "eBay",
+          "listingUrl": "https://www.ebay.de/itm/227503722615",
+          "accessedAt": "2026-09-21",
+          "listingStatus": "active",
+          "sellerId": "Gaming Citadel",
+          "askingPriceWithoutShipping": 202.96,
+          "shippingPrice": null,
+          "currency": "EUR",
+          "conditionBucket": "sealed",
+          "regionEvidence": [
+            "Listing identifies US/Canada product and UPC 722674840583 matches the independently verified US A334B case"
+          ],
+          "editionEvidence": [
+            "Listing explicitly identifies Begins Edition / Collector's Edition"
+          ],
+          "includedContents": [
+            "new Begins Edition retail bundle"
+          ]
+        }
+      ],
+      "sampleSize": 1,
+      "calculationMethod": "median requires at least two active independent exact-release listings; only one qualified",
+      "marketMin": 202.96,
+      "marketMax": 202.96,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "s_ebay_us_begins_active",
+        "s_ebay_us_begins_old"
+      ],
+      "unresolvedReason": "Only one qualifying active independent exact US Begins Edition sealed listing was found. The second exact listing retained was out of stock and is excluded from sampleSize."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition",
+      "market": "United States",
+      "mediaType": "cartridge",
+      "conditionBucket": "complete",
+      "currency": "USD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active independent exact US Begins Edition complete listings were retained."
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "editionName": "Begins Edition",
+      "market": "United States",
+      "mediaType": "cartridge",
+      "conditionBucket": "loose",
+      "currency": "USD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median asking price without shipping when at least two active independent exact-release listings are available",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "Loose applies to the game cartridge component only; no two active exact US A334B cartridge-only listings were retained."
+    }
+  ],
+  "queryLedger": [
+    {
+      "queryId": "q001",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" Switch physical Japan Asia USA barcode",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "releases",
+        "barcode",
+        "productCode",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q002",
+      "queryType": "source_specific",
+      "query": "site:bandainamcoent.com \"hack G.U. Last Recode\" Nintendo Switch Begins Edition",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "identity",
+        "editions",
+        "contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bandai_us"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q003",
+      "queryType": "source_specific",
+      "query": "site:nintendo.com/us/store/products \"hack G.U. Last Recode\" Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "developer",
+        "publisher",
+        "players",
+        "softwareLanguages",
+        "releaseDate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nintendo_us"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q004",
+      "queryType": "source_specific",
+      "query": "site:esrb.org \"hack G.U. Last Recode\" Switch ESRB",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "ratingSystem"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_esrb"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q005",
+      "queryType": "source_specific",
+      "query": "site:bandainamcoent.asia \"G.U. Last Recode\" Switch 10 March",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "releaseDate",
+        "identity",
+        "includedGames"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bandai_asia"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q006",
+      "queryType": "source_specific",
+      "query": "site:bandainamcoent.eu \"hack G.U. Last Recode\" Switch digitally March 11 2022",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Europe physical status",
+        "franchise"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bandai_eu"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q007",
+      "queryType": "general",
+      "query": "4571577983080",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "Japan Standard"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_kaitori_jp_std",
+        "s_ninnin_jp_std"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q008",
+      "queryType": "exact_identifier",
+      "query": "\"4571577983080\" \"Nintendo Switch\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "platform",
+        "edition",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_kaitori_jp_std",
+        "s_ninnin_jp_std"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q009",
+      "queryType": "exact_identifier",
+      "query": "\"HAC-P-A334A\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "productCode",
+        "Japan Standard"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_kaitori_jp_std"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q010",
+      "queryType": "exact_identifier",
+      "query": "\"TRA-HAC-A334A-JPN\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "serial",
+        "Japan Standard"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q011",
+      "queryType": "source_specific",
+      "query": "site:kaitori-world.jp 4571577983080",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Standard metadata"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_kaitori_jp_std"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q012",
+      "queryType": "source_specific",
+      "query": "site:nin-nin-game.com 4571577983080 hack GU Last Recode",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "packagingLanguages",
+        "softwareLanguages",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ninnin_jp_std"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q013",
+      "queryType": "source_specific",
+      "query": "site:tradergames.fr 4571577983080",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Standard candidate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_tradergames_jp_std"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q014",
+      "queryType": "general",
+      "query": "4571577983097",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "Japan Begins Edition"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_kaitori_jp_begins",
+        "s_japanzon_jp_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q015",
+      "queryType": "exact_identifier",
+      "query": "\"4571577983097\" \"Begins Edition\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "edition",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_kaitori_jp_begins",
+        "s_japanzon_jp_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q016",
+      "queryType": "exact_identifier",
+      "query": "\"BNEI-00077\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "productCode",
+        "Japan Begins Edition"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_kaitori_jp_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q017",
+      "queryType": "source_specific",
+      "query": "site:kaitori-world.jp 4571577983097",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Begins metadata",
+        "contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_kaitori_jp_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q018",
+      "queryType": "source_specific",
+      "query": "site:japanzon.com 4571577983097",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Begins metadata"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_japanzon_jp_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q019",
+      "queryType": "general",
+      "query": "8885011016323",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "Asia English Standard"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_wog_asia_en",
+        "s_datablitz_asia_en"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q020",
+      "queryType": "exact_identifier",
+      "query": "\"8885011016323\" \"Nintendo Switch\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "platform",
+        "edition",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_wog_asia_en",
+        "s_datablitz_asia_en"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q021",
+      "queryType": "exact_identifier",
+      "query": "\"SXA-HAC-A334A-JPN\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "productCode",
+        "Asia English Standard"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_datablitz_asia_back_image"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q022",
+      "queryType": "source_specific",
+      "query": "site:wog.ch \"8885011016323\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "market",
+        "packagingLanguages",
+        "softwareLanguages",
+        "releaseDate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_wog_asia_en"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q023",
+      "queryType": "source_specific",
+      "query": "site:ecommerce.datablitz.com.ph \"hack G.U. Last Recode\" Asian",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia English product",
+        "images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_datablitz_asia_en",
+        "s_datablitz_asia_front_image",
+        "s_datablitz_asia_back_image"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q024",
+      "queryType": "general",
+      "query": "4713014353975",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "Traditional Chinese Standard"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gpoint_zh_std",
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q025",
+      "queryType": "exact_identifier",
+      "query": "\"4713014353975\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "platform",
+        "edition",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gpoint_zh_std",
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q026",
+      "queryType": "exact_identifier",
+      "query": "\"TRA-HAC-A334C-CHT\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "productCode",
+        "Traditional Chinese Standard"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q027",
+      "queryType": "source_specific",
+      "query": "site:gpointhobby.store 4713014353975",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Traditional Chinese Standard",
+        "softwareLanguages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gpoint_zh_std"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q028",
+      "queryType": "general",
+      "query": "4713014353982",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "Taiwan Begins Edition"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gpoint_zh_begins",
+        "s_vgcollect_tw_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q029",
+      "queryType": "exact_identifier",
+      "query": "\"4713014353982\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "platform",
+        "edition",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gpoint_zh_begins",
+        "s_vgcollect_tw_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q030",
+      "queryType": "source_specific",
+      "query": "site:vgcollect.com 4713014353982",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Taiwan market",
+        "rating",
+        "contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_vgcollect_tw_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q031",
+      "queryType": "source_specific",
+      "query": "site:gpointhobby.store 4713014353982",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Taiwan Begins contents",
+        "softwareLanguages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gpoint_zh_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q032",
+      "queryType": "general",
+      "query": "722674840583",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "United States Begins Edition"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us",
+        "s_ebay_us_begins_active"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q033",
+      "queryType": "exact_identifier",
+      "query": "\"722674840583\" \"hack\" Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "barcode",
+        "platform",
+        "edition",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us",
+        "s_ebay_us_begins_active"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q034",
+      "queryType": "exact_identifier",
+      "query": "\"LA-H-A334B-USA\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "game card serial",
+        "United States"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q035",
+      "queryType": "exact_identifier",
+      "query": "\"HAC-P-A334B\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "box code",
+        "United States"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us",
+        "s_nointro_us_back_image"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q036",
+      "queryType": "source_specific",
+      "query": "site:wiki.no-intro.org A334B .hack Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "physical serials",
+        "images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us",
+        "s_nointro_us_front_page",
+        "s_nointro_us_back_page"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q037",
+      "queryType": "source_specific",
+      "query": "site:gamefaqs.gamespot.com/switch/327427-hack-gu-last-recode/data",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "regional release table",
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q038",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" Switch Europe physical PEGI",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Europe physical release"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bandai_eu"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q039",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" Switch PAL physical",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Europe physical release"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No result from this query alone was used as confirming evidence."
+    },
+    {
+      "queryId": "q040",
+      "queryType": "source_specific",
+      "query": "site:amazon.co.uk \"hack G.U. Last Recode\" Switch physical",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Europe physical candidate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No result from this query alone was used as confirming evidence."
+    },
+    {
+      "queryId": "q041",
+      "queryType": "source_specific",
+      "query": "site:fnac.com \"hack G.U. Last Recode\" Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Europe physical candidate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No result from this query alone was used as confirming evidence."
+    },
+    {
+      "queryId": "q042",
+      "queryType": "source_specific",
+      "query": "site:play-asia.com \"hack G.U. Last Recode\" Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia SKUs",
+        "languages",
+        "images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No result from this query alone was used as confirming evidence."
+    },
+    {
+      "queryId": "q043",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" Nintendo Switch Japan cover back 4571577983080",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Standard images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No durable exact front/back pair was retained."
+    },
+    {
+      "queryId": "q044",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode Begins Edition\" Japan Switch cover back 4571577983097",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Begins images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No durable exact front/back pair was retained."
+    },
+    {
+      "queryId": "q045",
+      "queryType": "general",
+      "query": "\"4713014353975\" image",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Traditional Chinese Standard images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No durable exact front/back pair was retained."
+    },
+    {
+      "queryId": "q046",
+      "queryType": "general",
+      "query": "\"4713014353982\" image",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Taiwan Begins images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No durable exact front/back pair was retained."
+    },
+    {
+      "queryId": "q047",
+      "queryType": "general",
+      "query": "\"722674840583\" image .hack Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "United States images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us_front_page",
+        "s_nointro_us_back_page"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q048",
+      "queryType": "general",
+      "query": "\"8885011016323\" image .hack Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia English images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_datablitz_asia_en",
+        "s_datablitz_asia_front_image",
+        "s_datablitz_asia_back_image"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q049",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" Switch cover scan",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us_front_page",
+        "s_nointro_us_back_page"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q050",
+      "queryType": "source_specific",
+      "query": "site:videogamesnewyork.com \"4571577983080\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Standard image candidate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Image candidate surfaced but no retained direct front/back pair was sufficiently attributable for use."
+    },
+    {
+      "queryId": "q051",
+      "queryType": "source_specific",
+      "query": "site:auctions.yahoo.co.jp 4571577983080",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Standard images",
+        "price candidates"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Candidates surfaced but no two qualifying active exact-release direct listings were retained."
+    },
+    {
+      "queryId": "q052",
+      "queryType": "source_specific",
+      "query": "site:auctions.yahoo.co.jp 4571577983097",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Begins images",
+        "price candidates"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Candidates surfaced but no two qualifying active exact-release direct listings were retained."
+    },
+    {
+      "queryId": "q053",
+      "queryType": "source_specific",
+      "query": "site:pricecharting.com/game/nintendo-switch \"hack gu last recode\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "price context"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pricecharting_us"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Aggregate values were not counted toward active-listing sampleSize."
+    },
+    {
+      "queryId": "q054",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm 8885011016323 new",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia English sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_asia_worlddeals",
+        "s_ebay_asia_tokyo"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q055",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"8885011016323\" \"Brand New\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia English sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_asia_worlddeals",
+        "s_ebay_asia_tokyo"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q056",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"8885011016323\" used",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia English complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No two qualifying complete listings retained."
+    },
+    {
+      "queryId": "q057",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"SXA-HAC-A334A-JPN\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia English price exact code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No additional qualifying direct listing retained."
+    },
+    {
+      "queryId": "q058",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm 722674840583 Begins Edition new",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US Begins sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_us_begins_active",
+        "s_ebay_us_begins_old"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Only one listing remained active; out-of-stock exact listing excluded from sampleSize."
+    },
+    {
+      "queryId": "q059",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"722674840583\" used Begins Edition",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US Begins complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No two qualifying active complete listings retained."
+    },
+    {
+      "queryId": "q060",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"LA-H-A334B-USA\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No two qualifying active cartridge-only listings retained."
+    },
+    {
+      "queryId": "q061",
+      "queryType": "marketplace",
+      "query": "site:ruten.com.tw 4713014353975 .hack Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Traditional Chinese Standard price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ruten_search_zh"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Discovery only; stable exact direct listings were not retained."
+    },
+    {
+      "queryId": "q062",
+      "queryType": "marketplace",
+      "query": "site:ruten.com.tw 4713014353982 .hack Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Taiwan Begins price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ruten_search_zh"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Discovery only; stable exact direct listings were not retained."
+    },
+    {
+      "queryId": "q063",
+      "queryType": "marketplace",
+      "query": "site:mercari.com 4713014353975",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Traditional Chinese price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying exact listing retained."
+    },
+    {
+      "queryId": "q064",
+      "queryType": "marketplace",
+      "query": "site:mercari.com 4571577983080",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Standard price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying exact listing retained."
+    },
+    {
+      "queryId": "q065",
+      "queryType": "marketplace",
+      "query": "site:mercari.com 4571577983097",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Begins price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying exact listing retained."
+    },
+    {
+      "queryId": "q066",
+      "queryType": "marketplace",
+      "query": "\"4571577983080\" 新品 中古 Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Standard price states"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying pair retained."
+    },
+    {
+      "queryId": "q067",
+      "queryType": "marketplace",
+      "query": "\"4571577983097\" 新品 中古 Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Begins price states"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying pair retained."
+    },
+    {
+      "queryId": "q068",
+      "queryType": "marketplace",
+      "query": "\"4713014353975\" 二手",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Traditional Chinese complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying pair retained."
+    },
+    {
+      "queryId": "q069",
+      "queryType": "marketplace",
+      "query": "\"4713014353982\" 二手",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Taiwan Begins complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying pair retained."
+    },
+    {
+      "queryId": "q070",
+      "queryType": "source_specific",
+      "query": "site:digitalchumps.com 2022 hack G.U. Last Recode Switch March 11",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "North America date conflict"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_digitalchumps_na"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q071",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode Begins Edition\" Switch March 10 2022 USA",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US physical release date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs",
+        "s_digitalchumps_na"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Conflicting March 10 and March 11 evidence retained."
+    },
+    {
+      "queryId": "q072",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" North America physical Begins Edition",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US edition mapping"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bandai_us",
+        "s_nointro_us"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q073",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" Switch USA standard physical",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US Standard physical candidate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No separate official North American Standard physical SKU was confirmed."
+    },
+    {
+      "queryId": "q074",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" Switch Canada Begins Edition UPC",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US/Canada distribution"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_us_begins_active"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q075",
+      "queryType": "source_specific",
+      "query": "site:gamefaqs.gamespot.com \"722674840583\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US barcode",
+        "release date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q076",
+      "queryType": "source_specific",
+      "query": "site:wiki.no-intro.org \"7-22674-84058-3\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US barcode physical evidence"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q077",
+      "queryType": "general",
+      "query": "\"8885011016323\" \"English packaging\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia packagingLanguages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_wog_asia_en",
+        "s_datablitz_asia_back_image"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q078",
+      "queryType": "general",
+      "query": "\"8885011016323\" German English French Japanese",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia softwareLanguages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_wog_asia_en"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q079",
+      "queryType": "general",
+      "query": "\"4713014353975\" 中文 日文 英文",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Traditional Chinese softwareLanguages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gpoint_zh_std"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q080",
+      "queryType": "general",
+      "query": "\"4713014353982\" 中文 日文 英文 188",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Taiwan Begins softwareLanguages",
+        "contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gpoint_zh_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q081",
+      "queryType": "general",
+      "query": "\"4571577983097\" soundtrack manga",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Japan Begins contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_kaitori_jp_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q082",
+      "queryType": "general",
+      "query": "\"722674840583\" soundtrack manga",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US Begins contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bandai_us"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q083",
+      "queryType": "marketplace",
+      "query": "\"8885011016323\" ebay 69.99",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia sealed price validation"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_asia_worlddeals"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q084",
+      "queryType": "marketplace",
+      "query": "\"8885011016323\" ebay 82.48",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia sealed price validation"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_asia_tokyo"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q085",
+      "queryType": "marketplace",
+      "query": "\"227503722615\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US Begins active price validation"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_us_begins_active"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q086",
+      "queryType": "marketplace",
+      "query": "\"195495311796\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US Begins historical price context"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_us_begins_old"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Out-of-stock listing excluded from sampleSize."
+    },
+    {
+      "queryId": "q087",
+      "queryType": "marketplace",
+      "query": "\"234555236470\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia sealed listing status"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_asia_worlddeals"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q088",
+      "queryType": "marketplace",
+      "query": "\"317107280136\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia sealed listing status"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_asia_tokyo"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q089",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" Switch one player",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "players"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nintendo_us",
+        "s_kaitori_jp_std",
+        "s_datablitz_asia_back_image"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q090",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" Switch CyberConnect2",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "developer"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nintendo_us",
+        "s_vgcollect_tw_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q091",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" Switch action RPG",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "genres"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bandai_us",
+        "s_nintendo_us"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q092",
+      "queryType": "general",
+      "query": "\".hack//G.U. Last Recode\" four games Rebirth Reminisce Redemption Reconnection Switch",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "includedGames"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_bandai_us",
+        "s_bandai_asia"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q093",
+      "queryType": "source_specific",
+      "query": "site:wiki.no-intro.org \"Dothackusa.jpg\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US front image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us_front_page",
+        "s_nointro_us_front_image"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q094",
+      "queryType": "source_specific",
+      "query": "site:wiki.no-intro.org \"Dothackusb.jpg\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US back image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us_back_page",
+        "s_nointro_us_back_image"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q095",
+      "queryType": "general",
+      "query": "\"HAC-P-A334A (JPN)\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia English case code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_datablitz_asia_back_image"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q096",
+      "queryType": "general",
+      "query": "\"SXA-HAC-A334A-JPN\" 8885011016323",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Asia English exact product linkage"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_datablitz_asia_back_image",
+        "s_wog_asia_en"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q097",
+      "queryType": "general",
+      "query": "\"HAC-P-A334B\" 722674840583",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US exact product linkage"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us",
+        "s_nointro_us_back_image"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q098",
+      "queryType": "general",
+      "query": "\"LA-H-A334B-USA\" \"722674840583\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "US cart/case linkage"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nointro_us"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q099",
+      "queryType": "general",
+      "query": "\"TRA-HAC-A334C-CHT\" 4713014353975",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Traditional Chinese exact product linkage"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs",
+        "s_gpoint_zh_std"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q100",
+      "queryType": "general",
+      "query": "\"4713014353982\" \"[TW]\"",
+      "provider": "ChatGPT web/image search",
+      "targetFields": [
+        "Taiwan exact product linkage"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_vgcollect_tw_begins",
+        "s_gpoint_zh_begins"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    }
+  ],
+  "sourceAttempts": [
+    {
+      "attemptId": "a001",
+      "sourceName": "Bandai Namco Entertainment America",
+      "domain": "bandainamcoent.com",
+      "sourceType": "publisher_official",
+      "platform": "switch",
+      "targetFields": [
+        "identity",
+        "edition",
+        "physicalContents"
+      ],
+      "queryRefs": [
+        "q002",
+        "q072",
+        "q082"
+      ],
+      "url": "https://www.bandainamcoent.com/games/hack-gu-last-recode-for-nintendo-switch",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.officialTitle",
+        "gameFacts.includedGames",
+        "releases[5].editionName",
+        "releases[5].physicalContents"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a002",
+      "sourceName": "Nintendo US",
+      "domain": "nintendo.com",
+      "sourceType": "platform_official",
+      "platform": "switch",
+      "targetFields": [
+        "developer",
+        "publisher",
+        "players",
+        "softwareLanguages",
+        "releaseDate"
+      ],
+      "queryRefs": [
+        "q003",
+        "q089",
+        "q090"
+      ],
+      "url": "https://www.nintendo.com/us/store/products/hack-g-u-last-recode-switch/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.developer",
+        "gameFacts.players",
+        "releases[5].softwareLanguages",
+        "conflicts[2]"
+      ],
+      "limitation": "Page is a digital software listing, so its language/date metadata is not automatically promoted to physical packaging or bundle date."
+    },
+    {
+      "attemptId": "a003",
+      "sourceName": "ESRB",
+      "domain": "esrb.org",
+      "sourceType": "ratings_authority",
+      "platform": "switch",
+      "targetFields": [
+        "ratingSystem"
+      ],
+      "queryRefs": [
+        "q004"
+      ],
+      "url": "https://www.esrb.org/ratings/37929/hack-g-u-last-recode/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[5].ratingSystem"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a004",
+      "sourceName": "Bandai Namco Entertainment Asia",
+      "domain": "bandainamcoent.asia",
+      "sourceType": "publisher_official",
+      "platform": "switch",
+      "targetFields": [
+        "identity",
+        "releaseDate",
+        "includedGames"
+      ],
+      "queryRefs": [
+        "q005",
+        "q092"
+      ],
+      "url": "https://www.bandainamcoent.asia/sea/news/the-world-is-back-on-nintendo-switch-hack-g-u-last-recode-will-be-released-on-10-march-and-the-original-comics-will-be-available-from-16-march",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.officialTitle",
+        "gameFacts.includedGames",
+        "releases[2].releaseDate"
+      ],
+      "limitation": "Announcement is region-wide context, not a barcode-specific retail record."
+    },
+    {
+      "attemptId": "a005",
+      "sourceName": "Bandai Namco Europe",
+      "domain": "bandainamcoent.eu",
+      "sourceType": "publisher_official",
+      "platform": "switch",
+      "targetFields": [
+        "Europe physical status",
+        "franchise"
+      ],
+      "queryRefs": [
+        "q006",
+        "q038"
+      ],
+      "url": "https://en.bandainamcoent.eu/hack/news/bandai-namco-celebrates-20th-anniversary-of-hack-franchise-hackgu-last-recode-remaster",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.franchise",
+        "unresolved[0]"
+      ],
+      "limitation": "Supports digital European availability, not absence of every possible physical import."
+    },
+    {
+      "attemptId": "a006",
+      "sourceName": "Kaitori World - Japan Standard",
+      "domain": "kaitori-world.jp",
+      "sourceType": "specialist_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "Japan Standard metadata",
+        "barcode",
+        "productCode",
+        "releaseDate",
+        "rating"
+      ],
+      "queryRefs": [
+        "q007",
+        "q008",
+        "q009",
+        "q011"
+      ],
+      "url": "https://www.kaitori-world.jp/products/detail/223287",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a007",
+      "sourceName": "Nin-Nin-Game - Japan Standard",
+      "domain": "nin-nin-game.com",
+      "sourceType": "specialist_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "packagingLanguages",
+        "softwareLanguages",
+        "barcode",
+        "releaseDate"
+      ],
+      "queryRefs": [
+        "q007",
+        "q008",
+        "q012"
+      ],
+      "url": "https://www.nin-nin-game.com/en/japanese-import-nintendo-switch-softs-and-systems/96579-hackgu-last-recode-english-switch-.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].packagingLanguages",
+        "releases[0].softwareLanguages"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a008",
+      "sourceName": "Trader Games - Japan Standard",
+      "domain": "tradergames.fr",
+      "sourceType": "specialist_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "Japan Standard candidate"
+      ],
+      "queryRefs": [
+        "q013"
+      ],
+      "url": "https://www.tradergames.fr/fr/nintendo-switch/319058-hackgu-last-recode-switch-japan-new-game-in-english-4571577983080.html",
+      "accessStatus": "BLOCKED",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct page retrieval failed; search-result discovery was not used as confirmation."
+    },
+    {
+      "attemptId": "a009",
+      "sourceName": "Kaitori World - Japan Begins",
+      "domain": "kaitori-world.jp",
+      "sourceType": "specialist_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "Japan Begins metadata",
+        "barcode",
+        "productCode",
+        "physicalContents"
+      ],
+      "queryRefs": [
+        "q014",
+        "q015",
+        "q016",
+        "q017",
+        "q081"
+      ],
+      "url": "https://www.kaitori-world.jp/products/detail/223288",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a010",
+      "sourceName": "Japanzon - Japan Begins",
+      "domain": "japanzon.com",
+      "sourceType": "specialist_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "Japan Begins metadata",
+        "barcode",
+        "language"
+      ],
+      "queryRefs": [
+        "q014",
+        "q015",
+        "q018"
+      ],
+      "url": "https://www.japanzon.com/en/game/35086-bandai-namco-hackgu-last-recode-for-nintendo-switch-4571577983097.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a011",
+      "sourceName": "World of Games - Asia English",
+      "domain": "wog.ch",
+      "sourceType": "specialist_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "market",
+        "barcode",
+        "packagingLanguages",
+        "softwareLanguages",
+        "releaseDate"
+      ],
+      "queryRefs": [
+        "q019",
+        "q020",
+        "q022",
+        "q077",
+        "q078"
+      ],
+      "url": "https://www.wog.ch/en/index.cfm/details/product/136839-hack-G-U-Last-Recode",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[2].market",
+        "releases[2].packagingLanguages",
+        "releases[2].softwareLanguages",
+        "conflicts[1]"
+      ],
+      "limitation": "Retailer date 2022-03-24 conflicts with official Asia/GameFAQs 2022-03-10 and is preserved as a conflict."
+    },
+    {
+      "attemptId": "a012",
+      "sourceName": "DataBlitz - Asia English",
+      "domain": "ecommerce.datablitz.com.ph",
+      "sourceType": "regional_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "Asia English product",
+        "images"
+      ],
+      "queryRefs": [
+        "q019",
+        "q020",
+        "q023",
+        "q048"
+      ],
+      "url": "https://ecommerce.datablitz.com.ph/products/nsw-hack-g-u-last-recode-asian",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[2]",
+        "images[2]",
+        "images[3]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a013",
+      "sourceName": "DataBlitz front image",
+      "domain": "ecommerce.datablitz.com.ph",
+      "sourceType": "physical_image",
+      "platform": "switch",
+      "targetFields": [
+        "front cover"
+      ],
+      "queryRefs": [
+        "q023",
+        "q048"
+      ],
+      "url": "https://ecommerce.datablitz.com.ph/cdn/shop/products/1_e8596721-b61d-4c4c-8b76-c964ca4e48be_1024x.jpg?v=1676863261",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[2]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a014",
+      "sourceName": "DataBlitz rear image",
+      "domain": "ecommerce.datablitz.com.ph",
+      "sourceType": "physical_image",
+      "platform": "switch",
+      "targetFields": [
+        "back cover",
+        "barcode",
+        "productCode",
+        "packagingLanguages"
+      ],
+      "queryRefs": [
+        "q021",
+        "q023",
+        "q048",
+        "q095",
+        "q096"
+      ],
+      "url": "https://ecommerce.datablitz.com.ph/cdn/shop/products/hack_1024x.jpg?v=1676863283",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[2].barcode",
+        "releases[2].productCode",
+        "releases[2].packagingLanguages",
+        "images[3]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a015",
+      "sourceName": "GameFAQs",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "technical_database",
+      "platform": "switch",
+      "targetFields": [
+        "regional releases",
+        "identifiers",
+        "dates"
+      ],
+      "queryRefs": [
+        "q001",
+        "q010",
+        "q026",
+        "q037",
+        "q071",
+        "q075",
+        "q099"
+      ],
+      "url": "https://gamefaqs.gamespot.com/switch/327427-hack-gu-last-recode/data",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].serial",
+        "releases[2].releaseDate",
+        "releases[3].productCode",
+        "conflicts[2]"
+      ],
+      "limitation": "Secondary technical database; identifiers were cross-checked with physical/retail evidence wherever possible."
+    },
+    {
+      "attemptId": "a016",
+      "sourceName": "G POINT - Traditional Chinese Standard",
+      "domain": "gpointhobby.store",
+      "sourceType": "regional_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "barcode",
+        "softwareLanguages",
+        "market"
+      ],
+      "queryRefs": [
+        "q024",
+        "q025",
+        "q027",
+        "q079",
+        "q099"
+      ],
+      "url": "https://www.gpointhobby.store/item/(%E8%A1%8C%E7%89%88)-Nintendo-Switch-NS-.hack-%E5%89%B5%E4%B8%96%E7%B4%80%E5%82%B3%E8%AA%AA-/4573506802155520",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[3]"
+      ],
+      "limitation": "Page did not explicitly provide packaging-language metadata."
+    },
+    {
+      "attemptId": "a017",
+      "sourceName": "G POINT - Traditional Chinese limited",
+      "domain": "gpointhobby.store",
+      "sourceType": "regional_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "barcode",
+        "softwareLanguages",
+        "physicalContents"
+      ],
+      "queryRefs": [
+        "q028",
+        "q029",
+        "q031",
+        "q080",
+        "q100"
+      ],
+      "url": "https://www.gpointhobby.store/item/(%E8%A1%8C%E7%89%88)-Nintendo-Switch-NS-.hack-%E5%89%B5%E4%B8%96%E7%B4%80%E5%82%B3%E8%AA%AA-%2B-%2B2c18/5831320086380544",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[4].softwareLanguages",
+        "releases[4].physicalContents"
+      ],
+      "limitation": "Page did not explicitly provide a product/card code or packaging-language metadata."
+    },
+    {
+      "attemptId": "a018",
+      "sourceName": "VGCollect - Taiwan Begins",
+      "domain": "vgcollect.com",
+      "sourceType": "collector_database",
+      "platform": "switch",
+      "targetFields": [
+        "market",
+        "barcode",
+        "releaseDate",
+        "rating",
+        "contents"
+      ],
+      "queryRefs": [
+        "q028",
+        "q029",
+        "q030",
+        "q100"
+      ],
+      "url": "https://vgcollect.com/item/232864",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[4]"
+      ],
+      "limitation": "Collector database is secondary; barcode and bundle identity are independently corroborated by G POINT."
+    },
+    {
+      "attemptId": "a019",
+      "sourceName": "No-Intro undumped Switch record",
+      "domain": "wiki.no-intro.org",
+      "sourceType": "preservation_database",
+      "platform": "switch",
+      "targetFields": [
+        "US cart serial",
+        "US box code",
+        "US barcode"
+      ],
+      "queryRefs": [
+        "q032",
+        "q033",
+        "q034",
+        "q035",
+        "q036",
+        "q076",
+        "q097",
+        "q098"
+      ],
+      "url": "https://wiki.no-intro.org/index.php?title=Nintendo_-_Nintendo_Switch_undumped",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[5].barcode",
+        "releases[5].productCode",
+        "releases[5].serial"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a020",
+      "sourceName": "No-Intro US front file page",
+      "domain": "wiki.no-intro.org",
+      "sourceType": "physical_image_provenance",
+      "platform": "switch",
+      "targetFields": [
+        "front image"
+      ],
+      "queryRefs": [
+        "q036",
+        "q047",
+        "q049",
+        "q093"
+      ],
+      "url": "https://wiki.no-intro.org/index.php?title=File%3ADothackusa.jpg",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[0]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a021",
+      "sourceName": "No-Intro US front image",
+      "domain": "wiki.no-intro.org",
+      "sourceType": "physical_image",
+      "platform": "switch",
+      "targetFields": [
+        "front cover"
+      ],
+      "queryRefs": [
+        "q093"
+      ],
+      "url": "https://wiki.no-intro.org/images/e/ea/Dothackusa.jpg",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[0]",
+        "releases[5].ratingSystem"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a022",
+      "sourceName": "No-Intro US back file page",
+      "domain": "wiki.no-intro.org",
+      "sourceType": "physical_image_provenance",
+      "platform": "switch",
+      "targetFields": [
+        "back image"
+      ],
+      "queryRefs": [
+        "q036",
+        "q047",
+        "q049",
+        "q094"
+      ],
+      "url": "https://wiki.no-intro.org/index.php?title=File%3ADothackusb.jpg",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a023",
+      "sourceName": "No-Intro US back image",
+      "domain": "wiki.no-intro.org",
+      "sourceType": "physical_image",
+      "platform": "switch",
+      "targetFields": [
+        "back cover",
+        "packagingLanguages",
+        "barcode",
+        "box code"
+      ],
+      "queryRefs": [
+        "q035",
+        "q094",
+        "q097"
+      ],
+      "url": "https://wiki.no-intro.org/images/3/32/Dothackusb.jpg",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[1]",
+        "releases[5].packagingLanguages",
+        "releases[5].barcode",
+        "releases[5].productCode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a024",
+      "sourceName": "PriceCharting",
+      "domain": "pricecharting.com",
+      "sourceType": "price_aggregate",
+      "platform": "switch",
+      "targetFields": [
+        "price context"
+      ],
+      "queryRefs": [
+        "q053"
+      ],
+      "url": "https://www.pricecharting.com/game/nintendo-switch/hack-gu-last-recode",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Aggregate pricing does not satisfy the required active direct listing standard."
+    },
+    {
+      "attemptId": "a025",
+      "sourceName": "Digital Chumps",
+      "domain": "digitalchumps.com",
+      "sourceType": "news",
+      "platform": "switch",
+      "targetFields": [
+        "North America release date"
+      ],
+      "queryRefs": [
+        "q070",
+        "q071"
+      ],
+      "url": "https://digitalchumps.com/2022/03/11/hack-g-u-last-recode-makes-it-to-switch/",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "conflicts[2]"
+      ],
+      "limitation": "Contemporaneous secondary report used to preserve date conflict, not as sole physical-SKU metadata."
+    },
+    {
+      "attemptId": "a026",
+      "sourceName": "eBay World Deals Asia listing",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "switch",
+      "targetFields": [
+        "Asia English sealed price"
+      ],
+      "queryRefs": [
+        "q054",
+        "q055",
+        "q083",
+        "q087"
+      ],
+      "url": "https://www.ebay.com/itm/234555236470",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[6].observations[0]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a027",
+      "sourceName": "eBay Tokyo Game Story Asia listing",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "switch",
+      "targetFields": [
+        "Asia English sealed price"
+      ],
+      "queryRefs": [
+        "q054",
+        "q055",
+        "q084",
+        "q088"
+      ],
+      "url": "https://www.ebay.com/itm/317107280136",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[6].observations[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a028",
+      "sourceName": "eBay Gaming Citadel US Begins listing",
+      "domain": "ebay.de",
+      "sourceType": "marketplace_listing",
+      "platform": "switch",
+      "targetFields": [
+        "US Begins sealed price"
+      ],
+      "queryRefs": [
+        "q058",
+        "q074",
+        "q085"
+      ],
+      "url": "https://www.ebay.de/itm/227503722615",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[15].observations[0]"
+      ],
+      "limitation": "Only one qualifying active independent exact listing was found; insufficient to propose a price."
+    },
+    {
+      "attemptId": "a029",
+      "sourceName": "eBay historical US Begins listing",
+      "domain": "ebay.ca",
+      "sourceType": "marketplace_listing",
+      "platform": "switch",
+      "targetFields": [
+        "US Begins historical price context"
+      ],
+      "queryRefs": [
+        "q058",
+        "q086"
+      ],
+      "url": "https://www.ebay.ca/itm/195495311796",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Listing was out of stock with prior sales; excluded from active sampleSize."
+    },
+    {
+      "attemptId": "a030",
+      "sourceName": "Ruten Traditional Chinese discovery",
+      "domain": "ruten.com.tw",
+      "sourceType": "marketplace_search",
+      "platform": "switch",
+      "targetFields": [
+        "Traditional Chinese prices"
+      ],
+      "queryRefs": [
+        "q061",
+        "q062"
+      ],
+      "url": "https://www.ruten.com.tw/find/?cateid=0022002500030001&normalshipment=1&q=%E6%91%A9%E5%8A%9B%E7%A7%91&sort=prc%2Fac",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Discovery surfaced candidates but no stable direct exact active listing satisfying the contract was retained."
+    },
+    {
+      "attemptId": "a031",
+      "sourceName": "Yahoo Japan Auctions Standard candidate search",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_search",
+      "platform": "switch",
+      "targetFields": [
+        "Japan Standard price",
+        "images"
+      ],
+      "queryRefs": [
+        "q051",
+        "q066"
+      ],
+      "url": "https://auctions.yahoo.co.jp/",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Search candidates did not yield two retained direct exact-release active listings with auditable status/condition."
+    },
+    {
+      "attemptId": "a032",
+      "sourceName": "Yahoo Japan Auctions Begins candidate search",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_search",
+      "platform": "switch",
+      "targetFields": [
+        "Japan Begins price",
+        "images"
+      ],
+      "queryRefs": [
+        "q052",
+        "q067"
+      ],
+      "url": "https://auctions.yahoo.co.jp/",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Search candidates did not yield two retained direct exact-release active listings with auditable status/condition."
+    },
+    {
+      "attemptId": "a033",
+      "sourceName": "Video Games New York image candidate",
+      "domain": "videogamesnewyork.com",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "Japan Standard image"
+      ],
+      "queryRefs": [
+        "q050"
+      ],
+      "url": "https://videogamesnewyork.com/",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Candidate image was not retained as an exact front/back pair with sufficient product-side attribution."
+    },
+    {
+      "attemptId": "a034",
+      "sourceName": "Amazon UK physical candidate search",
+      "domain": "amazon.co.uk",
+      "sourceType": "retailer_search",
+      "platform": "switch",
+      "targetFields": [
+        "Europe physical candidate"
+      ],
+      "queryRefs": [
+        "q040"
+      ],
+      "url": "https://www.amazon.co.uk/",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "No direct Europe-specific physical SKU page was retained."
+    },
+    {
+      "attemptId": "a035",
+      "sourceName": "Fnac physical candidate search",
+      "domain": "fnac.com",
+      "sourceType": "retailer_search",
+      "platform": "switch",
+      "targetFields": [
+        "Europe physical candidate"
+      ],
+      "queryRefs": [
+        "q041"
+      ],
+      "url": "https://www.fnac.com/",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "No direct Europe-specific physical SKU page was retained."
+    },
+    {
+      "attemptId": "a036",
+      "sourceName": "Play-Asia candidate search",
+      "domain": "play-asia.com",
+      "sourceType": "specialist_retailer_search",
+      "platform": "switch",
+      "targetFields": [
+        "Asia SKUs",
+        "languages",
+        "images"
+      ],
+      "queryRefs": [
+        "q042"
+      ],
+      "url": "https://www.play-asia.com/",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "No direct product page was retained from this search."
+    },
+    {
+      "attemptId": "a037",
+      "sourceName": "Mercari marketplace searches",
+      "domain": "mercari.com",
+      "sourceType": "marketplace_search",
+      "platform": "switch",
+      "targetFields": [
+        "Japan and Traditional Chinese prices"
+      ],
+      "queryRefs": [
+        "q063",
+        "q064",
+        "q065"
+      ],
+      "url": "https://www.mercari.com/",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "No qualifying exact product listings were retained."
+    },
+    {
+      "attemptId": "a038",
+      "sourceName": "Generic web image searches",
+      "domain": "multiple",
+      "sourceType": "image_search",
+      "platform": "switch",
+      "targetFields": [
+        "Japan/Taiwan front and back covers"
+      ],
+      "queryRefs": [
+        "q043",
+        "q044",
+        "q045",
+        "q046"
+      ],
+      "url": "https://www.google.com/",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "No durable exact front/back pair with sufficient product-side attribution was retained for these releases."
+    }
+  ],
+  "conflicts": [
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "editionMapping",
+      "reason": "Current RegionAtlas context labels the USA entry as standard, but the official North American publisher page exposes the physical Switch offering specifically as Begins Edition and the A334B physical evidence is consistent with that North American product. No separate official US Standard physical SKU was confirmed.",
+      "candidateValues": [
+        "RegionAtlas: Standard",
+        "Research: Begins Edition"
+      ],
+      "sourceRefs": [
+        "s_bandai_us",
+        "s_nointro_us"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Asia English releaseDate",
+      "reason": "Bandai Namco Asia and GameFAQs support 2022-03-10, while WOG lists 2022-03-24 for exact EAN 8885011016323. The latter may represent retailer/local availability, but that interpretation was not promoted to a fact.",
+      "candidateValues": [
+        "2022-03-10",
+        "2022-03-24"
+      ],
+      "sourceRefs": [
+        "s_bandai_asia",
+        "s_gamefaqs",
+        "s_wog_asia_en"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "United States physical releaseDate",
+      "reason": "GameFAQs records the North American physical Begins Edition on 2022-03-10, while Nintendo's official software page and a contemporaneous North American launch article use 2022-03-11. Because the Nintendo page is digital and the physical-specific evidence conflicts, physical releaseDate remains unresolved.",
+      "candidateValues": [
+        "2022-03-10",
+        "2022-03-11"
+      ],
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_nintendo_us",
+        "s_digitalchumps_na"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Europe physical release",
+      "reason": "Official Bandai Namco Europe states Switch availability digitally on 2022-03-11. No direct Europe-specific physical SKU was confirmed; this is not treated as proof that imports never circulated.",
+      "sourceRefs": [
+        "s_bandai_eu"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Japan Standard front/back images",
+      "reason": "Front/back acquisition was attempted, but no durable exact pair with direct provenance and side attribution was retained.",
+      "sourceRefs": []
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Japan Begins front/back images",
+      "reason": "Front/back acquisition was attempted, but no durable exact pair with direct provenance and side attribution was retained.",
+      "sourceRefs": []
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Asia Traditional Chinese Standard packagingLanguages",
+      "reason": "No explicit package-language metadata or retained readable exact package image was available; software language was kept separate.",
+      "sourceRefs": [
+        "s_gpoint_zh_std"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Asia Traditional Chinese Standard front/back images",
+      "reason": "Front/back acquisition was attempted; no durable exact pair with sufficient provenance was retained.",
+      "sourceRefs": [
+        "s_gpoint_zh_std"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Taiwan Begins packagingLanguages",
+      "reason": "No explicit package-language metadata or retained readable exact package image was available.",
+      "sourceRefs": [
+        "s_gpoint_zh_begins",
+        "s_vgcollect_tw_begins"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Taiwan Begins product/card code",
+      "reason": "Exact product/card code was not confirmed for barcode 4713014353982.",
+      "sourceRefs": [
+        "s_gpoint_zh_begins",
+        "s_vgcollect_tw_begins"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Taiwan Begins front/back images",
+      "reason": "Front/back acquisition was attempted; no durable exact pair with sufficient provenance was retained.",
+      "sourceRefs": [
+        "s_vgcollect_tw_begins"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "United States physical releaseDate",
+      "reason": "Conflicting 2022-03-10 physical-table and 2022-03-11 official software/contemporaneous launch dates; retained unresolved rather than selecting one.",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_nintendo_us",
+        "s_digitalchumps_na"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "United States German software-language applicability to physical Begins Edition",
+      "reason": "German is listed on Nintendo's official digital software page, but no exact physical Begins package/manual source explicitly confirms the language set. English/French physical package evidence is independent.",
+      "sourceRefs": [
+        "s_nintendo_us",
+        "s_nointro_us_back_image"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Japan Begins English software language",
+      "reason": "Japanese Standard exact metadata confirms English, but exact Japanese Begins Edition sources inspected did not explicitly confirm English. No cross-edition inference was made.",
+      "sourceRefs": [
+        "s_ninnin_jp_std",
+        "s_japanzon_jp_begins"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Japan Standard prices",
+      "reason": "Sealed, complete and loose buckets each lacked two retained active independent exact-release listings with auditable region/condition evidence.",
+      "sourceRefs": []
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Japan Begins prices",
+      "reason": "Sealed, complete and loose buckets each lacked two retained active independent exact-release listings with auditable region/condition evidence.",
+      "sourceRefs": []
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Asia English complete/loose prices",
+      "reason": "Only sealed obtained two qualifying exact-release listings. Complete and loose did not.",
+      "sourceRefs": [
+        "s_ebay_asia_worlddeals",
+        "s_ebay_asia_tokyo"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Asia Traditional Chinese Standard prices",
+      "reason": "No condition bucket obtained two retained active exact-release direct listings.",
+      "sourceRefs": [
+        "s_ruten_search_zh"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "Taiwan Begins prices",
+      "reason": "No condition bucket obtained two retained active exact-release direct listings.",
+      "sourceRefs": [
+        "s_ruten_search_zh"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "United States Begins sealed price",
+      "reason": "Only one qualifying active exact US Begins sealed listing was retained; an exact second listing was out of stock and therefore excluded.",
+      "sourceRefs": [
+        "s_ebay_us_begins_active",
+        "s_ebay_us_begins_old"
+      ]
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "United States Begins complete/loose prices",
+      "reason": "Neither bucket obtained two active independent exact-release direct listings.",
+      "sourceRefs": []
+    },
+    {
+      "platform": "switch",
+      "releaseTitle": ".hack//G.U. Last Recode",
+      "field": "US outer bundle box identifiers",
+      "reason": "The exact A334B barcode/code is demonstrated on the inner retail game case; no evidence was found proving that same identifier belongs to the outer Begins Edition bundle box, so it was not reassigned.",
+      "sourceRefs": [
+        "s_bandai_us",
+        "s_nointro_us_back_image"
+      ]
+    }
+  ],
+  "coveredQueueEntries": [
+    {
+      "queueId": "catalog-group:switch-japon-hack-gu-last-recode",
+      "platform": "switch",
+      "catalogIds": [
+        "switch-japon-hack-gu-last-recode",
+        "switch-usa-hack-gu-last-recode"
+      ],
+      "coverage": "complete",
+      "reason": "The assigned Switch identity was researched across documentable physical regional products; mandatory identifiers, packaging/software separation, physical contents, front/back image attempts and sealed/complete/loose regional price buckets were all addressed. Unresolved fields and insufficient price samples are preserved explicitly rather than inferred.",
+      "sourceRefs": [
+        "s_kaitori_jp_std",
+        "s_kaitori_jp_begins",
+        "s_wog_asia_en",
+        "s_gpoint_zh_std",
+        "s_vgcollect_tw_begins",
+        "s_bandai_us",
+        "s_nointro_us"
+      ]
+    }
+  ],
+  "researchDate": "2026-09-21"
+}

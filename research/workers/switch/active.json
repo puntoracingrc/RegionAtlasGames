@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 3,
+  "generation": 9,
   "workerId": "switch",
   "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -11,24 +11,42 @@
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": null,
   "workPackage": {
-    "packageId": "switch-2026-09-21-001",
-    "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."},
+    "packageId": "switch-2026-09-21-003",
+    "grouping": {
+      "type": "related_pair",
+      "basis": "Dos entradas consecutivas del mismo juego en Switch: edición estándar USA y Special Edition PAL España. Cada una conserva orden y resultado independientes."
+    },
     "items": [
       {
-        "queueId": "catalog-group:switch-japon-hack-gu-last-recode",
+        "queueId": "catalog:switch-usa-drive-rally",
         "platform": "switch",
-        "title": ".hack GU Last Recode",
-        "catalogIds": ["switch-japon-hack-gu-last-recode", "switch-usa-hack-gu-last-recode"],
-        "researchId": "hack-gu-last-recode-switch-2026-09-21",
-        "orderPath": "research/workers/switch/orders/hack-gu-last-recode-switch-2026-09-21.md",
-        "resultPath": "research/results/hack-gu-last-recode-switch-2026-09-21.json",
+        "title": "#Drive Rally",
+        "catalogIds": [
+          "switch-usa-drive-rally"
+        ],
+        "researchId": "drive-rally-switch-2026-09-21",
+        "orderPath": "research/workers/switch/orders/drive-rally-switch-2026-09-21.md",
+        "resultPath": "research/results/drive-rally-switch-2026-09-21.json",
         "status": "PENDING",
-        "checkpointPath": "research/workers/switch/checkpoints/hack-gu-last-recode-switch-2026-09-21.json"
+        "checkpointPath": "research/workers/switch/checkpoints/drive-rally-switch-2026-09-21.json"
+      },
+      {
+        "queueId": "catalog:switch-drive-rally-special-edition",
+        "platform": "switch",
+        "title": "#Drive Rally [Special Edition]",
+        "catalogIds": [
+          "switch-drive-rally-special-edition"
+        ],
+        "researchId": "drive-rally-special-edition-switch-2026-09-21",
+        "orderPath": "research/workers/switch/orders/drive-rally-special-edition-switch-2026-09-21.md",
+        "resultPath": "research/results/drive-rally-special-edition-switch-2026-09-21.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/switch/checkpoints/drive-rally-special-edition-switch-2026-09-21.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T05:14:52Z",
+  "updatedAt": "2026-09-21T16:58:48Z",
   "updatedBy": "codex",
-  "note": "Paquete inicial preparado con una sola entrada para validar el aislamiento del worker."
+  "note": "#BLUD validado, publicado y consumido. Preparado el siguiente paquete relacionado sin borrar el resultado histórico."
 }

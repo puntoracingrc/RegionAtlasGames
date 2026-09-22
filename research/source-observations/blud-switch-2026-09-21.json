@@ -1,0 +1,1878 @@
+{
+  "schemaVersion": 1,
+  "researchId": "blud-switch-2026-09-21",
+  "platform": "switch",
+  "resultFile": "research/results/blud-switch-2026-09-21.json",
+  "resultSha256": "471a54c363724c9933a7c251fe123aec16f4e587aaafdb8d33de0f5d9a0b1d3e",
+  "observedAt": "2026-09-21",
+  "validation": {
+    "jsonParse": "PASS",
+    "requiredFields": "PASS",
+    "sourceReferenceIntegrity": "PASS",
+    "queryReferenceIntegrity": "PASS",
+    "priceContractIntegrity": "PASS",
+    "focusedDirectSourceSpotCheck": {
+      "status": "PASS",
+      "domains": [
+        "superraregames.com",
+        "bludgame.com",
+        "ogdb.eu",
+        "ebay.co.uk"
+      ]
+    },
+    "claimLevelImportReview": "PASS",
+    "catalogMutations": 1,
+    "priceMutations": 0
+  },
+  "counts": {
+    "sources": 17,
+    "queries": 65,
+    "sourceAttempts": 24,
+    "usefulSourceAttempts": 20,
+    "releases": 1,
+    "images": 2,
+    "regionalPriceBlocks": 3
+  },
+  "sources": [
+    {
+      "sourceId": "s_srg_official",
+      "url": "https://superraregames.com/products/srg-129-blud-switch",
+      "title": "SRG#129: #BLUD (Switch) – Super Rare Games",
+      "accessedAt": "2026-09-21",
+      "supports": "Official physical product page: SRG#129 identity, Nintendo Switch cartridge release, 13 March 2025 date, final 4,000-copy quantity update, Exit 73 Studios attribution, included manual/interior art/sticker/trading cards, supported software languages and region-free compatibility."
+    },
+    {
+      "sourceId": "s_blud_official",
+      "url": "https://www.bludgame.com/merch/p/blud-nintendo-switch-physical-release-super-rare-games",
+      "title": "#BLUD - Nintendo Switch Physical Release (Super Rare Games) — #BLUD",
+      "accessedAt": "2026-09-21",
+      "supports": "Official game-site merchandise page: physical Switch release, 4,000 total copies, box art and cartridge, full-color manual, SRG sticker, three random trading cards, PEGI-rated box art and region-free game."
+    },
+    {
+      "sourceId": "s_nintendo_ca",
+      "url": "https://www.nintendo.com/en-ca/store/products/blud-switch/",
+      "title": "#BLUD for Nintendo Switch - Nintendo Official Site for Canada",
+      "accessedAt": "2026-09-21",
+      "supports": "Official Nintendo software page: #BLUD title, Humble Games publisher, Exit 73 Studios description, 18 June 2024 digital release, one local player and supported software languages."
+    },
+    {
+      "sourceId": "s_nintendo_es",
+      "url": "https://www.nintendo.com/es-es/Juegos/Programas-descargables-Nintendo-Switch/-BLUD-2594998.html",
+      "title": "#BLUD | Programas descargables Nintendo Switch | Nintendo ES",
+      "accessedAt": "2026-09-21",
+      "supports": "Official Nintendo Spain software page: Action/Adventure/RPG categories, Humble Games publisher, 18 June 2024 date, PEGI 12 and Japanese/English/Spanish/French/German/Portuguese/Korean/Chinese software languages."
+    },
+    {
+      "sourceId": "s_balor",
+      "url": "https://balorgames.com/games/blud?itemId=lp7u9yaj9szhuixv8vvmhj7xun0ao5",
+      "title": "#BLUD — Balor Games",
+      "accessedAt": "2026-09-21",
+      "supports": "Current game page: Exit 73 Studios developer, single-player mode, Action/Adventure/Indie/RPG genres, 18 June 2024 date and software-language metadata."
+    },
+    {
+      "sourceId": "s_gamefaqs",
+      "url": "https://gamefaqs.gamespot.com/switch/450318-blud/data",
+      "title": "#BLUD Release Information for Nintendo Switch - GameFAQs",
+      "accessedAt": "2026-09-21",
+      "supports": "Technical release table: Exit 73 Studios, one local player, no online multiplayer, digital US/EU/JP releases and the Super Rare Games physical EU release dated 13 March 2025."
+    },
+    {
+      "sourceId": "s_pricecharting_pal",
+      "url": "https://www.pricecharting.com/game/pal-nintendo-switch/blud",
+      "title": "#BLUD Prices PAL Nintendo Switch | PriceCharting",
+      "accessedAt": "2026-09-21",
+      "supports": "Secondary technical/market record: PAL Switch identity, 13 March 2025, PEGI 12, Super Rare Games, Exit 73 Studios, one player and EAN/GTIN 659048990462. Aggregate/historical prices are context only and are not counted as current direct-listing observations."
+    },
+    {
+      "sourceId": "s_computing_history",
+      "url": "https://www.computinghistory.org.uk/det/75129/",
+      "title": "#BLUD - Software - Game - Computing History",
+      "accessedAt": "2026-09-21",
+      "supports": "Institutional collection record: SRG #129, final 4,000-copy run, Switch cartridge format, Super Rare Games publisher, Exit 73 Studios, 13 March 2025 and identifier 659048990462."
+    },
+    {
+      "sourceId": "s_ogdb_uk",
+      "url": "https://ogdb.eu/index.php?gameid=167725&section=game",
+      "title": "OGDB - #BLUD (Super Rare Games #129) [Nintendo Switch/Vereinigtes Königreich]",
+      "accessedAt": "2026-09-21",
+      "supports": "Technical database record: United Kingdom physical product, 13 March 2025, Super Rare Games publisher/distributor, in-game text languages, HAC-P-BGQRA, HAC-BGQRA-UKV and barcode 659048990462."
+    },
+    {
+      "sourceId": "s_tokyo_game_story",
+      "url": "https://tokyogamestory.com/ja/nintendo-switch-tout/12339-blud-nintendo-switch-super-rare-games-new-srg129-multi-languagesaction-rpg-659048990462.html",
+      "title": "BLUD Nintendo Switch Super Rare Games New SRG129 (Multi-Languages/Action-RPG)",
+      "accessedAt": "2026-09-21",
+      "supports": "Specialist retailer metadata for exact SRG#129 product: European physical edition, region free, English box language, supported game languages and identifier/reference 0659048990462. Its generic CERO field conflicts with the visibly PEGI-rated package and is not used as rating evidence."
+    },
+    {
+      "sourceId": "s_ebay_gc_uk",
+      "url": "https://www.ebay.co.uk/itm/227396901441",
+      "title": "#BLUD Super Rare Games #129 EU Import - Brand New - Nintendo Switch | eBay UK",
+      "accessedAt": "2026-09-21",
+      "supports": "Active independent sealed listing from Gaming Citadel: item 227396901441, £69.79, free postage, three available, exact #BLUD/SRG#129 EU import, United Kingdom origin, region free, PEGI 12 and UPC 659048990462."
+    },
+    {
+      "sourceId": "s_ebay_tgs_uk",
+      "url": "https://www.ebay.co.uk/itm/316911328272",
+      "title": "BLUD Nintendo Switch Super Rare Games New SRG129 (Multi-Languages/Action-RPG) | eBay UK",
+      "accessedAt": "2026-09-21",
+      "supports": "Active independent sealed listing from Tokyo Game Story: item 316911328272, £63.93, New, exact SRG129 physical product; its attached physical photos show the UKV package identifiers."
+    },
+    {
+      "sourceId": "s_ebay_tgs_front_image",
+      "url": "https://i.ebayimg.com/images/g/pywAAeSwA9FqgBn5/s-l1600.webp",
+      "title": "Tokyo Game Story eBay #BLUD SRG#129 front physical image",
+      "accessedAt": "2026-09-21",
+      "supports": "Direct inspected physical front image tied to item 316911328272: Nintendo Switch #BLUD cover, PEGI 12, Humble Games and Super Rare Games branding."
+    },
+    {
+      "sourceId": "s_ebay_tgs_back_image",
+      "url": "https://i.ebayimg.com/images/g/MpkAAeSwiiFqgBn5/s-l1600.webp",
+      "title": "Tokyo Game Story eBay #BLUD SRG#129 rear physical image",
+      "accessedAt": "2026-09-21",
+      "supports": "Direct inspected physical rear image tied to item 316911328272: English rear text, PEGI 12/Violence/Bad Language, software language codes DE/EN/ES/FR/JA/KO/PT/ZH, HAC-P-BGQRA, TSA-HAC-BGQRA-UKV, Made in Japan and barcode 6 59048 99046 2."
+    },
+    {
+      "sourceId": "s_2dehands",
+      "url": "https://www.2dehands.be/v/games-en-spelcomputers/games-nintendo-switch/a152989625-blud-srg-129-switch-nieuw",
+      "title": "#Blud (SRG #129) (SWITCH) (NIEUW) - 2dehands",
+      "accessedAt": "2026-09-21",
+      "supports": "Active marketplace context: exact SRG#129, new in seal, Super Rare Games, seller GameShop050 and €65 asking price. Not needed for the confirmed GBP sample because two independent active GBP eBay listings were available."
+    },
+    {
+      "sourceId": "s_limited_game_news",
+      "url": "https://limitedgamenews.com/2025/03/06/blud-nintendo-switch/",
+      "title": "#BLUD | Nintendo Switch - Limited Game News",
+      "accessedAt": "2026-09-21",
+      "supports": "Contemporaneous announcement of a Switch Standard Edition with cartridge, interior art, manual, sticker and cards; reports the original 3,000-copy plan before the official quantity update."
+    },
+    {
+      "sourceId": "s_rpgamer_announcement",
+      "url": "https://rpgamer.com/2025/03/blud-gets-physical-release-on-nintendo-switch/",
+      "title": "#BLUD Gets Physical Release on Nintendo Switch - RPGamer",
+      "accessedAt": "2026-09-21",
+      "supports": "Contemporaneous announcement: physical Switch partnership among Super Rare Games, Humble Games and Exit 73 Studios, worldwide Super Rare Games-store sale, and original 3,000-copy plan."
+    }
+  ],
+  "queryLedger": [
+    {
+      "queryId": "q001",
+      "queryType": "general",
+      "query": "#BLUD Nintendo Switch physical Red Art Games",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "physical release",
+        "publisher"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q002",
+      "queryType": "general",
+      "query": "#BLUD Switch physical edition barcode",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "physical edition",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pricecharting_pal"
+      ],
+      "discoveredIdentifiers": [
+        "659048990462"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q003",
+      "queryType": "general",
+      "query": "#BLUD Nintendo Switch ESRB physical",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "rating",
+        "physical market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q004",
+      "queryType": "general",
+      "query": "#BLUD Switch PEGI Red Art Games",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "rating",
+        "physical publisher"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q005",
+      "queryType": "image",
+      "query": "#BLUD Nintendo Switch physical front back cover",
+      "provider": "ChatGPT web image search",
+      "targetFields": [
+        "front image",
+        "back image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q006",
+      "queryType": "general",
+      "query": "#BLUD Switch \"SRG#129\" barcode",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "edition",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_computing_history",
+        "s_pricecharting_pal"
+      ],
+      "discoveredIdentifiers": [
+        "659048990462"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q007",
+      "queryType": "general",
+      "query": "#BLUD Switch \"5060\" Super Rare Games",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "barcode candidate"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q008",
+      "queryType": "general",
+      "query": "#BLUD \"EAN\" Nintendo Switch Super Rare Games",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pricecharting_pal"
+      ],
+      "discoveredIdentifiers": [
+        "659048990462"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q009",
+      "queryType": "general",
+      "query": "#BLUD \"barcode\" \"Super Rare Games\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pricecharting_pal"
+      ],
+      "discoveredIdentifiers": [
+        "659048990462"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q010",
+      "queryType": "general",
+      "query": "#BLUD \"SRG-129\" Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "edition identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_srg_official"
+      ],
+      "discoveredIdentifiers": [
+        "SRG#129"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q011",
+      "queryType": "general",
+      "query": "#BLUD \"HAC\" Switch physical",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "product code",
+        "serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q012",
+      "queryType": "exact_identifier",
+      "query": "\"659048990462\" \"#BLUD\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "barcode",
+        "title",
+        "platform",
+        "edition"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pricecharting_pal",
+        "s_computing_history"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q013",
+      "queryType": "exact_identifier",
+      "query": "\"659048990462\" Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "barcode",
+        "platform"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pricecharting_pal",
+        "s_computing_history"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q014",
+      "queryType": "exact_identifier",
+      "query": "\"659048990462\" \"SRG#129\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "barcode",
+        "edition"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pricecharting_pal",
+        "s_computing_history"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q015",
+      "queryType": "general",
+      "query": "#BLUD \"product code\" Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_computing_history"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q016",
+      "queryType": "general",
+      "query": "#BLUD \"HAC-P\" Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q017",
+      "queryType": "general",
+      "query": "#BLUD \"LA-H\" Nintendo Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "game card serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q018",
+      "queryType": "image",
+      "query": "#BLUD Switch back cover Super Rare Games",
+      "provider": "ChatGPT web image search",
+      "targetFields": [
+        "back image",
+        "packaging"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q019",
+      "queryType": "image",
+      "query": "#BLUD Nintendo Switch back case 659048990462",
+      "provider": "ChatGPT web image search",
+      "targetFields": [
+        "back image",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q020",
+      "queryType": "general",
+      "query": "#BLUD \"back cover\" Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "back image",
+        "packaging"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q021",
+      "queryType": "general",
+      "query": "#BLUD \"box language\" Switch Super Rare Games",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "packagingLanguages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_tokyo_game_story"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q022",
+      "queryType": "general",
+      "query": "#BLUD official Exit 73 Studios Humble Games developer genre",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "developer",
+        "publisher",
+        "genres"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nintendo_ca",
+        "s_balor"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q023",
+      "queryType": "source_specific",
+      "query": "site:bludgame.com \"#BLUD\" \"Exit 73 Studios\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "official game source",
+        "developer"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_blud_official"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q024",
+      "queryType": "source_specific",
+      "query": "site:humblegames.com \"#BLUD\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "publisher",
+        "official game source"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q025",
+      "queryType": "source_specific",
+      "query": "site:exit73studios.com \"#BLUD\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "developer",
+        "official game source"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q026",
+      "queryType": "marketplace",
+      "query": "\"659048990462\" eBay \"#BLUD\" Switch new sealed",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_gc_uk"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q027",
+      "queryType": "marketplace",
+      "query": "\"659048990462\" \"#BLUD\" Switch used complete",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q028",
+      "queryType": "marketplace",
+      "query": "\"659048990462\" \"#BLUD\" cartridge only",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q029",
+      "queryType": "marketplace",
+      "query": "#BLUD \"SRG#129\" \"Brand New\" Switch eBay",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_gc_uk",
+        "s_ebay_tgs_uk"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q030",
+      "queryType": "marketplace",
+      "query": "#BLUD \"SRG#129\" used Switch eBay",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "complete price",
+        "loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q031",
+      "queryType": "marketplace",
+      "query": "#BLUD Switch cartridge only Super Rare Games",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q032",
+      "queryType": "marketplace",
+      "query": "\"659048990462\" \"Brand New\" \"#BLUD\" \"Nintendo Switch\" -\"Gaming Citadel\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "independent sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_tgs_uk"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q033",
+      "queryType": "marketplace",
+      "query": "\"659048990462\" \"#BLUD\" \"Nintendo Switch\" \"New\" -\"Gaming Citadel\" -\"raygaming1\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "independent sealed price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q034",
+      "queryType": "general",
+      "query": "#BLUD Nintendo Switch physical \"Collector's Edition\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "other physical editions"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No separate exact physical edition was confirmed from this query."
+    },
+    {
+      "queryId": "q035",
+      "queryType": "general",
+      "query": "#BLUD Nintendo Switch physical \"Deluxe Edition\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "other physical editions"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No separate exact physical edition was confirmed from this query."
+    },
+    {
+      "queryId": "q036",
+      "queryType": "general",
+      "query": "#BLUD Switch physical USA Super Rare Games",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "other physical markets"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No separate regional physical SKU was confirmed from this query."
+    },
+    {
+      "queryId": "q037",
+      "queryType": "general",
+      "query": "#BLUD Switch physical Japan Super Rare Games",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "other physical markets"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No separate regional physical SKU was confirmed from this query."
+    },
+    {
+      "queryId": "q038",
+      "queryType": "source_specific",
+      "query": "\"659048990462\" No-Intro Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "barcode",
+        "serial",
+        "product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q039",
+      "queryType": "source_specific",
+      "query": "\"659048990462\" VGCollect",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "barcode",
+        "physical release"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No source from this query was retained as confirmation."
+    },
+    {
+      "queryId": "q040",
+      "queryType": "marketplace",
+      "query": "#BLUD \"SRG#129\" used Nintendo Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "complete price",
+        "loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q041",
+      "queryType": "marketplace",
+      "query": "#BLUD \"SRG#129\" loose cartridge",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q042",
+      "queryType": "marketplace",
+      "query": "#BLUD \"SRG #129\" \"complete\" Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q043",
+      "queryType": "marketplace",
+      "query": "#BLUD \"Super Rare Games\" \"used\" \"Nintendo Switch\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "complete price",
+        "loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q044",
+      "queryType": "marketplace",
+      "query": "#BLUD \"Super Rare Games\" \"cartridge only\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q045",
+      "queryType": "general",
+      "query": "#BLUD \"Super Rare Games\" \"collector's edition\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "other physical editions"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No separate exact physical edition was confirmed from this query."
+    },
+    {
+      "queryId": "q046",
+      "queryType": "general",
+      "query": "#BLUD \"Super Rare Games\" \"deluxe\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "other physical editions"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No separate exact physical edition was confirmed from this query."
+    },
+    {
+      "queryId": "q047",
+      "queryType": "general",
+      "query": "#BLUD \"physical\" \"Japan\" \"Nintendo Switch\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "other physical markets"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No separate regional physical SKU was confirmed from this query."
+    },
+    {
+      "queryId": "q048",
+      "queryType": "general",
+      "query": "#BLUD \"physical\" \"USA\" \"Nintendo Switch\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "other physical markets"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No separate regional physical SKU was confirmed from this query."
+    },
+    {
+      "queryId": "q049",
+      "queryType": "source_specific",
+      "query": "site:superraregames.com \"#BLUD\" \"3000\" \"4000\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "print run conflict"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_srg_official"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q050",
+      "queryType": "source_specific",
+      "query": "site:gamefaqs.gamespot.com \"#BLUD\" Switch release data 03/13/25",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "regional release",
+        "release date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q051",
+      "queryType": "general",
+      "query": "#BLUD \"03/13/25\" \"Super Rare Games\" Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "release date",
+        "publisher"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs",
+        "s_pricecharting_pal"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q052",
+      "queryType": "exact_identifier",
+      "query": "#BLUD \"659048990462\" PEGI 12",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "barcode",
+        "rating"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_pricecharting_pal",
+        "s_ebay_gc_uk"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q053",
+      "queryType": "marketplace",
+      "query": "\"659048990462\" \"complete\" Switch used",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q054",
+      "queryType": "marketplace",
+      "query": "\"659048990462\" \"loose\" Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q055",
+      "queryType": "marketplace",
+      "query": "\"659048990462\" used game",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "complete price",
+        "loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q056",
+      "queryType": "marketplace",
+      "query": "\"SRG#129\" \"used\" Switch #BLUD",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "complete price",
+        "loose price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying active exact direct listing retained for this query."
+    },
+    {
+      "queryId": "q057",
+      "queryType": "source_specific",
+      "query": "site:bludgame.com/merch/p \"#BLUD Nintendo Switch Physical Release\" Super Rare Games",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "official physical release",
+        "contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_blud_official"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q058",
+      "queryType": "source_specific",
+      "query": "site:nintendo.com/en-ca/store/products/blud-switch \"#BLUD\" Switch",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "official game facts"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_nintendo_ca"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q059",
+      "queryType": "source_specific",
+      "query": "site:balorgames.com/games/blud \"#BLUD\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "developer",
+        "genres",
+        "single-player"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_balor"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q060",
+      "queryType": "source_specific",
+      "query": "\"BLUD Nintendo Switch Super Rare Games New SRG129\" Tokyo Game Story",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "physical market",
+        "packagingLanguages",
+        "images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_tokyo_game_story"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q061",
+      "queryType": "exact_identifier",
+      "query": "\"659048990462\" \"Box language\" BLUD",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "packagingLanguages",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_tokyo_game_story"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q062",
+      "queryType": "exact_identifier",
+      "query": "\"659048990462\" \"English\" \"Super Rare Games\"",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "packagingLanguages",
+        "barcode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_tokyo_game_story"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q063",
+      "queryType": "exact_identifier",
+      "query": "\"HAC-P-BGQRA\" #BLUD",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "productCode",
+        "title",
+        "platform",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ogdb_uk"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q064",
+      "queryType": "exact_identifier",
+      "query": "\"TSA-HAC-BGQRA-UKV\" #BLUD",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "boxCode",
+        "title",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No indexed textual corroboration retained; the exact code is directly legible on the inspected rear physical image."
+    },
+    {
+      "queryId": "q065",
+      "queryType": "exact_identifier",
+      "query": "\"BGQRA\" Nintendo Switch BLUD",
+      "provider": "ChatGPT web search",
+      "targetFields": [
+        "productCode",
+        "boxCode"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ogdb_uk"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    }
+  ],
+  "sourceAttempts": [
+    {
+      "attemptId": "a001",
+      "sourceName": "Super Rare Games official product page",
+      "domain": "superraregames.com",
+      "sourceType": "publisher_distributor_official",
+      "platform": "switch",
+      "targetFields": [
+        "physical identity",
+        "edition",
+        "releaseDate",
+        "printRun",
+        "contents",
+        "softwareLanguages",
+        "region-free compatibility"
+      ],
+      "queryRefs": [
+        "q006",
+        "q010",
+        "q014",
+        "q029",
+        "q030",
+        "q040",
+        "q041",
+        "q049",
+        "q056"
+      ],
+      "url": "https://superraregames.com/products/srg-129-blud-switch",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.developer",
+        "gameFacts.mediaType",
+        "releases[0]",
+        "conflicts[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a002",
+      "sourceName": "#BLUD official physical merchandise page",
+      "domain": "bludgame.com",
+      "sourceType": "developer_official",
+      "platform": "switch",
+      "targetFields": [
+        "physical identity",
+        "printRun",
+        "contents",
+        "PEGI package context",
+        "region-free compatibility"
+      ],
+      "queryRefs": [
+        "q023",
+        "q057"
+      ],
+      "url": "https://www.bludgame.com/merch/p/blud-nintendo-switch-physical-release-super-rare-games",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].physicalContents",
+        "releases[0].printRun"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a003",
+      "sourceName": "Nintendo Canada",
+      "domain": "nintendo.com",
+      "sourceType": "platform_holder_official",
+      "platform": "switch",
+      "targetFields": [
+        "title",
+        "publisher",
+        "developer",
+        "general release date",
+        "players",
+        "softwareLanguages"
+      ],
+      "queryRefs": [
+        "q022",
+        "q058"
+      ],
+      "url": "https://www.nintendo.com/en-ca/store/products/blud-switch/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.officialTitle",
+        "gameFacts.publisher",
+        "gameFacts.developer",
+        "gameFacts.players",
+        "gameFacts.generalReleaseDate"
+      ],
+      "limitation": "Digital-software metadata; not used by itself to identify a physical regional product."
+    },
+    {
+      "attemptId": "a004",
+      "sourceName": "Nintendo Spain",
+      "domain": "nintendo.com",
+      "sourceType": "platform_holder_official",
+      "platform": "switch",
+      "targetFields": [
+        "genres",
+        "softwareLanguages",
+        "publisher",
+        "general release date",
+        "rating"
+      ],
+      "queryRefs": [],
+      "url": "https://www.nintendo.com/es-es/Juegos/Programas-descargables-Nintendo-Switch/-BLUD-2594998.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.genres",
+        "gameFacts.publisher",
+        "gameFacts.generalReleaseDate"
+      ],
+      "limitation": "Digital-software page; physical packaging and market are established separately."
+    },
+    {
+      "attemptId": "a005",
+      "sourceName": "Balor Games current game page",
+      "domain": "balorgames.com",
+      "sourceType": "publisher_current_official",
+      "platform": "switch",
+      "targetFields": [
+        "developer",
+        "genres",
+        "single-player",
+        "languages",
+        "release date"
+      ],
+      "queryRefs": [
+        "q059"
+      ],
+      "url": "https://balorgames.com/games/blud?itemId=lp7u9yaj9szhuixv8vvmhj7xun0ao5",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.developer",
+        "gameFacts.genres",
+        "gameFacts.modes"
+      ],
+      "limitation": "Current rights/publisher-site context; original Switch release publisher is independently recorded as Humble Games."
+    },
+    {
+      "attemptId": "a006",
+      "sourceName": "GameFAQs release data",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "technical_database",
+      "platform": "switch",
+      "targetFields": [
+        "regional release",
+        "physical EU date",
+        "players",
+        "online multiplayer"
+      ],
+      "queryRefs": [
+        "q050",
+        "q051"
+      ],
+      "url": "https://gamefaqs.gamespot.com/switch/450318-blud/data",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.players",
+        "releases[0].distributionMarkets",
+        "releases[0].releaseDate"
+      ],
+      "limitation": "Secondary technical database; physical identifiers were checked against physical imagery and other technical sources."
+    },
+    {
+      "attemptId": "a007",
+      "sourceName": "PriceCharting PAL #BLUD",
+      "domain": "pricecharting.com",
+      "sourceType": "technical_price_database",
+      "platform": "switch",
+      "targetFields": [
+        "barcode",
+        "physical date",
+        "PEGI",
+        "publisher",
+        "developer",
+        "player count",
+        "price context"
+      ],
+      "queryRefs": [
+        "q002",
+        "q006",
+        "q008",
+        "q009",
+        "q012",
+        "q013",
+        "q014",
+        "q019",
+        "q026",
+        "q027",
+        "q028",
+        "q032",
+        "q033",
+        "q038",
+        "q039",
+        "q050",
+        "q051",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q061",
+        "q062"
+      ],
+      "url": "https://www.pricecharting.com/game/pal-nintendo-switch/blud",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].barcode",
+        "releases[0].ratingSystem"
+      ],
+      "limitation": "Its aggregate/historical price guide is not an active direct listing and is excluded from regionalPrices sampleSize."
+    },
+    {
+      "attemptId": "a008",
+      "sourceName": "Computing History #BLUD",
+      "domain": "computinghistory.org.uk",
+      "sourceType": "institutional_collection",
+      "platform": "switch",
+      "targetFields": [
+        "barcode",
+        "cartridge format",
+        "release date",
+        "print run",
+        "publisher",
+        "developer"
+      ],
+      "queryRefs": [
+        "q006",
+        "q012",
+        "q013",
+        "q014",
+        "q019",
+        "q026",
+        "q027",
+        "q028",
+        "q029",
+        "q030",
+        "q032",
+        "q033",
+        "q038",
+        "q039",
+        "q040",
+        "q041",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q056",
+        "q061",
+        "q062"
+      ],
+      "url": "https://www.computinghistory.org.uk/det/75129/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.mediaType",
+        "releases[0].barcode",
+        "releases[0].releaseDate",
+        "releases[0].printRun"
+      ],
+      "limitation": "The site labels 659048990462 as Product Code; cross-sources and the physical barcode image show it is the retail barcode/GTIN, so it is not promoted to Nintendo productCode."
+    },
+    {
+      "attemptId": "a009",
+      "sourceName": "OGDB UK physical record",
+      "domain": "ogdb.eu",
+      "sourceType": "technical_database",
+      "platform": "switch",
+      "targetFields": [
+        "market",
+        "productCode",
+        "box code",
+        "barcode",
+        "softwareLanguages",
+        "publisher",
+        "distributor"
+      ],
+      "queryRefs": [
+        "q063",
+        "q064",
+        "q065"
+      ],
+      "url": "https://ogdb.eu/index.php?gameid=167725&section=game",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].market",
+        "releases[0].productCode",
+        "releases[0].barcode",
+        "releases[0].regionalPublisher",
+        "releases[0].regionalDistributor"
+      ],
+      "limitation": "OGDB records HAC-BGQRA-UKV while the physical image exposes the fuller printed packaging code TSA-HAC-BGQRA-UKV."
+    },
+    {
+      "attemptId": "a010",
+      "sourceName": "Tokyo Game Story exact SRG#129 product",
+      "domain": "tokyogamestory.com",
+      "sourceType": "specialist_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "European physical identity",
+        "box language",
+        "softwareLanguages",
+        "region-free",
+        "images"
+      ],
+      "queryRefs": [
+        "q060",
+        "q061",
+        "q062"
+      ],
+      "url": "https://tokyogamestory.com/ja/nintendo-switch-tout/12339-blud-nintendo-switch-super-rare-games-new-srg129-multi-languagesaction-rpg-659048990462.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].distributionMarkets",
+        "releases[0].packagingLanguages",
+        "releases[0].softwareLanguages"
+      ],
+      "limitation": "Retailer metadata labels the age field CERO 12, which conflicts with the visibly PEGI-rated package; that field is discarded."
+    },
+    {
+      "attemptId": "a011",
+      "sourceName": "Tokyo Game Story English product URL attempt",
+      "domain": "tokyogamestory.com",
+      "sourceType": "specialist_retailer",
+      "platform": "switch",
+      "targetFields": [
+        "same exact SRG#129 product page"
+      ],
+      "queryRefs": [
+        "q060"
+      ],
+      "url": "https://tokyogamestory.com/en/nintendo-switch-all/12339-blud-nintendo-switch-super-rare-games-new-srg129-multi-languagesaction-rpg-659048990462.html",
+      "accessStatus": "BLOCKED",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "The English-path direct fetch failed; the Japanese-path page for the same product was accessible and used."
+    },
+    {
+      "attemptId": "a012",
+      "sourceName": "eBay UK Gaming Citadel active listing",
+      "domain": "ebay.co.uk",
+      "sourceType": "marketplace_direct_listing",
+      "platform": "switch",
+      "targetFields": [
+        "sealed price",
+        "region",
+        "barcode",
+        "rating",
+        "active status"
+      ],
+      "queryRefs": [
+        "q012",
+        "q013",
+        "q014",
+        "q019",
+        "q026",
+        "q027",
+        "q028",
+        "q029",
+        "q030",
+        "q032",
+        "q033",
+        "q038",
+        "q039",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q061",
+        "q062"
+      ],
+      "url": "https://www.ebay.co.uk/itm/227396901441",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[0]",
+        "releases[0].barcode",
+        "releases[0].ratingSystem"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a013",
+      "sourceName": "eBay UK Tokyo Game Story active listing",
+      "domain": "ebay.co.uk",
+      "sourceType": "marketplace_direct_listing",
+      "platform": "switch",
+      "targetFields": [
+        "sealed price",
+        "edition",
+        "active status",
+        "physical images"
+      ],
+      "queryRefs": [
+        "q029",
+        "q032",
+        "q060"
+      ],
+      "url": "https://www.ebay.co.uk/itm/316911328272",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[0]",
+        "images[0]",
+        "images[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a014",
+      "sourceName": "eBay Tokyo Game Story front physical image",
+      "domain": "i.ebayimg.com",
+      "sourceType": "physical_image",
+      "platform": "switch",
+      "targetFields": [
+        "front cover",
+        "rating",
+        "publisher branding"
+      ],
+      "queryRefs": [
+        "q005",
+        "q060"
+      ],
+      "url": "https://i.ebayimg.com/images/g/pywAAeSwA9FqgBn5/s-l1600.webp",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[0]",
+        "releases[0].ratingSystem"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a015",
+      "sourceName": "eBay Tokyo Game Story rear physical image",
+      "domain": "i.ebayimg.com",
+      "sourceType": "physical_image",
+      "platform": "switch",
+      "targetFields": [
+        "back cover",
+        "packagingLanguages",
+        "softwareLanguages",
+        "productCode",
+        "boxCode",
+        "barcode",
+        "rating"
+      ],
+      "queryRefs": [
+        "q005",
+        "q018",
+        "q019",
+        "q020",
+        "q063",
+        "q064"
+      ],
+      "url": "https://i.ebayimg.com/images/g/MpkAAeSwiiFqgBn5/s-l1600.webp",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[1]",
+        "releases[0].packagingLanguages",
+        "releases[0].softwareLanguages",
+        "releases[0].productCode",
+        "releases[0].boxCode",
+        "releases[0].barcode",
+        "releases[0].ratingSystem"
+      ],
+      "limitation": "The sealed-product sticker obscures part of the descriptive rear artwork, but the English text, ratings panel, language codes and identifier block remain legible."
+    },
+    {
+      "attemptId": "a016",
+      "sourceName": "2dehands GameShop050 listing",
+      "domain": "2dehands.be",
+      "sourceType": "marketplace_direct_listing",
+      "platform": "switch",
+      "targetFields": [
+        "sealed price context",
+        "edition identity"
+      ],
+      "queryRefs": [
+        "q006",
+        "q014",
+        "q029",
+        "q030",
+        "q040",
+        "q041",
+        "q056"
+      ],
+      "url": "https://www.2dehands.be/v/games-en-spelcomputers/games-nintendo-switch/a152989625-blud-srg-129-switch-nieuw",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[0]"
+      ],
+      "limitation": "Independent active EUR sealed listing retained as context but not included in the confirmed GBP sample."
+    },
+    {
+      "attemptId": "a017",
+      "sourceName": "Limited Game News announcement",
+      "domain": "limitedgamenews.com",
+      "sourceType": "news_secondary",
+      "platform": "switch",
+      "targetFields": [
+        "edition name",
+        "contents",
+        "initial print run"
+      ],
+      "queryRefs": [
+        "q034",
+        "q035",
+        "q049"
+      ],
+      "url": "https://limitedgamenews.com/2025/03/06/blud-nintendo-switch/",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].editionName",
+        "conflicts[1]"
+      ],
+      "limitation": "Contemporaneous report reflects the original 3,000-copy plan; official SRG later records an increase to 4,000."
+    },
+    {
+      "attemptId": "a018",
+      "sourceName": "RPGamer physical announcement",
+      "domain": "rpgamer.com",
+      "sourceType": "news_secondary",
+      "platform": "switch",
+      "targetFields": [
+        "worldwide direct sale",
+        "initial print run",
+        "physical partnership"
+      ],
+      "queryRefs": [
+        "q036",
+        "q037",
+        "q049"
+      ],
+      "url": "https://rpgamer.com/2025/03/blud-gets-physical-release-on-nintendo-switch/",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].distributionMarkets",
+        "conflicts[1]"
+      ],
+      "limitation": "Contemporaneous report reflects the original 3,000-copy plan; official SRG later increased the run."
+    },
+    {
+      "attemptId": "a019",
+      "sourceName": "eBay Spain Gaming Citadel active localized listing",
+      "domain": "ebay.es",
+      "sourceType": "marketplace_direct_listing",
+      "platform": "switch",
+      "targetFields": [
+        "sealed price",
+        "barcode",
+        "region",
+        "rating"
+      ],
+      "queryRefs": [
+        "q026",
+        "q029",
+        "q030"
+      ],
+      "url": "https://www.ebay.es/itm/327328275193",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].barcode",
+        "releases[0].ratingSystem"
+      ],
+      "limitation": "Active exact listing, but excluded from the confirmed sealed-price pair because Gaming Citadel is already represented by its UK listing; cross-market/localized listings from the same seller are not independent observations."
+    },
+    {
+      "attemptId": "a020",
+      "sourceName": "eBay raygaming1 ended listing",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_direct_listing",
+      "platform": "switch",
+      "targetFields": [
+        "sealed price candidate",
+        "barcode",
+        "region"
+      ],
+      "queryRefs": [
+        "q029",
+        "q032",
+        "q055"
+      ],
+      "url": "https://www.ebay.com/itm/327362771598",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Exact product but seller ended the listing; excluded from active price sample."
+    },
+    {
+      "attemptId": "a021",
+      "sourceName": "eBay clovisgamer sold listing 277639809299",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_historical_listing",
+      "platform": "switch",
+      "targetFields": [
+        "sealed price candidate",
+        "barcode",
+        "region"
+      ],
+      "queryRefs": [
+        "q012",
+        "q013",
+        "q014",
+        "q019",
+        "q026",
+        "q027",
+        "q028",
+        "q029",
+        "q032",
+        "q033",
+        "q038",
+        "q039",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q061",
+        "q062"
+      ],
+      "url": "https://www.ebay.com/itm/277639809299",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Sold historical listing; excluded from active price sample by contract."
+    },
+    {
+      "attemptId": "a022",
+      "sourceName": "eBay clovisgamer sold listing 287355448453",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_historical_listing",
+      "platform": "switch",
+      "targetFields": [
+        "sealed price candidate",
+        "barcode",
+        "region"
+      ],
+      "queryRefs": [
+        "q012",
+        "q013",
+        "q014",
+        "q019",
+        "q026",
+        "q027",
+        "q028",
+        "q029",
+        "q032",
+        "q033",
+        "q038",
+        "q039",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q061",
+        "q062"
+      ],
+      "url": "https://www.ebay.com/itm/287355448453",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Sold historical listing; excluded from active price sample by contract."
+    },
+    {
+      "attemptId": "a023",
+      "sourceName": "Tokyo Game Story eBay rear upper crop",
+      "domain": "i.ebayimg.com",
+      "sourceType": "physical_image",
+      "platform": "switch",
+      "targetFields": [
+        "rear packaging language"
+      ],
+      "queryRefs": [
+        "q005",
+        "q018",
+        "q020",
+        "q060"
+      ],
+      "url": "https://i.ebayimg.com/images/g/lv4AAeSwls1qgBn5/s-l1600.webp",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].packagingLanguages",
+        "images[1]"
+      ],
+      "limitation": "Partial crop; the retained whole-back image is preferred as the single rear image in images[]."
+    },
+    {
+      "attemptId": "a024",
+      "sourceName": "Tokyo Game Story eBay rear lower crop",
+      "domain": "i.ebayimg.com",
+      "sourceType": "physical_image",
+      "platform": "switch",
+      "targetFields": [
+        "rating",
+        "softwareLanguages",
+        "productCode",
+        "boxCode",
+        "barcode"
+      ],
+      "queryRefs": [
+        "q019",
+        "q063",
+        "q064"
+      ],
+      "url": "https://i.ebayimg.com/images/g/S2MAAeSwJHdqgBn5/s-l1600.webp",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].ratingSystem",
+        "releases[0].softwareLanguages",
+        "releases[0].productCode",
+        "releases[0].boxCode",
+        "releases[0].barcode",
+        "images[1]"
+      ],
+      "limitation": "Partial crop; the retained whole-back image is preferred as the single rear image in images[]."
+    }
+  ]
+}
