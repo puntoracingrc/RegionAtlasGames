@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 14,
+  "generation": 15,
   "workerId": "ps2",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
@@ -41,8 +41,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T13:20:34Z",
+  "lease": {
+    "runId": "ps2-20260922T141124Z-run11",
+    "claimedAt": "2026-09-22T14:11:24Z",
+    "expiresAt": "2026-09-22T15:01:24Z"
+  },
+  "updatedAt": "2026-09-22T14:11:24Z",
   "updatedBy": "chatgpt",
-  "note": "Checkpoint factual actualizado para .Hack - G.U. Vol.2 - Reminisce con evidencia adicional de portadas y precios activos; lease liberado. Continuar este mismo elemento antes de Vol.3."
+  "note": "Lease reclamado para continuar exclusivamente el checkpoint de .Hack - G.U. Vol.2 - Reminisce."
 }
