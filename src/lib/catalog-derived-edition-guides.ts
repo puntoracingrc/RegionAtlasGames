@@ -518,7 +518,21 @@ export function extendCatalogEditionGuideWithRuntimeGames(
 ): CatalogEditionGuideModel {
   const currentTitle = normalizedIdentity(currentGame.title);
   const currentFamily = familyIdentity(currentGame);
-  const currentWork = workIdentity(currentGame);
+  const explicitCurrentWork = workIdentity(currentGame);
+  // A legacy regional route can still resolve to its static row while another
+  // runtime row for the same title already carries the reviewed workId. Adopt
+  // that identity only when the runtime platform set has exactly one resolved
+  // work for the title; ambiguous title matches remain deliberately isolated.
+  const resolvedTitleWorks = new Set(runtimeGames.flatMap((candidate) => {
+    if (
+      candidate.platformSlug !== currentGame.platformSlug
+      || normalizedIdentity(candidate.title) !== currentTitle
+    ) return [];
+    const candidateWork = workIdentity(candidate);
+    return candidateWork ? [candidateWork] : [];
+  }));
+  const currentWork = explicitCurrentWork
+    ?? (resolvedTitleWorks.size === 1 ? resolvedTitleWorks.values().next().value : null);
   const matches = runtimeGames.filter((candidate) => (
     candidate.listingStatus === "listed"
     && candidate.platformSlug === currentGame.platformSlug

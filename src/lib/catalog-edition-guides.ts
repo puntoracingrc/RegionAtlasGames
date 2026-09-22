@@ -895,8 +895,13 @@ export function getCatalogEditionGuide(
     && currentGame.physicalReleaseGroup
     && (!baseGuide || baseGuide.origin === "catalog-derived")
   ) {
+    const runtimeGuide = buildRuntimeCatalogEditionGuide(
+      currentGame,
+      getCatalogEditionGuides(),
+      runtimeGames,
+    );
     return withCurrentCatalogEdition(
-      buildRuntimeCatalogEditionGuide(currentGame, getCatalogEditionGuides(), runtimeGames),
+      extendCatalogEditionGuideWithRuntimeGames(runtimeGuide, currentGame, runtimeGames),
       currentGame.id,
     );
   }

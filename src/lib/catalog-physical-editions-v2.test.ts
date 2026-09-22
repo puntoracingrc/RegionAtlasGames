@@ -1045,6 +1045,23 @@ test("runtime editions with the same resolved work id join the central V2 across
     false,
   );
   assert.ok(detailGuide.editionFamilies.some((family) => family.label === "Premium Edition"));
+
+  const staleRegionalRoute = {
+    ...current,
+    id: "runtime-hack-gu-standard-jp",
+    slug: "hack-gu-standard-jp",
+    workId: undefined,
+    regionalStatus: undefined,
+    marketRegion: "JP" as const,
+  };
+  const staleRouteGuide = getCatalogEditionGuide(staleRegionalRoute, [
+    staleRegionalRoute,
+    current,
+    premium,
+  ]);
+  assert.ok(staleRouteGuide);
+  assert.ok(staleRouteGuide.physicalEditions.some((edition) => edition.catalogIds.includes(premium.id)));
+  assert.ok(staleRouteGuide.editionFamilies.some((family) => family.label === "Premium Edition"));
 });
 
 test("scoped V2 grouping exposes only editions present in the input", () => {
