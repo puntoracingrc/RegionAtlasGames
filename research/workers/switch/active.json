@@ -1,20 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 25,
+  "generation": 26,
   "workerId": "switch",
-  "state": "RUNNING",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
+  "resultOrderTemplateVersion": 11,
   "currentItemResearchId": "1-2-switch-switch-2026-09-22",
-  "lease": {
-    "runId": "chatgpt-switch-20260922T162601Z-a11",
-    "claimedAt": "2026-09-22T16:26:01Z",
-    "expiresAt": "2026-09-22T17:16:01Z"
-  },
   "workPackage": {
     "packageId": "switch-2026-09-22-004",
     "grouping": {
@@ -34,12 +29,12 @@
         "researchId": "1-2-switch-switch-2026-09-22",
         "orderPath": "research/workers/switch/orders/1-2-switch-switch-2026-09-22.md",
         "resultPath": "research/results/1-2-switch-switch-2026-09-22.json",
-        "status": "CHECKPOINTED",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/switch/checkpoints/1-2-switch-switch-2026-09-22.json"
       }
     ]
   },
-  "updatedAt": "2026-09-22T16:26:01Z",
+  "updatedAt": "2026-09-22T16:38:09Z",
   "updatedBy": "chatgpt",
-  "note": "Lease reclamado para continuar exclusivamente 1-2 Switch desde el checkpoint factual existente y cerrar ORDER_TEMPLATE_VERSION 11."
+  "note": "Resultado ORDER_TEMPLATE_VERSION 11 publicado para 1-2 Switch; checkpoint eliminado y paquete cerrado para validación de Codex."
 }
