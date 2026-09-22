@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "researchId": "summer-standard-ps2-2026-09-21",
+  "queueId": "catalog:ps2-japon-_summer",
+  "platform": "ps2",
+  "catalogIds": [
+    "ps2-japon-_summer",
+    "ps2-japon-_summer-first-print-limited-edition",
+    "ps2-japon-summer-jp-best-version"
+  ],
+  "coverage": "partial",
+  "publishedAt": "2026-09-22T09:53:28Z",
+  "verifiedAt": "2026-09-22T09:53:28Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/summer-ps2-pal-jp",
+  "publishedRegions": [
+    "Japan"
+  ],
+  "publishedEditions": [
+    "Standard",
+    "First Print Limited Edition",
+    "Best Version"
+  ],
+  "publishedIdentifiers": [
+    {
+      "edition": "Standard",
+      "barcode": "4571164030180",
+      "productCode": "SLPM-66460"
+    },
+    {
+      "edition": "First Print Limited Edition",
+      "barcode": "4571164030173",
+      "productCode": "GN-06017"
+    },
+    {
+      "edition": "Best Version",
+      "barcode": "4571164038186",
+      "productCode": "SLPM-66877"
+    }
+  ],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_NO_ADMISSIBLE_PRICE_EVIDENCE",
+  "internalAssets": {
+    "firstPrintLimitedEditionFront": "https://www.regionatlas.games/catalog-covers/runtime/ps2/summer-first-print-limited-edition-ps2-jp-first-print-limited-edition-front.jpg",
+    "firstPrintLimitedEditionBack": "https://www.regionatlas.games/catalog-covers/runtime/ps2/summer-first-print-limited-edition-ps2-jp-first-print-limited-edition-back.jpg"
+  },
+  "verification": {
+    "publicPage": "PASS",
+    "centralV2Families": "PASS",
+    "identifierBinding": "PASS",
+    "duplicateCheck": "PASS"
+  },
+  "unresolvedPreserved": [
+    "standardInstructionManual",
+    "limitedInnerCaseConfiguration",
+    "limitedInstructionManual",
+    "limitedPostcard",
+    "limitedBonusDramaCdCatalogCode",
+    "bestVersionPackagingLanguages",
+    "bestVersionInstructionManual",
+    "regionalPrices"
+  ],
+  "sourcePerformanceDecision": "NOT_AGGREGATED_LEGACY_RESULT_WITHOUT_QUERY_LEDGER_OR_SOURCE_ATTEMPTS",
+  "resultFile": "research/results/summer-standard-ps2-2026-09-21.json",
+  "resultSha256": "5b3c5fe4be23eb095d538c8e2e6d2d4bb32adbb06db25763105f68e411dabdfb",
+  "workerResultCommit": "b1d3e2341b935de6bc3c16495768afbeaebec283"
+}
