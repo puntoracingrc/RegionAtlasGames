@@ -1,0 +1,1486 @@
+{
+  "schemaVersion": 1,
+  "researchId": "98-koshien-ps1-2026-09-21",
+  "platform": "ps1",
+  "resultFile": "research/results/98-koshien-ps1-2026-09-21.json",
+  "resultSha256": "caa25334d42e737477411c5ca23b2f064ab25c8c865a935d786a84983fc20edd",
+  "observedAt": "2026-09-22",
+  "validation": {
+    "jsonParse": "PASS",
+    "requiredFields": "PASS",
+    "sourceReferenceIntegrity": "PASS",
+    "queryReferenceIntegrity": "PASS",
+    "priceContractIntegrity": "PASS_NO_PRICE_PUBLISHED",
+    "focusedDirectSourceSpotCheck": {
+      "status": "PASS",
+      "domains": [
+        "psxdatacenter.com",
+        "gamefaqs.gamespot.com",
+        "suruga-ya.jp",
+        "redump.org",
+        "yugiyahiranonetshop.com"
+      ]
+    },
+    "claimLevelImportReview": "PASS",
+    "catalogMutations": 3,
+    "priceMutations": 0
+  },
+  "counts": {
+    "sources": 18,
+    "queries": 65,
+    "sourceAttempts": 23,
+    "usefulSourceAttempts": 18,
+    "releases": 3,
+    "images": 6,
+    "regionalPriceBlocks": 6
+  },
+  "sources": [
+    {
+      "sourceId": "src-psxdatacenter-standard",
+      "url": "https://psxdatacenter.com/games/J/0-9/SLPS-01204.html",
+      "title": "'98 KOSHIEN - (NTSC-J) - PSX DataCenter",
+      "accessedAt": "2026-09-21",
+      "supports": "Standard identity/title; SLPS-01204; Japan; Magical Company; 1998-06-18; 1 CD; barcode 4990951977024; Japanese software; 1-2 players."
+    },
+    {
+      "sourceId": "src-gamefaqs-release-data",
+      "url": "https://gamefaqs.gamespot.com/ps/572594-98-koushien/data",
+      "title": "'98 Koushien Release Information for PlayStation - GameFAQs",
+      "accessedAt": "2026-09-21",
+      "supports": "PS1 release data: standard SLPS-01204/4990951977024/1998-06-18 and Magical 1500 SLPS-03086/4990951007080/2000-12-07; genre/developer/players."
+    },
+    {
+      "sourceId": "src-surugaya-standard",
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140001344",
+      "title": "駿河屋 - 甲子園98 (SPA) - PlayStation",
+      "accessedAt": "2026-09-21",
+      "supports": "Standard metadata: JAN 4990951977024; 1998-06-18; Magical; SLPS-01204."
+    },
+    {
+      "sourceId": "src-surugaya-budget",
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140002941",
+      "title": "駿河屋 - ’98甲子園MAGICAL 1500 - PlayStation",
+      "accessedAt": "2026-09-21",
+      "supports": "Magical 1500 metadata: JAN 4990951007080; 2000-12-07; Magical; SLPS-03086."
+    },
+    {
+      "sourceId": "src-surugaya-demo",
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140008477",
+      "title": "駿河屋 - 高校野球シミュレーション ’98甲子園 体験版 - PlayStation",
+      "accessedAt": "2026-09-21",
+      "supports": "Demo metadata: 体験版; Magical; SLPM-80238; JAN/date not supplied."
+    },
+    {
+      "sourceId": "src-redump-psx-japan",
+      "url": "https://redump.org/discs/system/psx/region/As/",
+      "title": "redump.org - PlayStation Japan discs",
+      "accessedAt": "2026-09-21",
+      "supports": "Japan PSX rows: original Japanese SLPS 01204 and Taikenban Japanese SLPM 80238."
+    },
+    {
+      "sourceId": "src-retroplace-standard",
+      "url": "https://www.retroplace.com/en/games/50512--98-koushien",
+      "title": "Buy '98 Koushien for PS | retroplace",
+      "accessedAt": "2026-09-21",
+      "supports": "Standard Japan product: title/genre/Magical/1998-06-18/barcode 4990951977024/SLPS-01204; separate Magical 1500 version."
+    },
+    {
+      "sourceId": "src-retrogame-hall",
+      "url": "https://w.atwiki.jp/yamamura2/pages/9227.html",
+      "title": "98甲子園 - レトロゲームの殿堂",
+      "accessedAt": "2026-09-21",
+      "supports": "Standard and Magical 1500 codes/dates; 甲子園 series."
+    },
+    {
+      "sourceId": "src-gamecatalog-wiki",
+      "url": "https://w.atwiki.jp/gcmatome/pages/5996.html",
+      "title": "'98甲子園 - ゲームカタログ@Wiki",
+      "accessedAt": "2026-09-21",
+      "supports": "PS1 baseball simulation; Magical; standard/budget dates; 甲子園 series."
+    },
+    {
+      "sourceId": "src-famitsu-dec2000",
+      "url": "https://www.famitsu.com/schedule/all-platforms/200012",
+      "title": "2000年12月発売 全機種のゲーム発売日スケジュール | ファミ通.com",
+      "accessedAt": "2026-09-21",
+      "supports": "December 2000 PS '98甲子園 Magical 1500 schedule at ¥1,500."
+    },
+    {
+      "sourceId": "src-yugiya-standard-active",
+      "url": "https://www.yugiyahiranonetshop.com/product/41322",
+      "title": "'98 甲子園 帯葉書チラシ箱説有 PS1プレイステーション - 遊戯屋",
+      "accessedAt": "2026-09-21",
+      "supports": "Active standard used copy JPY1100; disc/case/manual/spine/postcard/flyer; photos show standard front/back, SLPS-01204, 4990951977024."
+    },
+    {
+      "sourceId": "src-mercari-standard-active",
+      "url": "https://jp.mercari.com/item/m60335558754",
+      "title": "PS1 98甲子園 - メルカリ",
+      "accessedAt": "2026-09-21",
+      "supports": "Active standard used JPY1700; seller szki; disc/case/manual; seller-paid shipping; photos show standard Japanese back SLPS-01204/4990951977024."
+    },
+    {
+      "sourceId": "src-yahoo-budget-physical",
+      "url": "https://auctions.yahoo.co.jp/jp/auction/n1226600839",
+      "title": "'98甲子園 PS1 ゲームソフト 中古 - Yahoo!オークション",
+      "accessedAt": "2026-09-21",
+      "supports": "Ended physical Magical 1500 photos: front/back/disc; back SLPS-03086, 4990951007080, For Japan Only, 1-2 players, Japanese."
+    },
+    {
+      "sourceId": "src-yahoo-demo-physical",
+      "url": "https://auctions.yahoo.co.jp/jp/auction/u1117392319",
+      "title": "PS体験版ソフト '98 甲子園 体験版 非売品 SLPM80238 - Yahoo!オークション",
+      "accessedAt": "2026-09-21",
+      "supports": "Ended physical demo photos: 体験版/NOT FOR SALE, SLPM-80238, Magical; back For Japan Only, 1-2 players, Japanese."
+    },
+    {
+      "sourceId": "src-mercari-demo-sold",
+      "url": "https://jp.mercari.com/shops/product/4kfmJSnkEPgfRSop8WZsud",
+      "title": "中古 PSソフト 高校野球シミュレーション ’98甲子園 体験版 - メルカリ",
+      "accessedAt": "2026-09-21",
+      "supports": "Sold-out demo listing identifies PS1/Magical/SLPM-80238; excluded from active price sample."
+    },
+    {
+      "sourceId": "src-yahoo-standard-sold",
+      "url": "https://paypayfleamarket.yahoo.co.jp/item/m1226443059",
+      "title": "98甲子園 プレイステーション 高校野球シミュレーション PS PlayStation - Yahoo!フリマ",
+      "accessedAt": "2026-09-21",
+      "supports": "Sold standard used JPY800, disc/case/manual; excluded from active price sample."
+    },
+    {
+      "sourceId": "src-surugaya-budget-sale",
+      "url": "https://www.suruga-ya.jp/product/detail/140002941",
+      "title": "中古 ’98甲子園MAGICAL 1500 - 駿河屋",
+      "accessedAt": "2026-09-21",
+      "supports": "Budget sale page SLPS-03086/2000-12-07; main item out of stock; generic other-shop refs not direct observations."
+    },
+    {
+      "sourceId": "src-mercari-mislabeled-sold",
+      "url": "https://jp.mercari.com/shops/product/2JW94rZupuUUeRx2TeVqYL",
+      "title": "PS／’98甲子園 MAGICAL1500シリーズ - メルカリ",
+      "accessedAt": "2026-09-21",
+      "supports": "Sold title says MAGICAL1500 but description gives standard SLPS01204/JAN4990951977024; conflict only."
+    }
+  ],
+  "queryLedger": [
+    {
+      "queryId": "q01",
+      "queryType": "general",
+      "query": "\"98 Koshien\" PlayStation SLPS-01204",
+      "provider": "web search",
+      "targetFields": [
+        "title",
+        "productCode",
+        "releaseDate",
+        "developer",
+        "publisher"
+      ],
+      "usefulResultRefs": [
+        "src-psxdatacenter-standard",
+        "src-gamefaqs-release-data"
+      ]
+    },
+    {
+      "queryId": "q02",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-01204\"",
+      "provider": "web search",
+      "targetFields": [
+        "identity",
+        "barcode",
+        "releaseDate"
+      ],
+      "usefulResultRefs": [
+        "src-psxdatacenter-standard",
+        "src-surugaya-standard"
+      ]
+    },
+    {
+      "queryId": "q03",
+      "queryType": "general",
+      "query": "\"98 甲子園\" プレイステーション",
+      "provider": "web search",
+      "targetFields": [
+        "identity",
+        "edition",
+        "series"
+      ],
+      "usefulResultRefs": [
+        "src-retrogame-hall",
+        "src-gamecatalog-wiki"
+      ]
+    },
+    {
+      "queryId": "q04",
+      "queryType": "exact_identifier",
+      "query": "\"98 Koshien\" barcode JAN",
+      "provider": "web search",
+      "targetFields": [
+        "barcode"
+      ],
+      "usefulResultRefs": [
+        "src-gamefaqs-release-data",
+        "src-retroplace-standard"
+      ]
+    },
+    {
+      "queryId": "q05",
+      "queryType": "image",
+      "query": "\"98 Koshien\" PS1 cover SLPS-01204",
+      "provider": "web image search",
+      "targetFields": [
+        "images",
+        "packaging"
+      ],
+      "usefulResultRefs": [
+        "src-yugiya-standard-active"
+      ]
+    },
+    {
+      "queryId": "q06",
+      "queryType": "exact_identifier",
+      "query": "\"4990951007080\" \"98甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetEdition",
+        "barcode",
+        "productCode"
+      ],
+      "usefulResultRefs": [
+        "src-surugaya-budget"
+      ]
+    },
+    {
+      "queryId": "q07",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-03086\" \"98甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetEdition",
+        "barcode",
+        "releaseDate"
+      ],
+      "usefulResultRefs": [
+        "src-surugaya-budget",
+        "src-gamefaqs-release-data"
+      ]
+    },
+    {
+      "queryId": "q08",
+      "queryType": "exact_identifier",
+      "query": "\"SLPM-80238\" \"98甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "demo",
+        "serial",
+        "releaseType"
+      ],
+      "usefulResultRefs": [
+        "src-surugaya-demo",
+        "src-redump-psx-japan"
+      ]
+    },
+    {
+      "queryId": "q09",
+      "queryType": "source_specific",
+      "query": "site:mediaarts-db.artmuseums.go.jp \"98甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "identity",
+        "releaseDate"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q10",
+      "queryType": "source_specific",
+      "query": "site:gamefaqs.gamespot.com \"98 Koshien\" PlayStation",
+      "provider": "web search",
+      "targetFields": [
+        "releaseData",
+        "genre",
+        "players"
+      ],
+      "usefulResultRefs": [
+        "src-gamefaqs-release-data"
+      ]
+    },
+    {
+      "queryId": "q11",
+      "queryType": "source_specific",
+      "query": "site:mobygames.com \"98 Koshien\"",
+      "provider": "web search",
+      "targetFields": [
+        "identity",
+        "genre",
+        "series"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q12",
+      "queryType": "image",
+      "query": "\"98甲子園 Magical 1500\" SLPS-03086 cover back",
+      "provider": "web image search",
+      "targetFields": [
+        "budgetImages",
+        "packaging"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q13",
+      "queryType": "exact_identifier",
+      "query": "\"4990951977024\" \"98甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "standardBarcode",
+        "identity"
+      ],
+      "usefulResultRefs": [
+        "src-surugaya-standard",
+        "src-retroplace-standard"
+      ]
+    },
+    {
+      "queryId": "q14",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-01204\" \"4990951977024\"",
+      "provider": "web search",
+      "targetFields": [
+        "standardIdentifiers"
+      ],
+      "usefulResultRefs": [
+        "src-psxdatacenter-standard",
+        "src-surugaya-standard"
+      ]
+    },
+    {
+      "queryId": "q15",
+      "queryType": "exact_identifier",
+      "query": "\"98甲子園\" \"4990951977024\"",
+      "provider": "web search",
+      "targetFields": [
+        "standardIdentifiers"
+      ],
+      "usefulResultRefs": [
+        "src-surugaya-standard"
+      ]
+    },
+    {
+      "queryId": "q16",
+      "queryType": "exact_identifier",
+      "query": "\"98甲子園\" \"SLPS-01204\" \"5800\"",
+      "provider": "web search",
+      "targetFields": [
+        "standardProductCode",
+        "originalPrice"
+      ],
+      "usefulResultRefs": [
+        "src-retrogame-hall"
+      ]
+    },
+    {
+      "queryId": "q17",
+      "queryType": "exact_identifier",
+      "query": "\"98甲子園\" \"SLPS-03086\" \"4990951007080\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetIdentifiers"
+      ],
+      "usefulResultRefs": [
+        "src-surugaya-budget"
+      ]
+    },
+    {
+      "queryId": "q18",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS 03086\" redump",
+      "provider": "web search",
+      "targetFields": [
+        "budgetDiscSerial"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q19",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-03086\" redump",
+      "provider": "web search",
+      "targetFields": [
+        "budgetDiscSerial"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q20",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS 03086\" \"Japanese\" PlayStation",
+      "provider": "web search",
+      "targetFields": [
+        "budgetSoftwareLanguage"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q21",
+      "queryType": "image",
+      "query": "\"SLPS-03086\"",
+      "provider": "web image search",
+      "targetFields": [
+        "budgetImages"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q22",
+      "queryType": "image",
+      "query": "\"4990951007080\"",
+      "provider": "web image search",
+      "targetFields": [
+        "budgetImages",
+        "barcode"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q23",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-03086\" \"画像\" \"甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetImages"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q24",
+      "queryType": "marketplace",
+      "query": "\"SLPS-03086\" \"中古\" \"画像\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetImages",
+        "price"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q25",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-03086\" \"裏面\" 甲子園",
+      "provider": "web search",
+      "targetFields": [
+        "budgetBackImage"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q26",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-03086\" \"背面\" 甲子園",
+      "provider": "web search",
+      "targetFields": [
+        "budgetBackImage"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q27",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-03086\" \"帯\" \"甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetContents"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q28",
+      "queryType": "image",
+      "query": "\"SLPS-03086\" 甲子園 back cover",
+      "provider": "web image search",
+      "targetFields": [
+        "budgetBackImage"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q29",
+      "queryType": "marketplace",
+      "query": "\"SLPS-03086\" メルカリ 甲子園",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q30",
+      "queryType": "marketplace",
+      "query": "\"SLPS-03086\" Yahoo 甲子園",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice",
+        "budgetImages"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q31",
+      "queryType": "source_specific",
+      "query": "\"SLPS-03086\" 駿河屋 甲子園",
+      "provider": "web search",
+      "targetFields": [
+        "budgetMetadata",
+        "budgetPrice"
+      ],
+      "usefulResultRefs": [
+        "src-surugaya-budget",
+        "src-surugaya-budget-sale"
+      ]
+    },
+    {
+      "queryId": "q32",
+      "queryType": "exact_identifier",
+      "query": "\"SLPM 80238\" redump \"98 Koushien\"",
+      "provider": "web search",
+      "targetFields": [
+        "demoSerial",
+        "demoLanguage",
+        "market"
+      ],
+      "usefulResultRefs": [
+        "src-redump-psx-japan"
+      ]
+    },
+    {
+      "queryId": "q33",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS 01204\" redump \"98 Koushien\"",
+      "provider": "web search",
+      "targetFields": [
+        "standardSerial",
+        "standardLanguage",
+        "market"
+      ],
+      "usefulResultRefs": [
+        "src-redump-psx-japan"
+      ]
+    },
+    {
+      "queryId": "q34",
+      "queryType": "marketplace",
+      "query": "\"SLPS-03086\" \"98甲子園\" 在庫 中古",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": [
+        "src-surugaya-budget-sale"
+      ]
+    },
+    {
+      "queryId": "q35",
+      "queryType": "marketplace",
+      "query": "\"SLPS-01204\" \"98甲子園\" 中古 在庫",
+      "provider": "web search",
+      "targetFields": [
+        "standardPrice"
+      ],
+      "usefulResultRefs": [
+        "src-yugiya-standard-active"
+      ]
+    },
+    {
+      "queryId": "q36",
+      "queryType": "marketplace",
+      "query": "\"4990951977024\" \"98甲子園\" 中古",
+      "provider": "web search",
+      "targetFields": [
+        "standardPrice",
+        "standardIdentity"
+      ],
+      "usefulResultRefs": [
+        "src-yugiya-standard-active",
+        "src-mercari-standard-active"
+      ]
+    },
+    {
+      "queryId": "q37",
+      "queryType": "marketplace",
+      "query": "\"SLPS-03086\" \"98甲子園\" \"円\" -駿河屋",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q38",
+      "queryType": "marketplace",
+      "query": "\"4990951007080\" 中古 \"98甲子園\" -駿河屋",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q39",
+      "queryType": "marketplace",
+      "query": "\"98甲子園MAGICAL 1500\" メルカリ",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": [
+        "src-mercari-mislabeled-sold"
+      ]
+    },
+    {
+      "queryId": "q40",
+      "queryType": "marketplace",
+      "query": "\"98甲子園MAGICAL 1500\" Yahoo フリマ",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q41",
+      "queryType": "marketplace",
+      "query": "\"98甲子園\" \"SLPS-01204\" \"カート\" -駿河屋",
+      "provider": "web search",
+      "targetFields": [
+        "standardPrice"
+      ],
+      "usefulResultRefs": [
+        "src-yugiya-standard-active"
+      ]
+    },
+    {
+      "queryId": "q42",
+      "queryType": "image",
+      "query": "\"SLPS-03086\" 98甲子園 back",
+      "provider": "web image search",
+      "targetFields": [
+        "budgetBackImage"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q43",
+      "queryType": "image",
+      "query": "\"SLPM-80238\" 98甲子園 体験版",
+      "provider": "web image search",
+      "targetFields": [
+        "demoImages"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-demo-physical"
+      ]
+    },
+    {
+      "queryId": "q44",
+      "queryType": "marketplace",
+      "query": "\"SLPS-03086\" \"メルカリ\" 98甲子園",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q45",
+      "queryType": "marketplace",
+      "query": "\"SLPS-03086\" \"Yahoo!フリマ\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q46",
+      "queryType": "marketplace",
+      "query": "\"SLPM-80238\" 98甲子園 体験版 Yahoo",
+      "provider": "web search",
+      "targetFields": [
+        "demoPrice",
+        "demoImages"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-demo-physical"
+      ]
+    },
+    {
+      "queryId": "q47",
+      "queryType": "image",
+      "query": "\"4990951007080\" PS1",
+      "provider": "web image search",
+      "targetFields": [
+        "budgetImages",
+        "barcode"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q48",
+      "queryType": "image",
+      "query": "\"98甲子園 MAGICAL 1500\" PlayStation",
+      "provider": "web image search",
+      "targetFields": [
+        "budgetImages"
+      ],
+      "usefulResultRefs": [
+        "src-yahoo-budget-physical"
+      ]
+    },
+    {
+      "queryId": "q49",
+      "queryType": "marketplace",
+      "query": "\"4990951007080\" \"在庫あり\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q50",
+      "queryType": "marketplace",
+      "query": "\"4990951007080\" \"中古\" \"カート\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q51",
+      "queryType": "marketplace",
+      "query": "\"98甲子園 MAGICAL1500\" \"購入手続きへ\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": [
+        "src-mercari-mislabeled-sold"
+      ]
+    },
+    {
+      "queryId": "q52",
+      "queryType": "marketplace",
+      "query": "\"98甲子園 Magical 1500\" \"送料込み\"",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": [
+        "src-mercari-mislabeled-sold"
+      ]
+    },
+    {
+      "queryId": "q53",
+      "queryType": "marketplace",
+      "query": "\"98甲子園 Magical 1500\" site:jp.mercari.com/item",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q54",
+      "queryType": "marketplace",
+      "query": "\"SLPS03086\" site:jp.mercari.com/item",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q55",
+      "queryType": "marketplace",
+      "query": "\"SLPS-03086\" site:paypayfleamarket.yahoo.co.jp/item",
+      "provider": "web search",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q56",
+      "queryType": "marketplace",
+      "query": "\"98甲子園\" \"新品\" \"購入手続きへ\" PlayStation",
+      "provider": "web search",
+      "targetFields": [
+        "standardSealedPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q57",
+      "queryType": "marketplace",
+      "query": "\"4990951977024\" \"新品\" PlayStation",
+      "provider": "web search",
+      "targetFields": [
+        "standardSealedPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q58",
+      "queryType": "marketplace",
+      "query": "\"SLPS-01204\" \"新品\" PlayStation",
+      "provider": "web search",
+      "targetFields": [
+        "standardSealedPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q59",
+      "queryType": "marketplace",
+      "query": "\"98甲子園\" \"未開封\" メルカリ",
+      "provider": "web search",
+      "targetFields": [
+        "standardSealedPrice"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q60",
+      "queryType": "source_specific",
+      "query": "site:w.atwiki.jp/yamamura2 \"98甲子園\" SLPS-01204",
+      "provider": "web search",
+      "targetFields": [
+        "series",
+        "standardMetadata",
+        "budgetMetadata"
+      ],
+      "usefulResultRefs": [
+        "src-retrogame-hall"
+      ]
+    },
+    {
+      "queryId": "q61",
+      "queryType": "marketplace",
+      "query": "site:jp.mercari.com/item \"SLPS 01204\" \"98甲子園\" \"説明書\"",
+      "provider": "web search",
+      "targetFields": [
+        "standardPrice",
+        "exactIdentity"
+      ],
+      "usefulResultRefs": [
+        "src-mercari-mislabeled-sold"
+      ]
+    },
+    {
+      "queryId": "q62",
+      "queryType": "marketplace",
+      "query": "site:jp.mercari.com/item \"4990951977024\" \"98甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "standardPrice",
+        "exactIdentity"
+      ],
+      "usefulResultRefs": [
+        "src-mercari-mislabeled-sold"
+      ]
+    },
+    {
+      "queryId": "q63",
+      "queryType": "marketplace",
+      "query": "\"98甲子園□箱、説明書、ソフトのセット\" メルカリ",
+      "provider": "web search",
+      "targetFields": [
+        "standardPrice",
+        "includedContents"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q64",
+      "queryType": "marketplace",
+      "query": "\"PS 98甲子園 帯付\" メルカリ",
+      "provider": "web search",
+      "targetFields": [
+        "standardPrice",
+        "includedContents"
+      ],
+      "usefulResultRefs": []
+    },
+    {
+      "queryId": "q65",
+      "queryType": "image",
+      "query": "\"m60335558754\" \"PS1 98甲子園\"",
+      "provider": "web image search",
+      "targetFields": [
+        "standardPhysicalEvidence",
+        "standardImages"
+      ],
+      "usefulResultRefs": [
+        "src-yugiya-standard-active"
+      ]
+    }
+  ],
+  "sourceAttempts": [
+    {
+      "attemptId": "a01",
+      "sourceName": "PSX DataCenter",
+      "domain": "psxdatacenter.com",
+      "sourceType": "technical_database",
+      "platform": "ps1",
+      "targetFields": [
+        "identity"
+      ],
+      "queryRefs": [
+        "q01",
+        "q02",
+        "q14"
+      ],
+      "url": "https://psxdatacenter.com/games/J/0-9/SLPS-01204.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts",
+        "releases[0]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a02",
+      "sourceName": "GameFAQs",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "game_database",
+      "platform": "ps1",
+      "targetFields": [
+        "releaseData"
+      ],
+      "queryRefs": [
+        "q01",
+        "q10"
+      ],
+      "url": "https://gamefaqs.gamespot.com/ps/572594-98-koushien/data",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts",
+        "releases[0]",
+        "releases[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a03",
+      "sourceName": "Suruga-ya standard buyback record",
+      "domain": "suruga-ya.jp",
+      "sourceType": "retailer_metadata",
+      "platform": "ps1",
+      "targetFields": [
+        "standardIdentifiers"
+      ],
+      "queryRefs": [
+        "q02",
+        "q13",
+        "q14"
+      ],
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140001344",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0]"
+      ],
+      "limitation": "Not current price evidence."
+    },
+    {
+      "attemptId": "a04",
+      "sourceName": "Suruga-ya Magical 1500 buyback record",
+      "domain": "suruga-ya.jp",
+      "sourceType": "retailer_metadata",
+      "platform": "ps1",
+      "targetFields": [
+        "budgetIdentifiers"
+      ],
+      "queryRefs": [
+        "q06",
+        "q07",
+        "q17",
+        "q31"
+      ],
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140002941",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1]"
+      ],
+      "limitation": "Not current price evidence."
+    },
+    {
+      "attemptId": "a05",
+      "sourceName": "Suruga-ya demo buyback record",
+      "domain": "suruga-ya.jp",
+      "sourceType": "retailer_metadata",
+      "platform": "ps1",
+      "targetFields": [
+        "demoIdentity"
+      ],
+      "queryRefs": [
+        "q08"
+      ],
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140008477",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[2]"
+      ],
+      "limitation": "No JAN or release date."
+    },
+    {
+      "attemptId": "a06",
+      "sourceName": "Redump PSX Japan listing",
+      "domain": "redump.org",
+      "sourceType": "preservation_database",
+      "platform": "ps1",
+      "targetFields": [
+        "discSerial"
+      ],
+      "queryRefs": [
+        "q18",
+        "q19",
+        "q32",
+        "q33"
+      ],
+      "url": "https://redump.org/discs/system/psx/region/As/",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0]",
+        "releases[2]"
+      ],
+      "limitation": "Direct page timed out; exact database rows were exposed in search results."
+    },
+    {
+      "attemptId": "a07",
+      "sourceName": "Arcade-History Magical 1500",
+      "domain": "arcade-history.com",
+      "sourceType": "technical_database",
+      "platform": "ps1",
+      "targetFields": [
+        "budgetIdentifiers"
+      ],
+      "queryRefs": [
+        "q07"
+      ],
+      "url": "https://www.arcade-history.com/game/300214/magical-1500-98-koushien-koukou-yakyuu-simulation-model-slps-03086",
+      "accessStatus": "BLOCKED",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "HTTP 403."
+    },
+    {
+      "attemptId": "a08",
+      "sourceName": "MobyGames",
+      "domain": "mobygames.com",
+      "sourceType": "game_database",
+      "platform": "ps1",
+      "targetFields": [
+        "identity"
+      ],
+      "queryRefs": [
+        "q11"
+      ],
+      "url": "https://www.mobygames.com/game/219124/98-koshien/",
+      "accessStatus": "TIMEOUT",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Internal retrieval error."
+    },
+    {
+      "attemptId": "a09",
+      "sourceName": "Retroplace standard",
+      "domain": "retroplace.com",
+      "sourceType": "collector_database",
+      "platform": "ps1",
+      "targetFields": [
+        "standardIdentifiers"
+      ],
+      "queryRefs": [
+        "q04",
+        "q13"
+      ],
+      "url": "https://www.retroplace.com/en/games/50512--98-koushien",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts",
+        "releases[0]"
+      ],
+      "limitation": "No current offers."
+    },
+    {
+      "attemptId": "a10",
+      "sourceName": "Retroplace Magical 1500",
+      "domain": "retroplace.com",
+      "sourceType": "collector_database",
+      "platform": "ps1",
+      "targetFields": [
+        "budgetImages"
+      ],
+      "queryRefs": [
+        "q47",
+        "q48"
+      ],
+      "url": "https://www.retroplace.com/es/juegos/50513--98-koushien",
+      "accessStatus": "TIMEOUT",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct page timed out."
+    },
+    {
+      "attemptId": "a11",
+      "sourceName": "レトロゲームの殿堂",
+      "domain": "w.atwiki.jp",
+      "sourceType": "reference_database",
+      "platform": "ps1",
+      "targetFields": [
+        "series"
+      ],
+      "queryRefs": [
+        "q03",
+        "q16",
+        "q60"
+      ],
+      "url": "https://w.atwiki.jp/yamamura2/pages/9227.html",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.series",
+        "releases[0]",
+        "releases[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a12",
+      "sourceName": "ゲームカタログ@Wiki",
+      "domain": "w.atwiki.jp",
+      "sourceType": "reference_database",
+      "platform": "ps1",
+      "targetFields": [
+        "series"
+      ],
+      "queryRefs": [
+        "q03"
+      ],
+      "url": "https://w.atwiki.jp/gcmatome/pages/5996.html",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a13",
+      "sourceName": "Famitsu release schedule",
+      "domain": "famitsu.com",
+      "sourceType": "release_schedule",
+      "platform": "ps1",
+      "targetFields": [
+        "budgetReleaseType"
+      ],
+      "queryRefs": [
+        "q07"
+      ],
+      "url": "https://www.famitsu.com/schedule/all-platforms/200012",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1]"
+      ],
+      "limitation": "No product code/barcode."
+    },
+    {
+      "attemptId": "a14",
+      "sourceName": "遊戯屋 standard copy",
+      "domain": "yugiyahiranonetshop.com",
+      "sourceType": "active_secondhand_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "standardImages"
+      ],
+      "queryRefs": [
+        "q05",
+        "q35",
+        "q36",
+        "q41"
+      ],
+      "url": "https://www.yugiyahiranonetshop.com/product/41322",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0]",
+        "images[0]",
+        "images[1]",
+        "regionalPrices[1]"
+      ],
+      "limitation": "Shipping not exposed."
+    },
+    {
+      "attemptId": "a15",
+      "sourceName": "Mercari standard active copy",
+      "domain": "jp.mercari.com",
+      "sourceType": "active_secondhand_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "completePrice"
+      ],
+      "queryRefs": [
+        "q36"
+      ],
+      "url": "https://jp.mercari.com/item/m60335558754",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0]",
+        "regionalPrices[1]"
+      ],
+      "limitation": "Region/edition tied through physical back-cover photo."
+    },
+    {
+      "attemptId": "a16",
+      "sourceName": "Yahoo! Auctions Magical 1500 physical copy",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "ended_secondhand_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "budgetImages"
+      ],
+      "queryRefs": [
+        "q12",
+        "q21",
+        "q22",
+        "q23",
+        "q24",
+        "q25",
+        "q26",
+        "q28",
+        "q30",
+        "q42",
+        "q47",
+        "q48"
+      ],
+      "url": "https://auctions.yahoo.co.jp/jp/auction/n1226600839",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1]",
+        "images[2]",
+        "images[3]"
+      ],
+      "limitation": "Ended; excluded from active price sample."
+    },
+    {
+      "attemptId": "a17",
+      "sourceName": "Yahoo! Auctions demo physical copy",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "ended_secondhand_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "demoImages"
+      ],
+      "queryRefs": [
+        "q43",
+        "q46"
+      ],
+      "url": "https://auctions.yahoo.co.jp/jp/auction/u1117392319",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[2]",
+        "images[4]",
+        "images[5]"
+      ],
+      "limitation": "Ended 2026-08-30; excluded from current price sample."
+    },
+    {
+      "attemptId": "a18",
+      "sourceName": "Mercari demo copy",
+      "domain": "jp.mercari.com",
+      "sourceType": "sold_secondhand_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "demoIdentity"
+      ],
+      "queryRefs": [
+        "q08",
+        "q43"
+      ],
+      "url": "https://jp.mercari.com/shops/product/4kfmJSnkEPgfRSop8WZsud",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[2]",
+        "regionalPrices[5]"
+      ],
+      "limitation": "Sold out."
+    },
+    {
+      "attemptId": "a19",
+      "sourceName": "Yahoo! Flea Market standard copy",
+      "domain": "paypayfleamarket.yahoo.co.jp",
+      "sourceType": "sold_secondhand_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "standardContents"
+      ],
+      "queryRefs": [
+        "q35",
+        "q36"
+      ],
+      "url": "https://paypayfleamarket.yahoo.co.jp/item/m1226443059",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[1]"
+      ],
+      "limitation": "Sold; excluded."
+    },
+    {
+      "attemptId": "a20",
+      "sourceName": "Suruga-ya Magical 1500 sale page",
+      "domain": "suruga-ya.jp",
+      "sourceType": "secondhand_retail_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "budgetPrice"
+      ],
+      "queryRefs": [
+        "q31",
+        "q34"
+      ],
+      "url": "https://www.suruga-ya.jp/product/detail/140002941",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[2]",
+        "regionalPrices[3]"
+      ],
+      "limitation": "Main item out of stock; other-shop count not direct observations."
+    },
+    {
+      "attemptId": "a21",
+      "sourceName": "Mercari mislabeled Magical1500 listing",
+      "domain": "jp.mercari.com",
+      "sourceType": "sold_secondhand_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "editionIdentity"
+      ],
+      "queryRefs": [
+        "q39",
+        "q51",
+        "q52"
+      ],
+      "url": "https://jp.mercari.com/shops/product/2JW94rZupuUUeRx2TeVqYL",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "conflicts"
+      ],
+      "limitation": "Title says MAGICAL1500 but description is standard SLPS01204/4990951977024; sold."
+    },
+    {
+      "attemptId": "a22",
+      "sourceName": "Yahoo! Flea Market demo listing",
+      "domain": "paypayfleamarket.yahoo.co.jp",
+      "sourceType": "secondhand_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "demoPrice"
+      ],
+      "queryRefs": [
+        "q46"
+      ],
+      "url": "https://paypayfleamarket.yahoo.co.jp/item/j1059334609",
+      "accessStatus": "TIMEOUT",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Internal retrieval error."
+    },
+    {
+      "attemptId": "a23",
+      "sourceName": "Mercari search results",
+      "domain": "jp.mercari.com",
+      "sourceType": "marketplace_search",
+      "platform": "ps1",
+      "targetFields": [
+        "standardPrice"
+      ],
+      "queryRefs": [
+        "q39",
+        "q44",
+        "q51",
+        "q52",
+        "q53",
+        "q54",
+        "q56",
+        "q59"
+      ],
+      "url": "https://jp.mercari.com/search?keyword=98%E7%94%B2%E5%AD%90%E5%9C%92",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CANDIDATE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Search-only candidates were not counted as price observations."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 3,
+  "generation": 6,
   "workerId": "ps1",
   "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -9,26 +9,29 @@
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
-  "currentItemResearchId": null,
+  "currentItemResearchId": "99-koshien-ps1-2026-09-22",
   "workPackage": {
-    "packageId": "ps1-2026-09-21-001",
-    "grouping": {"type": "single", "basis": "Primera entrada HIGH elegible del worker; no se ha supuesto afinidad con entradas posteriores."},
+    "packageId": "ps1-2026-09-22-002",
+    "grouping": {
+      "type": "single",
+      "basis": "Primera entrada pending de PS1 no cubierta por un resultado previo, según el orden estable y la regla anti-repetición; la siguiente entrada no pertenece a la misma serie."
+    },
     "items": [
       {
-        "queueId": "platform-work:ps1:ps1-work-af392f46612455ff",
+        "queueId": "platform-work:ps1:ps1-work-e1395f1867436fa4",
         "platform": "ps1",
-        "title": "'98 Koshien",
-        "catalogIds": ["ps1-japon-%2798-koshien"],
-        "researchId": "98-koshien-ps1-2026-09-21",
-        "orderPath": "research/workers/ps1/orders/98-koshien-ps1-2026-09-21.md",
-        "resultPath": "research/results/98-koshien-ps1-2026-09-21.json",
+        "title": "'99 Koshien",
+        "catalogIds": ["ps1-japon-%2799-koshien"],
+        "researchId": "99-koshien-ps1-2026-09-22",
+        "orderPath": "research/workers/ps1/orders/99-koshien-ps1-2026-09-22.md",
+        "resultPath": "research/results/99-koshien-ps1-2026-09-22.json",
         "status": "PENDING",
-        "checkpointPath": "research/workers/ps1/checkpoints/98-koshien-ps1-2026-09-21.json"
+        "checkpointPath": "research/workers/ps1/checkpoints/99-koshien-ps1-2026-09-22.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-21T05:14:52Z",
+  "updatedAt": "2026-09-22T12:47:46Z",
   "updatedBy": "codex",
-  "note": "Paquete inicial preparado con una sola entrada para validar el aislamiento del worker."
+  "note": "'98 Koshien validado, publicado y consumido. Siguiente orden preparada para '99 Koshien."
 }
