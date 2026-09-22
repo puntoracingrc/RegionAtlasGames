@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 16,
+  "generation": 17,
   "workerId": "ps2",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
@@ -41,8 +41,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T14:26:52Z",
+  "lease": {
+    "runId": "chatgpt-ps2-20260922T150934Z-r11",
+    "claimedAt": "2026-09-22T15:09:34Z",
+    "expiresAt": "2026-09-22T16:09:34Z"
+  },
+  "updatedAt": "2026-09-22T15:09:34Z",
   "updatedBy": "chatgpt",
-  "note": "Finalización de .Hack - G.U. Vol.2 revisada con búsquedas de corroboración; no se inició Vol.3. El checkpoint factual existente sigue siendo autoritativo y el lease queda liberado para continuar el mismo elemento."
+  "note": "Claimed checkpointed .Hack - G.U. Vol.2 - Reminisce for final v11 normalization and result delivery."
 }
