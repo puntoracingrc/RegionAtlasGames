@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 18,
+  "generation": 19,
   "workerId": "switch",
-  "state": "RUNNING",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
@@ -29,17 +29,12 @@
         "researchId": "1-2-switch-switch-2026-09-22",
         "orderPath": "research/workers/switch/orders/1-2-switch-switch-2026-09-22.md",
         "resultPath": "research/results/1-2-switch-switch-2026-09-22.json",
-        "status": "PENDING",
+        "status": "CHECKPOINTED",
         "checkpointPath": "research/workers/switch/checkpoints/1-2-switch-switch-2026-09-22.json"
       }
     ]
   },
-  "lease": {
-    "runId": "chatgpt-switch-20260922T122446Z-8k3m",
-    "claimedAt": "2026-09-22T12:24:46Z",
-    "expiresAt": "2026-09-22T13:19:46Z"
-  },
-  "updatedAt": "2026-09-22T12:24:46Z",
+  "updatedAt": "2026-09-22T12:39:22Z",
   "updatedBy": "chatgpt",
-  "note": "Lease vencido recuperado para continuar 1-2 Switch; runId anterior: chatgpt-switch-20260922T112806Z-1a2s."
+  "note": "Checkpoint factual guardado para 1-2 Switch; identidad y tres productos regionales asignados investigados. Pendiente cerrar la entrega ORDER_TEMPLATE_VERSION 11, principalmente adquisición visual exacta y validación final del JSON/precios antes de RESULT_READY."
 }
