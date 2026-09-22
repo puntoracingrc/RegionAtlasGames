@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 10,
+  "generation": 11,
   "workerId": "ps4",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps4",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
-  "currentItemResearchId": null,
+  "currentItemResearchId": "2dark-limited-edition-ps4-2026-09-22",
   "workPackage": {
     "packageId": "ps4-2026-09-22-001",
     "grouping": {
@@ -32,8 +32,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T03:15:00Z",
-  "updatedBy": "codex",
-  "note": "Resultado de .hack//G.U. Last Recode consumido tras validación y publicación; siguiente propuesta PS4 preparada."
+  "lease": {
+    "runId": "ps4-20260922T093708Z-a41f6c",
+    "claimedAt": "2026-09-22T09:37:08Z",
+    "expiresAt": "2026-09-22T10:27:08Z"
+  },
+  "updatedAt": "2026-09-22T09:37:08Z",
+  "updatedBy": "chatgpt",
+  "note": "Reclamado para investigación externa conforme a ORDER_TEMPLATE_VERSION 11."
 }
