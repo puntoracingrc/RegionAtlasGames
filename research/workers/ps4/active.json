@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 18,
+  "generation": 19,
   "workerId": "ps4",
   "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -11,9 +11,9 @@
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": "2dark-limited-edition-ps4-2026-09-22",
   "lease": {
-    "runId": "ps4-20260922T124252Z-turn11",
-    "claimedAt": "2026-09-22T12:42:52Z",
-    "expiresAt": "2026-09-22T13:42:52Z"
+    "runId": "ps4-20260922T143703Z-turn11-recovery",
+    "claimedAt": "2026-09-22T14:37:03Z",
+    "expiresAt": "2026-09-22T15:37:03Z"
   },
   "workPackage": {
     "packageId": "ps4-2026-09-22-001",
@@ -37,7 +37,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-22T12:42:52Z",
+  "updatedAt": "2026-09-22T14:37:03Z",
   "updatedBy": "chatgpt",
-  "note": "Lease reclamado para cerrar el checkpoint formalmente validado en resultPath; no repetir investigación externa salvo fallo concreto de revalidación."
+  "note": "Lease vencido ps4-20260922T124252Z-turn11 recuperado por ps4-20260922T143703Z-turn11-recovery; continuar exclusivamente el elemento actual desde checkpoint/resultPath y cerrar esta ejecución."
 }
