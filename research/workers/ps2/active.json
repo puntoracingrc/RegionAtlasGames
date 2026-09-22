@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 21,
+  "generation": 22,
   "workerId": "ps2",
-  "state": "RUNNING",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": 11,
-  "currentItemResearchId": "hack-gu-vol-3-redemption-ps2-2026-09-22",
+  "currentItemResearchId": null,
   "workPackage": {
     "packageId": "ps2-2026-09-22-003",
     "grouping": {
@@ -36,17 +36,12 @@
         "researchId": "hack-gu-vol-3-redemption-ps2-2026-09-22",
         "orderPath": "research/workers/ps2/orders/hack-gu-vol-3-redemption-ps2-2026-09-22.md",
         "resultPath": "research/results/hack-gu-vol-3-redemption-ps2-2026-09-22.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/ps2/checkpoints/hack-gu-vol-3-redemption-ps2-2026-09-22.json"
       }
     ]
   },
-  "lease": {
-    "runId": "chatgpt-ps2-20260922T191253Z-r12",
-    "claimedAt": "2026-09-22T19:12:53Z",
-    "expiresAt": "2026-09-22T20:12:53Z"
-  },
-  "updatedAt": "2026-09-22T19:12:53Z",
+  "updatedAt": "2026-09-22T19:14:00Z",
   "updatedBy": "chatgpt",
-  "note": "Recovered expired lease chatgpt-ps2-20260922T171219Z-r11 for .Hack - G.U. Vol.3 - Redemption; continuing the current item only."
+  "note": "Recovered the expired lease and found the assigned result already present for the exact researchId and triggerQueueEntry.queueId. No research was repeated. Both package items are RESULT_READY."
 }
