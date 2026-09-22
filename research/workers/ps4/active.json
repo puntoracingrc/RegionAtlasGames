@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 22,
+  "generation": 23,
   "workerId": "ps4",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps4",
   "queuePath": "research/queue.json",
@@ -10,6 +10,11 @@
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": null,
   "currentItemResearchId": "2dark-limited-edition-ps4-2026-09-22",
+  "lease": {
+    "runId": "ps4-20260922T183744Z-turn11",
+    "claimedAt": "2026-09-22T18:37:44Z",
+    "expiresAt": "2026-09-22T19:37:44Z"
+  },
   "workPackage": {
     "packageId": "ps4-2026-09-22-001",
     "grouping": {
@@ -30,7 +35,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-22T17:47:14Z",
+  "updatedAt": "2026-09-22T18:37:44Z",
   "updatedBy": "chatgpt",
-  "note": "Checkpoint del elemento actual revalidado tras recuperar el lease vencido: el draft gzip+base64 decodifica a 79364 bytes, SHA-256 afd51a7732b142a1006082f0d12b1b0ed0900f19686531a33246b39368f3c629, JSON.parse correcto, sourceRefs/queryRefs/usefulResultRefs válidos y URLs directas válidas. Se conserva el checkpoint autoritativo sin repetir investigación; resultPath sigue pendiente de serialización en Git y el lease queda liberado para continuar exactamente este elemento."
+  "note": "Lease reclamado desde READY para continuar exclusivamente el elemento CHECKPOINTED desde su checkpoint persistido y cerrar esta ejecución conforme al protocolo."
 }
