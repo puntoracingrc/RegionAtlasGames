@@ -181,7 +181,6 @@ export function expandRegionalVariantBatch(
   const baseSlug = slugify(input.baseSlug?.trim() || title);
   const rows: ExpandedRegionalVariantRow[] = [];
   const usedSlugs = new Set<string>();
-  const usedMarkets = new Set<string>();
   const usedExistingCatalogIds = new Set<string>();
 
   for (const [index, rawGroup] of input.groups.entries()) {
@@ -199,11 +198,6 @@ export function expandRegionalVariantBatch(
     if (new Set(resolvedMarkets.map((market) => market.broadRegion)).size > 1) {
       return { error: `La variante ${index + 1} mezcla grandes regiones distintas.` };
     }
-    const repeatedMarket = resolvedMarkets.find((market) => usedMarkets.has(market.value));
-    if (repeatedMarket) {
-      return { error: `La región ${repeatedMarket.shortLabel} está seleccionada en más de una variante.` };
-    }
-    resolvedMarkets.forEach((market) => usedMarkets.add(market.value));
     const invalidPriceMarket = resolvedMarkets.find((market) => !validInitialPrices(rawGroup.marketPrices?.[market.value]));
     if (invalidPriceMarket) {
       return { error: `La variante ${index + 1} contiene un precio no válido para ${invalidPriceMarket.shortLabel}.` };
