@@ -140,7 +140,6 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
     for (const option of marketOptions) entries.set(option.group, [...(entries.get(option.group) ?? []), option]);
     return [...entries.entries()];
   }, [marketOptions]);
-  const selectedMarkets = useMemo(() => new Set(groups.flatMap((group) => group.markets)), [groups]);
   const regionalRecordCount = groups.reduce((total, group) => total + group.markets.length, 0);
   const canSubmit = Boolean(title.trim()) && groups.every((group) => group.markets.length > 0);
 
@@ -299,8 +298,8 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{(Object.keys(IMAGE_ROLE_LABELS) as ImageRole[]).map((role) => <FileField key={role} label={IMAGE_ROLE_LABELS[role]} file={group.files[role]} onChange={(file) => updateGroup(group.id, { files: { ...group.files, [role]: file } })} />)}</div>
         <label className="mt-3 block max-w-sm space-y-1"><span className="text-[10px] uppercase tracking-wider text-muted">Procedencia de las imágenes</span><select className="input" value={group.imageEvidenceType} onChange={(event) => updateGroup(group.id, { imageEvidenceType: event.target.value as ImageEvidenceType })}><option value="RETAILER_ASSET">Imagen de tienda/distribuidor</option><option value="PUBLISHER_MOCKUP">Imagen oficial del editor</option><option value="REAL_SCAN">Escaneo de la caja real</option><option value="REAL_PHOTO">Fotografía de la caja real</option><option value="OWNER_CONFIRMATION">Confirmación del propietario</option></select></label>
         <div className="mt-5 space-y-3">{marketsByGroup.map(([marketGroup, options]) => <fieldset key={marketGroup}><legend className="mb-2 text-xs font-semibold text-muted">{MARKET_GROUP_LABELS[marketGroup] ?? marketGroup}</legend><div className="flex flex-wrap gap-2">{options.map((option) => {
-          const active = group.markets.includes(option.value); const usedElsewhere = !active && selectedMarkets.has(option.value);
-          return <label key={option.value} className={`cursor-pointer rounded-md border px-3 py-2 text-sm ${active ? "border-accent bg-accent/10 text-foreground" : "border-border bg-background text-muted"} ${usedElsewhere ? "cursor-not-allowed opacity-40" : ""}`}><input type="checkbox" className="sr-only" checked={active} disabled={usedElsewhere} onChange={() => toggleMarket(group, option.value)} />{option.label}</label>;
+          const active = group.markets.includes(option.value);
+          return <label key={option.value} className={`cursor-pointer rounded-md border px-3 py-2 text-sm ${active ? "border-accent bg-accent/10 text-foreground" : "border-border bg-background text-muted"}`}><input type="checkbox" className="sr-only" checked={active} onChange={() => toggleMarket(group, option.value)} />{option.label}</label>;
         })}</div></fieldset>)}</div>
         {group.markets.length > 0 ? <details className="mt-5 rounded-md border border-border bg-background/55 p-3" open><summary className="cursor-pointer text-sm font-semibold">Ficha y precios por región</summary><div className="mt-3 space-y-4">{group.markets.map((market) => {
           const prices = group.marketPrices[market] ?? EMPTY_PRICES;

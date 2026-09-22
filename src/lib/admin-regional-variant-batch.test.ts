@@ -96,6 +96,35 @@ test("a physical box can group markets but cannot cross broad regions", () => {
   assert.match(invalidPrice.error, /precio no válido/);
 });
 
+test("different physical boxes can reuse a market without sharing an identity", () => {
+  const result = expandRegionalVariantBatch({
+    title: ".hack//G.U. Last Recode",
+    platformSlug: "ps4",
+    baseSlug: "hack-gu-last-recode",
+    physicalVariant: "Premium Edition",
+    groups: [
+      {
+        label: "Standard Japan",
+        markets: ["JP"],
+        barcode: "4573173322188",
+        existingCatalogIds: { JP: "ps4-japon-hack-gu-last-recode-jp" },
+      },
+      { label: "Premium Edition Japan", markets: ["JP"], barcode: "4573173322195" },
+      { label: "Welcome Price Japan", markets: ["JP"], barcode: "4573173343343" },
+    ],
+  });
+
+  assert.ok(!("error" in result));
+  assert.equal(result.rows.length, 3);
+  assert.equal(new Set(result.rows.map((row) => row.slug)).size, 3);
+  assert.deepEqual(result.rows.map((row) => row.slug), [
+    "hack-gu-last-recode-jp",
+    "hack-gu-last-recode-jp-premium-edition-japan",
+    "hack-gu-last-recode-jp-welcome-price-japan",
+  ]);
+  assert.notEqual(result.rows[0].group.id, result.rows[1].group.id);
+});
+
 test("a regional batch can explicitly reuse existing catalog entries", () => {
   const result = expandRegionalVariantBatch({
     title: "007 Blood Stone",
