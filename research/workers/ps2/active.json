@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 20,
+  "generation": 21,
   "workerId": "ps2",
   "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -42,11 +42,11 @@
     ]
   },
   "lease": {
-    "runId": "chatgpt-ps2-20260922T171219Z-r11",
-    "claimedAt": "2026-09-22T17:12:19Z",
-    "expiresAt": "2026-09-22T18:12:19Z"
+    "runId": "chatgpt-ps2-20260922T191253Z-r12",
+    "claimedAt": "2026-09-22T19:12:53Z",
+    "expiresAt": "2026-09-22T20:12:53Z"
   },
-  "updatedAt": "2026-09-22T17:12:19Z",
+  "updatedAt": "2026-09-22T19:12:53Z",
   "updatedBy": "chatgpt",
-  "note": "Claimed .Hack - G.U. Vol.3 - Redemption for ORDER_TEMPLATE_VERSION 11 research."
+  "note": "Recovered expired lease chatgpt-ps2-20260922T171219Z-r11 for .Hack - G.U. Vol.3 - Redemption; continuing the current item only."
 }
