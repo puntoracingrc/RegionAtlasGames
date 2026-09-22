@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 15,
+  "generation": 16,
   "workerId": "ps1",
-  "state": "RUNNING",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps1",
   "queuePath": "research/queue.json",
@@ -40,17 +40,13 @@
         "researchId": "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
         "orderPath": "research/workers/ps1/orders/0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22.md",
         "resultPath": "research/results/0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/ps1/checkpoints/0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22.json"
       }
     ]
   },
-  "lease": {
-    "runId": "chatgpt-ps1-20260922T185446Z-r10",
-    "claimedAt": "2026-09-22T18:54:46Z",
-    "expiresAt": "2026-09-22T19:49:46Z"
-  },
-  "updatedAt": "2026-09-22T18:54:46Z",
+  "lease": null,
+  "updatedAt": "2026-09-22T19:06:55Z",
   "updatedBy": "chatgpt",
-  "note": "Research claimed for 0 Kara no Shogi - Shogi Youchien Ayumi-Gumi R."
+  "note": "Research completed for 0 Kara no Shogi - Shogi Youchien Ayumi-Gumi R; both items in package ps1-2026-09-22-003 are result-ready for Codex validation."
 }
