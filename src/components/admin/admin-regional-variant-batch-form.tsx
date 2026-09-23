@@ -226,7 +226,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
           markets: group.markets, barcode: group.barcode || null,
           productCodes: splitValues(group.productCodes), packagingLanguages: splitValues(group.packagingLanguages),
           softwareLanguages: splitValues(group.softwareLanguages), confidence: group.confidence,
-          coverUrl: front?.url ?? uploadedCommonCover?.url ?? (coverUrl || null),
+          coverUrl: front?.url ?? (groups.length === 1 ? uploadedCommonCover?.url ?? (coverUrl || null) : null),
           ratingSystems: splitValues(group.ratingSystems), physicalContentStatus: group.physicalContentStatus,
           catalogNumber: group.catalogNumber || null, serial: group.serial || null, boxCode: group.boxCode || null,
           releaseDate: group.releaseDate || null, releaseDateContext: group.releaseDateContext || null,
