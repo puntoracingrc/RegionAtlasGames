@@ -30,7 +30,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-23T15:03:55Z",
+  "updatedAt": "2026-09-23T16:14:10Z",
   "updatedBy": "codex",
-  "note": "Vol.2 publicado mediante Admin V2 sobre tres IDs existentes y verificado en producción: Standard USA y Japón comparten familia; PlayStation 2 the Best es otra familia del mismo work y está vinculada. Portada/contraportada USA y portada Best visibles; imágenes Japón Standard pendientes por acceso 403, no bloqueantes. Precios activos excluidos. Recibo en research/receipts/hack-gu-vol-2-reminisce-ps2-2026-09-22.json; resultado retirado del paquete sin borrar el histórico. Vol.3 queda como siguiente RESULT_READY en PROCESSING. La canonicalización global 9 works + 2 compilaciones del paquete corregido del usuario sigue siendo un trabajo independiente."
+  "note": "Vol.3 publicado parcialmente mediante Admin V2: Standard USA y Japón vinculados, Best Japón en familia comercial separada del mismo work; identificadores confirmados y sin precios. No repetir el alta. La Best heredó erróneamente la portada común USA aunque no tiene scan propio; PR #363 corrige el reparto de portadas y permite quitarla en Admin, fusionada en main 388b6852 pero pendiente de despliegue y verificación. Tras desplegar, limpiar URL portada de ps2-japon-hack-g-u-vol-3-redemption-jp-playstation-2-the-best mediante Admin, verificar ambas fichas públicas, guardar recibo y ledger, consumir researchId y preparar siguiente orden. El serial SLPS-73267 sigue en conflicto entre fichas de minoristas y no se publicó. Scans GameFAQs Best bloqueados por 403, advertencia no bloqueante."
 }
