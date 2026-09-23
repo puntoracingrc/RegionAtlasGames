@@ -921,30 +921,32 @@
         "blud-switch-2026-09-21",
         "drive-rally-special-edition-switch-2026-09-21",
         "drive-rally-switch-2026-09-21",
-        "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+        "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
+        "3d-mini-golf-switch-2026-09-23"
       ],
-      "observationCount": 4,
+      "observationCount": 5,
       "queryTotals": {
-        "exact_identifier": 43,
-        "general": 46,
-        "image": 20,
-        "marketplace": 49,
-        "source_specific": 47
+        "exact_identifier": 63,
+        "general": 53,
+        "image": 22,
+        "marketplace": 60,
+        "source_specific": 58
       },
       "sourceAttemptTotals": {
-        "total": 80,
-        "useful": 68,
+        "total": 93,
+        "useful": 77,
         "byOutcome": {
-          "CONFIRMED_EVIDENCE": 58,
-          "CONTEXT_ONLY": 12,
-          "TECHNICAL_FAILURE": 2,
-          "CANDIDATE": 4,
-          "NO_RELEVANT_DATA": 4
+          "CONFIRMED_EVIDENCE": 66,
+          "CONTEXT_ONLY": 13,
+          "TECHNICAL_FAILURE": 3,
+          "CANDIDATE": 5,
+          "NO_RELEVANT_DATA": 6
         },
         "byAccessStatus": {
           "BLOCKED": 2,
-          "OPENED": 74,
-          "SEARCH_RESULT_ONLY": 4
+          "OPENED": 84,
+          "SEARCH_RESULT_ONLY": 6,
+          "TIMEOUT": 1
         }
       },
       "recommendations": [
@@ -1277,24 +1279,25 @@
           "lastObservedAt": "2026-09-21"
         },
         "ebay.com": {
-          "attempts": 10,
+          "attempts": 11,
           "usefulAttempts": 6,
-          "usefulnessRate": 0.6,
+          "usefulnessRate": 0.5455,
           "confirmedEvidenceAttempts": 5,
           "candidateAttempts": 0,
-          "contextOnlyAttempts": 4,
+          "contextOnlyAttempts": 5,
           "noRelevantDataAttempts": 1,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 1,
-          "distinctResearchIds": 4,
+          "distinctResearchIds": 5,
           "researchIds": [
             "blud-switch-2026-09-21",
             "drive-rally-special-edition-switch-2026-09-21",
             "drive-rally-switch-2026-09-21",
-            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
+            "3d-mini-golf-switch-2026-09-23"
           ],
           "sourceTypes": [
             "marketplace",
@@ -1311,7 +1314,7 @@
           "queryTypeCounts": {
             "exact_identifier": 12,
             "image": 2,
-            "marketplace": 43,
+            "marketplace": 48,
             "source_specific": 7
           },
           "exampleSourceIds": [],
@@ -1426,10 +1429,10 @@
           "lastObservedAt": "2026-09-22"
         },
         "gamefaqs.gamespot.com": {
-          "attempts": 6,
-          "usefulAttempts": 6,
+          "attempts": 7,
+          "usefulAttempts": 7,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 6,
+          "confirmedEvidenceAttempts": 7,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -1438,12 +1441,13 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 4,
+          "distinctResearchIds": 5,
           "researchIds": [
             "blud-switch-2026-09-21",
             "drive-rally-special-edition-switch-2026-09-21",
             "drive-rally-switch-2026-09-21",
-            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
+            "3d-mini-golf-switch-2026-09-23"
           ],
           "sourceTypes": [
             "technical_database"
@@ -1459,7 +1463,7 @@
           "queryTypeCounts": {
             "general": 2,
             "source_specific": 8,
-            "exact_identifier": 1
+            "exact_identifier": 6
           },
           "exampleSourceIds": [],
           "status": "observed",
@@ -1685,10 +1689,10 @@
           "lastObservedAt": "2026-09-22"
         },
         "nintendo.com": {
-          "attempts": 4,
-          "usefulAttempts": 3,
-          "usefulnessRate": 0.75,
-          "confirmedEvidenceAttempts": 3,
+          "attempts": 5,
+          "usefulAttempts": 4,
+          "usefulnessRate": 0.8,
+          "confirmedEvidenceAttempts": 4,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 1,
@@ -1697,11 +1701,12 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 1,
-          "distinctResearchIds": 3,
+          "distinctResearchIds": 4,
           "researchIds": [
             "blud-switch-2026-09-21",
             "drive-rally-switch-2026-09-21",
-            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
+            "3d-mini-golf-switch-2026-09-23"
           ],
           "sourceTypes": [
             "official",
@@ -1712,11 +1717,13 @@
             "credits_distribution",
             "game_metadata",
             "languages",
-            "release_date"
+            "release_date",
+            "physical_contents"
           ],
           "queryTypeCounts": {
-            "general": 2,
-            "source_specific": 3
+            "general": 3,
+            "source_specific": 4,
+            "exact_identifier": 2
           },
           "exampleSourceIds": [],
           "status": "observed",
@@ -1916,23 +1923,24 @@
           "lastObservedAt": "2026-09-23"
         },
         "proshop.dk": {
-          "attempts": 4,
+          "attempts": 5,
           "usefulAttempts": 3,
-          "usefulnessRate": 0.75,
+          "usefulnessRate": 0.6,
           "confirmedEvidenceAttempts": 3,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
-          "noRelevantDataAttempts": 1,
+          "noRelevantDataAttempts": 2,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 1,
-          "distinctResearchIds": 3,
+          "searchResultOnlyAttempts": 2,
+          "distinctResearchIds": 4,
           "researchIds": [
             "drive-rally-special-edition-switch-2026-09-21",
             "drive-rally-switch-2026-09-21",
-            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
+            "3d-mini-golf-switch-2026-09-23"
           ],
           "sourceTypes": [
             "image",
@@ -1946,7 +1954,7 @@
           ],
           "queryTypeCounts": {
             "image": 3,
-            "source_specific": 3
+            "source_specific": 4
           },
           "exampleSourceIds": [],
           "status": "observed",
@@ -2059,10 +2067,10 @@
           "lastObservedAt": "2026-09-22"
         },
         "steampowered.com": {
-          "attempts": 1,
-          "usefulAttempts": 1,
+          "attempts": 2,
+          "usefulAttempts": 2,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 1,
+          "confirmedEvidenceAttempts": 2,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -2071,9 +2079,10 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "drive-rally-switch-2026-09-21"
+            "drive-rally-switch-2026-09-21",
+            "3d-mini-golf-switch-2026-09-23"
           ],
           "sourceTypes": [
             "official_storefront"
@@ -2083,14 +2092,15 @@
             "game_metadata"
           ],
           "queryTypeCounts": {
-            "source_specific": 1
+            "source_specific": 1,
+            "general": 3
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "superraregames.com": {
           "attempts": 1,
@@ -2247,23 +2257,24 @@
           "lastObservedAt": "2026-09-22"
         },
         "videogamesplus.ca": {
-          "attempts": 4,
+          "attempts": 5,
           "usefulAttempts": 2,
-          "usefulnessRate": 0.5,
+          "usefulnessRate": 0.4,
           "confirmedEvidenceAttempts": 2,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
-          "noRelevantDataAttempts": 1,
+          "noRelevantDataAttempts": 2,
           "technicalFailures": 1,
           "blockedAttempts": 1,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 1,
-          "distinctResearchIds": 3,
+          "searchResultOnlyAttempts": 2,
+          "distinctResearchIds": 4,
           "researchIds": [
             "drive-rally-special-edition-switch-2026-09-21",
             "drive-rally-switch-2026-09-21",
-            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
+            "3d-mini-golf-switch-2026-09-23"
           ],
           "sourceTypes": [
             "image",
@@ -2278,7 +2289,7 @@
           "queryTypeCounts": {
             "exact_identifier": 2,
             "image": 3,
-            "source_specific": 2
+            "source_specific": 3
           },
           "exampleSourceIds": [],
           "status": "observed",
@@ -2288,22 +2299,23 @@
           "lastObservedAt": "2026-09-23"
         },
         "wog.ch": {
-          "attempts": 2,
-          "usefulAttempts": 2,
-          "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 2,
+          "attempts": 4,
+          "usefulAttempts": 3,
+          "usefulnessRate": 0.75,
+          "confirmedEvidenceAttempts": 3,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
-          "technicalFailures": 0,
+          "technicalFailures": 1,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
-          "timeoutAttempts": 0,
+          "timeoutAttempts": 1,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "distinctResearchIds": 3,
           "researchIds": [
             "drive-rally-special-edition-switch-2026-09-21",
-            "drive-rally-switch-2026-09-21"
+            "drive-rally-switch-2026-09-21",
+            "3d-mini-golf-switch-2026-09-23"
           ],
           "sourceTypes": [
             "retailer"
@@ -2311,19 +2323,21 @@
           "targetCategories": [
             "game_metadata",
             "identifiers",
-            "languages"
+            "languages",
+            "physical_contents",
+            "release_date"
           ],
           "queryTypeCounts": {
             "image": 1,
             "source_specific": 5,
-            "exact_identifier": 1
+            "exact_identifier": 7
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "xtralife.com": {
           "attempts": 1,
@@ -2737,6 +2751,184 @@
           ],
           "queryTypeCounts": {
             "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "jnlgame.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "3d-mini-golf-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "physical_image_and_listing"
+          ],
+          "targetCategories": [
+            "front_back_images",
+            "identifiers",
+            "languages",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 3,
+            "image": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "mobygames.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "3d-mini-golf-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "secondary_database"
+          ],
+          "targetCategories": [
+            "game_metadata",
+            "credits_distribution"
+          ],
+          "queryTypeCounts": {
+            "general": 4
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "mediamarkt.at": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "3d-mini-golf-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "physical_contents",
+            "age_rating"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 2,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "rebuy.de": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "3d-mini-golf-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "physical_contents",
+            "languages",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 6
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "kaufland.de": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "3d-mini-golf-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "age_rating",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 6
           },
           "exampleSourceIds": [],
           "status": "observed",

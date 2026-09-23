@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "researchId": "3d-mini-golf-switch-2026-09-23",
+  "queueId": "catalog:switch-3d-mini-golf",
+  "platform": "switch",
+  "catalogIds": ["switch-3d-mini-golf"],
+  "recordedAt": "2026-09-23T17:02:00Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/3d-mini-golf-switch-pal-eu",
+  "publishedRegions": ["PAL Europa"],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_ACTIVE_LISTINGS_ONLY",
+  "sourcePerformanceDecision": "FACTUAL_SWITCH_LEDGER_AGGREGATED_NO_NEW_ROUTE_PROMOTION",
+  "coverage": "partial",
+  "queueStatus": "pending",
+  "consumed": false,
+  "internalAssets": {
+    "front": "/catalog-covers/runtime/switch/switch-3d-mini-golf-front-20260923164841.jpg",
+    "back": "/catalog-covers/runtime/switch/switch-3d-mini-golf-back-20260923164926.jpg",
+    "provenance": "Imagen de tienda/distribuidor"
+  },
+  "verification": {
+    "publicPage": "PASS",
+    "centralV2Families": "PASS_ONE_GROUP",
+    "duplicateCheck": "PASS_EXISTING_CATALOG_ID_REUSED",
+    "frontCoverHttp": "PASS_200_IMAGE_JPEG",
+    "backCoverHttp": "PASS_200_IMAGE_JPEG",
+    "regionalIdentity": "PASS_EU_GENERIC_NOT_SPAIN_EXCLUSIVE",
+    "physicalFields": "PASS_EAN_PRODUCT_CODES_LANGUAGES_DATE_CONTENTS_PLAYERS",
+    "editionType": "PENDING_PR_365_DEPLOYMENT",
+    "notes": "Admin publicó una sola ficha central con caja física EU, imágenes front/back internas y 4 jugadores. El catálogo todavía muestra Otra edición por interpretar Multi-PAL/PAL EUR como edición comercial; debe mostrar Estándar tras desplegar PR #365. Mantener researchId sin consumir hasta verificarlo en producción. El resultado Code In Box sigue intacto en el mismo paquete."
+  },
+  "repairPullRequest": "https://github.com/puntoracingrc/RegionAtlasGames/pull/365",
+  "resultFile": "research/results/3d-mini-golf-switch-2026-09-23.json",
+  "resultSha256": "1986e60b81c9db6581a539a2154f0ecf28bf496dc179207b912c59483da001df",
+  "workerResultCommit": "0d8550d6"
+}
