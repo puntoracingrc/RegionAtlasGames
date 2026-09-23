@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "researchId": "2dark-limited-edition-ps4-2026-09-22",
+  "queueId": "catalog:ps4-2dark-limited-edition",
+  "platform": "ps4",
+  "catalogIds": ["ps4-2dark-limited-edition"],
+  "verifiedAt": "2026-09-23T08:21:58Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/2dark-limited-edition-ps4-pal-es",
+  "linkedPublicUrl": "https://www.regionatlas.games/catalogo/2dark-jp-ps4-pal-jp",
+  "publishedRegions": ["PAL España", "PAL Francia", "PAL Países Bajos", "PAL Reino Unido", "NTSC-J Japón"],
+  "pricesPublished": [],
+  "priceDecision": "NO_NEW_PRICES_FROM_RESEARCH_EXISTING_ES_PRICES_PRESERVED",
+  "sourcePerformanceDecision": "PS4_LEDGER_AGGREGATED_PRIOR_TO_FINAL_DEPLOY_VERIFICATION",
+  "coverage": "partial",
+  "queueStatus": "pending",
+  "internalAssets": {
+    "ukFront": "/catalog-covers/runtime/ps4/2dark-ps4-gb-uk-limited-front.jpg"
+  },
+  "verification": {
+    "productionDeployment": "PASS_READY_dpl_CDGkTYQ1MRu2jcHgyiFm9zZc7Ws3_662492ec7d048f0fa52e9388516b59286d4b3511",
+    "publicLimitedPage": "PASS",
+    "publicStandardPage": "PASS",
+    "centralV2Families": "PASS_LINKED_STANDARD_AND_LIMITED",
+    "ukCoverGallery": "PASS_VISIBLE_AT_100_PERCENT",
+    "ukCoverInternalAsset": "PASS_ADMIN_CATALOG_PATH",
+    "notes": "La portada UK propia se visualizó en la galería pública tras el despliegue del arreglo general #350. Se conservaron los precios españoles preexistentes; el resultado no aportó precios nuevos publicables. Permanecen sin resolver los campos e imágenes señalados por la investigación."
+  },
+  "resultFile": "research/results/2dark-limited-edition-ps4-2026-09-22.json",
+  "resultSha256": "afd51a7732b142a1006082f0d12b1b0ed0900f19686531a33246b39368f3c629",
+  "workerResultCommit": "fad7fb82"
+}

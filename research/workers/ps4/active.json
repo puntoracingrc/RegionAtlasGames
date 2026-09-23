@@ -1,36 +1,36 @@
 {
   "schemaVersion": 2,
-  "generation": 30,
+  "generation": 31,
   "workerId": "ps4",
-  "state": "PROCESSING",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps4",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": 11,
-  "currentItemResearchId": "2dark-limited-edition-ps4-2026-09-22",
+  "currentItemResearchId": null,
   "workPackage": {
-    "packageId": "ps4-2026-09-22-001",
+    "packageId": "ps4-2026-09-23-002",
     "grouping": {
       "type": "single",
-      "basis": "Primera entrada HIGH elegible tras consumir el resultado anterior; no se ha supuesto afinidad con entradas posteriores."
+      "basis": "Primera entrada HIGH elegible de PS4 sin resultado previo tras consumir 2Dark; no se presupone relación con 3D Mini Golf."
     },
     "items": [
       {
-        "queueId": "catalog:ps4-2dark-limited-edition",
+        "queueId": "catalog:ps4-usa-3d-billiards-&amp;-snooker",
         "platform": "ps4",
-        "title": "2Dark [Limited Edition]",
-        "catalogIds": ["ps4-2dark-limited-edition"],
-        "researchId": "2dark-limited-edition-ps4-2026-09-22",
-        "orderPath": "research/workers/ps4/orders/2dark-limited-edition-ps4-2026-09-22.md",
-        "resultPath": "research/results/2dark-limited-edition-ps4-2026-09-22.json",
-        "status": "RESULT_READY",
-        "checkpointPath": "research/workers/ps4/checkpoints/2dark-limited-edition-ps4-2026-09-22.json"
+        "title": "3D Billiards & Snooker",
+        "catalogIds": ["ps4-usa-3d-billiards-&amp;-snooker"],
+        "researchId": "3d-billiards-and-snooker-ps4-2026-09-23",
+        "orderPath": "research/workers/ps4/orders/3d-billiards-and-snooker-ps4-2026-09-23.md",
+        "resultPath": "research/results/3d-billiards-and-snooker-ps4-2026-09-23.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/ps4/checkpoints/3d-billiards-and-snooker-ps4-2026-09-23.json"
       }
     ]
   },
-  "updatedAt": "2026-09-23T02:01:00Z",
+  "updatedAt": "2026-09-23T08:24:00Z",
   "updatedBy": "codex",
-  "note": "2Dark Europe (ES/FR/NL/UK) and Japan Standard are published and publicly verified, with five exact regional identities, two linked edition families and no new prices. The first four-region batch timed out after partial success; it must never be resent. The UK retailer cover uploaded successfully but was hidden by the generic public-gallery filter. General fix PR #350 passed CI and merged into main as 662492ec7d048f0fa52e9388516b59286d4b3511. Production deployment dpl_CDGkTYQ1MRu2jcHgyiFm9zZc7Ws3 was still BUILDING at 02:01Z; verify it reaches READY and then visually verify the UK cover on the public 2Dark edition before consuming this result. Other workers may continue."
+  "note": "2Dark verificado en producción tras despliegue READY y portada UK visible; recibo durable guardado y resultado consumido. La cola original permanece pending para segunda pasada partial. Siguiente orden 3D Billiards & Snooker preparada."
 }
