@@ -52,6 +52,17 @@ export type AdminRegionalVariantBatchInput = {
   groups: AdminRegionalVariantGroupInput[];
 };
 
+// A shared cover describes the work, not every distinct physical box. In a
+// multi-box batch, only a box's own front scan may become its catalog cover.
+export function resolveRegionalBatchCoverUrl(
+  groupCoverUrl: string | null | undefined,
+  commonCoverUrl: string | null | undefined,
+  existingCoverUrl: string | null | undefined,
+  groupCount: number,
+): string | null {
+  return groupCoverUrl || (groupCount === 1 ? commonCoverUrl : null) || existingCoverUrl || null;
+}
+
 export type ExpandedRegionalVariantRow = {
   market: AdminMarketValue;
   marketRegion: CatalogMarketRegion | null;

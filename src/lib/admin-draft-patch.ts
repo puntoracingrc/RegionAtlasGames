@@ -110,7 +110,8 @@ export function applyDraftPatch(
   if (typeof body.physicalVariant === "string") next.physicalVariant = body.physicalVariant.trim() || null;
   if (typeof body.edition === "string") next.edition = body.edition;
   assignString("reference", body.reference);
-  assignString("coverUrl", body.coverUrl);
+  if (body.coverUrl === null) next.coverUrl = null;
+  else assignString("coverUrl", body.coverUrl);
   assignString("releaseDate", body.releaseDate);
   assignString("support", body.support);
   assignString("developerName", body.developerName);

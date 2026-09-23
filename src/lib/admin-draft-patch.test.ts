@@ -27,3 +27,10 @@ test("changing slug or region still derives a new catalog ID", () => {
     `ps2-usa-${legacyIdentity.slug}`,
   );
 });
+
+test("an Admin edit can explicitly remove a wrongly inherited cover", () => {
+  const current = { coverUrl: "/covers/wrong-edition.jpg" } as AdminGameDraft;
+  assert.equal(applyDraftPatch(current, { coverUrl: null }).coverUrl, null);
+  assert.equal(applyDraftPatch(current, { coverUrl: "" }).coverUrl, null);
+  assert.equal(applyDraftPatch(current, {}).coverUrl, "/covers/wrong-edition.jpg");
+});

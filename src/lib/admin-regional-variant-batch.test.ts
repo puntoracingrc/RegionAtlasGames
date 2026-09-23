@@ -7,6 +7,7 @@ import {
   expandRegionalVariantBatch,
   matchesPublishedRegionalVariantRow,
   regionalVariantBatchCatalogId,
+  resolveRegionalBatchCoverUrl,
   selectRegionalVariantBatchRow,
 } from "./admin-regional-variant-batch";
 import {
@@ -14,6 +15,13 @@ import {
   extendCatalogEditionGuideWithRuntimeGames,
 } from "./catalog-derived-edition-guides";
 import type { CatalogGame } from "./types";
+
+test("a common cover never becomes the cover of a distinct box without its own front", () => {
+  assert.equal(resolveRegionalBatchCoverUrl(null, "/us-common.jpg", null, 3), null);
+  assert.equal(resolveRegionalBatchCoverUrl("/jp-front.jpg", "/us-common.jpg", null, 3), "/jp-front.jpg");
+  assert.equal(resolveRegionalBatchCoverUrl(null, "/us-common.jpg", "/existing-jp.jpg", 3), "/existing-jp.jpg");
+  assert.equal(resolveRegionalBatchCoverUrl(null, "/shared.jpg", null, 1), "/shared.jpg");
+});
 
 test("names Admin images from the game, platform, market, edition and side", () => {
   assert.equal(
