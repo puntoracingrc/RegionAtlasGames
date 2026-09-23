@@ -151,7 +151,7 @@ function LegacyEditionGuide({ guide }: { guide: CatalogEditionGuideModel }) {
   );
 }
 
-function physicalEditionGalleryImages(edition: CatalogPhysicalEdition): PhysicalEditionGalleryImage[] {
+export function physicalEditionGalleryImages(edition: CatalogPhysicalEdition): PhysicalEditionGalleryImage[] {
   const images: PhysicalEditionGalleryImage[] = [];
   const seen = new Set<string>();
   const add = (image: PhysicalEditionGalleryImage) => {
@@ -181,7 +181,9 @@ function physicalEditionGalleryImages(edition: CatalogPhysicalEdition): Physical
   }
 
   for (const image of edition.images) {
-    if (!isStrongPhysicalEvidence(image.evidenceType) && image.placement !== "CONTENTS") continue;
+    // A retailer asset can illustrate a documented edition without becoming
+    // strong physical evidence for its identifiers or regional identity.
+    if (!isStrongPhysicalEvidence(image.evidenceType) && image.evidenceType !== "RETAILER_ASSET" && image.placement !== "CONTENTS") continue;
     add({
       id: image.key,
       src: image.url,
