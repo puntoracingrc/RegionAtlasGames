@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 40,
+  "generation": 41,
   "workerId": "switch",
-  "state": "RUNNING",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
@@ -10,11 +10,6 @@
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": 11,
   "currentItemResearchId": "3d-mini-golf-code-in-box-switch-2026-09-23",
-  "lease": {
-    "runId": "switch-20260923T122429Z-6f8c3a21",
-    "claimedAt": "2026-09-23T12:24:29Z",
-    "expiresAt": "2026-09-23T13:04:29Z"
-  },
   "workPackage": {
     "packageId": "switch-2026-09-23-002",
     "grouping": {
@@ -41,12 +36,12 @@
         "researchId": "3d-mini-golf-code-in-box-switch-2026-09-23",
         "orderPath": "research/workers/switch/orders/3d-mini-golf-code-in-box-switch-2026-09-23.md",
         "resultPath": "research/results/3d-mini-golf-code-in-box-switch-2026-09-23.json",
-        "status": "PENDING",
+        "status": "CHECKPOINTED",
         "checkpointPath": "research/workers/switch/checkpoints/3d-mini-golf-code-in-box-switch-2026-09-23.json"
       }
     ]
   },
-  "updatedAt": "2026-09-23T12:24:29Z",
+  "updatedAt": "2026-09-23T12:39:31Z",
   "updatedBy": "chatgpt",
-  "note": "Claimed PENDING 3D Mini Golf [Code In Box] for ORDER_TEMPLATE_VERSION 11 research."
+  "note": "3D Mini Golf [Code In Box] factual research checkpointed; lease released. Final ORDER_TEMPLATE_VERSION 11 result assembly/validation remains for the same item."
 }
