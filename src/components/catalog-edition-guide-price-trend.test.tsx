@@ -4,10 +4,11 @@ import { renderToStaticMarkup } from "react-dom/server";
 import {
   CatalogEditionGuide,
   catalogEditionFamilyHref,
+  physicalEditionGalleryImages,
 } from "./catalog-edition-guide";
 import { catalog, getCatalogGame } from "@/lib/catalog";
 import { getCatalogEditionGuide } from "@/lib/catalog-edition-guides";
-import type { CatalogEditionFamily } from "@/lib/catalog-edition-guide-types";
+import { isStrongPhysicalEvidence, type CatalogEditionFamily } from "@/lib/catalog-edition-guide-types";
 
 test("regional edition cards show trends only from their exact price identity", () => {
   const es = getCatalogGame("ps4-hack-gu-last-recode");
@@ -33,6 +34,34 @@ test("regional edition cards show trends only from their exact price identity", 
   assert.equal((html.match(/Bajada de al menos 5 €/g) ?? []).length, 2);
   assert.match(html, /data-price-catalog-id="ps4-hack-gu-last-recode"/);
   assert.match(html, /data-price-catalog-id="ps4-usa-hack-gu-last-recode"/);
+});
+
+test("an owned retailer cover is visible without promoting it to strong physical evidence", () => {
+  const game = getCatalogGame("ps4-hack-gu-last-recode");
+  assert.ok(game);
+  const guide = getCatalogEditionGuide(game, catalog.filter((entry) => entry.platformSlug === "ps4"));
+  assert.ok(guide);
+  const edition = guide.physicalEditions[0];
+  assert.ok(edition);
+  const cover = {
+    key: "retailer-front",
+    placement: "GALLERY" as const,
+    url: "https://cdn.regionatlas.games/covers/ps4/retailer-front.jpg",
+    thumbnailUrl: "https://cdn.regionatlas.games/covers/ps4/retailer-front.jpg",
+    width: 600,
+    height: 800,
+    caption: "Portada",
+    evidenceType: "RETAILER_ASSET" as const,
+  };
+  const images = physicalEditionGalleryImages({
+    ...edition,
+    scanSetIds: [],
+    catalogIds: [],
+    images: [cover],
+  });
+
+  assert.equal(isStrongPhysicalEvidence(cover.evidenceType), false);
+  assert.deepEqual(images.map((image) => image.src), [cover.url]);
 });
 
 test("runtime edition families link to their overlay catalog route", () => {
