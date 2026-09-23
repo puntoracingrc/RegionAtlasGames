@@ -1,18 +1,37 @@
 'use strict';
 (()=>{
 const E=window.RaceDeskEngine,S=window.RaceDeskScenarios,B=window.RaceDeskBroadcast,L=window.CerdanyolaLiveCore,D=window.CerdanyolaReplayCore,P=window.CerdanyolaPitAnalysis,R=window.CerdanyolaRules;
-const baseSeeds=JSON.parse(document.getElementById('seedData').textContent),historyData=JSON.parse(document.getElementById('historyData').textContent),registrationsData=JSON.parse(document.getElementById('registrationsData').textContent),trackData=JSON.parse(document.getElementById('trackData').textContent),pitProfilesData=JSON.parse(document.getElementById('pitProfilesData').textContent),demoReplay=D.prepareReplay(JSON.parse(document.getElementById('demoReplayData').textContent)),$=id=>document.getElementById(id);
+const baseSeeds=JSON.parse(document.getElementById('seedData').textContent),historyData=JSON.parse(document.getElementById('historyData').textContent),registrationsData=JSON.parse(document.getElementById('registrationsData').textContent),trackData=JSON.parse(document.getElementById('trackData').textContent),pitProfilesData=JSON.parse(document.getElementById('pitProfilesData').textContent),builtInReplayData=JSON.parse(document.getElementById('demoReplayData').textContent),$=id=>document.getElementById(id);
 const seeds=Object.fromEntries(Object.entries(baseSeeds).map(([key,seed])=>[key,L.provisionalSeed(seed,{...registrationsData.categories[key],capturedAt:registrationsData.capturedAt})]));
 const historyPilots=[...new Set(historyData.championshipPodiums.flatMap(entry=>entry.podium))].map((name,index)=>({id:`history-${index}`,name,shortName:name}));
 const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const ordinal=value=>`${value}.º`,range=(a,b)=>a===b?ordinal(a):`${ordinal(a)}–${ordinal(b)}`;
 const decimal=(value,digits=1)=>Number(value).toLocaleString('es-ES',{minimumFractionDigits:digits,maximumFractionDigits:digits});
+const svgNs='http://www.w3.org/2000/svg';
+const numberAttribute=(node,name)=>Number(node&&node.getAttribute(name))||0;
+function captureCircuit(base=trackData){
+  const svg=$('trackMap'),start=svg.querySelector('.start-grid'),startLabel=start&&start.querySelector('text'),timing=svg.querySelector('.timing-line'),timingLine=timing&&timing.querySelector('line'),timingLabel=timing&&timing.querySelector('text'),pit=svg.querySelector('.pit-lane');
+  return {id:String(base.id||base.slug||'cerdanyola'),name:String(base.circuit||base.name||'Circuito'),lapLengthMeters:Number(base.lapLengthMeters)||1,precisionNote:String(base.precisionNote||''),map:{viewBox:svg.getAttribute('viewBox')||'0 0 1000 390',title:$('trackMapSvgTitle').textContent||'',description:$('trackMapSvgDesc').textContent||'',guidePath:$('circuitGuide').getAttribute('d')||'',infieldPaths:[...svg.querySelectorAll('.track-infields path')].map(path=>path.getAttribute('d')||'').filter(Boolean),pitPath:pit&&pit.querySelector('path')&&pit.querySelector('path').getAttribute('d')||'',pitLabels:pit?[...pit.querySelectorAll('text')].map(label=>({x:numberAttribute(label,'x'),y:numberAttribute(label,'y'),text:label.textContent||''})):[],startGrid:start?{transform:start.getAttribute('transform')||'',lines:[...start.querySelectorAll('line')].map(line=>({x1:numberAttribute(line,'x1'),y1:numberAttribute(line,'y1'),x2:numberAttribute(line,'x2'),y2:numberAttribute(line,'y2')})),label:{x:numberAttribute(startLabel,'x'),y:numberAttribute(startLabel,'y'),text:startLabel&&startLabel.textContent||''}}:null,directionPaths:[...svg.querySelectorAll('.direction-guide path')].map(path=>path.getAttribute('d')||'').filter(Boolean),timingLine:timing?{transform:timing.getAttribute('transform')||'',x1:numberAttribute(timingLine,'x1'),y1:numberAttribute(timingLine,'y1'),x2:numberAttribute(timingLine,'x2'),y2:numberAttribute(timingLine,'y2'),labelX:numberAttribute(timingLabel,'x'),labelY:numberAttribute(timingLabel,'y'),label:timingLabel&&timingLabel.textContent||''}:null}};
+}
+function svgElement(name,attributes={}){const node=document.createElementNS(svgNs,name);for(const [key,value] of Object.entries(attributes))node.setAttribute(key,String(value));return node;}
+function applyCircuit(circuit){
+  if(!circuit||!circuit.map||!circuit.map.guidePath)return;activeCircuit=circuit;const map=circuit.map,svg=$('trackMap');svg.setAttribute('viewBox',map.viewBox||'0 0 1000 390');$('trackMapSvgTitle').textContent=map.title||circuit.name;$('trackMapSvgDesc').textContent=map.description||`Trazado archivado de ${circuit.name}.`;$('circuitGuide').setAttribute('d',map.guidePath);
+  const infields=svg.querySelector('.track-infields');infields.replaceChildren(...(map.infieldPaths||[]).map(d=>svgElement('path',{d})));
+  const pit=svg.querySelector('.pit-lane'),pitPaths=pit?[...pit.querySelectorAll('path')]:[];pitPaths.forEach(path=>path.setAttribute('d',map.pitPath||''));if(pit){[...pit.querySelectorAll('text')].forEach(node=>node.remove());for(const label of map.pitLabels||[]){const node=svgElement('text',{x:label.x,y:label.y});node.textContent=label.text||'';pit.append(node);}}
+  const start=svg.querySelector('.start-grid');if(start){start.setAttribute('transform',map.startGrid&&map.startGrid.transform||'');start.replaceChildren();for(const line of map.startGrid&&map.startGrid.lines||[])start.append(svgElement('line',line));if(map.startGrid&&map.startGrid.label){const node=svgElement('text',{x:map.startGrid.label.x,y:map.startGrid.label.y,'text-anchor':'middle'});node.textContent=map.startGrid.label.text||'';start.append(node);}}
+  const directions=svg.querySelector('.direction-guide');directions.replaceChildren(...(map.directionPaths||[]).map(d=>svgElement('path',{d,'marker-end':'url(#directionArrow)'})));
+  const timing=svg.querySelector('.timing-line');if(timing){timing.replaceChildren();if(map.timingLine){timing.setAttribute('transform',map.timingLine.transform||'');timing.append(svgElement('line',{x1:map.timingLine.x1,y1:map.timingLine.y1,x2:map.timingLine.x2,y2:map.timingLine.y2}));const node=svgElement('text',{x:map.timingLine.labelX,y:map.timingLine.labelY,'text-anchor':'end'});node.textContent=map.timingLine.label||'TRANSPONDER';timing.append(node);}}
+  trackMotionProfile=null;const reference=$('trackReference');reference.textContent=`Cuerda estimada: ${decimal(circuit.lapLengthMeters,2)} m · velocidades y distancias orientativas`;reference.title=circuit.precisionNote||'';
+}
+const defaultCircuit=captureCircuit(trackData);let activeCircuit=defaultCircuit;
+let demoReplay=D.prepareReplay({...builtInReplayData,circuit:defaultCircuit});
 const battleThresholdSeconds=2;
-const speedLabel=seconds=>{const value=L.averageSpeedKmh(seconds,trackData.lapLengthMeters);return value==null?'—':`${decimal(value,1)} km/h`;};
-const distanceLabel=laps=>{const value=L.distanceKm(laps,trackData.lapLengthMeters);return value==null?'—':`${decimal(value,2)} km`;};
-let category='ECO',socket=null,shouldReconnect=false,reconnectTimer=null,rankingTimer=null,pitClock=null,lapClock=null,lastRankingFetch=0,paused=false,queuedSnapshot=null,snapshot=null,enriched=[],officialRanking=[],officialRuns=[],officialSectionKey='',officialFinalComplete=false,rankingStatus='pending',projectedState=null,result=null,possibilityResult=null,broadcast=null,toastTimer=null,scenarioCache=new Map(),incidents=[],pitReportBusy=false,demoMode=false,demoStartedAt=0,demoElapsedBase=0,demoSpeed=1,demoPlaying=false,demoFrameProgress=new Map(),demoPreviousPositions=new Map(),demoSignature='',demoReturnState=null,demoHeavyAt=0,demoTimingAt=0,demoUiSecond=-1,fuelVisualAt=0,fastestLapFlashTimer=null,fastestLapActiveScope='';
+const speedLabel=seconds=>{const value=L.averageSpeedKmh(seconds,activeCircuit.lapLengthMeters);return value==null?'—':`${decimal(value,1)} km/h`;};
+const distanceLabel=laps=>{const value=L.distanceKm(laps,activeCircuit.lapLengthMeters);return value==null?'—':`${decimal(value,2)} km`;};
+let category='ECO',socket=null,shouldReconnect=false,reconnectTimer=null,rankingTimer=null,pitClock=null,lapClock=null,lastRankingFetch=0,paused=false,queuedSnapshot=null,snapshot=null,enriched=[],officialRanking=[],officialRuns=[],officialSectionKey='',officialFinalComplete=false,rankingStatus='pending',projectedState=null,result=null,possibilityResult=null,broadcast=null,toastTimer=null,scenarioCache=new Map(),incidents=[],pitReportBusy=false,demoMode=false,demoStartedAt=0,demoElapsedBase=0,demoSpeed=1,demoPlaying=false,demoFrameProgress=new Map(),demoPreviousPositions=new Map(),demoSignature='',demoReturnState=null,demoHeavyAt=0,demoTimingAt=0,demoUiSecond=-1,fuelVisualAt=0,fastestLapFlashTimer=null,fastestLapActiveScope='',replayArchiveSummaries=[],archiveQueues=new Map(),archiveFlushTimer=null,archiveBusy=false,archiveLastSignature='',archiveSavedRace='',archiveFinalizedRace='',archiveReportFinalizedRace='';
 const fastestLapBaselines=new Map();
 const pitStorageKey='puntoracing.directocerdanyola.pit-v1';
+const mapCollapseKey='puntoracing.directocerdanyola.map-collapsed-v1';
 const pitHistories=new Map(loadPitHistories());
 const lapTrackers=new Map();
 const trackColours=['#31dfca','#ffb536','#ff5875','#7da7ff','#c58cff','#7ee787','#ff8b52','#f2d96b','#70d7ff','#f78bd4','#a9b8ca','#ffffff'];
@@ -27,6 +46,39 @@ function setView(view){
   const next=view==='analysis'?'analysis':'live';document.body.dataset.view=next;
   document.querySelectorAll('[data-view-button]').forEach(button=>{const selected=button.dataset.viewButton===next;button.classList.toggle('selected',selected);button.setAttribute('aria-selected',String(selected));});
   window.scrollTo(0,0);
+}
+function setMapCollapsed(collapsed){
+  const value=Boolean(collapsed),card=document.querySelector('.track-map-card');if(!card)return;
+  card.dataset.collapsed=String(value);document.body.dataset.mapCollapsed=String(value);$('trackMapToggle').textContent=value?'+ Desplegar mapa':'− Contraer mapa';$('trackMapToggle').setAttribute('aria-expanded',String(!value));
+  try{localStorage.setItem(mapCollapseKey,value?'1':'0');}catch{}
+}
+function toggleMap(){const card=document.querySelector('.track-map-card');setMapCollapsed(card&&card.dataset.collapsed!=='true');}
+function archiveFrame(source){
+  return {capturedAt:new Date().toISOString(),name:source.name||'',section:source.section||'',sectionCode:String(source.sectionCode||''),category:source.category==='ECO'?'ECO':source.category==='NITRO'?'NITRO':null,group:source.group||'',groupKey:String(source.groupKey||''),raceState:source.raceState||'',raceTime:source.raceTime||'',currentTime:source.currentTime||'',remaining:source.remaining||'',percentage:Number(source.percentage)||0,update:String(source.update||''),drivers:(source.drivers||[]).map(driver=>({key:String(driver.key||driver.name||''),position:Number(driver.position)||0,name:driver.name||'',laps:Number(driver.laps)||0,lastLap:driver.lastLap||'',lastLapSeconds:Number(driver.lastLapSeconds)||null,total:driver.total||'',best:driver.best||'',bestSeconds:Number(driver.bestSeconds)||null,average:driver.average||'',averageSeconds:Number(driver.averageSeconds)||null,gapFirst:driver.gapFirst||'',gapPrevious:driver.gapPrevious||'',trend:Number(driver.trend)||0,positionChange:Number(driver.positionChange)||0,stateColor:Number(driver.stateColor)||0,progress:Number(driver.progress)||0}))};
+}
+function archiveKey(source){return [source.sectionCode||source.section,source.groupKey||source.group].join('|');}
+function archiveFrameSignature(frame){return [archiveKey(frame),frame.currentTime,frame.raceState,frame.update,...frame.drivers.map(driver=>`${driver.key}:${driver.position}:${driver.laps}:${driver.lastLap}`)].join('|');}
+function archiveFrameFinished(frame){return /FINISH|COMPLET|FINALIZ/i.test(frame.raceState)||(/IDLE/i.test(frame.raceState)&&L.timeSeconds(frame.currentTime)===0&&frame.drivers.some(driver=>driver.laps>0));}
+function queueRaceArchive(source){
+  if(demoMode||!source||!source.drivers||!source.drivers.length)return;const eventKey=$('eventKey').value.trim();if(!/^\d{1,12}$/.test(eventKey))return;
+  const frame=archiveFrame(source),signature=archiveFrameSignature(frame);if(signature===archiveLastSignature)return;archiveLastSignature=signature;
+  const key=archiveKey(frame),queue=archiveQueues.get(key)||[];queue.push(frame);archiveQueues.set(key,queue.slice(-24));
+  clearTimeout(archiveFlushTimer);const finished=archiveFrameFinished(frame);archiveFlushTimer=setTimeout(()=>void flushRaceArchives(finished?key:''),finished?100:7000);
+}
+async function postRaceArchive(payload,keepalive=false){
+  const response=await fetch('/api/myrcm/archive',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload),keepalive});
+  if(!response.ok)throw new Error(`HTTP ${response.status}`);return response.json();
+}
+async function flushRaceArchives(completeKey=''){
+  if(archiveBusy)return;const entries=[...archiveQueues.entries()];if(!entries.length&&!(completeKey&&snapshot))return;archiveBusy=true;clearTimeout(archiveFlushTimer);
+  try{
+    if(!entries.length&&completeKey&&snapshot)entries.push([completeKey,[archiveFrame(snapshot)]]);
+    for(const [key,frames] of entries){
+      if(!frames.length)continue;archiveQueues.delete(key);const complete=key===completeKey,payload={eventKey:$('eventKey').value.trim(),circuit:activeCircuit,frames,complete};
+      try{const data=await postRaceArchive(payload,true);archiveSavedRace=data.archive&&data.archive.raceId||archiveSavedRace;if(complete&&archiveFinalizedRace!==key){archiveFinalizedRace=key;toast('Manga finalizada y guardada para su repetición.');}}
+      catch(error){archiveQueues.set(key,[...(archiveQueues.get(key)||[]),...frames].slice(-24));console.warn('No se pudo archivar este tramo de la manga',error);}
+    }
+  }finally{archiveBusy=false;if(archiveQueues.size)archiveFlushTimer=setTimeout(()=>void flushRaceArchives(),9000);}
 }
 function switchCategory(next,{manual=false}={}){
   if(!seeds[next])return;if(manual&&demoMode)stopDemo(false);category=next;document.body.dataset.category=next;
@@ -51,6 +103,7 @@ function applySnapshot(next,autoCategory){
   if(demoMode){queuedSnapshot=next;return;}
   recordLapSnapshot(next);
   recordPitSnapshot(next);
+  queueRaceArchive(next);
   snapshot=next;
   if(autoCategory&&next.category&&next.category!==category)switchCategory(next.category);
   enriched=L.enrichDrivers(next,E.createState(seeds[category]).pilots);
@@ -117,23 +170,34 @@ function demoCurrentElapsed(now=Date.now()){
 function demoSnapshotFromFrame(frame){
   const previous=demoPreviousPositions;
   const drivers=frame.drivers.map(driver=>({...driver,positionChange:previous.has(driver.key)?previous.get(driver.key)-driver.position:0}));
-  return {name:demoReplay.eventName,section:'GT8 NITRO',sectionCode:demoReplay.sectionKey,category:'NITRO',group:'Final Nitro · repetición real',groupKey:demoReplay.reportKey,raceState:frame.finished?'FINISHED':'RUNNING',raceTime:D.formatClock(frame.durationSeconds),currentTime:D.formatClock(frame.elapsed),remaining:D.formatClock(Math.max(0,frame.scheduledSeconds-frame.elapsed)),countdown:'',percentage:frame.percentage,update:'REPLAY',connections:0,drivers};
+  const replayCategory=demoReplay.category==='ECO'?'ECO':'NITRO';
+  return {name:demoReplay.eventName||'Carrera archivada',section:demoReplay.sectionName||`GT8 ${replayCategory}`,sectionCode:demoReplay.sectionKey||'',category:replayCategory,group:demoReplay.label||demoReplay.group||'Repetición',groupKey:demoReplay.reportKey||'',raceState:frame.finished?'FINISHED':'RUNNING',raceTime:D.formatClock(frame.durationSeconds),currentTime:D.formatClock(frame.elapsed),remaining:D.formatClock(Math.max(0,frame.scheduledSeconds-frame.elapsed)),countdown:'',percentage:frame.percentage,update:'REPLAY',connections:0,drivers};
+}
+function replayTotalLaps(){return demoReplay.drivers.reduce((sum,driver)=>sum+Number(driver.finalLaps||driver.crossings&&driver.crossings.length||0),0);}
+function replayReportUrl(){
+  if(demoReplay.sourceUrl)return demoReplay.sourceUrl;
+  if(!demoReplay.eventKey||!demoReplay.sectionKey||!demoReplay.reportKey)return '';
+  const query=new URLSearchParams({reportKey:String(demoReplay.reportKey),reportType:String(demoReplay.reportType||'final')});return `https://www.myrcm.ch/en/report/${encodeURIComponent(demoReplay.eventKey)}/${encodeURIComponent(demoReplay.sectionKey)}?${query}`;
+}
+function updateReplayMeta(){
+  const label=demoReplay.label||demoReplay.group||'Carrera archivada',eventKey=demoReplay.eventKey||$('eventKey').value.trim(),eventName=demoReplay.eventName||'Jornada archivada';$('demoRaceLabel').textContent=`${eventName} · ${label} · MyRCM ${eventKey}`;
+  const link=replayReportUrl();$('demoReportLink').hidden=!link;if(link)$('demoReportLink').href=link;
 }
 function updateDemoControls(frame){
   if(!demoMode)return;
   const elapsed=frame?frame.elapsed:demoCurrentElapsed(),finished=elapsed>=demoReplay.durationSeconds;
   $('demoClockSummary').textContent=`${D.formatClock(elapsed)} / ${D.formatClock(demoReplay.durationSeconds)} · ${Math.round(elapsed/demoReplay.durationSeconds*100)}%`;
   $('demoPlayPause').textContent=finished?'▶ Repetir':demoPlaying?'❚❚ Pausar':'▶ Continuar';
-  $('demoSpeed').value=String(demoSpeed);
+  $('demoSpeed').value=String(demoSpeed);$('demoSeek').max=String(demoReplay.durationSeconds);$('demoSeek').value=String(elapsed);$('demoSeekElapsed').textContent=D.formatClock(elapsed);$('demoSeekDuration').textContent=D.formatClock(demoReplay.durationSeconds);
 }
 function renderDemoFrame(force=false){
   if(!demoMode)return;
   const now=Date.now(),frame=D.frame(demoReplay,demoCurrentElapsed(now)),nextSnapshot=demoSnapshotFromFrame(frame);
   demoFrameProgress=new Map(frame.drivers.map(driver=>{
-    const expected=driver.averageSeconds||driver.bestSeconds||driver.currentLapSeconds||20,profile=P.profileForName(pitProfilesData.profiles,driver.name)||P.fallbackFuelProfile(expected,pitProfilesData.profiles),confirmedStops=profile&&profile.evidenceStopLaps||[],lastStopLap=confirmedStops.filter(lap=>lap<=driver.laps).at(-1),since=driver.sinceLastCrossing||0,potentialLoss=driver.missingCrossing||driver.hiddenAfterNoCrossing,crossing=P.crossingStatus({profile,expectedSeconds:expected,completedLaps:driver.laps,lastStopLap,secondsSinceCrossing:since,category:'NITRO'}),refueling=crossing.state==='refueling',missingCrossing=potentialLoss&&(crossing.state==='incident'||crossing.state==='off-track'),hiddenAfterNoCrossing=potentialLoss&&crossing.state==='off-track';
+    const expected=driver.averageSeconds||driver.bestSeconds||driver.currentLapSeconds||20,profile=P.profileForName(pitProfilesData.profiles,driver.name)||P.fallbackFuelProfile(expected,pitProfilesData.profiles),confirmedStops=profile&&profile.evidenceStopLaps||[],lastStopLap=confirmedStops.filter(lap=>lap<=driver.laps).at(-1),since=driver.sinceLastCrossing||0,potentialLoss=driver.missingCrossing||driver.hiddenAfterNoCrossing,crossing=P.crossingStatus({profile,expectedSeconds:expected,completedLaps:driver.laps,lastStopLap,secondsSinceCrossing:since,category}),refueling=crossing.state==='refueling',missingCrossing=potentialLoss&&(crossing.state==='incident'||crossing.state==='off-track'),hiddenAfterNoCrossing=potentialLoss&&crossing.state==='off-track';
     return [String(driver.key),{progress:driver.progress,elapsed:since,expected,delayed:false,demo:true,startPhase:driver.startPhase,visibleOnMap:driver.laps>0&&!hiddenAfterNoCrossing,startDelaySeconds:driver.startDelaySeconds,delayedStart:driver.delayedStart,startDelayActive:driver.startDelayActive,didNotStart:driver.didNotStart,sinceLastCrossing:since,refueling,crossingState:crossing.state,refuelStartSeconds:crossing.refuelStartSeconds,signalAlertSeconds:crossing.incidentSeconds,incidentDockSeconds:crossing.dockSeconds,inPitWindow:crossing.inPitWindow,missingCrossing,hiddenAfterNoCrossing}];
   }));
-  snapshot=nextSnapshot;enriched=L.enrichDrivers(snapshot,E.createState(seeds.NITRO).pilots);
+  snapshot=nextSnapshot;enriched=L.enrichDrivers(snapshot,E.createState(seeds[category]).pilots);
   const signature=enriched.map(driver=>{const state=demoFrameProgress.get(String(driver.key));return `${driver.key}:${driver.position}:${driver.laps}:${driver.lastLap}:${Boolean(state&&state.startDelayActive)}:${Boolean(state&&state.didNotStart)}:${Boolean(state&&state.refueling)}:${Boolean(state&&state.missingCrossing)}:${Boolean(state&&state.hiddenAfterNoCrossing)}`;}).join('|');
   if(force||(signature!==demoSignature&&now-demoTimingAt>=500)){
     renderTiming();renderMetrics();demoSignature=signature;demoTimingAt=now;
@@ -144,34 +208,50 @@ function renderDemoFrame(force=false){
   }else if(now-demoHeavyAt>=10000){
     rebuildProjection();renderMetrics();renderChampionship();renderBroadcast();renderStories();renderIntelligence();renderEventImpact();demoHeavyAt=now;
   }
-  const uiSecond=Math.floor(frame.elapsed);if(force||uiSecond!==demoUiSecond){renderRaceHeader();updateDemoControls(frame);$('lastUpdate').textContent=`Repetición pública MyRCM · ${frame.drivers.reduce((sum,driver)=>sum+driver.laps,0)} vueltas contabilizadas de 749`;demoUiSecond=uiSecond;}
+  const uiSecond=Math.floor(frame.elapsed);if(force||uiSecond!==demoUiSecond){renderRaceHeader();updateDemoControls(frame);$('lastUpdate').textContent=`Repetición MyRCM · ${frame.drivers.reduce((sum,driver)=>sum+driver.laps,0)} vueltas contabilizadas de ${replayTotalLaps()}`;demoUiSecond=uiSecond;}
   if(frame.finished&&demoPlaying){demoElapsedBase=demoReplay.durationSeconds;demoPlaying=false;demoStartedAt=0;updateDemoControls(frame);setConnection('paused','Repetición finalizada');}
 }
 function toggleDemoPlayback(){
   if(!demoMode)return;
   if(demoCurrentElapsed()>=demoReplay.durationSeconds){restartDemo();return;}
   if(demoPlaying){demoElapsedBase=demoCurrentElapsed();demoPlaying=false;demoStartedAt=0;setConnection('paused','Repetición pausada');}
-  else{demoStartedAt=Date.now();demoPlaying=true;setConnection('live','Reproduciendo final Nitro');}
+  else{demoStartedAt=Date.now();demoPlaying=true;setConnection('live','Reproduciendo carrera');}
   updateDemoControls();
 }
-function restartDemo(){if(!demoMode)return;resetFastestLapWatcher('demo');demoElapsedBase=0;demoStartedAt=Date.now();demoPlaying=true;demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;setConnection('live','Reproduciendo final Nitro');renderDemoFrame(true);}
+function restartDemo(){if(!demoMode)return;resetFastestLapWatcher('demo');demoElapsedBase=0;demoStartedAt=Date.now();demoPlaying=true;demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;setConnection('live','Reproduciendo carrera');renderDemoFrame(true);}
 function setDemoSpeed(value){if(!demoMode)return;demoElapsedBase=demoCurrentElapsed();demoStartedAt=Date.now();demoSpeed=[1,4,10].includes(Number(value))?Number(value):1;renderDemoFrame(true);}
+function seekDemo(value){
+  if(!demoMode)return;demoElapsedBase=Math.max(0,Math.min(demoReplay.durationSeconds,Number(value)||0));demoStartedAt=Date.now();if(demoElapsedBase>=demoReplay.durationSeconds){demoPlaying=false;demoStartedAt=0;}demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;renderDemoFrame(true);
+}
 function stopDemo(refresh=true){
   if(!demoMode)return;
   clearFastestLapFlash();fastestLapActiveScope='';
   const saved=demoReturnState;demoMode=false;demoPlaying=false;demoStartedAt=0;demoElapsedBase=0;demoFrameProgress.clear();demoPreviousPositions.clear();demoSignature='';demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;demoReturnState=null;$('demoControls').hidden=true;$('demoTab').classList.remove('selected');$('demoTab').setAttribute('aria-selected','false');
-  if(saved){category=saved.category;document.body.dataset.category=category;snapshot=saved.snapshot;enriched=saved.enriched;officialRanking=saved.officialRanking;officialRuns=saved.officialRuns;officialSectionKey=saved.officialSectionKey;officialFinalComplete=saved.officialFinalComplete;rankingStatus=saved.rankingStatus;projectedState=saved.projectedState;result=saved.result;possibilityResult=saved.possibilityResult;broadcast=saved.broadcast;}
+  if(saved){category=saved.category;document.body.dataset.category=category;snapshot=saved.snapshot;enriched=saved.enriched;officialRanking=saved.officialRanking;officialRuns=saved.officialRuns;officialSectionKey=saved.officialSectionKey;officialFinalComplete=saved.officialFinalComplete;rankingStatus=saved.rankingStatus;projectedState=saved.projectedState;result=saved.result;possibilityResult=saved.possibilityResult;broadcast=saved.broadcast;applyCircuit(saved.circuit||defaultCircuit);}
   document.querySelectorAll('.category-switch [data-category]').forEach(button=>{const selected=button.dataset.category===category;button.classList.toggle('selected',selected);button.setAttribute('aria-selected',String(selected));});
   if(!refresh)return;
   if(queuedSnapshot){const next=queuedSnapshot;queuedSnapshot=null;applySnapshot(next,true);return;}
   if(snapshot){renderRaceHeader();renderTiming();renderMetrics();renderChampionship();renderBroadcast();renderScenarioSelector();renderStories();renderIntelligence();renderPhases();renderEventImpact();renderRules();renderHistory();renderRegistrations();renderPitStrategy();scheduleRankingFetch();}
 }
-function startDemo(){
+function replayOptionLabel(summary){const state=summary.status==='complete'?'Finalizada':'En curso';return `${summary.category||'GT8'} · ${summary.section||'Categoría'} · ${summary.group||'Manga'} · ${state}`;}
+async function refreshReplayArchiveOptions(){
+  const eventKey=$('eventKey').value.trim(),select=$('archiveRaceSelect');replayArchiveSummaries=[];select.innerHTML='';
+  if(eventKey==='100645'){const option=document.createElement('option');option.value='builtin';option.textContent='Final Nitro · archivo original';select.append(option);}
+  try{const response=await fetch(`/api/myrcm/archive?event=${encodeURIComponent(eventKey)}`,{headers:{Accept:'application/json'}});if(response.ok){const data=await response.json();replayArchiveSummaries=Array.isArray(data.archives)?data.archives.filter(item=>item.replayAvailable):[];if(data.jornada&&data.jornada.title)$('eventHelp').textContent=`Jornada archivada: ${data.jornada.title} · ${data.jornada.raceCount} mangas guardadas.`;for(const summary of replayArchiveSummaries){const option=document.createElement('option');option.value=summary.raceId;option.textContent=replayOptionLabel(summary);select.append(option);}}}catch(error){console.warn('No se pudo consultar el archivo de la jornada',error);}
+  $('archiveRacePicker').hidden=select.options.length<2;const complete=replayArchiveSummaries.find(item=>item.status==='complete');return complete&&complete.raceId||select.options[0]&&select.options[0].value||'';
+}
+async function loadReplaySource(source){
+  if(source==='builtin'){applyCircuit(defaultCircuit);demoReplay=D.prepareReplay({...builtInReplayData,circuit:defaultCircuit});updateReplayMeta();return true;}
+  const eventKey=$('eventKey').value.trim();try{const response=await fetch(`/api/myrcm/archive?event=${encodeURIComponent(eventKey)}&race=${encodeURIComponent(source)}`,{headers:{Accept:'application/json'}});if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();if(!data.archive||!data.archive.replay)throw new Error('La manga todavía no tiene suficientes vueltas para reproducirse.');const circuit=data.archive.replay.circuit||data.archive.circuit;if(circuit)applyCircuit(circuit);demoReplay=D.prepareReplay({...data.archive.replay,circuit:circuit||activeCircuit});updateReplayMeta();return true;}catch(error){toast(error.message||'No se pudo abrir la repetición.',true);return false;}
+}
+async function changeReplaySource(source){if(!await loadReplaySource(source))return;$('archiveRaceSelect').value=source;if(demoMode){category=demoReplay.category==='ECO'?'ECO':'NITRO';document.body.dataset.category=category;restartDemo();}}
+async function startDemo(){
   if(demoMode){toggleDemoPlayback();return;}
+  const returnCircuit=activeCircuit,source=await refreshReplayArchiveOptions();if(!source){toast('Todavía no hay una carrera archivada para este evento.',true);return;}if(!await loadReplaySource(source))return;$('archiveRaceSelect').value=source;
   resetFastestLapWatcher('demo');
-  demoReturnState={category,snapshot,enriched,officialRanking,officialRuns,officialSectionKey,officialFinalComplete,rankingStatus,projectedState,result,possibilityResult,broadcast};clearTimeout(rankingTimer);
-  demoMode=true;paused=false;$('pauseButton').textContent='Pausar pantalla';category='NITRO';document.body.dataset.category='NITRO';officialRanking=[];officialRuns=[];officialSectionKey='';officialFinalComplete=false;rankingStatus='replay';demoSpeed=Number($('demoSpeed').value)||1;demoElapsedBase=0;demoStartedAt=Date.now();demoPlaying=true;demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;
-  document.querySelectorAll('.category-switch [data-category]').forEach(button=>{button.classList.remove('selected');button.setAttribute('aria-selected','false');});$('demoTab').classList.add('selected');$('demoTab').setAttribute('aria-selected','true');$('demoControls').hidden=false;setConnection('live','Reproduciendo final Nitro');renderDemoFrame(true);toast('Repetición de la última final Nitro iniciada con los datos reales de MyRCM.');
+  demoReturnState={category,snapshot,enriched,officialRanking,officialRuns,officialSectionKey,officialFinalComplete,rankingStatus,projectedState,result,possibilityResult,broadcast,circuit:returnCircuit};clearTimeout(rankingTimer);
+  demoMode=true;paused=false;$('pauseButton').textContent='Pausar pantalla';category=demoReplay.category==='ECO'?'ECO':'NITRO';document.body.dataset.category=category;officialRanking=[];officialRuns=[];officialSectionKey='';officialFinalComplete=false;rankingStatus='replay';demoSpeed=Number($('demoSpeed').value)||1;demoElapsedBase=0;demoStartedAt=Date.now();demoPlaying=true;demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;
+  document.querySelectorAll('.category-switch [data-category]').forEach(button=>{button.classList.remove('selected');button.setAttribute('aria-selected','false');});$('demoTab').classList.add('selected');$('demoTab').setAttribute('aria-selected','true');$('demoControls').hidden=false;updateReplayMeta();setConnection('live','Reproduciendo carrera');renderDemoFrame(true);toast('Repetición iniciada con los datos guardados de MyRCM.');
 }
 function basePitProfile(driver){return P.profileForName(pitProfilesData.profiles,driver.name);}
 function pitProfile(driver){
@@ -257,7 +337,7 @@ async function loadOfficialRanking(){
     const data=await response.json();if(demoMode)return;rankingStatus=data.status||'pending';officialRanking=Array.isArray(data.ranking)?data.ranking:[];officialRuns=Array.isArray(data.runs)?data.runs:[];officialSectionKey=data.section&&data.section.key||'';
     const finals=officialRuns.filter(run=>String(run.type).toLowerCase()==='final');officialFinalComplete=finals.length>0&&finals.every(run=>/available|finalizado|finished|completed/.test(String(run.status).toLowerCase()));
     rebuildProjection();renderMetrics();renderChampionship();renderBroadcast();renderScenarioSelector();renderStories();renderIntelligence();renderPhases();renderEventImpact();renderRules();renderHistory();renderPitStrategy();
-    void loadOnePitReport();
+    void loadOnePitReport();void finalizeRaceArchiveFromMyRcm();
   }catch(error){rankingStatus='unavailable';console.warn('Ranking agregado de MyRCM no disponible',error);}
   clearTimeout(rankingTimer);rankingTimer=setTimeout(loadOfficialRanking,15000);
 }
@@ -287,10 +367,22 @@ async function loadOnePitReport(){
     loadedPitReports.add(reportId);savePitHistories();renderPitStrategy();renderTiming();renderBroadcast();
   }catch(error){console.warn('Informe de vueltas MyRCM no disponible',error);}finally{pitReportBusy=false;}
 }
+async function finalizeRaceArchiveFromMyRcm(){
+  if(demoMode||!snapshot||!officialSectionKey)return;const key=archiveKey(snapshot);if(archiveReportFinalizedRace===key)return;
+  const supported=new Set(['final','qualy','timedPractice','controlledPractice']),snapshotGroup=L.normalize(snapshot.group),available=officialRuns.filter(run=>reportAvailable(run)&&supported.has(String(run.type))),exact=available.find(run=>String(run.key)===String(snapshot.groupKey)),raceNumber=Number(snapshotGroup.match(/(?:CARRERA|RUN|MANGA)\s*(\d+)/)?.[1]),numberMatch=Number.isFinite(raceNumber)&&raceNumber>0?available.find(run=>Number(L.normalize(run.label).match(/(?:CARRERA|RUN|MANGA)\s*(\d+)/)?.[1])===raceNumber&&(!snapshotGroup.includes('FINAL')||String(run.type)==='final')):null,textMatch=available.find(run=>snapshotGroup&&[run.phase,run.group,run.label].some(value=>{const normalized=L.normalize(value);return normalized&&(snapshotGroup.includes(normalized)||normalized.includes(snapshotGroup));})),finals=available.filter(run=>String(run.type)==='final'),run=exact||numberMatch||textMatch||(snapshotGroup.includes('FINAL')&&finals.length===1?finals[0]:null);
+  if(!run)return;
+  try{
+    const eventKey=$('eventKey').value.trim(),params=new URLSearchParams({event:eventKey,section:officialSectionKey,report:run.key,type:run.type}),response=await fetch(`/api/myrcm/laps?${params}`,{headers:{Accept:'application/json'}});if(!response.ok)throw new Error(`HTTP ${response.status}`);
+    const data=await response.json(),drivers=(Array.isArray(data.drivers)?data.drivers:[]).filter(driver=>Array.isArray(driver.laps)&&driver.laps.length);if(!drivers.length)return;
+    const replay={eventKey,eventName:snapshot.name||'',sectionKey:officialSectionKey,sectionName:snapshot.section||'',category:category==='ECO'?'ECO':'NITRO',group:[run.phase,run.group,run.label].filter(Boolean).join(' · ')||snapshot.group||'Manga',reportKey:String(run.key),reportType:String(run.type),scheduledSeconds:L.timeSeconds(snapshot.raceTime)||1800,circuit:activeCircuit,drivers:drivers.map(driver=>({name:driver.name,startOffsetSeconds:0,laps:driver.laps}))};
+    await postRaceArchive({eventKey,circuit:activeCircuit,frames:[archiveFrame(snapshot)],complete:true,finalRanking:officialRanking,replay},true);archiveReportFinalizedRace=key;archiveFinalizedRace=key;toast('Resultado final y vueltas MyRCM guardados para repetición.');
+  }catch(error){console.warn('No se pudo completar el archivo con el informe final de MyRCM',error);}
+}
 function renderRaceHeader(){
-  const fullEventName=snapshot.name||'Cerdanyola Live Timing';
+  const fullEventName=snapshot.name||'Jornada MyRCM en directo';
   const compactEventName=/4\s*[ªA]?\s*PRUEBA.*(?:CAMPEONATO|CAMPIONAT).*CATALUNYA.*GT8/i.test(fullEventName)?'4ª - Camp. Catalunya 1/8 GT Nitro/Eco':fullEventName;
-  const eventName=$('eventName');eventName.textContent=compactEventName;eventName.title=fullEventName;eventName.setAttribute('aria-label',fullEventName);$('raceCategory').textContent=demoMode?'DEMO · GT8 NITRO':snapshot.section||category;
+  const eventName=$('eventName');eventName.textContent=compactEventName;eventName.title=fullEventName;eventName.setAttribute('aria-label',fullEventName);$('raceCategory').textContent=demoMode?`REPETICIÓN · GT8 ${category}`:snapshot.section||category;
+  $('appEventLabel').textContent=`${activeCircuit.name} · ${fullEventName}`;document.title=`${fullEventName} · RCTimes`;
   $('groupName').textContent=snapshot.group||'Manga pendiente';$('raceState').textContent=demoMode?(snapshot.raceState==='FINISHED'?'FINALIZADA':demoPlaying?'REPETICIÓN':'PAUSADA'):L.raceStateLabel(snapshot.raceState).toUpperCase();
   $('remainingTime').textContent=demoMode?snapshot.currentTime||'0:00':snapshot.remaining||'--:--';$('raceClockLabel').textContent=demoMode?`de ${D.formatClock(demoReplay.durationSeconds)} · reproducción ${demoSpeed}×`:'tiempo restante';$('raceProgress').style.width=`${Math.max(0,Math.min(100,snapshot.percentage||0))}%`;
 }
@@ -309,11 +401,11 @@ function renderRegistrations(){
 function lapStateValue(state){return !state?'—':state.didNotStart?'SIN SALIDA':state.hiddenAfterNoCrossing?'FUERA':state.missingCrossing?'INCID.':state.refueling?'BOXES?':state.startPhase?'SALIDA':`${Math.round(state.progress)}%`;}
 function lapStateTitle(state){
   if(!state)return 'Esperando una manga activa y un cruce de transpondedor';if(state.didNotStart)return 'No consta un primer paso registrado en el cronometraje.';if(state.hiddenAfterNoCrossing)return `Fuera del mapa tras ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} segundos sin un nuevo paso por el transpondedor.`;if(state.missingCrossing)return `Posible incidencia: la parada ha superado el margen previsto y lleva ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} segundos sin cruce.`;if(state.refueling)return `Repostando probablemente: la ausencia de cruce coincide con su ventana y patrón de parada (${Math.floor(state.sinceLastCrossing||state.elapsed||0)} s).`;if(state.startPhase)return 'Tramo de salida: se aproxima al primer paso por el transpondedor; la vuelta 0 no suma.';
-  return `${state.demo?'Demostración visual':'Posición estimada'}: ${Math.round(state.progress)}% de la vuelta · unos ${Math.round(trackData.lapLengthMeters*state.progress/100)} m desde el último cruce · ritmo limpio previsto ${decimal(state.expected,2)} s`;
+  return `${state.demo?'Repetición visual':'Posición estimada'}: ${Math.round(state.progress)}% de la vuelta · unos ${Math.round(activeCircuit.lapLengthMeters*state.progress/100)} m desde el último cruce · ritmo limpio previsto ${decimal(state.expected,2)} s`;
 }
 function lapMeterMarkup(driver){
   const state=lapProgressState(driver),value=lapStateValue(state),title=lapStateTitle(state);
-  return `<div class="pilot-meter"><span>RITMO</span><b class="pace-track" title="Ritmo relativo de carrera"><i style="width:${driver.pace}%"></i></b></div><div class="pilot-meter lap-position ${state&&(state.delayed||state.missingCrossing)?'delayed':''}" title="${esc(title)}"><span>VUELTA <em data-lap-value>${value}</em></span><b class="lap-track"><i style="width:${state?state.progress:0}%"></i></b></div>`;
+  return `<div class="pilot-meter"><span>RITMO</span><b class="pace-track" title="Ritmo relativo de carrera"><i style="width:${driver.pace}%"></i></b></div><div class="pilot-meter lap-position ${state&&state.delayed&&!state.missingCrossing?'delayed':''}" title="${esc(title)}"><span>VUELTA <em data-lap-value>${value}</em></span><b class="lap-track"><i style="width:${state?state.progress:0}%"></i></b></div>`;
 }
 function renderTrackMap(){
   const markers=$('trackMarkers'),legend=$('trackLegend'),incidentDock=$('trackIncidentDock');if(!markers||!legend)return;
@@ -328,7 +420,7 @@ function updateLapVisuals(){
   const now=Date.now(),driverMap=new Map(enriched.map(driver=>[String(driver.key),driver])),refreshFuel=category==='NITRO'&&now-fuelVisualAt>=500;
   document.querySelectorAll('.timing-row[data-driver]').forEach(row=>{
     const driver=driverMap.get(row.dataset.driver),state=driver&&lapProgressState(driver,now),bar=row.querySelector('.lap-track i'),value=row.querySelector('[data-lap-value]'),meter=row.querySelector('.lap-position'),tracking=row.querySelector('.tracking-chip');
-    if(bar)bar.style.width=`${state?state.progress:0}%`;if(value)value.textContent=lapStateValue(state);if(meter){meter.classList.toggle('delayed',Boolean(state&&(state.delayed||state.missingCrossing)));meter.classList.toggle('refueling',Boolean(state&&state.refueling));}
+    if(bar)bar.style.width=`${state?state.progress:0}%`;if(value)value.textContent=lapStateValue(state);if(meter){meter.classList.toggle('delayed',Boolean(state&&state.delayed&&!state.missingCrossing));meter.classList.toggle('refueling',Boolean(state&&state.refueling));}
     if(meter)meter.title=lapStateTitle(state);if(tracking&&state){const trackingState=state.hiddenAfterNoCrossing?'hidden':state.missingCrossing?'warning':state.refueling?'refueling':'';if(!trackingState)tracking.remove();else{tracking.className=`tracking-chip ${trackingState}`;tracking.textContent=`${state.hiddenAfterNoCrossing?'FUERA DEL MAPA':state.refueling?'REPOSTANDO':'INCIDENCIA'} · ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} S`;}}
     if(refreshFuel&&driver)syncFuelTank(row.querySelector('.driver-cell'),fuelState(driver));
   });
@@ -339,11 +431,11 @@ function updateLapVisuals(){
     const offTrack=Boolean(state&&state.hiddenAfterNoCrossing),visible=Boolean(state&&length&&state.visibleOnMap!==false&&!offTrack);
     if(state&&(state.refueling||state.missingCrossing||offTrack))alertDrivers.push({driver,state,offTrack});
     if(marker){marker.classList.toggle('visible',visible);marker.classList.toggle('delayed',Boolean(visible&&state.delayed));marker.classList.toggle('signal-lost',Boolean(visible&&state.missingCrossing));if(visible){const mapProgress=pacedTrackProgress(state.progress,path),point=path.getPointAtLength(length*mapProgress/100);marker.setAttribute('transform',`translate(${point.x} ${point.y})`);marker.dataset.mapProgress=mapProgress.toFixed(2);}}
-    const value=legend&&legend.querySelector('[data-track-value]');if(value)value.textContent=state?(state.didNotStart?'sin salida registrada':state.hiddenAfterNoCrossing?`fuera del mapa · ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} s`:state.missingCrossing?`incidencia · ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} s sin cruce`:state.refueling?`repostando probable · ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} s`:state.visibleOnMap===false?'esperando 1.ª vuelta':`${state.demo?'demo · ':''}${Math.round(state.progress)}% · ${Math.round(trackData.lapLengthMeters*state.progress/100)} m`):'en espera';
+    const value=legend&&legend.querySelector('[data-track-value]');if(value)value.textContent=state?(state.didNotStart?'sin salida registrada':state.hiddenAfterNoCrossing?`fuera del mapa · ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} s`:state.missingCrossing?`incidencia · ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} s sin cruce`:state.refueling?`repostando probable · ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} s`:state.visibleOnMap===false?'esperando 1.ª vuelta':`${state.demo?'repetición · ':''}${Math.round(state.progress)}% · ${Math.round(activeCircuit.lapLengthMeters*state.progress/100)} m`):'en espera';
   }
   alertDrivers.sort((a,b)=>(b.state.sinceLastCrossing||b.state.elapsed||0)-(a.state.sinceLastCrossing||a.state.elapsed||0));
   const incidentDock=$('trackIncidentDock');if(incidentDock){incidentDock.hidden=!alertDrivers.length;incidentDock.innerHTML=alertDrivers.length?`<strong><i></i> BOXES / INCIDENCIAS</strong><div>${alertDrivers.map(({driver,state,offTrack})=>{const css=offTrack?'off-track':state.refueling?'refueling':'warning',label=offTrack?'fuera del trazado virtual':state.refueling?'REPOSTANDO · probable':'INCIDENCIA · margen superado';return `<article class="${css}" style="--driver-colour:${trackColour(driver)}"><b>${driverInitials(driver.name)}</b><span><em>${driver.position}. ${esc(driver.name)}</em><small>${Math.floor(state.sinceLastCrossing||state.elapsed||0)} s · ${label}</small></span></article>`;}).join('')}</div>`:'';}
-  const status=$('trackLiveStatus');if(status)status.textContent=demoMode?`RITMO POR CURVAS · ${decimal(trackData.lapLengthMeters,2)} m`:snapshot&&L.normalize(snapshot.raceState).includes('RUN')?`Aceleración estimada · ${decimal(trackData.lapLengthMeters,2)} m`:`Cerdanyola · ${decimal(trackData.lapLengthMeters,2)} m`;
+  const status=$('trackLiveStatus');if(status)status.textContent=demoMode?`RITMO POR CURVAS · ${decimal(activeCircuit.lapLengthMeters,2)} m`:snapshot&&L.normalize(snapshot.raceState).includes('RUN')?`Aceleración estimada · ${decimal(activeCircuit.lapLengthMeters,2)} m`:`${activeCircuit.name} · ${decimal(activeCircuit.lapLengthMeters,2)} m`;
 }
 function fuelTankTitle(fuel){
   if(!fuel||fuel.level==null)return 'Sin datos suficientes para estimar el combustible.';
@@ -368,17 +460,19 @@ function timingMeta(driver,index,battleMap){
   const trend=driver.positionChange||driver.trend,trendText=trend>0?`▲ ${Math.abs(trend)}`:trend<0?`▼ ${Math.abs(trend)}`:'',trendClass=trend<0?'down':'',signal=demoMode?null:pitSignal(driver),fuel=fuelState(driver),battle=battleMap.get(driver.key),state=lapProgressState(driver);
   const startChip=demoMode&&state&&state.didNotStart?'<small class="start-delay-chip">SIN PRIMER PASO REGISTRADO</small>':'';
   const trackingChip=state&&state.hiddenAfterNoCrossing?`<small class="tracking-chip hidden">FUERA DEL MAPA · ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} S</small>`:state&&state.missingCrossing?`<small class="tracking-chip warning">INCIDENCIA · ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} S SIN CRUCE</small>`:state&&state.refueling?`<small class="tracking-chip refueling">REPOSTANDO · ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} S</small>`:'';
-  const pitChip=signal&&signal.state!=='pace'&&signal.state!=='learning'&&!(state&&(state.refueling||state.missingCrossing))?`<small class="pit-chip ${esc(signal.state)}">${esc(signal.label)} · ${esc(signal.confidence)}</small>`:'',battleClass=battle?`battle-active battle-${battle.index===0?'start':battle.index===battle.group.drivers.length-1?'end':'middle'}`:'',battleChip=battle&&battle.index===0?`<small class="battle-chip">LUCHA P${battle.group.startPosition} · ${battle.group.drivers.length} PILOTOS</small>`:'',battleLink=battle&&battle.index>0?`<span class="battle-connector">LUCHA · +${decimal(battle.gap,3)} s</span>`:'';
-  return {driver,index,trendText,trendClass,signal,fuel,battleClass,battleLink,chips:`${battleChip}${pitChip}${startChip}${trackingChip}`,gap:index===0?'LÍDER':driver.gapFirst||driver.gapPrevious||'—',matched:driver.matchedPilot?`Campeonato: ${driver.matchedPilot.shortName}`:'Fuera de la general cargada'};
+  const pitChip=signal&&signal.state!=='pace'&&signal.state!=='learning'&&!(state&&(state.refueling||state.missingCrossing))?`<small class="pit-chip ${esc(signal.state)}">${esc(signal.label)} · ${esc(signal.confidence)}</small>`:'',battleClass=battle?`battle-active battle-${battle.index===0?'start':battle.index===battle.group.drivers.length-1?'end':'middle'}`:'',battleGap=Boolean(battle&&battle.index>0),battleGapLabel=battleGap?'LUCHA':'';
+  const gap=index===0?'LÍDER':driver.gapFirst||driver.gapPrevious||'—',previousSeconds=index?L.gapSeconds(driver.gapPrevious):null,previousLaps=index&&/^-[0-9]+$/.test(String(driver.gapPrevious||''))?Math.abs(Number(driver.gapPrevious)):null,previousGap=index===0?'':previousSeconds!=null?`+${decimal(previousSeconds,3)} s`:previousLaps?`${previousLaps} v.`:'—',validBests=enriched.map(item=>Number(item.bestSeconds)).filter(value=>Number.isFinite(value)&&value>0),sessionBest=validBests.length?Math.min(...validBests):null,sessionFastest=sessionBest!=null&&Math.abs(Number(driver.bestSeconds)-sessionBest)<.0005,rowClass=state&&state.missingCrossing?'pit-incident':state&&state.refueling?'pit-probable':pitRowClass(signal);
+  return {driver,index,trendText,trendClass,signal,fuel,battleClass,battleGap,battleGapLabel,chips:`${pitChip}${startChip}${trackingChip}`,gap,previousGap,sessionFastest,rowClass,matched:driver.matchedPilot?`Campeonato: ${driver.matchedPilot.shortName}`:'Fuera de la general cargada'};
 }
-function timingRowMarkup(meta){const {driver,index,trendText,trendClass,signal,fuel,battleClass,battleLink,chips,gap,matched}=meta;return `<article class="timing-row ${index===0?'leader':''} ${pitRowClass(signal)} ${battleClass}" data-driver="${esc(driver.key)}">${battleLink}<div class="position-cell"><strong>${driver.position}</strong>${trendText?`<em class="${trendClass}">${trendText}</em>`:''}</div><div class="driver-cell ${category==='NITRO'?'with-fuel':''}"><div class="driver-copy"><strong>${esc(driver.name)}</strong><small>${esc(matched)}</small>${chips}${lapMeterMarkup(driver)}</div>${fuelTankMarkup(fuel)}</div><div class="timing-value gap-col"><strong class="${index===0?'gap-leader':''}">${esc(gap)}</strong><small>al líder</small></div><div class="timing-value last-col"><strong>${esc(driver.lastLap||'—')}</strong><small>última · ${esc(speedLabel(driver.lastLapSeconds))}</small></div><div class="timing-value best-col"><strong>${esc(driver.best||'—')}</strong><small>mejor · ${esc(speedLabel(driver.bestSeconds))}</small></div><div class="laps-cell">${driver.laps}<small>${esc(distanceLabel(driver.laps))}</small></div></article>`;}
+function precedingGapMarkup(previousGap,battleGap,battleGapLabel){return `<strong>${esc(previousGap||'—')}</strong><small>${esc(battleGap?battleGapLabel:'al anterior')}</small>`;}
+function timingRowMarkup(meta){const {driver,index,trendText,trendClass,fuel,battleClass,battleGap,battleGapLabel,chips,gap,previousGap,sessionFastest,rowClass}=meta;return `<article class="timing-row ${index===0?'leader':''} ${rowClass} ${battleClass}" data-driver="${esc(driver.key)}"><div class="position-cell"><strong>${driver.position}</strong>${trendText?`<em class="${trendClass}">${trendText}</em>`:''}</div><div class="driver-cell ${category==='NITRO'?'with-fuel':''}"><div class="driver-copy"><strong>${esc(driver.name)}</strong>${chips}${lapMeterMarkup(driver)}</div>${fuelTankMarkup(fuel)}</div><div class="timing-value gap-col"><strong class="${index===0?'gap-leader':''}">${esc(gap)}</strong><small>al líder</small></div><div class="timing-value preceding-col ${previousGap==='—'||!previousGap?'unavailable':''} ${battleGap?'battle-gap':''}">${precedingGapMarkup(previousGap,battleGap,battleGapLabel)}</div><div class="timing-value last-col"><strong>${esc(driver.lastLap||'—')}</strong><small>última · ${esc(speedLabel(driver.lastLapSeconds))}</small></div><div class="timing-value best-col ${sessionFastest?'session-fastest':''}"><strong>${esc(driver.best||'—')}</strong><small>mejor · ${esc(speedLabel(driver.bestSeconds))}</small></div><div class="laps-cell">${driver.laps}<small>${esc(distanceLabel(driver.laps))}</small></div></article>`;}
 function syncTimingRow(row,meta){
-  const {driver,index,trendText,trendClass,signal,fuel,battleClass,battleLink,chips,gap,matched}=meta;row.className=`timing-row ${index===0?'leader':''} ${pitRowClass(signal)} ${battleClass}`.trim();
-  const connector=row.querySelector('.battle-connector');if(connector)connector.remove();if(battleLink)row.insertAdjacentHTML('afterbegin',battleLink);
+  const {driver,index,trendText,trendClass,fuel,battleClass,battleGap,battleGapLabel,chips,gap,previousGap,sessionFastest,rowClass}=meta;row.className=`timing-row ${index===0?'leader':''} ${rowClass} ${battleClass}`.trim();
+  const connector=row.querySelector('.battle-connector');if(connector)connector.remove();
   const position=row.querySelector('.position-cell');if(position)position.innerHTML=`<strong>${driver.position}</strong>${trendText?`<em class="${trendClass}">${trendText}</em>`:''}`;
-  const driverCell=row.querySelector('.driver-cell');if(driverCell){const copy=driverCell.querySelector('.driver-copy')||driverCell,name=copy.querySelector(':scope > strong'),match=copy.querySelector(':scope > small');if(name)name.textContent=driver.name;if(match)match.textContent=matched;copy.querySelectorAll('.battle-chip,.pit-chip,.start-delay-chip,.tracking-chip').forEach(node=>node.remove());const meter=copy.querySelector('.pilot-meter');if(meter&&chips)meter.insertAdjacentHTML('beforebegin',chips);const pace=copy.querySelector('.pace-track i');if(pace)pace.style.width=`${driver.pace}%`;syncFuelTank(driverCell,fuel);}
-  const gapNode=row.querySelector('.gap-col strong');if(gapNode){gapNode.textContent=gap;gapNode.classList.toggle('gap-leader',index===0);}const last=row.querySelector('.last-col'),best=row.querySelector('.best-col'),laps=row.querySelector('.laps-cell');
-  if(last)last.innerHTML=`<strong>${esc(driver.lastLap||'—')}</strong><small>última · ${esc(speedLabel(driver.lastLapSeconds))}</small>`;if(best)best.innerHTML=`<strong>${esc(driver.best||'—')}</strong><small>mejor · ${esc(speedLabel(driver.bestSeconds))}</small>`;if(laps)laps.innerHTML=`${driver.laps}<small>${esc(distanceLabel(driver.laps))}</small>`;
+  const driverCell=row.querySelector('.driver-cell');if(driverCell){const copy=driverCell.querySelector('.driver-copy')||driverCell,name=copy.querySelector(':scope > strong');if(name)name.textContent=driver.name;copy.querySelectorAll('.battle-chip,.pit-chip,.start-delay-chip,.tracking-chip').forEach(node=>node.remove());const meter=copy.querySelector('.pilot-meter');if(meter&&chips)meter.insertAdjacentHTML('beforebegin',chips);const pace=copy.querySelector('.pace-track i');if(pace)pace.style.width=`${driver.pace}%`;syncFuelTank(driverCell,fuel);}
+  const gapNode=row.querySelector('.gap-col strong');if(gapNode){gapNode.textContent=gap;gapNode.classList.toggle('gap-leader',index===0);}const preceding=row.querySelector('.preceding-col');if(preceding){preceding.innerHTML=precedingGapMarkup(previousGap,battleGap,battleGapLabel);preceding.classList.toggle('unavailable',previousGap==='—'||!previousGap);preceding.classList.toggle('battle-gap',battleGap);}const last=row.querySelector('.last-col'),best=row.querySelector('.best-col'),laps=row.querySelector('.laps-cell');
+  if(last)last.innerHTML=`<strong>${esc(driver.lastLap||'—')}</strong><small>última · ${esc(speedLabel(driver.lastLapSeconds))}</small>`;if(best){best.innerHTML=`<strong>${esc(driver.best||'—')}</strong><small>mejor · ${esc(speedLabel(driver.bestSeconds))}</small>`;best.classList.toggle('session-fastest',sessionFastest);}if(laps)laps.innerHTML=`${driver.laps}<small>${esc(distanceLabel(driver.laps))}</small>`;
 }
 function renderTiming(){
   const tower=$('timingTower'),old=new Map([...tower.querySelectorAll('[data-driver]')].map(row=>[row.dataset.driver,row.getBoundingClientRect()])),battleMap=new Map();
@@ -398,7 +492,7 @@ function renderPitStrategy(){
     const driver=enriched.find(item=>P.profileForName([profile],item.name)),active=driver?pitProfile(driver):profile,signal=driver?pitSignal(driver):null,interval=Number(active.refuelIntervalLaps)?Math.round(active.refuelIntervalLaps):null,minutes=decimal(active.refuelIntervalSeconds/60,1);
     let status=interval?`cada ${interval} vueltas`:`referencia ${minutes} min`,detail=active.trackTransfer&&!active.adaptedLaps?'Otro circuito · ritmo y consumo local pendientes':`aprox. ${minutes} min · ritmo base ${Number(active.baselineSeconds)?`${decimal(active.baselineSeconds,3)} s`:'adaptándose'}`,css='';
     if(driver&&signal&&signal.window){status=`v. ${signal.window.from}–${signal.window.to}`;detail=`${signal.label} · confianza ${signal.confidence} · patrón ${interval} vueltas`;css=signal.state==='window'?'warning':signal.state==='pit'||signal.state==='pit-live'?'probable':signal.state==='incident'?'incident':'';}
-    else if(driver){status=`vuelta ${driver.laps}`;detail=interval?`Próxima ventana pendiente · patrón inicial ${interval} vueltas`:'Se necesitan 8 cruces limpios para convertir la referencia temporal a vueltas de Cerdanyola';}
+    else if(driver){status=`vuelta ${driver.laps}`;detail=interval?`Próxima ventana pendiente · patrón inicial ${interval} vueltas`:`Se necesitan 8 cruces limpios para adaptar la referencia a ${activeCircuit.name}`;}
     return `<article class="pit-profile ${css}"><div><strong>${esc(profile.nextEventName||profile.name)}</strong><small>${esc(detail)}</small></div><span>${esc(status)}<small>${profile.evidenceStopLaps.length} señales previas</small></span></article>`;
   });
   $('pitStrategyFeed').innerHTML=rows.join('')||'<div class="empty-compact">Todavía no hay perfiles coincidentes con la parrilla provisional.</div>';
@@ -632,22 +726,26 @@ function renderEventImpact(){
 document.querySelectorAll('.category-switch [data-category]').forEach(button=>button.addEventListener('click',()=>switchCategory(button.dataset.category,{manual:true})));
 document.querySelectorAll('[data-view-button]').forEach(button=>button.addEventListener('click',()=>setView(button.dataset.viewButton)));
 $('connectButton').addEventListener('click',connect);
-$('demoTab').addEventListener('click',startDemo);
+$('demoTab').addEventListener('click',()=>void startDemo());
 $('demoPlayPause').addEventListener('click',toggleDemoPlayback);
 $('demoRestart').addEventListener('click',restartDemo);
 $('demoSpeed').addEventListener('change',event=>setDemoSpeed(event.target.value));
+$('demoSeek').addEventListener('input',event=>seekDemo(event.target.value));
+$('archiveRaceSelect').addEventListener('change',event=>void changeReplaySource(event.target.value));
+$('trackMapToggle').addEventListener('click',toggleMap);
 $('eventKey').addEventListener('keydown',event=>{if(event.key==='Enter')connect();});
 $('pauseButton').addEventListener('click',()=>{paused=!paused;$('pauseButton').textContent=paused?'Reanudar pantalla':'Pausar pantalla';setConnection(paused?'paused':'live',paused?'Pantalla pausada':'MyRCM conectado');if(!paused&&queuedSnapshot){const next=queuedSnapshot;queuedSnapshot=null;applySnapshot(next,true);}});
 $('scenarioPilot').addEventListener('change',renderObjectives);
 $('scenarioTarget').addEventListener('change',renderObjectives);
 $('addIncident').addEventListener('click',()=>{const pilot=$('incidentPilot').value,type=$('incidentType').value,rule=R.incidents[type];if(!pilot||!rule){toast('Selecciona un piloto y una decisión confirmada.',true);return;}incidents.push({pilot,type,rule:{...rule,url:rule.url||R.categories[category].url},consequence:incidentConsequence(type),category,time:new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'})});renderIncidentFeed();renderBroadcast();toast('Incidencia añadida al guion; la proyección espera el resultado oficial.');});
-$('copyBroadcast').addEventListener('click',async()=>{const incidentText=incidents.filter(item=>item.category===category).map(item=>`REGLAMENTO · ${item.pilot}: ${item.rule.title}. ${item.rule.text} ${item.consequence}`),text=[`CERDANYOLA ${category} · DIRECTO`,snapshot&&snapshot.group||'',...(broadcast?broadcast.paragraphs:[]),...incidentText].filter(Boolean).join('\n\n');try{await navigator.clipboard.writeText(text);toast('Guion copiado.');}catch{toast('El navegador no ha permitido copiar el guion.',true);}});
-window.addEventListener('pagehide',()=>{clearInterval(pitClock);clearInterval(lapClock);closeSocket();});
+$('copyBroadcast').addEventListener('click',async()=>{const incidentText=incidents.filter(item=>item.category===category).map(item=>`REGLAMENTO · ${item.pilot}: ${item.rule.title}. ${item.rule.text} ${item.consequence}`),text=[`${snapshot&&snapshot.name||activeCircuit.name} · ${category} · DIRECTO`,snapshot&&snapshot.group||'',...(broadcast?broadcast.paragraphs:[]),...incidentText].filter(Boolean).join('\n\n');try{await navigator.clipboard.writeText(text);toast('Guion copiado.');}catch{toast('El navegador no ha permitido copiar el guion.',true);}});
+window.addEventListener('pagehide',()=>{clearInterval(pitClock);clearInterval(lapClock);clearTimeout(archiveFlushTimer);for(const frames of archiveQueues.values()){if(!frames.length)continue;const body=new Blob([JSON.stringify({eventKey:$('eventKey').value.trim(),circuit:activeCircuit,frames})],{type:'application/json'});navigator.sendBeacon('/api/myrcm/archive',body);}archiveQueues.clear();closeSocket();});
 renderRules();
 renderHistory();
 renderRegistrations();
-$('trackReference').textContent=`Cuerda estimada: ${decimal(trackData.lapLengthMeters,2)} m · velocidades y distancias orientativas`;
-$('trackReference').title=trackData.precisionNote;
+$('demoReportLink').hidden=false;
+try{setMapCollapsed(localStorage.getItem(mapCollapseKey)==='1');}catch{setMapCollapsed(false);}
+applyCircuit(defaultCircuit);
 pitClock=setInterval(()=>{if(!demoMode&&category==='NITRO'&&snapshot&&!paused){renderTiming();renderPitStrategy();renderBroadcast();}},1000);
 lapClock=setInterval(()=>{if(paused)return;if(demoMode)renderDemoFrame();else if(snapshot)updateLapVisuals();},33);
 connect();

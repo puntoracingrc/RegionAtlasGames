@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#07090d"><title>Cerdanyola Live Race Center · PuntoRacing</title><style>/*__CSS__*/</style></head>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#07090d"><title>RCTimes</title><style>/*__CSS__*/</style></head>
 <body data-category="ECO" data-view="live"><div class="ambient" aria-hidden="true"></div><div class="app-shell">
   <header class="masthead">
-    <div class="identity"><img src="/herramientas/logopunto-512x91.png" alt="PuntoRacing"><span class="slash">/</span><div><strong>LIVE RACE CENTER</strong><small>Cerdanyola 2026</small></div></div>
+    <div class="identity"><strong class="product-name">RCTimes</strong><div><strong>LIVE RACE CENTER</strong><small id="appEventLabel">Jornada MyRCM</small></div></div>
     <nav class="view-switch" role="tablist" aria-label="Vista de la aplicación"><button type="button" role="tab" class="selected" data-view-button="live" aria-selected="true">Directo</button><button type="button" role="tab" data-view-button="analysis" aria-selected="false">Análisis</button></nav>
     <div class="connection-pill" id="connectionPill" data-state="connecting"><i></i><span id="connectionLabel">Conectando con MyRCM</span></div>
   </header>
 
   <section class="control-deck" aria-label="Conexión de cronometraje">
-    <div class="event-source"><label for="eventKey">Evento MyRCM</label><div><input id="eventKey" inputmode="numeric" pattern="[0-9]*" value="100645" aria-describedby="eventHelp"><button type="button" id="connectButton" class="primary">Conectar</button><button type="button" id="pauseButton">Pausar pantalla</button></div><small id="eventHelp">Demo: repetición de la última Final Nitro del evento 100645. El Campeonato de España tendrá otro número.</small></div>
-    <div class="category-switch" role="tablist" aria-label="Categoría o modo"><button type="button" role="tab" data-category="NITRO" aria-selected="false">Nitro</button><button type="button" role="tab" data-category="ECO" class="selected" aria-selected="true">Eléctrico</button><button type="button" role="tab" id="demoTab" aria-selected="false">Demo</button></div>
+    <div class="event-source"><label for="eventKey">Evento MyRCM</label><div><input id="eventKey" inputmode="numeric" pattern="[0-9]*" value="100645" aria-describedby="eventHelp"><button type="button" id="connectButton" class="primary">Conectar</button><button type="button" id="pauseButton">Pausar pantalla</button></div><small id="eventHelp">Repetición: última Final Nitro del evento 100645 y carreras que vaya archivando la aplicación.</small></div>
+    <div class="category-switch" role="tablist" aria-label="Categoría o modo"><button type="button" role="tab" data-category="NITRO" aria-selected="false">Nitro</button><button type="button" role="tab" data-category="ECO" class="selected" aria-selected="true">Eléctrico</button><button type="button" role="tab" id="demoTab" aria-selected="false">Repetición</button></div>
     <div class="source-meta"><span>FUENTE</span><strong>MyRCM · lectura pública</strong><small id="lastUpdate">Esperando datos…</small></div>
   </section>
 
@@ -21,7 +21,7 @@
   </section>
 
   <section class="race-hero live-only">
-    <div class="race-title"><span class="eyebrow" id="raceCategory">GT ECO</span><h1 id="eventName">Cerdanyola Live Timing</h1><p id="groupName">Esperando la manga activa</p><small class="track-reference" id="trackReference">Cuerda estimada: 215,15 m · medición orientativa</small></div>
+    <div class="race-title"><span class="eyebrow" id="raceCategory">GT ECO</span><h1 id="eventName">Jornada MyRCM en directo</h1><p id="groupName">Esperando la manga activa</p><small class="track-reference" id="trackReference">Cargando circuito…</small></div>
     <div class="race-clock"><span id="raceState">EN ESPERA</span><strong id="remainingTime">--:--</strong><small id="raceClockLabel">tiempo restante</small></div>
     <div class="race-progress" aria-hidden="true"><i id="raceProgress"></i></div>
   </section>
@@ -41,16 +41,15 @@
     </div>
   </section>
 
-  <section class="metric-strip live-only" aria-label="Datos destacados de carrera">
-    <article><span>LÍDER</span><strong id="metricLeader">—</strong><small id="metricLeaderDetail">Sin datos</small></article>
-    <article id="metricFastestCard" aria-live="polite"><span>VUELTA RÁPIDA</span><strong id="metricFastest">—</strong><small id="metricFastestDetail">Sin datos</small></article>
-    <article><span>VELOCIDAD MEDIA</span><strong id="metricPace">—</strong><small id="metricPaceDetail">Calculada sobre la vuelta media</small></article>
-    <article><span>CAMPEONATO</span><strong id="metricChampionship">—</strong><small id="metricChampionshipDetail">Proyección pendiente</small></article>
-  </section>
+  <div class="metric-store" hidden aria-hidden="true">
+    <span id="metricLeader"></span><span id="metricLeaderDetail"></span><span id="metricFastestCard"></span><span id="metricFastest"></span><span id="metricFastestDetail"></span><span id="metricPace"></span><span id="metricPaceDetail"></span><span id="metricChampionship"></span><span id="metricChampionshipDetail"></span>
+  </div>
 
   <section class="track-map-card surface live-only" aria-labelledby="trackMapTitle">
-    <div class="section-head"><div><span class="kicker">MAPA DE CARRERA</span><h2 id="trackMapTitle">Posición virtual en el circuito</h2><p>Cuerda de referencia: 215,15 m. Los cruces y tiempos son reales; entre ellos se simulan frenada, paso por curva y aceleración según la geometría del trazado. No es GPS.</p></div><span class="track-live-status" id="trackLiveStatus">Cerdanyola · 215,15 m</span></div>
-    <div class="demo-replay-controls" id="demoControls" hidden><div><strong>Final Nitro real · MyRCM 100645</strong><span id="demoClockSummary">0:00 / 30:12</span></div><button type="button" id="demoPlayPause">❚❚ Pausar</button><button type="button" id="demoRestart">↺ Reiniciar</button><label>Velocidad<select id="demoSpeed"><option value="1" selected>1× · tiempo real</option><option value="4">4×</option><option value="10">10×</option></select></label><a href="https://www.myrcm.ch/en/report/100645/398202?reportKey=1150&amp;reportType=final" target="_blank" rel="noopener noreferrer">Informe original</a></div>
+    <h2 id="trackMapTitle" class="sr-only">Posición virtual en el circuito</h2><span id="trackLiveStatus" hidden></span>
+    <button type="button" class="track-map-toggle" id="trackMapToggle" aria-expanded="true" aria-controls="trackMapContent">− Contraer mapa</button>
+    <div class="demo-replay-controls" id="demoControls" hidden><div><strong id="demoRaceLabel">Final Nitro real · MyRCM 100645</strong><span id="demoClockSummary">0:00 / 30:12</span></div><button type="button" id="demoPlayPause">❚❚ Pausar</button><button type="button" id="demoRestart">↺ Reiniciar</button><label>Velocidad<select id="demoSpeed"><option value="1" selected>1× · tiempo real</option><option value="4">4×</option><option value="10">10×</option></select></label><label class="archive-race-picker" id="archiveRacePicker" hidden>Manga<select id="archiveRaceSelect"></select></label><a id="demoReportLink" href="https://www.myrcm.ch/en/report/100645/398202?reportKey=1150&amp;reportType=final" target="_blank" rel="noopener noreferrer">Informe original</a><label class="demo-seek"><span id="demoSeekElapsed">0:00</span><input type="range" id="demoSeek" min="0" max="1812" value="0" step="0.1" aria-label="Posición de la repetición"><span id="demoSeekDuration">30:12</span></label></div>
+    <div id="trackMapContent">
     <div class="track-map-layout">
       <div class="track-stage">
         <svg id="trackMap" viewBox="0 0 1000 390" role="img" aria-labelledby="trackMapSvgTitle trackMapSvgDesc">
@@ -71,6 +70,7 @@
       </div>
       <div class="track-legend" id="trackLegend"><div class="empty-compact">Esperando pilotos en pista.</div></div>
     </div>
+    </div>
   </section>
 
   <section class="live-general-card surface live-only" aria-labelledby="liveGeneralTitle">
@@ -82,7 +82,7 @@
   <main class="dashboard">
     <section class="timing-panel surface live-only" aria-labelledby="timingTitle">
       <div class="section-head"><div><span class="kicker">CLASIFICACIÓN EN PISTA</span><h2 id="timingTitle">Torre de tiempos</h2></div><div class="legend"><span><i class="status running"></i>En pista</span><span><i class="status finished"></i>Finalizado</span></div></div>
-      <div class="timing-head"><span>POS</span><span>PILOTO</span><span>INTERVALO</span><span>ÚLTIMA</span><span>MEJOR</span><span>VUELTAS</span></div>
+      <div class="timing-head"><span>POS</span><span>PILOTO</span><span>INTERVALO</span><span>PRECEDENTE</span><span>ÚLTIMA</span><span>MEJOR</span><span>VUELTAS</span></div>
       <div class="timing-tower" id="timingTower"><div class="empty-state">Conectando con el cronometraje…</div></div>
       <div class="panel-foot"><span id="matchStatus">Los nombres se comparan automáticamente con el campeonato.</span><span id="streamStatus">WebSocket público</span></div>
     </section>
@@ -104,6 +104,6 @@
     </div>
   </section>
 
-  <footer class="analysis-only"><div><strong>Modo demostración con datos reales de MyRCM.</strong> Durante una manga se muestran posiciones provisionales; la clasificación oficial completa se confirma al publicarse el informe final.</div><span>PuntoRacing · Herramienta orientativa</span></footer>
+  <footer class="analysis-only"><div><strong>Modo repetición con datos reales de MyRCM.</strong> Durante una manga se muestran posiciones provisionales; la clasificación oficial completa se confirma al publicarse el informe final.</div><span>RCTimes · Herramienta orientativa</span></footer>
 </div><div id="toast" class="toast" hidden></div>
 <script>/*__ENGINE__*/</script><script>/*__SCENARIOS__*/</script><script>/*__BROADCAST__*/</script><script>/*__LIVE_CORE__*/</script><script>/*__REPLAY_CORE__*/</script><script>/*__PIT_ANALYSIS__*/</script><script>/*__RULES_DATA__*/</script><script id="seedData" type="application/json">/*__SEED__*/</script><script id="historyData" type="application/json">/*__HISTORY__*/</script><script id="registrationsData" type="application/json">/*__REGISTRATIONS__*/</script><script id="trackData" type="application/json">/*__TRACK__*/</script><script id="pitProfilesData" type="application/json">/*__PIT_PROFILES__*/</script><script id="demoReplayData" type="application/json">/*__DEMO_REPLAY__*/</script><script>/*__APP__*/</script></body></html>

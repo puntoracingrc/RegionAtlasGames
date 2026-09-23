@@ -1,4 +1,6 @@
-# Cerdanyola Live Race Center
+# RCTimes
+
+RCTimes archiva cada evento MyRCM como una jornada independiente. La carpeta de la jornada usa el identificador del evento y contiene todas sus clasificatorias, cuartos, semifinales y finales de Nitro y Eléctrico. Cada archivo conserva el título real, la sección, la manga, la categoría, la duración, el resultado y el circuito completo (nombre, longitud y geometría SVG), de modo que una repetición siempre recupera la cabecera y el mapa con los que se grabó.
 
 La parrilla previa se captura desde las dos páginas públicas de inscripción de AECAR. Mientras la inscripción esté abierta, todos los nombres visibles ocupan plaza y pueden puntuar en las simulaciones, aunque se conserve por separado el estado `confirmed` o `unconfirmed`. Los estados de licencia `Día` o `Pdte.` son informativos: pueden regularizarse el día de la carrera y no excluyen al piloto de los cálculos provisionales.
 
