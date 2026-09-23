@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 26,
+  "generation": 27,
   "workerId": "ps4",
-  "state": "RESULT_READY",
+  "state": "PROCESSING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps4",
   "queuePath": "research/queue.json",
@@ -30,7 +30,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-23T01:05:00Z",
+  "updatedAt": "2026-09-23T01:04:16Z",
   "updatedBy": "codex",
-  "note": "Recovered the complete corrected result from its gzip checkpoint after correcting one flipped compressed bit; the restored 79364-byte JSON exactly matches the worker's recorded SHA-256. No external research was repeated. Awaiting Codex validation and Admin incorporation."
+  "note": "Codex claimed the exact recovered 2Dark result for validation and Admin incorporation. No external research is being repeated; probable releases and uncorroborated fields remain excluded from confirmed publication."
 }
