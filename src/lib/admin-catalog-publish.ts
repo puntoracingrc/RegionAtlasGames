@@ -2,9 +2,9 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import path from "path";
 import { markStagingGamePromoted } from "./catalog-staging-enrich";
 import {
+  applyCatalogStagingGameTransition,
   readCatalogStagingGame,
   readCatalogStagingIndex,
-  rebuildPlatformStats,
   writeCatalogStagingGame,
   writeCatalogStagingIndex,
 } from "./catalog-staging-storage";
@@ -1045,12 +1045,10 @@ export async function ensureManualStagingEntry(
   };
 
   await writeCatalogStagingGame(game);
-  const index = await readCatalogStagingIndex();
+  const index = await readCatalogStagingIndex({ fresh: true });
   if (!index.pcIds.includes(game.pcId)) {
     index.pcIds = [...index.pcIds, game.pcId].sort((a, b) => a - b);
-    const { listCatalogStagingGames } = await import("./catalog-staging-storage");
-    const games = await listCatalogStagingGames();
-    index.byPlatform = rebuildPlatformStats(games);
+    applyCatalogStagingGameTransition(index, null, game);
     await writeCatalogStagingIndex(index);
   }
   return game;

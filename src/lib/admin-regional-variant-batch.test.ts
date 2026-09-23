@@ -3,7 +3,11 @@ import test from "node:test";
 import {
   applyExpandedRegionalIdentity,
   buildAdminVariantImageSlug,
+  classifyRegionalBatchRowPublication,
   expandRegionalVariantBatch,
+  matchesPublishedRegionalVariantRow,
+  regionalVariantBatchCatalogId,
+  selectRegionalVariantBatchRow,
 } from "./admin-regional-variant-batch";
 import {
   buildRuntimeCatalogEditionGuide,
@@ -67,6 +71,48 @@ test("Mortal Shell II expands 11 physical boxes into 13 regional records", () =>
   assert.equal(asia[0].group.confidence, "PENDING_IDENTIFIER");
   assert.equal(result.rows.find((row) => row.market === "ES")?.group.packagingLanguages?.[0], "ES");
   assert.equal(new Set(result.rows.map((row) => row.slug)).size, 13);
+});
+
+test("a large regional batch must be processed one stable row at a time", () => {
+  const result = expandRegionalVariantBatch({
+    title: "Example",
+    platformSlug: "ps4",
+    groups: [{ markets: ["US", "CA"], barcode: "012345678905" }, { markets: ["JP"] }],
+  });
+  assert.ok(!("error" in result));
+  assert.ok("error" in selectRegionalVariantBatchRow(result.rows, undefined));
+  const first = selectRegionalVariantBatchRow(result.rows, 0);
+  const second = selectRegionalVariantBatchRow(result.rows, 1);
+  assert.ok(!("error" in first));
+  assert.ok(!("error" in second));
+  assert.equal(first.row.group.id, second.row.group.id);
+  assert.equal(regionalVariantBatchCatalogId("ps4", first.row), "ps4-usa-example-us");
+  assert.ok("error" in selectRegionalVariantBatchRow(result.rows, 3));
+});
+
+test("uncertain batch responses require exact published identity, not just a matching catalog ID", () => {
+  const result = expandRegionalVariantBatch({
+    title: "Example",
+    platformSlug: "ps4",
+    groups: [{ markets: ["JP"], barcode: "4571331332291", productCodes: ["PLJM-80265"] }],
+  });
+  assert.ok(!("error" in result));
+  const row = result.rows[0];
+  const game = {
+    id: regionalVariantBatchCatalogId("ps4", row),
+    title: "Example", platformSlug: "ps4", workId: "example",
+    region: row.region, marketRegion: row.marketRegion,
+    physicalVariant: row.physicalVariant,
+    physicalReleaseGroup: row.group,
+  } as CatalogGame;
+  const input = { title: "Example", platformSlug: "ps4", workId: "example", row };
+  assert.equal(matchesPublishedRegionalVariantRow(game, input), true);
+  assert.equal(matchesPublishedRegionalVariantRow({ ...game, physicalReleaseGroup: { ...row.group, barcode: "0000000000000" } }, input), false);
+  assert.equal(matchesPublishedRegionalVariantRow({ ...game, workId: "another-game" }, input), false);
+  assert.equal(classifyRegionalBatchRowPublication({ indexed: false, overlayGame: game, staticGame: null, detailsReady: true, identityMatches: true }), "INCOMPLETE");
+  assert.equal(classifyRegionalBatchRowPublication({ indexed: true, overlayGame: game, staticGame: null, detailsReady: false, identityMatches: true }), "INCOMPLETE");
+  assert.equal(classifyRegionalBatchRowPublication({ indexed: true, overlayGame: game, staticGame: null, detailsReady: true, identityMatches: false }), "CONFLICT");
+  assert.equal(classifyRegionalBatchRowPublication({ indexed: true, overlayGame: game, staticGame: null, detailsReady: true, identityMatches: true }), "MATCHING");
 });
 
 test("a physical box can group markets but cannot cross broad regions", () => {

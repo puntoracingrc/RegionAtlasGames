@@ -103,15 +103,27 @@ function parseIndex(raw: string): CatalogOverlayIndex {
   }
 }
 
-async function readIndexFromBlobFresh(): Promise<CatalogOverlayIndex> {
-  if (!shouldUseBlobStorage()) return emptyIndex();
+async function readIndexFromBlobFresh(strict = false): Promise<CatalogOverlayIndex> {
+  if (!shouldUseBlobStorage()) {
+    if (strict) throw new Error("Blob no configurado para comprobar el lote.");
+    return emptyIndex();
+  }
   try {
     const auth = await blobAuthOptions("private");
     const result = await get(blobReadPathname(INDEX_PATH), { ...auth, useCache: false });
-    if (!result?.stream || result.statusCode !== 200) return emptyIndex();
+    if (!result) return emptyIndex();
+    if (!result.stream || result.statusCode !== 200) {
+      if (strict) throw new Error(`No se pudo comprobar el índice del catálogo (HTTP ${result.statusCode}).`);
+      return emptyIndex();
+    }
     const text = await new Response(result.stream).text();
+    if (strict) {
+      const parsed = JSON.parse(text) as { ids?: unknown };
+      if (!Array.isArray(parsed?.ids)) throw new Error("El índice del catálogo no tiene un formato válido.");
+    }
     return parseIndex(text);
-  } catch {
+  } catch (error) {
+    if (strict) throw error;
     return emptyIndex();
   }
 }
@@ -144,8 +156,8 @@ export async function loadCatalogOverlayIndex(): Promise<CatalogOverlayIndex> {
  * edition from keeping the family snapshot that existed before its siblings
  * were published.
  */
-export async function loadCatalogOverlayIndexFresh(): Promise<CatalogOverlayIndex> {
-  return readIndexFromBlob({ fresh: true });
+export async function loadCatalogOverlayIndexFresh(strict = false): Promise<CatalogOverlayIndex> {
+  return readIndexFromBlobFresh(strict);
 }
 
 export function catalogOverlayRevision(index: CatalogOverlayIndex): string {
@@ -156,15 +168,23 @@ export async function getCatalogOverlayRevision(): Promise<string> {
   return catalogOverlayRevision(await loadCatalogOverlayIndex());
 }
 
-async function readCatalogOverlayGameFresh(catalogId: string): Promise<CatalogGame | null> {
-  if (!shouldUseBlobStorage()) return null;
+export async function readCatalogOverlayGameFresh(catalogId: string, strict = false): Promise<CatalogGame | null> {
+  if (!shouldUseBlobStorage()) {
+    if (strict) throw new Error("Blob no configurado para comprobar el lote.");
+    return null;
+  }
   try {
     const auth = await blobAuthOptions("private");
     const result = await get(blobReadPathname(gameBlobPath(catalogId)), { ...auth, useCache: false });
-    if (!result?.stream || result.statusCode !== 200) return null;
+    if (!result) return null;
+    if (!result.stream || result.statusCode !== 200) {
+      if (strict) throw new Error(`No se pudo comprobar la ficha ${catalogId} (HTTP ${result.statusCode}).`);
+      return null;
+    }
     const text = await new Response(result.stream).text();
     return normalizeCatalogGamePresentation(JSON.parse(text) as CatalogGame);
-  } catch {
+  } catch (error) {
+    if (strict) throw error;
     return null;
   }
 }
@@ -179,15 +199,23 @@ export async function readCatalogOverlayGame(catalogId: string): Promise<Catalog
   return readCatalogOverlayGameCached(catalogId);
 }
 
-async function readCatalogOverlayDetailsFresh(catalogId: string): Promise<GameDetails | null> {
-  if (!shouldUseBlobStorage()) return null;
+export async function readCatalogOverlayDetailsFresh(catalogId: string, strict = false): Promise<GameDetails | null> {
+  if (!shouldUseBlobStorage()) {
+    if (strict) throw new Error("Blob no configurado para comprobar el lote.");
+    return null;
+  }
   try {
     const auth = await blobAuthOptions("private");
     const result = await get(blobReadPathname(detailsBlobPath(catalogId)), { ...auth, useCache: false });
-    if (!result?.stream || result.statusCode !== 200) return null;
+    if (!result) return null;
+    if (!result.stream || result.statusCode !== 200) {
+      if (strict) throw new Error(`No se pudieron comprobar los detalles de ${catalogId} (HTTP ${result.statusCode}).`);
+      return null;
+    }
     const text = await new Response(result.stream).text();
     return JSON.parse(text) as GameDetails;
-  } catch {
+  } catch (error) {
+    if (strict) throw error;
     return null;
   }
 }
