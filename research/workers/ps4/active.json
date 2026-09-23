@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 28,
+  "generation": 29,
   "workerId": "ps4",
-  "state": "PAUSED",
+  "state": "PROCESSING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps4",
   "queuePath": "research/queue.json",
@@ -30,7 +30,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-23T01:12:31Z",
+  "updatedAt": "2026-09-23T01:15:36Z",
   "updatedBy": "codex",
-  "note": "Admin submission for 2Dark was sent once with 4 physical boxes and 5 regional identities, but remained on 'Publicando…' while the public catalog stayed loading; the Chrome debugger then detached. Publication outcome is unverified. Do not submit again until read-only Admin/public verification excludes a duplicate. Preserve the exact RESULT_READY artifact and proceed with other eligible workers."
+  "note": "Admin submission for 2Dark was sent once. The server returned a non-JSON error after writing, but the existing Spanish public page now shows Spain, France, Netherlands and UK in one Limited Edition family, with the expected barcodes and no new prices. Do not submit the batch again. Japanese Standard public identity and UK cover asset still need verification before receipt/consumption. Preserve the exact RESULT_READY artifact; other eligible workers may continue."
 }
