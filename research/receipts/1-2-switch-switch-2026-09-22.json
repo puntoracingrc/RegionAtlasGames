@@ -14,6 +14,7 @@
   "publishedRegions": ["PAL España", "NTSC USA", "NTSC-J Japón"],
   "pricesPublished": [],
   "priceDecision": "NOT_PUBLISHED_NO_ADMISSIBLE_SOLD_PRICE_EVIDENCE",
+  "sourcePerformanceDecision": "NOT_AGGREGATED_SOURCE_ATTEMPTS_LACK_TARGET_FIELDS",
   "internalAssets": {
     "front": "/covers/switch/1-2-switch.jpg",
     "back": "/catalog-covers/runtime/switch/1-2-switch-switch-jp-standard-back.jpg"

@@ -1,40 +1,39 @@
 {
   "schemaVersion": 2,
-  "generation": 26,
+  "generation": 27,
   "workerId": "switch",
-  "state": "RESULT_READY",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": 11,
-  "currentItemResearchId": "1-2-switch-switch-2026-09-22",
+  "resultOrderTemplateVersion": null,
+  "currentItemResearchId": "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
   "workPackage": {
-    "packageId": "switch-2026-09-22-004",
+    "packageId": "switch-2026-09-23-001",
     "grouping": {
       "type": "independent",
-      "basis": "Primera entrada pending de Switch no cubierta por un resultado previo, según el orden estable y la regla anti-repetición."
+      "basis": "Primera entrada pending de Switch sin resultado previo tras consumir 1-2-Switch; no comparte saga con las siguientes entradas."
     },
     "items": [
       {
-        "queueId": "catalog-group:switch-1-2-switch",
+        "queueId": "catalog:switch-2-hits-pack-sonic-forces-puyo-puyo-tetris",
         "platform": "switch",
-        "title": "1-2 Switch",
+        "title": "2 Hits Pack: Sonic Forces & Puyo Puyo Tetris",
         "catalogIds": [
-          "switch-1-2-switch",
-          "switch-japon-1-2-switch",
-          "switch-usa-1-2-switch"
+          "switch-2-hits-pack-sonic-forces-puyo-puyo-tetris"
         ],
-        "researchId": "1-2-switch-switch-2026-09-22",
-        "orderPath": "research/workers/switch/orders/1-2-switch-switch-2026-09-22.md",
-        "resultPath": "research/results/1-2-switch-switch-2026-09-22.json",
-        "status": "RESULT_READY",
-        "checkpointPath": "research/workers/switch/checkpoints/1-2-switch-switch-2026-09-22.json"
+        "researchId": "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
+        "orderPath": "research/workers/switch/orders/2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23.md",
+        "resultPath": "research/results/2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/switch/checkpoints/2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23.json"
       }
     ]
   },
-  "updatedAt": "2026-09-22T16:38:09Z",
-  "updatedBy": "chatgpt",
-  "note": "Resultado ORDER_TEMPLATE_VERSION 11 publicado para 1-2 Switch; checkpoint eliminado y paquete cerrado para validación de Codex."
+  "lease": null,
+  "updatedAt": "2026-09-23T00:28:15Z",
+  "updatedBy": "codex",
+  "note": "1-2-Switch publicado y verificado como ficha central V2 con ES, US y JP; resultado archivado con recibo. Se prepara el siguiente paquete independiente de Switch."
 }
