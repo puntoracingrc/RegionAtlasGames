@@ -1,0 +1,949 @@
+{
+  "schemaVersion": 1,
+  "researchId": "1xtreme-ps1-2026-09-23",
+  "platform": "ps1",
+  "resultFile": "research/results/1xtreme-ps1-2026-09-23.json",
+  "resultSha256": "2b1a4b05b96b602023a9447e5db1acd3fd7c7331c6dd7e75d36a34e22c5a6166",
+  "observedAt": "2026-09-23",
+  "counts": {
+    "sources": 21,
+    "queries": 25,
+    "sourceAttempts": 20,
+    "usefulSourceAttempts": 18,
+    "releases": 4,
+    "images": 7,
+    "regionalPriceBlocks": 8
+  },
+  "validation": {
+    "jsonParse": "PASS",
+    "requiredFields": "PASS",
+    "sourceReferenceIntegrity": "PASS",
+    "queryReferenceIntegrity": "PASS",
+    "priceContractIntegrity": "PASS_NO_PRICE_PUBLISHED",
+    "claimLevelImportReview": "PASS_WITH_UNRESOLVED_CONFLICTS_PRESERVED",
+    "catalogMutations": 4,
+    "priceMutations": 0,
+    "correctedAttemptIds": [
+      "a16"
+    ]
+  },
+  "sources": [
+    {
+      "sourceId": "s_gamefaqs",
+      "url": "https://gamefaqs.gamespot.com/ps/915768-espn-extreme-games/data",
+      "title": "GameFAQs — ESPN Extreme Games Release Data",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "US Long Box, EU, JP and US Greatest Hits release identities, publishers, identifiers, barcodes, dates/years, ratings, developer and players"
+    },
+    {
+      "sourceId": "s_psxdc_us",
+      "url": "https://psxdatacenter.com/games/U/E/SCUS-94503.html",
+      "title": "PSXDataCenter — ESPN Extreme Games NTSC-U",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "SCUS-94503, barcode, disc serial, English software, players, cover availability, and relationship of 1Xtreme to the original"
+    },
+    {
+      "sourceId": "s_psxdc_eu",
+      "url": "https://psxdatacenter.com/games/P/E/SCES-00063.html",
+      "title": "PSXDataCenter — ESPN Extreme Games PAL",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "SCES-00063 printed/internal serial, barcode, release date, English software and cover availability"
+    },
+    {
+      "sourceId": "s_psxdc_jp",
+      "url": "https://psxdatacenter.com/games/J/E/SIPS-60004.html",
+      "title": "PSXDataCenter — ESPN Street Games NTSC-J",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "SIPS-60004 printed/internal serial, barcode, release date, Japanese software and cover availability"
+    },
+    {
+      "sourceId": "s_redump",
+      "url": "https://redump.info/discs?letter=%23&page=2&sort=region",
+      "title": "Redump — PSX discs beginning with 1",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "USA 1Xtreme Greatest Hits, English, SCUS-94503"
+    },
+    {
+      "sourceId": "s_psxpaldb",
+      "url": "https://www.psxpaldb.com/case-types/full-jewel-pal/e/",
+      "title": "PSX PAL Database — Full Jewel PAL E",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "ESPN Extreme Games SCES-00063, Full Jewel PAL, barcode/GTIN, distribution countries, English disc language"
+    },
+    {
+      "sourceId": "s_arcadehistory",
+      "url": "https://www.arcade-history.com/game/97230/espn-extreme-games-model-scus-94503",
+      "title": "Arcade-History — ESPN Extreme Games SCUS-94503",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "US 1995-09-09 release and export codes SCES-00063/SIPS-60004"
+    },
+    {
+      "sourceId": "s_mobygames",
+      "url": "https://www.mobygames.com/game/7126/espn-espn2-extreme-games/",
+      "title": "MobyGames — ESPN / ESPN2 Extreme Games",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "1995-09-09 release context, developer, alternate titles, series and Greatest Hits rename context"
+    },
+    {
+      "sourceId": "s_vgdb",
+      "url": "https://www.vgdb.com.br/playstation/jogos/espn-extreme-games/",
+      "title": "VGDB — ESPN Extreme Games",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "Regional identifiers, barcodes, dates and languages; also exposes PAL SLES/SCES conflict"
+    },
+    {
+      "sourceId": "s_vgdb_gh",
+      "url": "https://www.vgdb.com.br/playstation/jogos/1xtreme-greatest-hits/",
+      "title": "VGDB — 1Xtreme Greatest Hits",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "1998 US Greatest Hits, SCUS-94503, barcode 711719450320"
+    },
+    {
+      "sourceId": "s_surugaya_jp",
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140000278",
+      "title": "Suruga-ya — ESPN Street Games",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "Japanese JAN 4948872600040, SIPS-60004, 1996-05-24 and Sony Computer Entertainment"
+    },
+    {
+      "sourceId": "s_ninnin_jp",
+      "url": "https://www.nin-nin-game.com/en/playstation/31238-espn-street-games-playstation-used-good-condition-en.html",
+      "title": "Nin-Nin Game — ESPN Street Games used",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "Active Japanese used listing; package/manual Japanese; US$10.84 asking price at access time"
+    },
+    {
+      "sourceId": "s_ebay_jp",
+      "url": "https://www.ebay.com/itm/227526917882",
+      "title": "eBay — ESPN Street Games SIPS-60004",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "Active NTSC-J listing, SIPS-60004, current auction/BIN context; manual completeness not established"
+    },
+    {
+      "sourceId": "s_gameware_us",
+      "url": "https://gameware.com/product/playstation/ps1-games/1xtreme/",
+      "title": "Gameware — 1Xtreme PS1",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "Direct active NTSC North America 1Xtreme listing, UPC 711719450320, Used-Complete $9.99"
+    },
+    {
+      "sourceId": "s_ricardo_eu",
+      "url": "https://www.ricardo.ch/de/a/espn-extreme-games-1330360930/",
+      "title": "Ricardo — ESPN Extreme Games PAL",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "Active PAL complete listing with original packaging/manual/cover and CHF asking prices; listing prints SLES-00063"
+    },
+    {
+      "sourceId": "s_retro_mtl_longbox",
+      "url": "https://retromtl.com/products/espn-extreme-games-long-box-playstation-ps1",
+      "title": "Retro MTL — ESPN Extreme Games Long Box",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "Direct US long-box complete-variant page and back-cover photograph; variant sold out at access time"
+    },
+    {
+      "sourceId": "s_pricecharting_longbox",
+      "url": "https://www.pricecharting.com/game/playstation/espn-extreme-games-long-box",
+      "title": "PriceCharting — ESPN Extreme Games Long Box",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "Long-box front image candidate and sold-market context; sold data not used as current active price evidence"
+    },
+    {
+      "sourceId": "s_launchbox_images",
+      "url": "https://gamesdb.launchbox-app.com/games/images/72743-espn-extreme-games",
+      "title": "LaunchBox Games Database — ESPN Extreme Games images",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "1Xtreme Greatest Hits front image candidate"
+    },
+    {
+      "sourceId": "s_jnl_gh",
+      "url": "https://www.jnlgame.com/products/1xtreme-greatest-hits-ps1-playstation-1-pre-owned",
+      "title": "J&L Game — 1Xtreme Greatest Hits",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "Greatest Hits back image candidate and SCUS-94503/barcode metadata; product sold out"
+    },
+    {
+      "sourceId": "s_tradergames_eu",
+      "url": "https://www.tradergames.fr/en/playstation-1/297838-espn-extreme-games-sony-playstation-1-ps1-pal-euro-sans-jaquette-without-cover-0711719611424.html",
+      "title": "Trader Games — ESPN Extreme Games PAL Euro",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "PAL European front-art image candidate tied to barcode 0711719611424"
+    },
+    {
+      "sourceId": "s_furu1_jp",
+      "url": "https://www.furu1.online/product/detail/10005857",
+      "title": "Furuichi Online — ESPN Street Games",
+      "accessedAt": "2026-09-23T06:08:00Z",
+      "supports": "Japanese front-cover image candidate and SIPS-60004 visible on artwork"
+    }
+  ],
+  "queryLedger": [
+    {
+      "queryId": "q01",
+      "queryType": "source_specific",
+      "query": "site:gamefaqs.gamespot.com/ps \"1Xtreme\" PlayStation data",
+      "provider": "web_search",
+      "targetFields": [
+        "identity",
+        "release_variants",
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q02",
+      "queryType": "source_specific",
+      "query": "site:psxdatacenter.com \"1Xtreme\" PlayStation",
+      "provider": "web_search",
+      "targetFields": [
+        "identity",
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_psxdc_us"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q03",
+      "queryType": "source_specific",
+      "query": "site:redump.org \"1Xtreme\" PlayStation",
+      "provider": "web_search",
+      "targetFields": [
+        "Greatest_Hits_disc_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_redump"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q04",
+      "queryType": "source_specific",
+      "query": "site:w.atwiki.jp \"1Xtreme\" PlayStation",
+      "provider": "web_search",
+      "targetFields": [
+        "release_variants"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": null
+    },
+    {
+      "queryId": "q05",
+      "queryType": "exact_identifier",
+      "query": "site:psxdatacenter.com SCUS-94503 1Xtreme",
+      "provider": "web_search",
+      "targetFields": [
+        "US_serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_psxdc_us"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q06",
+      "queryType": "exact_identifier",
+      "query": "site:psxdatacenter.com SIPS-60004 \"ESPN Street Games\"",
+      "provider": "web_search",
+      "targetFields": [
+        "Japan_serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_psxdc_jp"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q07",
+      "queryType": "exact_identifier",
+      "query": "site:psxdatacenter.com SCES-00063 \"ESPN Extreme Games\"",
+      "provider": "web_search",
+      "targetFields": [
+        "PAL_serial"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_psxdc_eu"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q08",
+      "queryType": "exact_identifier",
+      "query": "\"1Xtreme\" redump SCUS-94503 Greatest Hits",
+      "provider": "web_search",
+      "targetFields": [
+        "Greatest_Hits_disc_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_redump"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q09",
+      "queryType": "exact_identifier",
+      "query": "\"ESPN Extreme Games\" \"SCUS-94503\" \"Long Box\"",
+      "provider": "web_search",
+      "targetFields": [
+        "US_long-box_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs",
+        "s_arcadehistory"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q10",
+      "queryType": "general",
+      "query": "\"ESPN Extreme Games\" \"September 9, 1995\" PlayStation",
+      "provider": "web_search",
+      "targetFields": [
+        "US_release-date_conflict"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs",
+        "s_arcadehistory",
+        "s_mobygames"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q11",
+      "queryType": "general",
+      "query": "\"ESPN Extreme Games\" \"December 10, 1995\" PlayStation",
+      "provider": "web_search",
+      "targetFields": [
+        "US_release-date_conflict"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_psxdc_us",
+        "s_vgdb"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q12",
+      "queryType": "marketplace",
+      "query": "\"SIPS-60004\" \"Yahoo!オークション\" ESPN",
+      "provider": "web_search",
+      "targetFields": [
+        "recommended_Yahoo_route_for_active_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": null
+    },
+    {
+      "queryId": "q13",
+      "queryType": "source_specific",
+      "query": "\"SIPS-60004\" \"駿河屋\" ESPN",
+      "provider": "web_search",
+      "targetFields": [
+        "recommended_Suruga_route"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_surugaya_jp"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q14",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"1Xtreme\" \"SCUS-94503\"",
+      "provider": "web_search",
+      "targetFields": [
+        "active_US_Greatest_Hits_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": null
+    },
+    {
+      "queryId": "q15",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"ESPN Extreme Games\" \"SCUS-94503\" \"long box\"",
+      "provider": "web_search",
+      "targetFields": [
+        "active_US_long-box_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": null
+    },
+    {
+      "queryId": "q16",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"ESPN Extreme Games\" \"SCES-00063\"",
+      "provider": "web_search",
+      "targetFields": [
+        "active_PAL_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "notes": null
+    },
+    {
+      "queryId": "q17",
+      "queryType": "marketplace",
+      "query": "site:ebay.com/itm \"ESPN Street Games\" \"SIPS-60004\"",
+      "provider": "web_search",
+      "targetFields": [
+        "active_Japan_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_jp"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q18",
+      "queryType": "marketplace",
+      "query": "\"1Xtreme\" \"Greatest Hits\" \"complete\" \"$\" \"in stock\" PlayStation",
+      "provider": "web_search",
+      "targetFields": [
+        "active_complete_US_Greatest_Hits_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gameware_us"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q19",
+      "queryType": "marketplace",
+      "query": "\"ESPN Street Games\" \"SIPS-60004\" \"manual\" \"in stock\" PlayStation",
+      "provider": "web_search",
+      "targetFields": [
+        "active_complete_Japan_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ninnin_jp"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q20",
+      "queryType": "exact_identifier",
+      "query": "\"711719611424\" \"SCES-00063\" PlayStation",
+      "provider": "web_search",
+      "targetFields": [
+        "PAL_code_conflict"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_psxdc_eu",
+        "s_psxpaldb"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q21",
+      "queryType": "exact_identifier",
+      "query": "\"711719611424\" \"SLES-00063\" PlayStation",
+      "provider": "web_search",
+      "targetFields": [
+        "PAL_code_conflict"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_gamefaqs",
+        "s_vgdb"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q22",
+      "queryType": "image",
+      "query": "1Xtreme Greatest Hits PS1 US box front SCUS-94503",
+      "provider": "web_search",
+      "targetFields": [
+        "Greatest_Hits_front_image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_launchbox_images"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q23",
+      "queryType": "image",
+      "query": "ESPN Extreme Games PS1 long box back cover SCUS-94503",
+      "provider": "web_search",
+      "targetFields": [
+        "US_long-box_back_image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_retro_mtl_longbox"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q24",
+      "queryType": "image",
+      "query": "ESPN Extreme Games PS1 PAL back cover SCES-00063",
+      "provider": "web_search",
+      "targetFields": [
+        "PAL_back_image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_psxpaldb"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q25",
+      "queryType": "image",
+      "query": "ESPN Street Games PlayStation Japan SIPS-60004 back cover barcode 4948872600040",
+      "provider": "web_search",
+      "targetFields": [
+        "Japan_back_image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_furu1_jp",
+        "s_psxdc_jp"
+      ],
+      "notes": null
+    }
+  ],
+  "sourceAttempts": [
+    {
+      "attemptId": "a01",
+      "sourceName": "GameFAQs — ESPN Extreme Games Release Data",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "release_database",
+      "platform": "ps1",
+      "targetFields": [
+        "identity",
+        "identifiers",
+        "release_variants"
+      ],
+      "queryRefs": [
+        "q01",
+        "q09",
+        "q10",
+        "q21"
+      ],
+      "url": "https://gamefaqs.gamespot.com/ps/915768-espn-extreme-games/data",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a02",
+      "sourceName": "PSXDataCenter — ESPN Extreme Games NTSC-U",
+      "domain": "psxdatacenter.com",
+      "sourceType": "release_database",
+      "platform": "ps1",
+      "targetFields": [
+        "identifiers",
+        "disc_serial",
+        "software_language",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q02",
+        "q05",
+        "q11"
+      ],
+      "url": "https://psxdatacenter.com/games/U/E/SCUS-94503.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a03",
+      "sourceName": "PSXDataCenter — ESPN Extreme Games PAL",
+      "domain": "psxdatacenter.com",
+      "sourceType": "release_database",
+      "platform": "ps1",
+      "targetFields": [
+        "identifiers",
+        "disc_serial",
+        "software_language",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q07",
+        "q20"
+      ],
+      "url": "https://psxdatacenter.com/games/P/E/SCES-00063.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a04",
+      "sourceName": "PSXDataCenter — ESPN Street Games NTSC-J",
+      "domain": "psxdatacenter.com",
+      "sourceType": "release_database",
+      "platform": "ps1",
+      "targetFields": [
+        "identifiers",
+        "disc_serial",
+        "software_language",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q06",
+        "q25"
+      ],
+      "url": "https://psxdatacenter.com/games/J/E/SIPS-60004.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a05",
+      "sourceName": "Redump — PSX discs beginning with 1",
+      "domain": "redump.info",
+      "sourceType": "preservation_database",
+      "platform": "ps1",
+      "targetFields": [
+        "edition_identity",
+        "disc_serial",
+        "software_language"
+      ],
+      "queryRefs": [
+        "q03",
+        "q08"
+      ],
+      "url": "https://redump.info/discs?letter=%23&page=2&sort=region",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a06",
+      "sourceName": "Suruga-ya — ESPN Street Games",
+      "domain": "suruga-ya.jp",
+      "sourceType": "retailer",
+      "platform": "ps1",
+      "targetFields": [
+        "identifiers",
+        "release_date",
+        "publisher",
+        "price_context"
+      ],
+      "queryRefs": [
+        "q13"
+      ],
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140000278",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a07",
+      "sourceName": "w.atwiki.jp",
+      "domain": "w.atwiki.jp",
+      "sourceType": "community_database",
+      "platform": "ps1",
+      "targetFields": [
+        "release_variants",
+        "product_codes"
+      ],
+      "queryRefs": [
+        "q04"
+      ],
+      "url": null,
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Recommended route searched; no exact useful 1Xtreme product evidence surfaced."
+    },
+    {
+      "attemptId": "a08",
+      "sourceName": "auctions.yahoo.co.jp",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace",
+      "platform": "ps1",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "queryRefs": [
+        "q12"
+      ],
+      "url": null,
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Recommended price route searched for SIPS-60004; no qualifying exact active listing surfaced."
+    },
+    {
+      "attemptId": "a09",
+      "sourceName": "PSX PAL Database — Full Jewel PAL E",
+      "domain": "psxpaldb.com",
+      "sourceType": "physical_release_database",
+      "platform": "ps1",
+      "targetFields": [
+        "identifiers",
+        "distribution_markets",
+        "media",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q20",
+        "q24"
+      ],
+      "url": "https://www.psxpaldb.com/case-types/full-jewel-pal/e/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a10",
+      "sourceName": "Nin-Nin Game — ESPN Street Games used",
+      "domain": "nin-nin-game.com",
+      "sourceType": "retailer",
+      "platform": "ps1",
+      "targetFields": [
+        "packaging_language",
+        "active_market_price"
+      ],
+      "queryRefs": [
+        "q19"
+      ],
+      "url": "https://www.nin-nin-game.com/en/playstation/31238-espn-street-games-playstation-used-good-condition-en.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a11",
+      "sourceName": "eBay — ESPN Street Games SIPS-60004",
+      "domain": "ebay.com",
+      "sourceType": "marketplace",
+      "platform": "ps1",
+      "targetFields": [
+        "active_market_price",
+        "identifiers"
+      ],
+      "queryRefs": [
+        "q17"
+      ],
+      "url": "https://www.ebay.com/itm/227526917882",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Active exact Japanese listing, but complete contents/manual not established, so excluded from complete-price sample."
+    },
+    {
+      "attemptId": "a12",
+      "sourceName": "Gameware — 1Xtreme PS1",
+      "domain": "gameware.com",
+      "sourceType": "retailer",
+      "platform": "ps1",
+      "targetFields": [
+        "active_market_price",
+        "identifiers"
+      ],
+      "queryRefs": [
+        "q18"
+      ],
+      "url": "https://gameware.com/product/playstation/ps1-games/1xtreme/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a13",
+      "sourceName": "Ricardo — ESPN Extreme Games PAL",
+      "domain": "ricardo.ch",
+      "sourceType": "marketplace",
+      "platform": "ps1",
+      "targetFields": [
+        "active_market_price",
+        "physical_contents"
+      ],
+      "queryRefs": [],
+      "url": "https://www.ricardo.ch/de/a/espn-extreme-games-1330360930/",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Active complete PAL listing, but code printed as SLES-00063 while physical databases support SCES-00063; retained as one observation with conflict noted."
+    },
+    {
+      "attemptId": "a14",
+      "sourceName": "Retro MTL — ESPN Extreme Games Long Box",
+      "domain": "retromtl.com",
+      "sourceType": "retailer",
+      "platform": "ps1",
+      "targetFields": [
+        "active_market_price",
+        "images"
+      ],
+      "queryRefs": [
+        "q23"
+      ],
+      "url": "https://retromtl.com/products/espn-extreme-games-long-box-playstation-ps1",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Exact complete long-box variant is sold out; image evidence remains useful."
+    },
+    {
+      "attemptId": "a15",
+      "sourceName": "PriceCharting — ESPN Extreme Games Long Box",
+      "domain": "pricecharting.com",
+      "sourceType": "price_aggregator",
+      "platform": "ps1",
+      "targetFields": [
+        "images",
+        "price_context"
+      ],
+      "queryRefs": [],
+      "url": "https://www.pricecharting.com/game/playstation/espn-extreme-games-long-box",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Front image useful; historic sold prices excluded from active-price sample."
+    },
+    {
+      "attemptId": "a16",
+      "sourceName": "LaunchBox Games Database — ESPN Extreme Games images",
+      "domain": "launchbox-app.com",
+      "sourceType": "image_database",
+      "platform": "ps1",
+      "targetFields": [
+        "images"
+      ],
+      "queryRefs": [
+        "q22"
+      ],
+      "url": "https://gamesdb.launchbox-app.com/games/images/72743-espn-extreme-games",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Greatest Hits front rejected: European SCES-00063 spine on a purported US image."
+    },
+    {
+      "attemptId": "a17",
+      "sourceName": "J&L Game — 1Xtreme Greatest Hits",
+      "domain": "jnlgame.com",
+      "sourceType": "retailer",
+      "platform": "ps1",
+      "targetFields": [
+        "images",
+        "identifiers"
+      ],
+      "queryRefs": [],
+      "url": "https://www.jnlgame.com/products/1xtreme-greatest-hits-ps1-playstation-1-pre-owned",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Greatest Hits back image and metadata found; product sold out, not price evidence."
+    },
+    {
+      "attemptId": "a18",
+      "sourceName": "Furuichi Online — ESPN Street Games",
+      "domain": "furu1.online",
+      "sourceType": "retailer",
+      "platform": "ps1",
+      "targetFields": [
+        "images",
+        "identifiers"
+      ],
+      "queryRefs": [
+        "q25"
+      ],
+      "url": "https://www.furu1.online/product/detail/10005857",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a19",
+      "sourceName": "Arcade-History — ESPN Extreme Games SCUS-94503",
+      "domain": "arcade-history.com",
+      "sourceType": "database",
+      "platform": "ps1",
+      "targetFields": [
+        "release_date",
+        "identifiers"
+      ],
+      "queryRefs": [
+        "q09",
+        "q10"
+      ],
+      "url": "https://www.arcade-history.com/game/97230/espn-extreme-games-model-scus-94503",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a20",
+      "sourceName": "MobyGames — ESPN / ESPN2 Extreme Games",
+      "domain": "mobygames.com",
+      "sourceType": "database",
+      "platform": "ps1",
+      "targetFields": [
+        "identity",
+        "release_date",
+        "series",
+        "release_variant_discovery"
+      ],
+      "queryRefs": [
+        "q10"
+      ],
+      "url": "https://www.mobygames.com/game/7126/espn-espn2-extreme-games/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    }
+  ]
+}

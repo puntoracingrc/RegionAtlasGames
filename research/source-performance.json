@@ -2753,29 +2753,30 @@
         "99-koshien-ps1-2026-09-22",
         "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
         "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
-        "1-on-1-ps1-2026-09-23"
+        "1-on-1-ps1-2026-09-23",
+        "1xtreme-ps1-2026-09-23"
       ],
-      "observationCount": 5,
+      "observationCount": 6,
       "queryTotals": {
-        "general": 5,
-        "exact_identifier": 40,
-        "image": 27,
-        "source_specific": 26,
-        "marketplace": 63
+        "general": 7,
+        "exact_identifier": 47,
+        "image": 31,
+        "source_specific": 31,
+        "marketplace": 70
       },
       "sourceAttemptTotals": {
-        "total": 102,
-        "useful": 74,
+        "total": 122,
+        "useful": 92,
         "byOutcome": {
-          "CONFIRMED_EVIDENCE": 55,
+          "CONFIRMED_EVIDENCE": 67,
           "TECHNICAL_FAILURE": 24,
-          "CONTEXT_ONLY": 19,
-          "CANDIDATE": 2,
-          "NO_RELEVANT_DATA": 2
+          "CONTEXT_ONLY": 22,
+          "CANDIDATE": 5,
+          "NO_RELEVANT_DATA": 4
         },
         "byAccessStatus": {
-          "OPENED": 69,
-          "SEARCH_RESULT_ONLY": 21,
+          "OPENED": 87,
+          "SEARCH_RESULT_ONLY": 23,
           "BLOCKED": 7,
           "TIMEOUT": 4,
           "NOT_FOUND": 1
@@ -2796,9 +2797,9 @@
             "release_variant_discovery",
             "standard_active_price"
           ],
-          "attempts": 9,
+          "attempts": 10,
           "usefulAttempts": 4,
-          "distinctResearchIds": 2
+          "distinctResearchIds": 3
         },
         {
           "domain": "gamefaqs.gamespot.com",
@@ -2821,33 +2822,49 @@
             "serial",
             "series",
             "standard_box",
-            "standard_box_image"
+            "standard_box_image",
+            "release_date",
+            "market"
           ],
-          "attempts": 8,
-          "usefulAttempts": 6,
-          "distinctResearchIds": 4
+          "attempts": 11,
+          "usefulAttempts": 8,
+          "distinctResearchIds": 6
         },
         {
           "domain": "psxdatacenter.com",
           "targetCategories": [
+            "back image",
             "barcode",
+            "barcode conflict",
+            "developer",
             "disc count",
             "disc serial",
+            "front image",
             "identifiers",
             "identity",
+            "languages",
             "market",
             "media",
+            "packaging language",
             "players",
             "product code",
+            "publisher",
             "release date",
             "release type",
             "release_date",
             "serial",
-            "software language"
+            "software language",
+            "standard barcode",
+            "standard product code",
+            "software_language",
+            "modes",
+            "disc_count",
+            "front_back_images",
+            "disc_serial"
           ],
-          "attempts": 6,
-          "usefulAttempts": 5,
-          "distinctResearchIds": 4
+          "attempts": 15,
+          "usefulAttempts": 11,
+          "distinctResearchIds": 6
         },
         {
           "domain": "redump.org",
@@ -2861,11 +2878,13 @@
             "market",
             "release type",
             "software language",
-            "software_language"
+            "software_language",
+            "release_type",
+            "serial"
           ],
-          "attempts": 5,
-          "usefulAttempts": 4,
-          "distinctResearchIds": 4
+          "attempts": 6,
+          "usefulAttempts": 5,
+          "distinctResearchIds": 5
         },
         {
           "domain": "suruga-ya.jp",
@@ -2885,11 +2904,17 @@
             "release date",
             "release_type",
             "standardIdentifiers",
-            "used market context"
+            "used market context",
+            "used_market_context",
+            "front_back_images",
+            "identifiers",
+            "release_date",
+            "publisher",
+            "price_context"
           ],
-          "attempts": 8,
-          "usefulAttempts": 8,
-          "distinctResearchIds": 3
+          "attempts": 10,
+          "usefulAttempts": 10,
+          "distinctResearchIds": 5
         },
         {
           "domain": "w.atwiki.jp",
@@ -2905,20 +2930,101 @@
             "release variants",
             "release_dates",
             "release_variants",
-            "series"
+            "series",
+            "demo_release_type"
+          ],
+          "attempts": 7,
+          "usefulAttempts": 6,
+          "distinctResearchIds": 6
+        },
+        {
+          "domain": "arcade-history.com",
+          "targetCategories": [
+            "budgetIdentifiers",
+            "demo_identity",
+            "media",
+            "product_code",
+            "publisher",
+            "market",
+            "identity",
+            "barcode",
+            "release_date",
+            "identifiers"
+          ],
+          "attempts": 4,
+          "usefulAttempts": 3,
+          "distinctResearchIds": 4
+        },
+        {
+          "domain": "furu1.online",
+          "targetCategories": [
+            "limited identity",
+            "price context",
+            "product code",
+            "publisher",
+            "release date",
+            "standard_active_price",
+            "standard_identity",
+            "images",
+            "identifiers"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 3,
+          "distinctResearchIds": 3
+        },
+        {
+          "domain": "jp.mercari.com",
+          "targetCategories": [
+            "completePrice",
+            "demoIdentity",
+            "edition identity",
+            "editionIdentity",
+            "image discovery",
+            "sealed price",
+            "standardPrice"
           ],
           "attempts": 5,
+          "usefulAttempts": 4,
+          "distinctResearchIds": 2
+        },
+        {
+          "domain": "mobygames.com",
+          "targetCategories": [
+            "front image",
+            "identity",
+            "packaging text",
+            "series",
+            "release_date",
+            "release_variant_discovery"
+          ],
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "distinctResearchIds": 3
+        },
+        {
+          "domain": "ebay.com",
+          "targetCategories": [
+            "complete price",
+            "edition evidence",
+            "physical contents",
+            "region evidence",
+            "active_market_price",
+            "identifiers",
+            "regional_release_identity",
+            "physical_contents"
+          ],
+          "attempts": 6,
           "usefulAttempts": 5,
-          "distinctResearchIds": 4
+          "distinctResearchIds": 3
         }
       ],
       "recommendationStatus": "VALIDATED_ROUTES_AVAILABLE",
       "domains": {
         "arcade-history.com": {
-          "attempts": 3,
-          "usefulAttempts": 2,
-          "usefulnessRate": 0.6667,
-          "confirmedEvidenceAttempts": 2,
+          "attempts": 4,
+          "usefulAttempts": 3,
+          "usefulnessRate": 0.75,
+          "confirmedEvidenceAttempts": 3,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -2927,14 +3033,16 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 3,
+          "distinctResearchIds": 4,
           "researchIds": [
             "98-koshien-ps1-2026-09-21",
             "99-koshien-ps1-2026-09-22",
-            "1-on-1-ps1-2026-09-23"
+            "1-on-1-ps1-2026-09-23",
+            "1xtreme-ps1-2026-09-23"
           ],
           "sourceTypes": [
-            "technical_database"
+            "technical_database",
+            "database"
           ],
           "targetCategories": [
             "budgetIdentifiers",
@@ -2945,16 +3053,18 @@
             "market",
             "identity",
             "barcode",
-            "release_date"
+            "release_date",
+            "identifiers"
           ],
           "queryTypeCounts": {
-            "exact_identifier": 2,
-            "source_specific": 1
+            "exact_identifier": 3,
+            "source_specific": 1,
+            "general": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-23"
         },
@@ -2992,27 +3102,29 @@
           "lastObservedAt": "2026-09-22"
         },
         "auctions.yahoo.co.jp": {
-          "attempts": 9,
+          "attempts": 10,
           "usefulAttempts": 4,
-          "usefulnessRate": 0.4444,
+          "usefulnessRate": 0.4,
           "confirmedEvidenceAttempts": 3,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 1,
-          "noRelevantDataAttempts": 0,
+          "noRelevantDataAttempts": 1,
           "technicalFailures": 5,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 5,
-          "distinctResearchIds": 2,
+          "searchResultOnlyAttempts": 6,
+          "distinctResearchIds": 3,
           "researchIds": [
             "98-koshien-ps1-2026-09-21",
-            "99-koshien-ps1-2026-09-22"
+            "99-koshien-ps1-2026-09-22",
+            "1xtreme-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "ended_secondhand_listing",
             "marketplace_listing",
-            "marketplace_search"
+            "marketplace_search",
+            "marketplace"
           ],
           "targetCategories": [
             "active_market_price",
@@ -3029,14 +3141,14 @@
           "queryTypeCounts": {
             "image": 8,
             "exact_identifier": 3,
-            "marketplace": 12
+            "marketplace": 13
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": true,
           "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "famitsu.com": {
           "attempts": 1,
@@ -3072,10 +3184,10 @@
           "lastObservedAt": "2026-09-22"
         },
         "furu1.online": {
-          "attempts": 2,
-          "usefulAttempts": 2,
+          "attempts": 3,
+          "usefulAttempts": 3,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 0,
+          "confirmedEvidenceAttempts": 1,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 2,
           "noRelevantDataAttempts": 0,
@@ -3084,14 +3196,16 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "distinctResearchIds": 3,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
-            "99-koshien-ps1-2026-09-22"
+            "99-koshien-ps1-2026-09-22",
+            "1xtreme-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "marketplace_listing",
-            "retailer_metadata"
+            "retailer_metadata",
+            "retailer"
           ],
           "targetCategories": [
             "limited identity",
@@ -3100,24 +3214,27 @@
             "publisher",
             "release date",
             "standard_active_price",
-            "standard_identity"
+            "standard_identity",
+            "images",
+            "identifiers"
           ],
           "queryTypeCounts": {
             "marketplace": 1,
-            "general": 1
+            "general": 1,
+            "image": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-23"
         },
         "gamefaqs.gamespot.com": {
-          "attempts": 10,
-          "usefulAttempts": 7,
-          "usefulnessRate": 0.7,
-          "confirmedEvidenceAttempts": 5,
+          "attempts": 11,
+          "usefulAttempts": 8,
+          "usefulnessRate": 0.7273,
+          "confirmedEvidenceAttempts": 6,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 3,
           "noRelevantDataAttempts": 0,
@@ -3126,20 +3243,22 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 5,
-          "distinctResearchIds": 5,
+          "distinctResearchIds": 6,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
             "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
             "98-koshien-ps1-2026-09-21",
             "99-koshien-ps1-2026-09-22",
-            "1-on-1-ps1-2026-09-23"
+            "1-on-1-ps1-2026-09-23",
+            "1xtreme-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "game_database",
             "image_gallery",
             "image_page",
             "specialist_database",
-            "search_result"
+            "search_result",
+            "release_database"
           ],
           "targetCategories": [
             "barcode",
@@ -3165,9 +3284,9 @@
             "market"
           ],
           "queryTypeCounts": {
-            "general": 1,
-            "source_specific": 7,
-            "exact_identifier": 2,
+            "general": 2,
+            "source_specific": 8,
+            "exact_identifier": 4,
             "image": 9
           },
           "exampleSourceIds": [],
@@ -3398,16 +3517,16 @@
           },
           "exampleSourceIds": [],
           "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-23"
         },
         "mobygames.com": {
-          "attempts": 2,
-          "usefulAttempts": 1,
-          "usefulnessRate": 0.5,
-          "confirmedEvidenceAttempts": 1,
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "usefulnessRate": 0.6667,
+          "confirmedEvidenceAttempts": 2,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -3416,29 +3535,34 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 1,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "distinctResearchIds": 3,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
-            "98-koshien-ps1-2026-09-21"
+            "98-koshien-ps1-2026-09-21",
+            "1xtreme-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "game_database",
-            "image_gallery"
+            "image_gallery",
+            "database"
           ],
           "targetCategories": [
             "front image",
             "identity",
             "packaging text",
-            "series"
+            "series",
+            "release_date",
+            "release_variant_discovery"
           ],
           "queryTypeCounts": {
             "source_specific": 1,
-            "image": 2
+            "image": 2,
+            "general": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-23"
         },
@@ -3513,21 +3637,22 @@
           "lastObservedAt": "2026-09-22"
         },
         "pricecharting.com": {
-          "attempts": 1,
-          "usefulAttempts": 1,
+          "attempts": 2,
+          "usefulAttempts": 2,
           "usefulnessRate": 1,
           "confirmedEvidenceAttempts": 0,
           "candidateAttempts": 0,
-          "contextOnlyAttempts": 1,
+          "contextOnlyAttempts": 2,
           "noRelevantDataAttempts": 0,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "99-koshien-ps1-2026-09-22"
+            "99-koshien-ps1-2026-09-22",
+            "1xtreme-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "price_aggregator"
@@ -3536,7 +3661,8 @@
             "barcode",
             "physical_contents",
             "price_context",
-            "standard_identity"
+            "standard_identity",
+            "images"
           ],
           "queryTypeCounts": {
             "exact_identifier": 1,
@@ -3547,13 +3673,13 @@
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "psxdatacenter.com": {
-          "attempts": 12,
-          "usefulAttempts": 8,
-          "usefulnessRate": 0.6667,
-          "confirmedEvidenceAttempts": 8,
+          "attempts": 15,
+          "usefulAttempts": 11,
+          "usefulnessRate": 0.7333,
+          "confirmedEvidenceAttempts": 11,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 1,
@@ -3562,19 +3688,21 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 5,
+          "distinctResearchIds": 6,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
             "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
             "98-koshien-ps1-2026-09-21",
             "99-koshien-ps1-2026-09-22",
-            "1-on-1-ps1-2026-09-23"
+            "1-on-1-ps1-2026-09-23",
+            "1xtreme-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "direct_image",
             "technical_database",
             "technical_release_page",
-            "direct_image_page"
+            "direct_image_page",
+            "release_database"
           ],
           "targetCategories": [
             "back image",
@@ -3603,18 +3731,19 @@
             "software_language",
             "modes",
             "disc_count",
-            "front_back_images"
+            "front_back_images",
+            "disc_serial"
           ],
           "queryTypeCounts": {
-            "general": 2,
-            "exact_identifier": 9,
-            "image": 2,
-            "source_specific": 2
+            "general": 3,
+            "exact_identifier": 13,
+            "image": 3,
+            "source_specific": 3
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": true,
-          "recommendationReason": "repeat_confirmed_exact_ps1_release_identifiers",
+          "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-23"
         },
@@ -3705,10 +3834,10 @@
           "lastObservedAt": "2026-09-22"
         },
         "suruga-ya.jp": {
-          "attempts": 9,
-          "usefulAttempts": 9,
+          "attempts": 10,
+          "usefulAttempts": 10,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 7,
+          "confirmedEvidenceAttempts": 8,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 2,
           "noRelevantDataAttempts": 0,
@@ -3717,18 +3846,20 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 4,
+          "distinctResearchIds": 5,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
             "98-koshien-ps1-2026-09-21",
             "99-koshien-ps1-2026-09-22",
-            "1-on-1-ps1-2026-09-23"
+            "1-on-1-ps1-2026-09-23",
+            "1xtreme-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "marketplace_listing",
             "retailer_metadata",
             "secondhand_retail_listing",
-            "direct_listing"
+            "direct_listing",
+            "retailer"
           ],
           "targetCategories": [
             "budgetIdentifiers",
@@ -3748,11 +3879,15 @@
             "standardIdentifiers",
             "used market context",
             "used_market_context",
-            "front_back_images"
+            "front_back_images",
+            "identifiers",
+            "release_date",
+            "publisher",
+            "price_context"
           ],
           "queryTypeCounts": {
             "exact_identifier": 11,
-            "source_specific": 4,
+            "source_specific": 5,
             "marketplace": 6,
             "general": 1
           },
@@ -3764,31 +3899,33 @@
           "lastObservedAt": "2026-09-23"
         },
         "w.atwiki.jp": {
-          "attempts": 6,
+          "attempts": 7,
           "usefulAttempts": 6,
-          "usefulnessRate": 1,
+          "usefulnessRate": 0.8571,
           "confirmedEvidenceAttempts": 6,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
-          "noRelevantDataAttempts": 0,
+          "noRelevantDataAttempts": 1,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 2,
-          "distinctResearchIds": 5,
+          "searchResultOnlyAttempts": 3,
+          "distinctResearchIds": 6,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
             "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
             "98-koshien-ps1-2026-09-21",
             "99-koshien-ps1-2026-09-22",
-            "1-on-1-ps1-2026-09-23"
+            "1-on-1-ps1-2026-09-23",
+            "1xtreme-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "reference_database",
             "release_database",
             "specialist_database",
-            "historical_catalog"
+            "historical_catalog",
+            "community_database"
           ],
           "targetCategories": [
             "factory bonus",
@@ -3808,7 +3945,7 @@
           "queryTypeCounts": {
             "general": 4,
             "exact_identifier": 3,
-            "source_specific": 3
+            "source_specific": 4
           },
           "exampleSourceIds": [],
           "status": "observed",
@@ -4181,11 +4318,11 @@
           "lastObservedAt": "2026-09-23"
         },
         "ebay.com": {
-          "attempts": 5,
-          "usefulAttempts": 4,
-          "usefulnessRate": 0.8,
+          "attempts": 6,
+          "usefulAttempts": 5,
+          "usefulnessRate": 0.8333,
           "confirmedEvidenceAttempts": 4,
-          "candidateAttempts": 0,
+          "candidateAttempts": 1,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
           "technicalFailures": 1,
@@ -4193,14 +4330,16 @@
           "notFoundAttempts": 1,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "distinctResearchIds": 3,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
-            "1-on-1-ps1-2026-09-23"
+            "1-on-1-ps1-2026-09-23",
+            "1xtreme-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "active_secondhand_listing",
-            "marketplace_direct_listing"
+            "marketplace_direct_listing",
+            "marketplace"
           ],
           "targetCategories": [
             "complete price",
@@ -4213,12 +4352,12 @@
             "physical_contents"
           ],
           "queryTypeCounts": {
-            "marketplace": 8
+            "marketplace": 9
           },
           "exampleSourceIds": [],
           "status": "observed",
-          "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
+          "recommended": true,
+          "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-23"
         },
@@ -4285,6 +4424,278 @@
             "active_market_price",
             "rerelease_identity",
             "physical_contents"
+          ],
+          "queryTypeCounts": {},
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "redump.info": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "1xtreme-ps1-2026-09-23"
+          ],
+          "sourceTypes": [
+            "preservation_database"
+          ],
+          "targetCategories": [
+            "edition_identity",
+            "disc_serial",
+            "software_language"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1,
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "psxpaldb.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "1xtreme-ps1-2026-09-23"
+          ],
+          "sourceTypes": [
+            "physical_release_database"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "distribution_markets",
+            "media",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "nin-nin-game.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "1xtreme-ps1-2026-09-23"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "packaging_language",
+            "active_market_price"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "gameware.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "1xtreme-ps1-2026-09-23"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "identifiers"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "ricardo.ch": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "1xtreme-ps1-2026-09-23"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {},
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "retromtl.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "1xtreme-ps1-2026-09-23"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "images"
+          ],
+          "queryTypeCounts": {
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "launchbox-app.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "1xtreme-ps1-2026-09-23"
+          ],
+          "sourceTypes": [
+            "image_database"
+          ],
+          "targetCategories": [
+            "images"
+          ],
+          "queryTypeCounts": {
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "jnlgame.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "1xtreme-ps1-2026-09-23"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "images",
+            "identifiers"
           ],
           "queryTypeCounts": {},
           "exampleSourceIds": [],

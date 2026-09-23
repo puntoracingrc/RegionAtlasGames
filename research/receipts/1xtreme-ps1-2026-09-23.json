@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "researchId": "1xtreme-ps1-2026-09-23",
+  "queueId": "catalog:ps1-usa-1xtreme",
+  "platform": "ps1",
+  "catalogIds": [
+    "ps1-usa-espn-extreme-games-long-box",
+    "ps1-usa-1xtreme",
+    "ps1-espn-extreme-games",
+    "ps1-japon-espn-streetgames"
+  ],
+  "publishedAt": null,
+  "publishedAtNote": "Las cuatro cajas se publicaron mediante Admin V2 durante la ejecución anterior; no se capturó el timestamp del servidor.",
+  "verifiedAt": "2026-09-23T09:55:49Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/1xtreme-ps1-pal-us",
+  "relatedPublicUrls": [
+    "https://www.regionatlas.games/catalogo/espn-extreme-games-long-box-ps1-pal-us",
+    "https://www.regionatlas.games/catalogo/espn-extreme-games-ps1-pal-es",
+    "https://www.regionatlas.games/catalogo/espn-streetgames-ps1-pal-jp"
+  ],
+  "publishedRegions": ["NTSC USA", "PAL Europa", "Japón"],
+  "publishedEditions": ["US Long Box", "US Greatest Hits", "PAL Europa Original", "Japón Original"],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_ACTIVE_LISTINGS_NOT_ACCEPTED_FOR_THIS_CONSUMPTION",
+  "verification": {
+    "publicPages": "PASS_FOUR_LINKED_PHYSICAL_BOXES",
+    "existingCatalogIdsPreserved": "PASS",
+    "identifiers": "PASS_US_711719450320_SCUS94503_EU_711719611424_JP_4948872600040_SIPS60004",
+    "regionalScope": "PASS_US_EU_JP",
+    "regionalTitles": "PASS_1XTREME_ESPN_EXTREME_GAMES_ESPN_STREET_GAMES",
+    "ps1ReviewWarning": "PASS_NO_FALSE_PENDING_MARKET_WARNING_ON_CONFIRMED_V2_BOXES",
+    "prices": "PASS_NONE_PUBLISHED",
+    "assets": "PASS_US_LONG_BOX_AND_EU_INTERNAL_ASSETS_GREATEST_HITS_FRONT_UNRESOLVED",
+    "duplicateCheck": "PASS_SINGLE_V2_WORK_WITH_FOUR_LINKED_BOXES"
+  },
+  "unresolved": [
+    "US original release date conflicts across sources",
+    "PAL serial SCES-00063 versus SLES-00063 conflict retained",
+    "Legacy ps1-usa-espn-extreme-games row lacks a unique physical identity and remains untouched",
+    "Greatest Hits front image rejected because its spine identifies a European product",
+    "Confirmed regional prices remain pending"
+  ],
+  "resultFile": "research/results/1xtreme-ps1-2026-09-23.json",
+  "resultSha256": "2b1a4b05b96b602023a9447e5db1acd3fd7c7331c6dd7e75d36a34e22c5a6166",
+  "workerResultCommit": "3bb65350a644282ed824b35f7688ea7f01a6a750"
+}
