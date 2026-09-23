@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "researchId": "3d-mini-golf-switch-2026-09-23",
+  "queueId": "catalog:switch-3d-mini-golf",
+  "platform": "switch",
+  "capturedAt": "2026-09-23T09:53:09Z",
+  "facts": {
+    "title": "3D MiniGolf",
+    "developer": {"value": "Z-Software GmbH", "confidence": "probable", "conflict": "GameFAQs Switch title data and the readable EU box attribute development to Joindots; MobyGames lists Z-Software and Secret Item Games as porter."},
+    "publisher": "Joindots",
+    "genres": ["Golf", "Party", "Simulation", "Sports", "Arcade"],
+    "players": "1-4 local",
+    "modes": ["Challenge", "Tournament", "local multiplayer 2-4"],
+    "physicalMedia": "Nintendo Switch Game Card",
+    "physicalReleaseDate": "2017-11-24"
+  },
+  "physicalReleases": [
+    {
+      "market": "Europe",
+      "distributionMarkets": ["Spain"],
+      "editionName": "Standard",
+      "barcode": "5390102520885",
+      "productCode": "TSA-HAC-AJAMA-EUR",
+      "boxCode": "HAC-P-AJAMA",
+      "releaseDate": "2017-11-24",
+      "rating": "PEGI 3",
+      "regionalPublisher": "Markt+Technik",
+      "packagingLanguages": ["English", "Dutch", "French"],
+      "softwareLanguages": ["English", "Spanish", "French", "German", "Italian"],
+      "confidence": "confirmed",
+      "notes": "Nintendo España confirms the Game Card release in Spain; GameFAQs and J&L tie the EU boxed product to EAN 5390102520885. J&L text says LA-H-AJAMA-EUR but its readable back-cover and GameFAQs show TSA-HAC-AJAMA-EUR."
+    },
+    {
+      "market": "unresolved",
+      "editionName": "Standard",
+      "barcode": "4012160121101",
+      "releaseDate": "2017-12-01",
+      "rating": "USK 0",
+      "regionalPublisher": "Markt+Technik",
+      "media": "Nintendo Switch Game Card",
+      "count": 1,
+      "packagingLanguages": ["German"],
+      "softwareLanguages": ["German", "English", "French", "Italian"],
+      "confidence": "probable",
+      "notes": "MediaMarkt directly confirms GTIN/media/count/USK; World of Games discovery metadata adds date/publisher/languages but direct page timed out."
+    },
+    {
+      "market": "unresolved",
+      "editionName": "Standard",
+      "barcode": "4012160121002",
+      "releaseDate": "2017-12-01",
+      "rating": "USK 0",
+      "regionalPublisher": "Markt+Technik Verlag",
+      "media": "Nintendo Switch Game Card",
+      "softwareLanguages": ["German", "English", "French", "Italian", "Spanish"],
+      "confidence": "probable",
+      "notes": "Rebuy direct page confirms EAN, Game Card, date, publisher and software languages."
+    }
+  ],
+  "images": [
+    {
+      "component": "front_cover",
+      "pageUrl": "https://www.jnlgame.com/products/3d-minigolf-nsw-nintendo-switch-european-import?variant=39524924260467",
+      "imageUrl": "https://www.jnlgame.com/cdn/shop/products/image_51189b33-bbe4-4da7-8da1-9f87d18d021f.jpg?v=1653241453&width=5760",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observed": ["PEGI 3", "Markt Technik", "Play with up to 4 players"]
+    },
+    {
+      "component": "back_cover",
+      "pageUrl": "https://www.jnlgame.com/products/3d-minigolf-nsw-nintendo-switch-european-import?variant=39524924260467",
+      "imageUrl": "https://www.jnlgame.com/cdn/shop/products/image_3f2ef157-df20-4cc6-8c0c-0c064df435f1.jpg?v=1653241453&width=5760",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observed": ["English/Dutch/French packaging", "EAN 5390102520885", "TSA-HAC-AJAMA-EUR", "HAC-P-AJAMA", "software languages EN/DE/FR/ES/IT"]
+    }
+  ],
+  "pricing": {
+    "release": "Europe / 5390102520885",
+    "sealed": {"sampleSize": 1, "listingId": "406975352866", "url": "https://www.ebay.com/itm/406975352866", "sellerId": "madhattermh", "askingPriceWithoutShipping": 53.9, "shippingPrice": 18.9, "currency": "USD", "proposedBasePrice": null},
+    "complete": {"sampleSize": 0, "proposedBasePrice": null},
+    "loose": {"sampleSize": 0, "proposedBasePrice": null},
+    "reason": "No condition bucket reached the required two active independent exact-release listings."
+  },
+  "sources": [
+    {"id": "nintendo_es", "url": "https://www.nintendo.com/es-es/Juegos/Juegos-de-Nintendo-Switch/3D-MiniGolf-1333863.html"},
+    {"id": "nintendo_us", "url": "https://www.nintendo.com/us/store/products/3d-minigolf-switch/"},
+    {"id": "gamefaqs", "url": "https://gamefaqs.gamespot.com/switch/231639-3d-minigolf/data"},
+    {"id": "jnl", "url": "https://www.jnlgame.com/products/3d-minigolf-nsw-nintendo-switch-european-import?variant=39524924260467"},
+    {"id": "moby", "url": "https://www.mobygames.com/game/94525/3d-mini-golf/releases/"},
+    {"id": "mediamarkt", "url": "https://www.mediamarkt.at/de/product/_3d-mini-golf-familie-gesellschaft-nintendo-switch-1683011.html"},
+    {"id": "worldofgames", "url": "https://www.wog.ch/en/index.cfm/details/product/59564-3D-Minigolf", "status": "TIMEOUT"},
+    {"id": "rebuy", "url": "https://www.rebuy.de/i%2C11003906/nintendo-switch/3d-mini-golf"},
+    {"id": "ebay", "url": "https://www.ebay.com/itm/406975352866"},
+    {"id": "dealsius", "url": "https://www.dealsius.com/nintendo-switch/3d-mini-golf/"}
+  ],
+  "queriesExecuted": [
+    {"id": "q001", "query": "\"3D MiniGolf\" Nintendo Switch site:nintendo.com/us/store/products/3d-minigolf-switch/", "provider": "web"},
+    {"id": "q002", "query": "\"3D MiniGolf\" Nintendo Switch 5390102520885 Spain", "provider": "web"},
+    {"id": "q003", "query": "\"5390102520885\" Nintendo Switch eBay", "provider": "web"},
+    {"id": "q004", "query": "\"4012160121002\" Nintendo Switch eBay", "provider": "web"},
+    {"id": "q005", "query": "\"4012160121101\" Nintendo Switch eBay", "provider": "web"},
+    {"id": "q006", "query": "\"3D Mini Golf\" Switch site:proshop.dk", "provider": "web"},
+    {"id": "q007", "query": "\"3D Mini Golf\" Switch site:videogamesplus.ca", "provider": "web"},
+    {"id": "q008", "query": "3D MiniGolf Nintendo Switch 5390102520885 back cover", "provider": "image_search"},
+    {"id": "q009", "query": "\"5390102520885\" \"Game Card\" Nintendo Switch", "provider": "web"},
+    {"id": "q010", "query": "\"5390102520885\" cartridge Nintendo Switch", "provider": "web"},
+    {"id": "q011", "query": "\"5390102520885\" \"tarjeta de juego\"", "provider": "web"},
+    {"id": "q012", "query": "\"5390102520885\" \"Download Code\"", "provider": "web"},
+    {"id": "q013", "query": "\"5390102520885\" 3D Minigolf Mindscape", "provider": "web"},
+    {"id": "q014", "query": "\"5390102520885\" site:amazon.es 3D MiniGolf Switch", "provider": "web"},
+    {"id": "q015", "query": "\"3D MiniGolf\" \"Z-Software\" Nintendo Switch developer", "provider": "web"},
+    {"id": "q016", "query": "\"3D MiniGolf\" Z-Software Joindots Switch", "provider": "web"},
+    {"id": "q017", "query": "\"5390102520885\" \"occasion\" Switch 3D Mini Golf 2026", "provider": "web"},
+    {"id": "q018", "query": "\"5390102520885\" \"used\" \"3D MiniGolf\" Switch", "provider": "web"},
+    {"id": "q019", "query": "\"5390102520885\" \"pre-owned\" Switch", "provider": "web"},
+    {"id": "q020", "query": "\"5390102520885\" \"€\" \"Nintendo Switch\" \"3D MiniGolf\"", "provider": "web"},
+    {"id": "q021", "query": "\"4251357805534\" \"Code in Box\" \"3D Mini Golf\"", "provider": "web"},
+    {"id": "q022", "query": "\"4251357805534\" \"Download Code\" \"3D Mini Golf\"", "provider": "web"},
+    {"id": "q023", "query": "\"4251357805534\" \"Código en caja\" \"3D Mini Golf\"", "provider": "web"},
+    {"id": "q024", "query": "\"4012160121101\" \"3D MiniGolf\" Nintendo Switch", "provider": "web"},
+    {"id": "q025", "query": "\"4012160121002\" \"3D MiniGolf\" Nintendo Switch", "provider": "web"},
+    {"id": "q026", "query": "\"4012160121101\" \"3D Mini Golf\" \"Markt+Technik\"", "provider": "web"},
+    {"id": "q027", "query": "\"4012160121002\" \"3D Mini Golf\" \"Markt+Technik\"", "provider": "web"},
+    {"id": "q028", "query": "\"4012160121101\" site:mediamarkt.at 3D MiniGolf", "provider": "web"}
+  ],
+  "failedOrContextRoutes": [
+    {"source": "Proshop", "status": "SEARCH_RESULT_ONLY", "outcome": "NO_RELEVANT_DATA"},
+    {"source": "VideoGamesPlus", "status": "SEARCH_RESULT_ONLY", "outcome": "NO_RELEVANT_DATA"},
+    {"source": "bol", "status": "NOT_FOUND", "outcome": "TECHNICAL_FAILURE"},
+    {"source": "World of Games", "status": "TIMEOUT", "outcome": "TECHNICAL_FAILURE"},
+    {"source": "Dealsius", "status": "SEARCH_RESULT_ONLY", "outcome": "CONTEXT_ONLY"},
+    {"source": "Markt+Technik current Code in Box", "status": "SEARCH_RESULT_ONLY", "outcome": "CONTEXT_ONLY"}
+  ],
+  "conflicts": [
+    "Developer attribution: Z-Software vs Joindots.",
+    "J&L textual Product ID LA-H-AJAMA-EUR vs readable back-cover/GameFAQs TSA-HAC-AJAMA-EUR.",
+    "Current RegionAtlas context says PAL España; Spain physical release is confirmed, but EAN 5390102520885 is only confirmed as EU, not uniquely Spanish.",
+    "EAN 4251357805534 belongs to a separate Code in Box candidate and must not be merged with the assigned 2017 Game Card."
+  ],
+  "unresolved": [
+    "Spain-specific outer-package EAN/image.",
+    "Exact regional distributor role for EAN 5390102520885.",
+    "Relationship and markets of GTIN 4012160121101 and 4012160121002.",
+    "Front/back image URLs for the two additional GTINs.",
+    "Franchise/series.",
+    "Regional prices: insufficient qualifying active listings."
+  ]
+}
