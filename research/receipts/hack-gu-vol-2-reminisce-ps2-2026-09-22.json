@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "researchId": "hack-gu-vol-2-reminisce-ps2-2026-09-22",
+  "queueId": "platform-work:ps2:ps2-work-07d80321bb4e5575",
+  "platform": "ps2",
+  "catalogIds": [
+    "ps2-us-slus-21488",
+    "ps2-jp-slps-25655",
+    "ps2-jp-slps-73266-playstatiion-2-the-best"
+  ],
+  "coverage": "partial",
+  "publishedAt": null,
+  "verifiedAt": "2026-09-23T15:03:55Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/hack-g-u-vol-2-reminisce-slus-21488-ps2-ntsc-us",
+  "relatedPublicUrls": [
+    "https://www.regionatlas.games/catalogo/hack-g-u-vol-2-kimi-omou-koe-slps-25655-ps2-ntsc-jp",
+    "https://www.regionatlas.games/catalogo/hack-g-u-vol-2-kimi-omou-koe-playstatiion-2-the-best-slps-73266-playstatiion-2-the-best-ps2-ntsc-jp"
+  ],
+  "publishedRegions": ["NTSC USA", "NTSC-J Japón"],
+  "publishedEditions": ["USA Standard", "Japón Standard", "Japón PlayStation 2 the Best"],
+  "publishedIdentifiers": {
+    "usaStandard": {"upc": "722674100649", "productCode": "SLUS-21488"},
+    "japanStandard": {"jan": "4582224491117", "productCode": "SLPS-25655"},
+    "japanBest": {"jan": "4582224492190", "productCode": "SLPS-73266"}
+  },
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_ACTIVE_LISTINGS_ARE_NOT_SOLD_COMPARABLES",
+  "internalAssets": {
+    "usaStandardFront": "/catalog-covers/runtime/ps2/hack-g-u-vol-2-reminisce-ps2-us-usa-standard-front.jpg",
+    "usaStandardBack": "/catalog-covers/runtime/ps2/hack-g-u-vol-2-reminisce-ps2-us-usa-standard-back.jpg",
+    "japanStandardFront": null,
+    "japanStandardBack": null,
+    "japanBestFront": "/catalog-covers/runtime/ps2/ps2-jp-slps-73266-playstatiion-2-the-best.jpg",
+    "japanBestBack": null
+  },
+  "verification": {
+    "adminV2Save": "PASS_THREE_EXISTING_CATALOG_IDS",
+    "publicStandardFamily": "PASS_USA_AND_JAPAN_LINKED_WITHIN_ONE_FAMILY",
+    "publicBestFamily": "PASS_SEPARATE_LINKED_REISSUE_FAMILY",
+    "regionalIdentifiersAndDates": "PASS",
+    "usaFrontAndBack": "PASS_DISTINCT_INTERNAL_IMAGES_VISIBLE",
+    "japanBestFront": "PASS_INTERNAL_IMAGE_VISIBLE",
+    "japanStandardImages": "PENDING_SOURCE_IMAGE_ACCESS_403_NON_BLOCKING",
+    "duplicateLegacyLink": "PASS_FIXED_BY_PR_358_AND_VERIFIED_IN_PRODUCTION",
+    "productionDeployment": "PASS_8d46d747c8232f66dbc38dc881352d8d1d265c78"
+  },
+  "unresolvedPreserved": [
+    "probable_Complete_Works_bundle_identity",
+    "japanStandard_front_and_back_images",
+    "japanBest_back_image",
+    "market_prices_without_sold_comparable_evidence"
+  ],
+  "sourcePerformanceDecision": "PS2_LEDGER_AGGREGATED_42_QUERIES_32_ATTEMPTS_ONE_RESEARCH_ID_NO_RECOMMENDATIONS_YET",
+  "resultFile": "research/results/hack-gu-vol-2-reminisce-ps2-2026-09-22.json",
+  "resultSha256": "32585f1b79e817be47080a7f184884d23547ae8bd9c91610d47c94add48c42c5",
+  "workerResultCommit": "885d9e9b8f638a06e866da1c32cfbf5bf51e15d1"
+}

@@ -4915,6 +4915,36 @@
         }
       }
     },
+    "ps2": {
+      "researchIds": ["hack-gu-vol-2-reminisce-ps2-2026-09-22"],
+      "observationCount": 1,
+      "queryTotals": {"exact_identifier": 13, "general": 7, "image": 2, "marketplace": 19, "source_specific": 1},
+      "sourceAttemptTotals": {
+        "total": 32,
+        "useful": 25,
+        "byOutcome": {"CANDIDATE": 2, "CONFIRMED_EVIDENCE": 23, "CONTEXT_ONLY": 6, "TECHNICAL_FAILURE": 1},
+        "byAccessStatus": {"BLOCKED": 1, "OPENED": 30, "SEARCH_RESULT_ONLY": 1}
+      },
+      "recommendations": [],
+      "recommendationStatus": "INSUFFICIENT_CROSS_RESEARCH_EVIDENCE",
+      "domains": {
+        "auctions.yahoo.co.jp": {"attempts": 2, "usefulAttempts": 2, "byOutcome": {"CONFIRMED_EVIDENCE": 2}, "byAccessStatus": {"OPENED": 2}, "sourceTypes": ["marketplace_listing"], "targetCategories": ["active_market_price", "edition_identity", "front_back_images", "identifiers", "packaging_languages", "physical_contents", "regional_release_identity"]},
+        "bandainamcoent.co.jp": {"attempts": 2, "usefulAttempts": 2, "byOutcome": {"CONFIRMED_EVIDENCE": 2}, "byAccessStatus": {"OPENED": 2}, "sourceTypes": ["official_publisher_document"], "targetCategories": ["game_identity", "regional_release_identity", "release_date"]},
+        "books.rakuten.co.jp": {"attempts": 1, "usefulAttempts": 0, "byOutcome": {"CONTEXT_ONLY": 1}, "byAccessStatus": {"SEARCH_RESULT_ONLY": 1}, "sourceTypes": ["retailer_search"], "targetCategories": ["active_market_price", "regional_release_identity"]},
+        "ebay.com": {"attempts": 11, "usefulAttempts": 9, "byOutcome": {"CANDIDATE": 2, "CONFIRMED_EVIDENCE": 7, "CONTEXT_ONLY": 2}, "byAccessStatus": {"OPENED": 11}, "sourceTypes": ["marketplace_listing"], "targetCategories": ["active_market_price", "edition_identity", "front_back_images", "identifiers", "packaging_languages", "physical_contents", "regional_release_identity"]},
+        "furu1.online": {"attempts": 1, "usefulAttempts": 0, "byOutcome": {"CONTEXT_ONLY": 1}, "byAccessStatus": {"OPENED": 1}, "sourceTypes": ["retailer_listing"], "targetCategories": ["active_market_price", "regional_release_identity"]},
+        "gamefaqs.gamespot.com": {"attempts": 1, "usefulAttempts": 1, "byOutcome": {"CONFIRMED_EVIDENCE": 1}, "byAccessStatus": {"OPENED": 1}, "sourceTypes": ["specialist_database"], "targetCategories": ["game_identity", "regional_release_identity", "release_date"]},
+        "jnlgame.com": {"attempts": 1, "usefulAttempts": 0, "byOutcome": {"CONTEXT_ONLY": 1}, "byAccessStatus": {"OPENED": 1}, "sourceTypes": ["retailer_listing"], "targetCategories": ["active_market_price", "regional_release_identity"]},
+        "mobygames.com": {"attempts": 2, "usefulAttempts": 2, "byOutcome": {"CONFIRMED_EVIDENCE": 2}, "byAccessStatus": {"OPENED": 2}, "sourceTypes": ["secondary_database"], "targetCategories": ["game_identity", "regional_release_identity", "release_date"]},
+        "play-asia.com": {"attempts": 2, "usefulAttempts": 1, "byOutcome": {"CONFIRMED_EVIDENCE": 1, "TECHNICAL_FAILURE": 1}, "byAccessStatus": {"BLOCKED": 1, "OPENED": 1}, "sourceTypes": ["retailer_listing"], "targetCategories": ["active_market_price", "edition_identity", "front_back_images", "identifiers", "release_date"]},
+        "pricecharting.com": {"attempts": 1, "usefulAttempts": 0, "byOutcome": {"CONTEXT_ONLY": 1}, "byAccessStatus": {"OPENED": 1}, "sourceTypes": ["price_aggregator"], "targetCategories": ["active_market_price"]},
+        "psxdatacenter.com": {"attempts": 2, "usefulAttempts": 2, "byOutcome": {"CONFIRMED_EVIDENCE": 2}, "byAccessStatus": {"OPENED": 2}, "sourceTypes": ["technical_release_list"], "targetCategories": ["identifiers", "physical_contents", "regional_release_identity", "software_languages"]},
+        "redump.info": {"attempts": 2, "usefulAttempts": 2, "byOutcome": {"CONFIRMED_EVIDENCE": 2}, "byAccessStatus": {"OPENED": 2}, "sourceTypes": ["preservation_database"], "targetCategories": ["identifiers", "physical_contents", "regional_release_identity", "software_languages"]},
+        "retroplace.com": {"attempts": 2, "usefulAttempts": 2, "byOutcome": {"CONFIRMED_EVIDENCE": 2}, "byAccessStatus": {"OPENED": 2}, "sourceTypes": ["specialist_database"], "targetCategories": ["game_identity", "regional_release_identity", "release_date"]},
+        "solarisjapan.com": {"attempts": 1, "usefulAttempts": 1, "byOutcome": {"CONFIRMED_EVIDENCE": 1}, "byAccessStatus": {"OPENED": 1}, "sourceTypes": ["retailer_listing"], "targetCategories": ["active_market_price", "edition_identity", "front_back_images", "identifiers", "release_date"]},
+        "sonyinteractive.com": {"attempts": 1, "usefulAttempts": 1, "byOutcome": {"CONFIRMED_EVIDENCE": 1}, "byAccessStatus": {"OPENED": 1}, "sourceTypes": ["official_platform_announcement"], "targetCategories": ["active_market_price", "edition_identity", "front_back_images", "identifiers", "release_date"]}
+      }
+    },
     "ps4": {
       "researchIds": [
         "hack-gu-last-recode-ps4-2026-09-21",
