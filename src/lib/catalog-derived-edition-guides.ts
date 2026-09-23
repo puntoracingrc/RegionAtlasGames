@@ -125,7 +125,12 @@ export function catalogDerivedEditionType(game: CatalogGame): CatalogPhysicalEdi
   if (has(/platinum|essentials|greatest hits|the best|best hits|best collection|reprint|rerelease|reedicion|value|classics|classic|budget|superlite|simple 1500|major wave|capkore|ultimate hits|best price/)) {
     return "BUDGET_REISSUE";
   }
-  if (!editionIdentity || editionIdentity === "standard" || editionIdentity === "standard edition") return "STANDARD";
+  // Multi-PAL/PAL EUR describes the box's language/market, not a separate commercial edition.
+  const commercialIdentity = editionIdentity
+    .replace(/\b(?:multi pal|pal eur|pal europe|pal europa)\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!commercialIdentity || commercialIdentity === "standard" || commercialIdentity === "standard edition") return "STANDARD";
   return "OTHER";
 }
 
