@@ -1,14 +1,14 @@
 {
   "schemaVersion": 2,
-  "generation": 27,
+  "generation": 29,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
+  "resultOrderTemplateVersion": 11,
   "currentItemResearchId": "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
   "workPackage": {
     "packageId": "switch-2026-09-23-001",
@@ -27,13 +27,13 @@
         "researchId": "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
         "orderPath": "research/workers/switch/orders/2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23.md",
         "resultPath": "research/results/2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/switch/checkpoints/2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-23T00:28:15Z",
-  "updatedBy": "codex",
-  "note": "1-2-Switch publicado y verificado como ficha central V2 con ES, US y JP; resultado archivado con recibo. Se prepara el siguiente paquete independiente de Switch."
+  "updatedAt": "2026-09-23T01:39:09Z",
+  "updatedBy": "chatgpt",
+  "note": "Resultado factual publicado para 2 Hits Pack: Sonic Forces / Puyo Puyo Tetris - Sega Collection; pendiente de validación e incorporación por Codex."
 }
