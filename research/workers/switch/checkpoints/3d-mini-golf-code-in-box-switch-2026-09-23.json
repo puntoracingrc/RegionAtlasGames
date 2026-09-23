@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "researchId": "3d-mini-golf-code-in-box-switch-2026-09-23",
+  "triggerQueueEntry": {
+    "queueId": "catalog:switch-3d-mini-golf-code-in-box",
+    "platform": "switch",
+    "catalogIds": ["switch-3d-mini-golf-code-in-box"]
+  },
+  "orderTemplateVersion": 11,
+  "researchDate": "2026-09-23",
+  "researchStatus": "FACTUAL_RESEARCH_COMPLETE_RESULT_ASSEMBLY_PENDING",
+  "facts": {
+    "game": {
+      "officialTitle": "3D MiniGolf",
+      "originalTitle": "3D MiniGolf",
+      "alternateTitles": ["3D Minigolf", "3D Mini Golf", "3D Mini Golf - das große Minigolf Abenteuer"],
+      "developer": {
+        "value": "Z-Software GmbH",
+        "confidence": "probable",
+        "note": "Steam credits Z-Software for the underlying game; exact Switch release sources also label Joindots as developer. Preserve conflict."
+      },
+      "publisher": {
+        "value": "Joindots",
+        "confidence": "probable"
+      },
+      "genres": ["Golf", "Party", "Simulation", "Sports", "Arcade"],
+      "players": "1-4 local",
+      "modes": ["Challenge", "Tournament", "local multiplayer 2-4"],
+      "franchise": null,
+      "series": null
+    },
+    "releases": [
+      {
+        "releaseTitle": "3D MiniGolf (Code in a Box)",
+        "platform": "switch",
+        "editionName": "Standard",
+        "market": "Europe",
+        "marketConfidence": "confirmed",
+        "barcode": "8720256139249",
+        "productCode": "TSA-HAC-AJAMA-EUR",
+        "releaseDate": null,
+        "releaseDateCandidates": ["2020-09-01", "2020-10-01", "2020-11-13"],
+        "releaseDateStatus": "conflicted",
+        "rating": "PEGI 3",
+        "regionalPublisher": "Markt+Technik",
+        "packagingLanguages": ["English", "French", "Italian"],
+        "softwareLanguages": ["German", "English", "French", "Italian"],
+        "physicalType": "Code in a Box",
+        "physicalContents": ["download code", "information booklet", "Amaray storage case"],
+        "gameCardIncluded": false,
+        "requirement": "Nintendo eShop",
+        "componentBinding": {
+          "outerPackage": {
+            "barcode": "8720256139249",
+            "packagingLanguages": ["English", "French", "Italian"],
+            "caseType": "Amaray"
+          },
+          "downloadCode": {"count": 1, "service": "Nintendo eShop"},
+          "informationBooklet": {"count": 1},
+          "gameMedia": {"mediaType": "Nintendo Switch Game Card", "count": 0},
+          "productCode": {
+            "value": "TSA-HAC-AJAMA-EUR",
+            "component": "unknown",
+            "note": "GameFAQs confirms product-level ID but does not prove the exact physical component."
+          }
+        },
+        "notes": [
+          "GameFAQs explicitly identifies this Code in a Box release as EU.",
+          "World of Games and Fnac explicitly state download code only/no game card.",
+          "No Spain-specific outer package, barcode, product code or explicit distribution record was proven. Do not relabel the EU product as Spain-only."
+        ]
+      },
+      {
+        "releaseTitle": "3D Mini Golf - das große Minigolf Abenteuer",
+        "platform": "switch",
+        "editionName": "Standard",
+        "market": "unresolved",
+        "barcode": "4250114330753",
+        "productCode": "3075",
+        "releaseDate": "2022-12-12",
+        "rating": "USK 0",
+        "regionalPublisher": "Markt+Technik Verlag",
+        "packagingLanguages": [],
+        "softwareLanguages": [],
+        "physicalType": "Code in a Box",
+        "physicalContents": ["download code"],
+        "gameCardIncluded": false,
+        "notes": [
+          "Kaufland exact listing ties EAN 4250114330753, manufacturer number 3075, date 2022-12-12 and Code in a Box/no module wording to this product.",
+          "German retailer geography, German page language and USK are not market proof."
+        ]
+      },
+      {
+        "releaseTitle": "3D Mini Golf",
+        "platform": "switch",
+        "editionName": "Standard",
+        "market": "unresolved",
+        "barcode": "4251357812921",
+        "productCodeCandidate": "81292",
+        "releaseDate": null,
+        "releaseAvailability": "2024-10",
+        "rating": "USK 0",
+        "regionalPublisher": "Markt+Technik",
+        "packagingLanguages": ["German"],
+        "packagingLanguagesConfidence": "probable",
+        "softwareLanguages": ["German"],
+        "physicalType": "Code in a Box",
+        "physicalContents": ["download code"],
+        "notes": [
+          "Markt+Technik's own page identifies EAN/ISBN 4251357812921, Switch, USK 0, German language and download code in box, available 10.2024.",
+          "Allegro exact-EAN listing describes a boxed digital-code product and German cover, but claims English game language; retain the primary-source German software-language value and preserve the conflict.",
+          "Ended eBay listing ties manufacturer number 81292 to the same EAN; keep component linkage probable.",
+          "Exact physical market remains unresolved."
+        ]
+      }
+    ],
+    "candidateNotMerged": [
+      {
+        "barcode": "4251357805534",
+        "title": "3D Mini Golf",
+        "platform": "switch",
+        "reason": "Repeatedly tied to Switch retail products and Spanish circulation, but direct evidence does not establish whether it is Code in a Box or Game Card. Do not merge into this CIB entry without medium proof.",
+        "sources": ["PcComponentes", "Fnac", "eBay", "Dealsius"]
+      }
+    ],
+    "pricing": {
+      "confirmedMarket": "Europe",
+      "barcode": "8720256139249",
+      "status": "unresolved",
+      "sampleSize": 0,
+      "reason": "No two independent active exact-EU secondhand listings with comparable condition and demonstrably usable/unredeemed code were retained. Fnac exposed secondhand offers, but they were insufficient; retail-new and ended listings are excluded."
+    },
+    "images": {
+      "2020Europe": {
+        "frontCandidate": {
+          "pageUrl": "https://www.fnac.com/mp48719189/3D-Mini-Golf-Nintendo-SWITCH-Code-de-telechargement",
+          "imageUrl": "https://static.fnac-static.com/multimedia/Images/F0/BF/E6/14/21916656-1505-1540-1/tsp20251106174805/3D-Mini-Golf-Nintendo-SWITCH-Code-de-telechargement.jpg",
+          "status": "IMAGE_EVIDENCE_AVAILABLE_NOT_ANALYZED"
+        },
+        "back": "unresolved"
+      },
+      "2022": "No validated direct front/back pair retained.",
+      "2024": "Official page exposes a 3D package render and promotional images, not a validated regional front/back pair."
+    }
+  },
+  "sources": [
+    {"sourceId":"nintendo_es","url":"https://www.nintendo.com/es-es/Juegos/Juegos-de-Nintendo-Switch/3D-MiniGolf-1333863.html","supports":"Underlying Switch title, modes, players, genres, Joindots publisher, software languages and copyright context naming Joindots/Z-Software."},
+    {"sourceId":"wog_cib_2020","url":"https://www.wog.ch/en/index.cfm/details/product/160002-3D-Minigolf-Code-in-a-Box/","supports":"Exact 2020 CIB EAN 8720256139249; code only/no game card; packaging/software languages; publisher; date; Nintendo eShop requirement."},
+    {"sourceId":"gamefaqs","url":"https://gamefaqs.gamespot.com/switch/231639-3d-minigolf/data","supports":"Technical EU CIB identity: EAN 8720256139249, TSA-HAC-AJAMA-EUR, Markt & Technik, 2020-10-01, rating 3+."},
+    {"sourceId":"fnac_cib_2020","url":"https://www.fnac.com/mp48719189/3D-Mini-Golf-Nintendo-SWITCH-Code-de-telechargement","supports":"Exact EAN 8720256139249; download-code-only/no cartridge; Markt+Technik; PEGI 3; current secondhand marketplace context; product images."},
+    {"sourceId":"bol_cib_2020","url":"https://www.bol.com/nl/nl/p/3d-minigolf-switch/9300000013717961/","supports":"Exact EAN; Code in a Box; PEGI 3+; Amaray case; package contents Gamecode + information booklet."},
+    {"sourceId":"galaxus_cib_2020","url":"https://www.galaxus.de/de/s1/product/bethesda-3d-mini-golf-code-in-a-box-switch-it-en-fr-game-23598299","supports":"Exact CIB metadata; EN/FR/IT packaging languages; four players; conflicting developer/date metadata."},
+    {"sourceId":"kaufland_cib_2022","url":"https://www.kaufland.de/product/452949515/","supports":"EAN 4250114330753; manufacturer number 3075; date 2022-12-12; Code in Box/no module; USK 0; Markt+Technik Verlag."},
+    {"sourceId":"mut_cib_2024","url":"https://mut.de/products/3d-mini-golf-nintendo-switch","supports":"Primary publisher source: EAN/ISBN 4251357812921; available 10.2024; USK 0; German; 1-4 players; download code in box."},
+    {"sourceId":"allegro_cib_2024","url":"https://allegro.pl/produkt/3d-mini-golf-nintendo-switch-nintendo-switch-pudelkowa-bebea7ab-dc2b-452a-a200-b87d6544d18b","supports":"Exact EAN 4251357812921; boxed digital code; seller says German cover and English game language."},
+    {"sourceId":"ebay_cib_2024_ended","url":"https://www.ebay.de/itm/267568093574","supports":"Ended exact-EAN listing tying 4251357812921 to manufacturer number 81292; excluded from price sample."},
+    {"sourceId":"toppreise_family","url":"https://www.toppreise.ch/comparison-prix/Sport/3D-Mini-Golf-Markt-Technik-NSW-p533740","supports":"Family-level aggregation showing Game Card and Code in Box variants and EAN set; not used alone for component attribution."},
+    {"sourceId":"steam","url":"https://store.steampowered.com/app/362830/3D_MiniGolf/","supports":"Underlying game title and Z-Software GmbH developer credit."},
+    {"sourceId":"mobygames","url":"https://www.mobygames.com/game/94525/3d-mini-golf/releases/","supports":"Secondary development/port-credit conflict context."},
+    {"sourceId":"pccomponentes_4251357805534","url":"https://www.pccomponentes.com/3d-mini-golf-nintendo-switch","supports":"Candidate EAN/part number 4251357805534; medium not proven."},
+    {"sourceId":"fnac_4251357805534","url":"https://www.fnac.com/mp55402454/3D-MiniGolf-Nintendo-Switch-Anglais-Italien","supports":"Candidate EAN 4251357805534; PLAION; Switch; CIB medium not proven."},
+    {"sourceId":"ebay_4251357805534","url":"https://www.ebay.com/itm/336360682650","supports":"Candidate EAN 4251357805534 and seller title PAL ESPAÑA; not accepted as market proof."},
+    {"sourceId":"dealsius_4251357805534","url":"https://www.dealsius.com/nintendo-switch/3d-mini-golf/","supports":"Community-derived candidate linking 4251357805534 to Europe Code in Box; insufficient for confirmation."}
+  ],
+  "routeAttempts": {
+    "recommendedFirst": [
+      {"domain":"proshop.dk","query":"\"3D Mini Golf\" \"Code in Box\" Nintendo Switch site:proshop.dk","outcome":"NO_RELEVANT_DATA"},
+      {"domain":"videogamesplus.ca","query":"\"3D Mini Golf\" \"Code in Box\" Nintendo Switch site:videogamesplus.ca","outcome":"NO_RELEVANT_DATA"}
+    ],
+    "identifierSearches": ["8720256139249", "4250114330753", "4251357812921", "4251357805534", "TSA-HAC-AJAMA-EUR", "3075", "81292"],
+    "imageSearches": ["8720256139249 front/back", "4250114330753 front/back", "4251357812921 front/back"],
+    "priceSearches": ["8720256139249 eBay used", "8720256139249 occasion", "8720256139249 Vinted", "8720256139249 Wallapop", "8720256139249 gebraucht", "4250114330753 eBay used", "4251357812921 eBay used"]
+  },
+  "conflicts": [
+    {"field":"2020 releaseDate","values":["2020-09-01","2020-10-01","2020-11-13"],"status":"unresolved"},
+    {"field":"developer","values":["Z-Software GmbH","Joindots"],"status":"preserve conflict"},
+    {"field":"RegionAtlas PAL España seed","values":["PAL España seed","EU externally confirmed"],"status":"Spain-specific identity unproven"},
+    {"field":"2024 software language","values":["German official publisher","English seller metadata"],"status":"retain German primary-source value; preserve conflict"}
+  ],
+  "unresolved": [
+    "Spain-specific Code in Box physical identity and packaging.",
+    "Exact 2020 CIB release day.",
+    "Physical markets for EAN 4250114330753 and 4251357812921.",
+    "Packaging/software languages for 4250114330753.",
+    "Validated direct back-cover image for 8720256139249 and front/back pairs for later variants.",
+    "Whether EAN 4251357805534 belongs to a Code in Box or Game Card product.",
+    "Formal franchise/series.",
+    "Regional secondhand base prices under the two-independent-active-listing rule."
+  ],
+  "resume": {
+    "researchComplete": true,
+    "resultAssemblyPending": true,
+    "instruction": "Do not repeat the factual research. Resume by assembling and validating the final ORDER_TEMPLATE_VERSION 11 result JSON from this checkpoint, preserving conflicts/unresolved items, complete query/source ledgers as available, and then publish resultPath plus RESULT_READY state according to protocol."
+  }
+}
