@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 1,
+  "researchId": "2-games-cold-blood-syphon-filter-ps1-2026-09-23",
+  "queueId": "catalog:ps1-2-games-cold-blood-&#43;-syphon-filter",
+  "platform": "ps1",
+  "catalogIds": [
+    "ps1-2-games-cold-blood-&#43;-syphon-filter"
+  ],
+  "researchDate": "2026-09-23",
+  "status": "FACTUAL_CHECKPOINT",
+  "identity": {
+    "currentCatalogTitle": "2 Games Cold Blood + Syphon Filter",
+    "documentedCompilationTitle": "2 Games: Syphon Filter 2 / In Cold Blood",
+    "confidence": "confirmed",
+    "reason": "MobyGames documents the 2003 PlayStation twin pack as containing Syphon Filter 2 and In Cold Blood. The RegionAtlas/PriceCharting-style title omits the numeral 2 and appears to be a seed-title mismatch rather than a different documented pack.",
+    "sourceIds": [
+      "src-moby-overview",
+      "src-moby-release",
+      "src-pricecharting-seed"
+    ]
+  },
+  "confirmedFacts": [
+    {
+      "claim": "The compilation is a PlayStation twin pack containing Syphon Filter 2 and In Cold Blood.",
+      "sourceIds": [
+        "src-moby-overview"
+      ]
+    },
+    {
+      "claim": "MobyGames dates the documented German release to 2003-10-08 and credits Sony Computer Entertainment Europe Ltd.",
+      "sourceIds": [
+        "src-moby-release"
+      ]
+    },
+    {
+      "claim": "MobyGames lists alternate titles 2 Giochi: Syphon Filter 2 / A Sangue Freddo and 2 Spiele: Syphon Filter 2 / Cold Blood.",
+      "sourceIds": [
+        "src-moby-overview"
+      ]
+    },
+    {
+      "claim": "The compilation supports 1-2 players; MobyGames lists same/split-screen and free-for-all/one-on-one VS as applicable specs across the included games.",
+      "sourceIds": [
+        "src-moby-specs"
+      ]
+    },
+    {
+      "claim": "Germany has a documented 2 Spiele / twinpack SKU with EAN 0711719662310 and USK 16.",
+      "sourceIds": [
+        "src-medimops-de",
+        "src-ebay-de-complete"
+      ]
+    },
+    {
+      "claim": "German 2 Games/2 Spiele disc records include Cold Blood SCES-02151 and SCES-12151, and Syphon Filter 2 SCES-02287/T1 and SCES-12287/T2 variants.",
+      "sourceIds": [
+        "src-redump-psx"
+      ]
+    },
+    {
+      "claim": "Italy has a documented 2003 compilation 2 giochi: Syphon Filter 2 & A sangue freddo.",
+      "sourceIds": [
+        "src-ogdb-icb",
+        "src-palita"
+      ]
+    },
+    {
+      "claim": "Italian Syphon Filter 2 uses SCES-02288/SCES-12288 and pal-ita explicitly notes a BIG BOX CON A SANGUE FREDDO - FULL ITA.",
+      "sourceIds": [
+        "src-palita"
+      ]
+    },
+    {
+      "claim": "Italian A Sangue Freddo uses SCES-02152/SCES-12152 and has Italian menus/gameplay; Redump marks those discs as appearing in 2 Giochi.",
+      "sourceIds": [
+        "src-psxdatacenter-icb-it",
+        "src-redump-psx"
+      ]
+    },
+    {
+      "claim": "MobyGames has distinct physical cover/media galleries for United Kingdom and The Netherlands for this compilation.",
+      "sourceIds": [
+        "src-moby-uk-back",
+        "src-moby-nl-back",
+        "src-moby-uk-media"
+      ]
+    }
+  ],
+  "candidateReleases": [
+    {
+      "releaseTitle": "2 Spiele: Syphon Filter 2 / Cold Blood",
+      "market": "Germany",
+      "releaseDate": "2003-10-08",
+      "publisher": "Sony Computer Entertainment Europe Ltd.",
+      "barcode": "0711719662310",
+      "rating": "USK 16",
+      "softwareLanguages": [
+        "German"
+      ],
+      "discSerials": [
+        "SCES-02151",
+        "SCES-12151",
+        "SCES-02287/T1",
+        "SCES-12287/T2"
+      ],
+      "packagingLanguages": [],
+      "confidence": "confirmed",
+      "sourceIds": [
+        "src-moby-release",
+        "src-medimops-de",
+        "src-ebay-de-complete",
+        "src-redump-psx"
+      ]
+    },
+    {
+      "releaseTitle": "2 Giochi: Syphon Filter 2 / A Sangue Freddo",
+      "market": "Italy",
+      "releaseDate": null,
+      "releaseYear": 2003,
+      "publisher": "Sony Computer Entertainment Europe Ltd.",
+      "barcode": null,
+      "softwareLanguages": [
+        "Italian"
+      ],
+      "discSerials": [
+        "SCES-02288",
+        "SCES-12288",
+        "SCES-02152",
+        "SCES-12152"
+      ],
+      "packagingLanguages": [],
+      "confidence": "confirmed",
+      "sourceIds": [
+        "src-ogdb-icb",
+        "src-palita",
+        "src-psxdatacenter-icb-it",
+        "src-redump-psx"
+      ]
+    },
+    {
+      "releaseTitle": "2 Games: Syphon Filter 2 / In Cold Blood",
+      "market": "United Kingdom",
+      "releaseDate": null,
+      "barcode": null,
+      "packagingLanguages": [],
+      "softwareLanguages": [],
+      "confidence": "confirmed",
+      "sourceIds": [
+        "src-moby-uk-back",
+        "src-moby-uk-media"
+      ]
+    },
+    {
+      "releaseTitle": "2 Games: Syphon Filter 2 / In Cold Blood",
+      "market": "The Netherlands",
+      "releaseDate": null,
+      "barcode": null,
+      "packagingLanguages": [],
+      "softwareLanguages": [],
+      "confidence": "confirmed",
+      "sourceIds": [
+        "src-moby-nl-back"
+      ]
+    }
+  ],
+  "priceEvidence": {
+    "Italy": {
+      "sealed": [
+        {
+          "listingId": "401006535913",
+          "marketplace": "eBay.it",
+          "url": "https://www.ebay.it/itm/401006535913",
+          "askingPriceWithoutShipping": 82.8,
+          "shippingPrice": 32.4,
+          "currency": "EUR",
+          "sellerId": null,
+          "title": "2games Syphon Filter 2 + A Sangue Freddo PS1 PSX PSONE italiano New&Sealed",
+          "activeObserved": true
+        },
+        {
+          "listingId": "226377610585",
+          "marketplace": "eBay.it",
+          "url": "https://www.ebay.it/itm/226377610585",
+          "askingPriceWithoutShipping": 58.8,
+          "shippingPrice": null,
+          "currency": "EUR",
+          "sellerId": "GameWarp Videogames",
+          "title": "Syphon Filter 2 + A Sangue Freddo (PS1) - ITA - NUOVO - SIGILLATO - 2000",
+          "activeObserved": true
+        }
+      ],
+      "sealedMedian": 70.8,
+      "complete": [
+        {
+          "listingId": "256900934453",
+          "marketplace": "eBay.it",
+          "url": "https://www.ebay.it/itm/256900934453",
+          "askingPriceWithoutShipping": 29.88,
+          "shippingPrice": null,
+          "currency": "EUR",
+          "sellerId": "cast-games",
+          "title": "PS1 2 GAMES A SANGUE FREDDO + SYPHON FILTER 2 PAL ITALIANO QUASI NUOVO COMPLETO",
+          "activeObserved": true
+        },
+        {
+          "listingId": "287446830592",
+          "marketplace": "eBay.it",
+          "url": "https://www.ebay.it/itm/287446830592",
+          "askingPriceWithoutShipping": 59.88,
+          "shippingPrice": 36.0,
+          "currency": "EUR",
+          "sellerId": "fede_gameshop",
+          "title": "SYPHON FILTER 2 + A SANGUE FREDDO PS1 ITALIANO COMPLETO - CONDIZIONI ECCELLENTI",
+          "activeObserved": true
+        }
+      ],
+      "completeMedian": 44.88
+    },
+    "Germany": {
+      "completeCandidate": {
+        "listingId": "287235101668",
+        "marketplace": "eBay.de",
+        "url": "https://www.ebay.de/itm/287235101668",
+        "askingPriceWithoutShipping": 24.99,
+        "currency": "EUR",
+        "sellerId": "nextlvl-shop",
+        "title": "Syphon Filter 2 & Cold Blood (BigBox) | PS1 | inkl. Anleitung | Zustand: GUT",
+        "ean": "0711719662310",
+        "activeObserved": true
+      },
+      "otherUsedCandidate": {
+        "marketplace": "medimops",
+        "url": "https://www.medimops.de/sony-twinpack-syphon-filter-2-cold-blood-videospiel-M0B0000C6VV7.html/",
+        "askingPriceWithoutShipping": 15.49,
+        "currency": "EUR",
+        "condition": "Gebraucht - Akzeptabel",
+        "ean": "0711719662310",
+        "completeness": "unresolved"
+      },
+      "note": "Do not confirm a Germany complete base price yet: only one direct listing explicitly demonstrates manual/completeness; the medimops copy does not establish included contents."
+    }
+  },
+  "imageEvidence": [
+    {
+      "market": "United Kingdom",
+      "side": "back",
+      "pageUrl": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/cover/group-93307/cover-255093/",
+      "directImageUrl": null,
+      "status": "PAGE_FOUND_ORIGINAL_LOCKED",
+      "sourceId": "src-moby-uk-back"
+    },
+    {
+      "market": "The Netherlands",
+      "side": "front",
+      "pageUrl": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/cover/group-92745/cover-253415/",
+      "directImageUrl": null,
+      "status": "PAGE_FOUND_ORIGINAL_LOCKED",
+      "sourceId": "src-moby-nl-front"
+    },
+    {
+      "market": "The Netherlands",
+      "side": "back",
+      "pageUrl": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/cover/group-92745/cover-253414/",
+      "directImageUrl": null,
+      "status": "PAGE_FOUND_ORIGINAL_LOCKED",
+      "sourceId": "src-moby-nl-back"
+    },
+    {
+      "market": "unresolved",
+      "side": "front",
+      "pageUrl": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/",
+      "directImageUrl": "https://cdn.mobygames.com/covers/6695114-2-games-syphon-filter-2-in-cold-blood-playstation-front-cover.jpg",
+      "status": "IMAGE_URL_FOUND_MARKET_NOT_BOUND",
+      "sourceId": "src-moby-front-image"
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "src-moby-overview",
+      "url": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/",
+      "title": "2 Games: Syphon Filter 2 / In Cold Blood (2003) - MobyGames",
+      "supports": [
+        "identity",
+        "alternate titles",
+        "publisher",
+        "release date",
+        "compilation contents",
+        "players",
+        "genre",
+        "PEGI"
+      ]
+    },
+    {
+      "sourceId": "src-moby-release",
+      "url": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/releases/",
+      "title": "2 Games: Syphon Filter 2 / In Cold Blood Releases - MobyGames",
+      "supports": [
+        "Germany release",
+        "2003-10-08 date",
+        "publisher"
+      ]
+    },
+    {
+      "sourceId": "src-moby-specs",
+      "url": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/specs/playstation/",
+      "title": "2 Games: Syphon Filter 2 / In Cold Blood Attributes, Tech Specs, Ratings - MobyGames",
+      "supports": [
+        "1-2 players",
+        "same/split-screen",
+        "VS mode",
+        "PEGI 18",
+        "USK 16"
+      ]
+    },
+    {
+      "sourceId": "src-medimops-de",
+      "url": "https://www.medimops.de/sony-twinpack-syphon-filter-2-cold-blood-videospiel-M0B0000C6VV7.html/",
+      "title": "Twinpack: Syphon Filter 2 & Cold Blood von Sony - Playstation",
+      "supports": [
+        "EAN 0711719662310",
+        "USK 16",
+        "Sony",
+        "PlayStation",
+        "active used asking price"
+      ]
+    },
+    {
+      "sourceId": "src-ebay-de-complete",
+      "url": "https://www.ebay.de/itm/287235101668",
+      "title": "Syphon Filter 2 & Cold Blood (BigBox) | PS1 | inkl. Anleitung | Zustand: GUT",
+      "supports": [
+        "EAN 0711719662310",
+        "USK 16",
+        "German twinpack identity",
+        "manual included",
+        "active price 24.99 EUR",
+        "seller nextlvl-shop"
+      ]
+    },
+    {
+      "sourceId": "src-redump-psx",
+      "url": "https://redump.org/discs/system/psx/",
+      "title": "redump.org PSX discs",
+      "supports": [
+        "2 Spiele German disc edition markers and serials",
+        "2 Giochi Italian A Sangue Freddo disc edition markers and serials"
+      ]
+    },
+    {
+      "sourceId": "src-ogdb-icb",
+      "url": "https://ogdb.eu/index.php?section=title&titleid=773",
+      "title": "OGDB - In Cold Blood (2000)",
+      "supports": [
+        "Germany 2003 compilation membership",
+        "Italy 2003 compilation membership"
+      ]
+    },
+    {
+      "sourceId": "src-palita",
+      "url": "https://pal-ita.it/lista-giochi-ps1-pal-ita/",
+      "title": "PS1 Database ITA - pal-ita.it",
+      "supports": [
+        "Syphon Filter 2 Italian serials SCES-02288/SCES-12288",
+        "FULL ITA",
+        "big box with A Sangue Freddo"
+      ]
+    },
+    {
+      "sourceId": "src-psxdatacenter-icb-it",
+      "url": "https://psxdatacenter.com/games/P/A/SCES-02152.html",
+      "title": "A SANGUE FREDDO - (PAL)",
+      "supports": [
+        "Italian In Cold Blood title",
+        "SCES-02152/SCES-12152",
+        "Italian software language",
+        "developer",
+        "publisher"
+      ]
+    },
+    {
+      "sourceId": "src-moby-uk-back",
+      "url": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/cover/group-93307/cover-255093/",
+      "title": "MobyGames UK back cover page",
+      "supports": [
+        "United Kingdom physical gallery",
+        "back cover candidate"
+      ]
+    },
+    {
+      "sourceId": "src-moby-nl-front",
+      "url": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/cover/group-92745/cover-253415/",
+      "title": "MobyGames Netherlands front cover page",
+      "supports": [
+        "The Netherlands physical gallery",
+        "front cover candidate"
+      ]
+    },
+    {
+      "sourceId": "src-moby-nl-back",
+      "url": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/cover/group-92745/cover-253414/",
+      "title": "MobyGames Netherlands back cover page",
+      "supports": [
+        "The Netherlands physical gallery",
+        "back cover candidate"
+      ]
+    },
+    {
+      "sourceId": "src-moby-uk-media",
+      "url": "https://www.mobygames.com/game/48030/2-games-syphon-filter-2-in-cold-blood/cover/group-93307/cover-255091/",
+      "title": "MobyGames UK media page",
+      "supports": [
+        "United Kingdom physical gallery",
+        "In Cold Blood media present"
+      ]
+    },
+    {
+      "sourceId": "src-moby-front-image",
+      "url": "https://cdn.mobygames.com/covers/6695114-2-games-syphon-filter-2-in-cold-blood-playstation-front-cover.jpg",
+      "title": "MobyGames compilation front cover image",
+      "supports": [
+        "front cover URL candidate; market binding unresolved"
+      ]
+    },
+    {
+      "sourceId": "src-pricecharting-seed",
+      "url": "https://www.pricecharting.com/game/pal-playstation/2-games-cold-blood-+-syphon-filter",
+      "title": "2 Games Cold Blood + Syphon Filter PAL Playstation - PriceCharting",
+      "supports": [
+        "RegionAtlas-like seed title exists but lacks publisher/developer/EAN/release-date evidence"
+      ]
+    },
+    {
+      "sourceId": "src-strefapsx",
+      "url": "https://strefapsx.pl/edycja-2-games-playstation/",
+      "title": "Przegląd gier PSX - Edycja gier 2 Games / Twin Pack / Double Pack",
+      "supports": [
+        "series context",
+        "documented Polish circulation of Syphon Filter 2 & In Cold Blood",
+        "local 2 Games naming practices"
+      ]
+    }
+  ],
+  "unresolved": [
+    "Exact product codes/Sony PNs for the twinpack remain unresolved; MobyGames hides them behind login.",
+    "Packaging languages remain unconfirmed for Germany, Italy, UK and Netherlands; software language must not be reused as packaging language.",
+    "Pack barcodes for Italy, UK and Netherlands remain unresolved.",
+    "Exact UK and Netherlands release dates remain unresolved.",
+    "No distinct Spanish or French SKU for this exact twinpack was confirmed in this run. General 2 Games localization context is not sufficient to create those releases.",
+    "The direct original MobyGames front/back image files for market-bound UK/NL gallery pages are locked; only page-level candidates were located.",
+    "Germany sealed price has insufficient active exact-regional sample; Germany complete also remains below threshold because only one listing explicitly proves complete contents.",
+    "UK and Netherlands sealed/complete prices remain unresolved; insufficient active direct comparable listings were verified.",
+    "Italy active-price observations should be re-opened and revalidated before final result because eBay page fetches later produced cache misses even though search snapshots showed active Buy It Now listings."
+  ],
+  "nextSteps": [
+    "Revalidate the four Italian active eBay listings directly and capture exact seller/shipping/condition fields for final regionalPrices.",
+    "Attempt remaining validated PS1 routes applicable to identifiers/images/price (GameFAQs was robots-blocked; consider psxdatacenter, redump already useful, then Suruga/atwiki/arcade-history/furu1/Mercari only if they return the exact European pack).",
+    "Search exact German EAN 0711719662310 and likely UK/NL visible cover identifier 711719662112 without inferring market unless directly bound.",
+    "Try to obtain direct image URLs for UK and Netherlands MobyGames front/back gallery pages; otherwise final result should record image acquisition as unresolved rather than reuse a generic cover.",
+    "Build final JSON with one release each for Germany, Italy, United Kingdom and The Netherlands; create sealed and complete regionalPrices entries for each, unresolved unless two valid active listings meet the contract."
+  ]
+}
