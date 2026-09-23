@@ -1,14 +1,14 @@
 {
   "schemaVersion": 2,
-  "generation": 16,
+  "generation": 26,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
+  "resultOrderTemplateVersion": 11,
   "currentItemResearchId": "1-2-switch-switch-2026-09-22",
   "workPackage": {
     "packageId": "switch-2026-09-22-004",
@@ -29,13 +29,12 @@
         "researchId": "1-2-switch-switch-2026-09-22",
         "orderPath": "research/workers/switch/orders/1-2-switch-switch-2026-09-22.md",
         "resultPath": "research/results/1-2-switch-switch-2026-09-22.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/switch/checkpoints/1-2-switch-switch-2026-09-22.json"
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T11:16:56Z",
-  "updatedBy": "codex",
-  "note": "#DRIVE Rally Special Edition validado, publicado y consumido. Siguiente orden preparada para 1-2 Switch."
+  "updatedAt": "2026-09-22T16:38:09Z",
+  "updatedBy": "chatgpt",
+  "note": "Resultado ORDER_TEMPLATE_VERSION 11 publicado para 1-2 Switch; checkpoint eliminado y paquete cerrado para validación de Codex."
 }
