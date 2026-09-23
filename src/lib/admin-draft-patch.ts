@@ -68,6 +68,20 @@ export function recomputeCatalogId(draft: Pick<AdminGameDraft, "platformSlug" | 
   });
 }
 
+export function catalogIdAfterIdentityChange(
+  original: Pick<AdminGameDraft, "catalogId" | "platformSlug" | "slug" | "region">,
+  updated: Pick<AdminGameDraft, "platformSlug" | "slug" | "region">,
+): string {
+  if (
+    original.platformSlug === updated.platformSlug &&
+    original.slug === updated.slug &&
+    original.region === updated.region
+  ) {
+    return original.catalogId;
+  }
+  return recomputeCatalogId(updated);
+}
+
 export function applyDraftPatch(
   draft: AdminGameDraft,
   body: Partial<Record<string, unknown>>,
@@ -120,7 +134,7 @@ export function applyDraftPatch(
     next.facetNames = body.facetNames.filter((g): g is string => typeof g === "string");
   }
 
-  next.catalogId = recomputeCatalogId(next);
+  next.catalogId = catalogIdAfterIdentityChange(draft, next);
   next.updatedAt = new Date().toISOString();
   return next;
 }
