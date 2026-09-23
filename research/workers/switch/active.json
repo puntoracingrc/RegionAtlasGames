@@ -1,20 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 38,
+  "generation": 39,
   "workerId": "switch",
-  "state": "RUNNING",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": 11,
-  "currentItemResearchId": "3d-mini-golf-switch-2026-09-23",
-  "lease": {
-    "runId": "switch-20260923T113000Z-7f3c9b2a",
-    "claimedAt": "2026-09-23T11:30:00Z",
-    "expiresAt": "2026-09-23T12:10:00Z"
-  },
+  "currentItemResearchId": "3d-mini-golf-code-in-box-switch-2026-09-23",
   "workPackage": {
     "packageId": "switch-2026-09-23-002",
     "grouping": {
@@ -26,22 +21,18 @@
         "queueId": "catalog:switch-3d-mini-golf",
         "platform": "switch",
         "title": "3D Mini Golf",
-        "catalogIds": [
-          "switch-3d-mini-golf"
-        ],
+        "catalogIds": ["switch-3d-mini-golf"],
         "researchId": "3d-mini-golf-switch-2026-09-23",
         "orderPath": "research/workers/switch/orders/3d-mini-golf-switch-2026-09-23.md",
         "resultPath": "research/results/3d-mini-golf-switch-2026-09-23.json",
-        "status": "CHECKPOINTED",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/switch/checkpoints/3d-mini-golf-switch-2026-09-23.json"
       },
       {
         "queueId": "catalog:switch-3d-mini-golf-code-in-box",
         "platform": "switch",
         "title": "3D Mini Golf [Code In Box]",
-        "catalogIds": [
-          "switch-3d-mini-golf-code-in-box"
-        ],
+        "catalogIds": ["switch-3d-mini-golf-code-in-box"],
         "researchId": "3d-mini-golf-code-in-box-switch-2026-09-23",
         "orderPath": "research/workers/switch/orders/3d-mini-golf-code-in-box-switch-2026-09-23.md",
         "resultPath": "research/results/3d-mini-golf-code-in-box-switch-2026-09-23.json",
@@ -50,7 +41,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-23T11:30:00Z",
+  "updatedAt": "2026-09-23T11:35:00Z",
   "updatedBy": "chatgpt",
-  "note": "Claimed CHECKPOINTED 3D Mini Golf for final ORDER_TEMPLATE_VERSION 11 result assembly and validation."
+  "note": "3D Mini Golf result published as ORDER_TEMPLATE_VERSION 11; checkpoint removed and lease released. Code In Box remains PENDING and unclaimed."
 }
