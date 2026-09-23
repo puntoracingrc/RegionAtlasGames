@@ -49,9 +49,26 @@ function cleanSpeechText(value: unknown): string {
   return value.replace(/[\u0000-\u001f\u007f]+/g, " ").replace(/\s+/g, " ").trim();
 }
 
-function prepareSpeechText(value: unknown): string {
-  return cleanSpeechText(value)
+function prepareSpeechText(value: unknown, eventType: string): string {
+  let text = cleanSpeechText(value)
     .replace(/\bGT8\b/gi, "GT ocho")
+    .replace(/\bFCO\.?/gi, "Francisco");
+  if (eventType === "fastest") {
+    text = text.replace(/\b(\d{1,2})[.,](\d{3})\b/g, (_match, seconds: string, fraction: string) => {
+      return `${Number(seconds)} coma ${Number(fraction)}`;
+    });
+  }
+  if (["battle", "pace"].includes(eventType)) {
+    text = text.replace(/\b(\d+)[.,](\d{1,3})\s+segundos?\b/gi, (_match, seconds: string, fraction: string) => {
+      const tenths = Number(fraction[0]);
+      const base = `${Number(seconds)} ${Number(seconds) === 1 ? "segundo" : "segundos"}`;
+      return tenths ? `${base} y ${tenths} ${tenths === 1 ? "décima" : "décimas"}` : base;
+    });
+  }
+  if (eventType !== "fastest") {
+    text = text.replace(/\b(\d{1,2})[.,](\d{3})\b/g, (_match, seconds: string, fraction: string) => `${Number(seconds)} coma ${fraction[0]}`);
+  }
+  return text
     .replace(/(\d+)\.(\d{1,3})\b/g, "$1,$2")
     .replace(/\bkm\s*\/\s*h\b/gi, "kilómetros por hora")
     .replace(/%/g, " por ciento")
@@ -98,12 +115,12 @@ export async function POST(request: Request) {
   const body = await readJsonBody<SpeechRequest>(request, 2_048);
   if (!body.ok) return Response.json({ error: body.error }, { status: body.status, headers: responseHeaders });
 
-  const text = prepareSpeechText(body.data.text);
   const voice = typeof body.data.voice === "string" && voices.has(body.data.voice) ? body.data.voice : "marin";
   const mode = typeof body.data.mode === "string" && modes.has(body.data.mode) ? body.data.mode : "broadcast";
   const eventType = typeof body.data.eventType === "string" && eventTypes.has(body.data.eventType)
     ? body.data.eventType
     : "progress";
+  const text = prepareSpeechText(body.data.text, eventType);
   if (!text || text.length > 600) {
     return Response.json({ error: "El aviso debe contener entre 1 y 600 caracteres." }, { status: 400, headers: responseHeaders });
   }
