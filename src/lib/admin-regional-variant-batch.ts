@@ -18,6 +18,7 @@ export type AdminMarketValue = CatalogMarketRegion | GenericMarketValue;
 
 export type AdminRegionalVariantGroupInput = {
   label?: string;
+  regionalTitle?: string;
   physicalVariant?: string | null;
   markets: string[];
   barcode?: string | null;
@@ -60,6 +61,8 @@ export type ExpandedRegionalVariantRow = {
   group: CatalogPhysicalReleaseGroup;
   initialPrices: AdminInitialPriceFields | null;
   existingCatalogId: string | null;
+  /** Null preserves the title of a linked catalog entry. */
+  regionalTitle: string | null;
 };
 
 export function selectRegionalVariantBatchRow(
@@ -95,7 +98,8 @@ export function matchesPublishedRegionalVariantRow(
 ): boolean {
   const { row } = input;
   if (game.id !== regionalVariantBatchCatalogId(input.platformSlug, row)
-    || decodeCatalogDisplayText(game.title) !== decodeCatalogDisplayText(input.title.trim())
+    || (row.regionalTitle !== null
+      && decodeCatalogDisplayText(game.title) !== decodeCatalogDisplayText(row.regionalTitle))
     || game.platformSlug !== input.platformSlug
     || game.workId !== input.workId
     || game.region !== row.region
@@ -319,6 +323,7 @@ export function expandRegionalVariantBatch(
         group,
         initialPrices: rawGroup.marketPrices?.[market.value] ?? null,
         existingCatalogId,
+        regionalTitle: rawGroup.regionalTitle?.trim() || (existingCatalogId ? null : title),
       });
     }
   }

@@ -115,6 +115,42 @@ test("uncertain batch responses require exact published identity, not just a mat
   assert.equal(classifyRegionalBatchRowPublication({ indexed: true, overlayGame: game, staticGame: null, detailsReady: true, identityMatches: true }), "MATCHING");
 });
 
+test("existing regional titles are preserved unless a box supplies an explicit title", () => {
+  const result = expandRegionalVariantBatch({
+    title: "ESPN Extreme Games",
+    platformSlug: "ps1",
+    groups: [
+      { markets: ["US"], existingCatalogIds: { US: "ps1-usa-1xtreme" } },
+      { markets: ["JP"], regionalTitle: "ESPN Street Games", existingCatalogIds: { JP: "ps1-japon-espn-streetgames" } },
+      { markets: ["EU_GENERIC"] },
+    ],
+  });
+  assert.ok(!("error" in result));
+  assert.equal(result.rows[0].regionalTitle, null);
+  assert.equal(result.rows[1].regionalTitle, "ESPN Street Games");
+  assert.equal(result.rows[2].regionalTitle, "ESPN Extreme Games");
+
+  const linked = result.rows[0];
+  const published = {
+    id: linked.existingCatalogId,
+    title: "1Xtreme", platformSlug: "ps1", workId: "espn-extreme-games",
+    region: linked.region, marketRegion: linked.marketRegion,
+    physicalVariant: linked.physicalVariant,
+    physicalReleaseGroup: linked.group,
+  } as CatalogGame;
+  assert.equal(matchesPublishedRegionalVariantRow(published, {
+    title: "ESPN Extreme Games", platformSlug: "ps1", workId: "espn-extreme-games", row: linked,
+  }), true);
+  const japan = result.rows[1];
+  assert.equal(matchesPublishedRegionalVariantRow({
+    ...published, id: japan.existingCatalogId!, title: "Another game",
+    region: japan.region, marketRegion: japan.marketRegion,
+    physicalVariant: japan.physicalVariant, physicalReleaseGroup: japan.group,
+  }, {
+    title: "ESPN Extreme Games", platformSlug: "ps1", workId: "espn-extreme-games", row: japan,
+  }), false);
+});
+
 test("a physical box can group markets but cannot cross broad regions", () => {
   const valid = expandRegionalVariantBatch({
     title: "Example",
