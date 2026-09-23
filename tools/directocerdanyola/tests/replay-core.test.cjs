@@ -84,6 +84,32 @@ test('keeps the timing order tied to recorded crossings while the map interpolat
   assert.equal(frame.drivers[1].gapPrevious,'+2.000');
 });
 
+test('shows the real time gap while the following car has not crossed the line yet',()=>{
+  const sample=R.prepareReplay({scheduledSeconds:60,drivers:[
+    {name:'Leader',laps:[{lap:1,seconds:10},{lap:2,seconds:10},{lap:3,seconds:10}]},
+    {name:'Second',laps:[{lap:1,seconds:12},{lap:2,seconds:10},{lap:3,seconds:10}]}
+  ]});
+  const frame=R.frame(sample,20.5),second=frame.drivers.find(driver=>driver.name==='Second');
+  assert.equal(second.laps,1);
+  assert.ok(second.replayDistance>1.8);
+  assert.equal(second.gapFirst,'+2.000');
+  assert.equal(second.gapPrevious,'+2.000');
+  assert.equal(second.realLapDeficit,0);
+});
+
+test('marks a lap only after the leader has gained a complete physical lap',()=>{
+  const sample=R.prepareReplay({scheduledSeconds:80,drivers:[
+    {name:'Leader',laps:Array.from({length:8},(_,index)=>({lap:index+1,seconds:10}))},
+    {name:'Lapped',laps:Array.from({length:4},(_,index)=>({lap:index+1,seconds:20}))}
+  ]});
+  const before=R.frame(sample,19),after=R.frame(sample,21);
+  const beforeLapped=before.drivers.find(driver=>driver.name==='Lapped'),afterLapped=after.drivers.find(driver=>driver.name==='Lapped');
+  assert.equal(beforeLapped.realLapDeficit,0);
+  assert.match(beforeLapped.gapFirst,/^\+/);
+  assert.equal(afterLapped.realLapDeficit,1);
+  assert.equal(afterLapped.gapFirst,'-1');
+});
+
 test('warns, hides after 60 seconds without a crossing and restores the car on return',()=>{
   const sample=R.prepareReplay({scheduledSeconds:200,drivers:[
     {name:'Vuelve',laps:[{lap:1,seconds:10},{lap:2,seconds:10},{lap:3,seconds:90},{lap:4,seconds:10}]},

@@ -53,9 +53,19 @@ function completedCount(crossings,elapsed){
   while(low<high){const middle=(low+high)>>1;if(crossings[middle].at<=elapsed)low=middle+1;else high=middle;}
   return low;
 }
+function realLapDeficit(ahead,behind){
+  const distanceDifference=Number(ahead&&ahead.distance)-Number(behind&&behind.distance);
+  if(!Number.isFinite(distanceDifference)||distanceDifference<1)return 0;
+  return Math.max(0,Math.floor(distanceDifference+1e-9));
+}
 function gapLabel(ahead,behind){
-  const lapDifference=ahead.laps-behind.laps;
-  if(lapDifference>=1)return `-${lapDifference}`;
+  const lapDeficit=realLapDeficit(ahead,behind);
+  if(lapDeficit>=1)return `-${lapDeficit}`;
+  const countedLapDifference=ahead.laps-behind.laps;
+  if(countedLapDifference>=1){
+    const nextComparableCrossing=behind.crossings[Number(ahead.laps)-1],aheadCrossing=ahead.crossings[Number(ahead.laps)-1];
+    if(nextComparableCrossing&&aheadCrossing)return `+${Math.max(0,nextComparableCrossing.at-aheadCrossing.at).toFixed(3)}`;
+  }
   return `+${Math.max(0,behind.totalSeconds-ahead.totalSeconds).toFixed(3)}`;
 }
 function frame(prepared,elapsedSeconds){
@@ -79,12 +89,12 @@ function frame(prepared,elapsedSeconds){
       key:`replay-${driver.seedIndex}`,position:index+1,start:driver.seedIndex+1,number:'',name:driver.name,firstName:'',lastName:'',transponder:'',
       laps:driver.laps,lastLap:formatLap(driver.lastLapSeconds),lastLapSeconds:driver.lastLapSeconds,total:formatLap(driver.totalSeconds),totalSeconds:driver.totalSeconds,
       best:formatLap(driver.bestSeconds),bestSeconds:driver.bestSeconds,average:formatLap(driver.averageSeconds),averageSeconds:driver.averageSeconds,forecast:'',
-      gapFirst:index?gapLabel(leader,driver):'0.000',gapPrevious:index?gapLabel(ahead,driver):'0.000',trend:0,positionChange:0,stateColor:driver.finished&&elapsed<prepared.durationSeconds?4:0,
+      gapFirst:index?gapLabel(leader,driver):'0.000',gapPrevious:index?gapLabel(ahead,driver):'0.000',realLapDeficit:index?realLapDeficit(leader,driver):0,trend:0,positionChange:0,stateColor:driver.finished&&elapsed<prepared.durationSeconds?4:0,
       progress:driver.progress,replayDistance:driver.distance,currentLapSeconds:driver.currentLapSeconds,startPhase:driver.startPhase,startDelaySeconds:driver.startDelaySeconds,delayedStart:driver.delayedStart,startDelayActive:driver.startDelayActive,didNotStart:driver.didNotStart,sinceLastCrossing:driver.sinceLastCrossing,signalAlertSeconds:driver.signalAlertSeconds,missingCrossing:driver.missingCrossing,hiddenAfterNoCrossing:driver.hiddenAfterNoCrossing,finished:driver.finished
     };
   });
   return {elapsed,durationSeconds:prepared.durationSeconds,scheduledSeconds:prepared.scheduledSeconds,percentage:prepared.durationSeconds?elapsed/prepared.durationSeconds*100:0,drivers,finished:elapsed>=prepared.durationSeconds};
 }
 
-return {clamp,median,formatClock,formatLap,motionTimeline,pacedProgress,prepareReplay,completedCount,gapLabel,frame};
+return {clamp,median,formatClock,formatLap,motionTimeline,pacedProgress,prepareReplay,completedCount,realLapDeficit,gapLabel,frame};
 });

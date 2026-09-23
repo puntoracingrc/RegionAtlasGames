@@ -88,7 +88,7 @@ function battleGroups(drivers,thresholdSeconds=2){
   const threshold=Number(thresholdSeconds),ordered=(drivers||[]).slice().sort((a,b)=>Number(a.position)-Number(b.position)),groups=[];let active=null;
   if(!Number.isFinite(threshold)||threshold<=0)return groups;
   for(let index=1;index<ordered.length;index++){
-    const ahead=ordered[index-1],behind=ordered[index],gap=gapSeconds(behind.gapPrevious),sameLap=Number(ahead.laps)>0&&Number(ahead.laps)===Number(behind.laps),close=sameLap&&gap!=null&&gap<=threshold;
+    const ahead=ordered[index-1],behind=ordered[index],gap=gapSeconds(behind.gapPrevious),sameLap=samePhysicalLap(ahead,behind),close=sameLap&&gap!=null&&gap<=threshold;
     if(close){
       if(!active){active={startPosition:Number(ahead.position),endPosition:Number(behind.position),drivers:[ahead,behind],gaps:[gap]};}
       else{active.endPosition=Number(behind.position);active.drivers.push(behind);active.gaps.push(gap);}
@@ -96,6 +96,32 @@ function battleGroups(drivers,thresholdSeconds=2){
   }
   if(active)groups.push({...active,spanSeconds:active.gaps.reduce((sum,value)=>sum+value,0)});
   return groups;
+}
+function battleDriverId(driver){return String(driver&&driver.key||normalize(driver&&driver.name)||'');}
+function samePhysicalLap(ahead,behind){
+  const aheadDistance=Number(ahead&&ahead.replayDistance),behindDistance=Number(behind&&behind.replayDistance);
+  if(Number.isFinite(aheadDistance)&&Number.isFinite(behindDistance))return Math.abs(aheadDistance-behindDistance)<1;
+  return Number(ahead&&ahead.laps)>0&&Number(ahead&&ahead.laps)===Number(behind&&behind.laps);
+}
+function battleNarrativeTransitions(drivers,groups,previousState={},elapsedSeconds=0,releaseThresholdSeconds=3){
+  const elapsed=Math.max(0,Number(elapsedSeconds)||0),release=Math.max(2,Number(releaseThresholdSeconds)||3),ordered=(drivers||[]).slice().sort((a,b)=>Number(a.position)-Number(b.position)),byId=new Map(ordered.map(driver=>[battleDriverId(driver),driver])),state={...previousState},events=[],activeKeys=new Set();
+  for(const group of groups||[])for(let index=1;index<group.drivers.length;index++){
+    const ahead=group.drivers[index-1],behind=group.drivers[index],aheadId=battleDriverId(ahead),behindId=battleDriverId(behind),key=[aheadId,behindId].sort().join('|'),gap=gapSeconds(behind.gapPrevious);
+    if(!key||gap==null)continue;activeKeys.add(key);const previous=state[key];
+    if(!previous){state[key]={aheadId,behindId,initialGap:gap,minGap:gap,continued:false,resolved:'',startedAt:elapsed,lastSeenAt:elapsed};events.push({type:'start',key,ahead,behind,position:Number(ahead.position),gap});continue;}
+    if(previous.aheadId!==aheadId&&!previous.resolved){events.push({type:'pass',key,ahead,behind,position:Number(ahead.position),gap});state[key]={...previous,aheadId,behindId,minGap:Math.min(previous.minGap,gap),resolved:'pass',lastSeenAt:elapsed};continue;}
+    const meaningfulGain=Math.max(.15,previous.initialGap*.2),continued=!previous.resolved&&!previous.continued&&gap<=previous.initialGap-meaningfulGain;
+    if(continued)events.push({type:'continue',key,ahead,behind,position:Number(ahead.position),gap,fromGap:previous.initialGap});
+    state[key]={...previous,aheadId,behindId,minGap:Math.min(previous.minGap,gap),continued:previous.continued||continued,lastSeenAt:elapsed};
+  }
+  for(const [key,previous] of Object.entries(state)){
+    if(activeKeys.has(key))continue;const first=byId.get(previous.aheadId),second=byId.get(previous.behindId);if(!first||!second){delete state[key];continue;}
+    const [ahead,behind]=Number(first.position)<Number(second.position)?[first,second]:[second,first],swapped=battleDriverId(ahead)!==previous.aheadId,adjacent=Math.abs(Number(first.position)-Number(second.position))===1,gap=adjacent?gapSeconds(behind.gapPrevious):null;
+    if(!previous.resolved&&swapped){events.push({type:'pass',key,ahead,behind,position:Number(ahead.position),gap});delete state[key];continue;}
+    if(!previous.resolved&&adjacent&&samePhysicalLap(ahead,behind)&&gap!=null&&gap>=release){events.push({type:'held',key,ahead,behind,position:Number(ahead.position),gap});delete state[key];continue;}
+    if(previous.resolved||elapsed-previous.lastSeenAt>=30)delete state[key];
+  }
+  return {state,events};
 }
 function hasPreviousChampionshipResults(seed){
   return Boolean(seed&&Array.isArray(seed.pilots)&&seed.pilots.some(pilot=>Array.isArray(pilot.history)&&pilot.history.some(position=>position!==null&&position!==''&&Number.isFinite(Number(position))&&Number(position)>0)));
@@ -223,5 +249,5 @@ function phaseFromGroup(value){
   if(/\b(PRACTICE|PRACTICA|ENTRENAMIENTO)\b/.test(group))return 'Entrenamientos';
   return value||'Manga activa';
 }
-return {normalize,tokens,matchPilot,categoryFromMetadata,timeSeconds,averageSpeedKmh,distanceKm,gapSeconds,median,cleanLapEstimate,estimatedLapProgress,secondsSinceLastCrossing,battleGroups,hasPreviousChampionshipResults,startingGridNarrative,normalizeEvent,enrichDrivers,stateFromSnapshot,provisionalSeed,raceStateLabel,phaseFromGroup};
+return {normalize,tokens,matchPilot,categoryFromMetadata,timeSeconds,averageSpeedKmh,distanceKm,gapSeconds,median,cleanLapEstimate,estimatedLapProgress,secondsSinceLastCrossing,battleGroups,battleNarrativeTransitions,hasPreviousChampionshipResults,startingGridNarrative,normalizeEvent,enrichDrivers,stateFromSnapshot,provisionalSeed,raceStateLabel,phaseFromGroup};
 });
