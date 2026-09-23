@@ -77,6 +77,45 @@ test('groups only same-lap drivers separated by two seconds or less',()=>{
   assert.equal(L.gapSeconds('+0:01.234'),1.234);
 });
 
+test('keeps a battle active during a pending transponder crossing when nobody is physically lapped',()=>{
+  const drivers=[
+    {key:'a',position:1,name:'A',laps:11,gapPrevious:'0.000',replayDistance:11.1},
+    {key:'b',position:2,name:'B',laps:10,gapPrevious:'+0.842',replayDistance:10.9},
+    {key:'c',position:3,name:'C',laps:9,gapPrevious:'-1',replayDistance:9.8}
+  ];
+  const battles=L.battleGroups(drivers,2);
+  assert.equal(battles.length,1);
+  assert.deepEqual(battles[0].drivers.map(driver=>driver.key),['a','b']);
+});
+
+test('turns repeated battle samples into start, one continuation and an overtake',()=>{
+  const frame=(ahead,behind,gap)=>[
+    {key:ahead,position:4,name:ahead,laps:14,gapPrevious:'+2.000',replayDistance:14.5},
+    {key:behind,position:5,name:behind,laps:14,gapPrevious:`+${gap}`,replayDistance:14.4}
+  ];
+  let drivers=frame('Sergio','Eduard','0.916'),groups=L.battleGroups(drivers,2),step=L.battleNarrativeTransitions(drivers,groups,{},264);
+  assert.deepEqual(step.events.map(event=>event.type),['start']);
+  drivers=frame('Sergio','Eduard','0.327');groups=L.battleGroups(drivers,2);step=L.battleNarrativeTransitions(drivers,groups,step.state,284);
+  assert.deepEqual(step.events.map(event=>event.type),['continue']);
+  drivers=frame('Sergio','Eduard','0.201');groups=L.battleGroups(drivers,2);step=L.battleNarrativeTransitions(drivers,groups,step.state,294);
+  assert.equal(step.events.length,0);
+  drivers=frame('Eduard','Sergio','0.450');groups=L.battleGroups(drivers,2);step=L.battleNarrativeTransitions(drivers,groups,step.state,304);
+  assert.deepEqual(step.events.map(event=>event.type),['pass']);
+  assert.equal(step.events[0].ahead.name,'Eduard');
+});
+
+test('closes a battle when the leading driver opens a clear gap',()=>{
+  const close=[
+    {key:'a',position:2,name:'A',laps:20,gapPrevious:'+1.000'},
+    {key:'b',position:3,name:'B',laps:20,gapPrevious:'+0.800'}
+  ];
+  let step=L.battleNarrativeTransitions(close,L.battleGroups(close,2),{},100);
+  const escaped=[close[0],{...close[1],gapPrevious:'+3.400'}];
+  step=L.battleNarrativeTransitions(escaped,L.battleGroups(escaped,2),step.state,120);
+  assert.deepEqual(step.events.map(event=>event.type),['held']);
+  assert.equal(step.events[0].ahead.name,'A');
+});
+
 test('detects whether a championship already has previous race results',()=>{
   assert.equal(L.hasPreviousChampionshipResults(eco),true);
   assert.equal(L.hasPreviousChampionshipResults({pilots:[{history:[null,null]},{history:[]}]}),false);
