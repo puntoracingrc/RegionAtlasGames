@@ -920,28 +920,31 @@
       "researchIds": [
         "blud-switch-2026-09-21",
         "drive-rally-special-edition-switch-2026-09-21",
-        "drive-rally-switch-2026-09-21"
+        "drive-rally-switch-2026-09-21",
+        "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
       ],
-      "observationCount": 3,
+      "observationCount": 4,
       "queryTotals": {
-        "exact_identifier": 31,
-        "general": 34,
-        "image": 15,
-        "marketplace": 39,
-        "source_specific": 31
+        "exact_identifier": 43,
+        "general": 46,
+        "image": 20,
+        "marketplace": 49,
+        "source_specific": 47
       },
       "sourceAttemptTotals": {
-        "total": 61,
-        "useful": 56,
+        "total": 80,
+        "useful": 68,
         "byOutcome": {
-          "CONFIRMED_EVIDENCE": 49,
-          "CONTEXT_ONLY": 9,
+          "CONFIRMED_EVIDENCE": 58,
+          "CONTEXT_ONLY": 12,
           "TECHNICAL_FAILURE": 2,
-          "CANDIDATE": 1
+          "CANDIDATE": 4,
+          "NO_RELEVANT_DATA": 4
         },
         "byAccessStatus": {
           "BLOCKED": 2,
-          "OPENED": 59
+          "OPENED": 74,
+          "SEARCH_RESULT_ONLY": 4
         }
       },
       "recommendations": [
@@ -954,9 +957,9 @@
             "regional_release_identity",
             "release_date"
           ],
-          "attempts": 9,
+          "attempts": 10,
           "usefulAttempts": 6,
-          "distinctResearchIds": 3
+          "distinctResearchIds": 4
         },
         {
           "domain": "gamefaqs.gamespot.com",
@@ -964,12 +967,13 @@
             "age_rating",
             "game_metadata",
             "identifiers",
+            "players",
             "regional_release_identity",
             "release_date"
           ],
-          "attempts": 3,
-          "usefulAttempts": 3,
-          "distinctResearchIds": 3
+          "attempts": 6,
+          "usefulAttempts": 6,
+          "distinctResearchIds": 4
         },
         {
           "domain": "nintendo.com",
@@ -980,9 +984,9 @@
             "languages",
             "release_date"
           ],
-          "attempts": 3,
+          "attempts": 4,
           "usefulAttempts": 3,
-          "distinctResearchIds": 2
+          "distinctResearchIds": 3
         },
         {
           "domain": "proshop.dk",
@@ -992,9 +996,9 @@
             "identifiers",
             "physical_contents"
           ],
-          "attempts": 3,
+          "attempts": 4,
           "usefulAttempts": 3,
-          "distinctResearchIds": 2
+          "distinctResearchIds": 3
         },
         {
           "domain": "videogamesplus.ca",
@@ -1004,9 +1008,9 @@
             "game_metadata",
             "physical_contents"
           ],
-          "attempts": 3,
+          "attempts": 4,
           "usefulAttempts": 2,
-          "distinctResearchIds": 2
+          "distinctResearchIds": 3
         }
       ],
       "recommendationStatus": "VALIDATED_ROUTES_AVAILABLE",
@@ -1273,23 +1277,24 @@
           "lastObservedAt": "2026-09-21"
         },
         "ebay.com": {
-          "attempts": 9,
+          "attempts": 10,
           "usefulAttempts": 6,
-          "usefulnessRate": 0.6667,
+          "usefulnessRate": 0.6,
           "confirmedEvidenceAttempts": 5,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 4,
-          "noRelevantDataAttempts": 0,
+          "noRelevantDataAttempts": 1,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 3,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 4,
           "researchIds": [
             "blud-switch-2026-09-21",
             "drive-rally-special-edition-switch-2026-09-21",
-            "drive-rally-switch-2026-09-21"
+            "drive-rally-switch-2026-09-21",
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
           ],
           "sourceTypes": [
             "marketplace",
@@ -1307,14 +1312,14 @@
             "exact_identifier": 12,
             "image": 2,
             "marketplace": 43,
-            "source_specific": 5
+            "source_specific": 7
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": true,
           "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "ebay.es": {
           "attempts": 1,
@@ -1421,10 +1426,10 @@
           "lastObservedAt": "2026-09-22"
         },
         "gamefaqs.gamespot.com": {
-          "attempts": 3,
-          "usefulAttempts": 3,
+          "attempts": 6,
+          "usefulAttempts": 6,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 3,
+          "confirmedEvidenceAttempts": 6,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -1433,11 +1438,12 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 3,
+          "distinctResearchIds": 4,
           "researchIds": [
             "blud-switch-2026-09-21",
             "drive-rally-special-edition-switch-2026-09-21",
-            "drive-rally-switch-2026-09-21"
+            "drive-rally-switch-2026-09-21",
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
           ],
           "sourceTypes": [
             "technical_database"
@@ -1446,12 +1452,13 @@
             "age_rating",
             "game_metadata",
             "identifiers",
+            "players",
             "regional_release_identity",
             "release_date"
           ],
           "queryTypeCounts": {
             "general": 2,
-            "source_specific": 3,
+            "source_specific": 8,
             "exact_identifier": 1
           },
           "exampleSourceIds": [],
@@ -1459,7 +1466,7 @@
           "recommended": true,
           "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "games.rs": {
           "attempts": 1,
@@ -1678,22 +1685,23 @@
           "lastObservedAt": "2026-09-22"
         },
         "nintendo.com": {
-          "attempts": 3,
+          "attempts": 4,
           "usefulAttempts": 3,
-          "usefulnessRate": 1,
+          "usefulnessRate": 0.75,
           "confirmedEvidenceAttempts": 3,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
-          "noRelevantDataAttempts": 0,
+          "noRelevantDataAttempts": 1,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 3,
           "researchIds": [
             "blud-switch-2026-09-21",
-            "drive-rally-switch-2026-09-21"
+            "drive-rally-switch-2026-09-21",
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
           ],
           "sourceTypes": [
             "official",
@@ -1708,14 +1716,14 @@
           ],
           "queryTypeCounts": {
             "general": 2,
-            "source_specific": 1
+            "source_specific": 3
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": true,
           "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "ogdb.eu": {
           "attempts": 1,
@@ -1862,25 +1870,27 @@
           "lastObservedAt": "2026-09-22"
         },
         "pricecharting.com": {
-          "attempts": 2,
+          "attempts": 3,
           "usefulAttempts": 2,
-          "usefulnessRate": 1,
+          "usefulnessRate": 0.6667,
           "confirmedEvidenceAttempts": 1,
           "candidateAttempts": 0,
-          "contextOnlyAttempts": 1,
+          "contextOnlyAttempts": 2,
           "noRelevantDataAttempts": 0,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "distinctResearchIds": 3,
           "researchIds": [
             "blud-switch-2026-09-21",
-            "drive-rally-switch-2026-09-21"
+            "drive-rally-switch-2026-09-21",
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
           ],
           "sourceTypes": [
             "market_aggregator",
+            "price_guide",
             "technical_price_database"
           ],
           "targetCategories": [
@@ -1895,33 +1905,34 @@
             "exact_identifier": 7,
             "general": 5,
             "image": 1,
-            "marketplace": 8,
+            "marketplace": 10,
             "source_specific": 3
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,
-          "recommendationReason": "insufficient_cross_research_evidence",
+          "recommendationReason": "insufficient_field_specific_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "proshop.dk": {
-          "attempts": 3,
+          "attempts": 4,
           "usefulAttempts": 3,
-          "usefulnessRate": 1,
+          "usefulnessRate": 0.75,
           "confirmedEvidenceAttempts": 3,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
-          "noRelevantDataAttempts": 0,
+          "noRelevantDataAttempts": 1,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 3,
           "researchIds": [
             "drive-rally-special-edition-switch-2026-09-21",
-            "drive-rally-switch-2026-09-21"
+            "drive-rally-switch-2026-09-21",
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
           ],
           "sourceTypes": [
             "image",
@@ -1935,14 +1946,14 @@
           ],
           "queryTypeCounts": {
             "image": 3,
-            "source_specific": 1
+            "source_specific": 3
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": true,
           "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "racesimcentral.net": {
           "attempts": 1,
@@ -2236,22 +2247,23 @@
           "lastObservedAt": "2026-09-22"
         },
         "videogamesplus.ca": {
-          "attempts": 3,
+          "attempts": 4,
           "usefulAttempts": 2,
-          "usefulnessRate": 0.6667,
+          "usefulnessRate": 0.5,
           "confirmedEvidenceAttempts": 2,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
-          "noRelevantDataAttempts": 0,
+          "noRelevantDataAttempts": 1,
           "technicalFailures": 1,
           "blockedAttempts": 1,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 3,
           "researchIds": [
             "drive-rally-special-edition-switch-2026-09-21",
-            "drive-rally-switch-2026-09-21"
+            "drive-rally-switch-2026-09-21",
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
           ],
           "sourceTypes": [
             "image",
@@ -2265,14 +2277,15 @@
           ],
           "queryTypeCounts": {
             "exact_identifier": 2,
-            "image": 3
+            "image": 3,
+            "source_specific": 2
           },
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": true,
           "recommendationReason": "validated_cross_research_threshold_met",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "wog.ch": {
           "attempts": 2,
@@ -2344,6 +2357,393 @@
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
           "lastObservedAt": "2026-09-22"
+        },
+        "e.leclerc": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "retailer_metadata"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "identifiers",
+            "physical_contents",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 3,
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "retroplace.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "collector_database"
+          ],
+          "targetCategories": [
+            "identifiers",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 2,
+            "exact_identifier": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "segabits.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "news"
+          ],
+          "targetCategories": [
+            "credits_distribution",
+            "physical_contents",
+            "regional_release_identity",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 1,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "grouvee.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "secondary_database"
+          ],
+          "targetCategories": [
+            "game_metadata",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 1,
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "sonic-city.net": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "specialist_wiki"
+          ],
+          "targetCategories": [
+            "front_back_images",
+            "game_metadata",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "image": 2,
+            "general": 1,
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "vgdb.com.br": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "technical_database"
+          ],
+          "targetCategories": [
+            "game_metadata",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "voxgaming.fr": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "price_guide"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "regional_release_identity"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 2,
+            "image": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "amazingtoys.ch": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "retailer_inventory"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "vgpreise.de": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "price_guide"
+          ],
+          "targetCategories": [
+            "active_market_price"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "kotaku.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "secondary_database"
+          ],
+          "targetCategories": [
+            "game_metadata",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "nintendo.fandom.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23"
+          ],
+          "sourceTypes": [
+            "secondary_release_list"
+          ],
+          "targetCategories": [
+            "age_rating",
+            "credits_distribution",
+            "release_date"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
         }
       }
     },

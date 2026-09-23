@@ -1,0 +1,1432 @@
+{
+  "schemaVersion": 1,
+  "researchId": "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
+  "platform": "switch",
+  "resultFile": "research/results/2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23.json",
+  "resultSha256": "359a1b834a20b6b27f68443ace7e21849998bbfc8216d5d478a2b01492b4a1e8",
+  "observedAt": "2026-09-23",
+  "validation": {
+    "jsonParse": "PASS",
+    "requiredFields": "PASS",
+    "sourceReferenceIntegrity": "PASS",
+    "queryReferenceIntegrity": "PASS",
+    "priceContractIntegrity": "PASS_NO_PRICE_PUBLISHED",
+    "focusedDirectSourceSpotCheck": {
+      "status": "PASS_WITH_GAMEFAQS_RESTRICTED",
+      "domains": [
+        "e.leclerc",
+        "retroplace.com",
+        "segabits.com"
+      ]
+    },
+    "claimLevelImportReview": "PASS_CONFIRMED_FIELDS_ONLY",
+    "catalogMutations": 1,
+    "priceMutations": 0
+  },
+  "counts": {
+    "sources": 16,
+    "queries": 55,
+    "sourceAttempts": 19,
+    "usefulSourceAttempts": 12,
+    "releases": 1,
+    "images": 0,
+    "regionalPriceBlocks": 3
+  },
+  "sources": [
+    {
+      "sourceId": "gamefaqs_bundle",
+      "url": "https://gamefaqs.gamespot.com/switch/227900-2-hits-pack-sonic-forces-puyo-puyo-tetris-sega-collection",
+      "title": "GameFAQs exact compilation",
+      "accessedAt": "2026-09-23",
+      "supports": "title/platform/genre/developer/publisher/date/contents/players"
+    },
+    {
+      "sourceId": "gamefaqs_koch",
+      "url": "https://gamefaqs.gamespot.com/games/company/4582-koch-media",
+      "title": "GameFAQs Koch Media company listing",
+      "accessedAt": "2026-09-23",
+      "supports": "Europe date/publisher listing"
+    },
+    {
+      "sourceId": "leclerc_fr",
+      "url": "https://www.e.leclerc/fp/bipack-sonic-forces-puyo-puyo-tetris-switch-4020628772376",
+      "title": "E.Leclerc exact product",
+      "accessedAt": "2026-09-23",
+      "supports": "EAN/PEGI/date/publisher/contents/France retail"
+    },
+    {
+      "sourceId": "retroplace_uk",
+      "url": "https://www.retroplace.com/es/juegos/153644--2-hits-pack-sonic-forces-puyo-puyo-tetris-sega-collection",
+      "title": "Retroplace UK country version",
+      "accessedAt": "2026-09-23",
+      "supports": "UK version/EAN/developer/publisher/date"
+    },
+    {
+      "sourceId": "segabits",
+      "url": "https://segabits.com/blog/2017/11/19/sonic-forces-and-puyo-puyo-tetris-gets-2-hits-pack-on-nintendo-switch/",
+      "title": "SEGAbits announcement",
+      "accessedAt": "2026-09-23",
+      "supports": "France/Europe/Koch International/contents/date/media-count uncertainty"
+    },
+    {
+      "sourceId": "grouvee",
+      "url": "https://www.grouvee.com/games/110248-2-hits-pack-sonic-forcespuyo-puyo-tetris/",
+      "title": "Grouvee bundle metadata",
+      "accessedAt": "2026-09-23",
+      "supports": "alternate title/Europe/date/genres/franchises; Sega metadata conflict"
+    },
+    {
+      "sourceId": "soniccity_forces",
+      "url": "https://sonic-city.net/wiki/index.php/Sonic_Forces",
+      "title": "Sonic City Sonic Forces",
+      "accessedAt": "2026-09-23",
+      "supports": "compilation/date; box-art file label only"
+    },
+    {
+      "sourceId": "vgdb_puyo",
+      "url": "https://www.vgdb.com.br/switch/jogos/puyo-puyo-tetris/",
+      "title": "VGDB Puyo Puyo Tetris",
+      "accessedAt": "2026-09-23",
+      "supports": "Puyo constituent/card format/compilation linkage"
+    },
+    {
+      "sourceId": "gamefaqs_sonic_forces",
+      "url": "https://gamefaqs.gamespot.com/switch/193374-sonic-forces/data",
+      "title": "GameFAQs Sonic Forces data",
+      "accessedAt": "2026-09-23",
+      "supports": "Sonic constituent/1 player/compilation linkage"
+    },
+    {
+      "sourceId": "gamefaqs_puyo_franchise",
+      "url": "https://gamefaqs.gamespot.com/games/franchise/1607-puyo-puyo",
+      "title": "GameFAQs Puyo Puyo franchise",
+      "accessedAt": "2026-09-23",
+      "supports": "Puyo franchise and exact compilation listing"
+    },
+    {
+      "sourceId": "nintendo_fandom_europe",
+      "url": "https://nintendo.fandom.com/wiki/List_of_Nintendo_Switch_games_%28Europe%29",
+      "title": "Nintendo Switch games Europe list",
+      "accessedAt": "2026-09-23",
+      "supports": "Europe/Koch Media/date/PEGI 7"
+    },
+    {
+      "sourceId": "voxgaming",
+      "url": "https://www.voxgaming.fr/catalog/switch/2-hits-pack-sonic-forces-puyo-puyo-tetris-10609.php",
+      "title": "VoxGaming exact title",
+      "accessedAt": "2026-09-23",
+      "supports": "PAL/EUR context; algorithmic price excluded"
+    },
+    {
+      "sourceId": "amazingtoys_ch",
+      "url": "https://amazingtoys.ch/2-Hits-Pack-Sonic-Forces-Puyo-Puyo-Tetris-Nintendo-Switch-DE",
+      "title": "Amazingtoys exact title",
+      "accessedAt": "2026-09-23",
+      "supports": "unavailable used copy/generic module+packaging context"
+    },
+    {
+      "sourceId": "pricecharting_search",
+      "url": "https://www.pricecharting.com/game/pal-nintendo-switch/2-hits-pack-sonic-forces-%26-puyo-puyo-tetris",
+      "title": "PriceCharting PAL exact product",
+      "accessedAt": "2026-09-23",
+      "supports": "PAL/date/PEGI 7/no sales data"
+    },
+    {
+      "sourceId": "vgpreise_switch",
+      "url": "https://www.vgpreise.de/gameslist/SWI",
+      "title": "VGPreise Switch list",
+      "accessedAt": "2026-09-23",
+      "supports": "exact title/no price values"
+    },
+    {
+      "sourceId": "kotaku_igdb",
+      "url": "https://kotaku.com/games/2-hits-pack-sonic-forces-slash-puyo-puyo-tetris",
+      "title": "Kotaku IGDB metadata",
+      "accessedAt": "2026-09-23",
+      "supports": "conflicting 2018-01-04/Sega metadata"
+    }
+  ],
+  "queryLedger": [
+    {
+      "queryId": "q001",
+      "queryType": "general",
+      "query": "\"2 Hits Pack: Sonic Forces & Puyo Puyo Tetris\" Nintendo Switch",
+      "provider": "web",
+      "targetFields": [
+        "game_metadata",
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "gamefaqs_bundle",
+        "grouvee"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q002",
+      "queryType": "source_specific",
+      "query": "site:gamefaqs.gamespot.com \"2 Hits Pack: Sonic Forces\" \"Puyo Puyo Tetris\" Switch",
+      "provider": "web",
+      "targetFields": [
+        "game_metadata",
+        "identifiers",
+        "release_date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "gamefaqs_bundle",
+        "gamefaqs_koch"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q003",
+      "queryType": "source_specific",
+      "query": "site:nintendo.com \"Sonic Forces\" \"Puyo Puyo Tetris\" Switch bundle",
+      "provider": "web",
+      "targetFields": [
+        "game_metadata",
+        "languages",
+        "release_date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No exact bundle page retained."
+    },
+    {
+      "queryId": "q004",
+      "queryType": "source_specific",
+      "query": "site:proshop.dk \"Sonic Forces\" \"Puyo Puyo Tetris\" \"2 Hits Pack\"",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images",
+        "identifiers",
+        "physical_contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No exact product page retained."
+    },
+    {
+      "queryId": "q005",
+      "queryType": "source_specific",
+      "query": "site:videogamesplus.ca \"Sonic Forces\" \"Puyo Puyo Tetris\" \"2 Hits Pack\"",
+      "provider": "web",
+      "targetFields": [
+        "age_rating",
+        "front_back_images",
+        "physical_contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No exact product page retained."
+    },
+    {
+      "queryId": "q006",
+      "queryType": "source_specific",
+      "query": "site:ebay.com \"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" Switch",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price",
+        "identifiers",
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No direct active exact-product listing retained."
+    },
+    {
+      "queryId": "q007",
+      "queryType": "image",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" Switch",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "soniccity_forces",
+        "voxgaming"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q008",
+      "queryType": "general",
+      "query": "\"2 Hits Pack: Sonic Forces / Puyo Puyo Tetris - Sega Collection\" EAN",
+      "provider": "web",
+      "targetFields": [
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q009",
+      "queryType": "exact_identifier",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" 4020628",
+      "provider": "web",
+      "targetFields": [
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "leclerc_fr",
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q010",
+      "queryType": "general",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" barcode",
+      "provider": "web",
+      "targetFields": [
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "leclerc_fr",
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q011",
+      "queryType": "source_specific",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" \"Koch Media\"",
+      "provider": "web",
+      "targetFields": [
+        "credits_distribution",
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "gamefaqs_bundle",
+        "leclerc_fr",
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q012",
+      "queryType": "general",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" \"Nintendo Switch\" \"EAN\"",
+      "provider": "web",
+      "targetFields": [
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "leclerc_fr",
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q013",
+      "queryType": "general",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" Spain Switch",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No Spanish exact-product evidence retained."
+    },
+    {
+      "queryId": "q014",
+      "queryType": "general",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" UK Switch",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q015",
+      "queryType": "image",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" Nintendo Switch box back",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No canonical direct rear-image URL retained."
+    },
+    {
+      "queryId": "q016",
+      "queryType": "exact_identifier",
+      "query": "\"4020628772376\"",
+      "provider": "web",
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "leclerc_fr",
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q017",
+      "queryType": "exact_identifier",
+      "query": "\"4020628772376\" \"Nintendo Switch\"",
+      "provider": "web",
+      "targetFields": [
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "leclerc_fr",
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q018",
+      "queryType": "exact_identifier",
+      "query": "\"4020628772376\" Sonic Forces Puyo",
+      "provider": "web",
+      "targetFields": [
+        "identifiers",
+        "game_metadata"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "leclerc_fr",
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q019",
+      "queryType": "exact_identifier",
+      "query": "\"2 Hits Pack\" \"4020628772376\"",
+      "provider": "web",
+      "targetFields": [
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "leclerc_fr",
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q020",
+      "queryType": "image",
+      "query": "\"4020628772376\" Switch",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images",
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": "No direct exact front/back pair retained."
+    },
+    {
+      "queryId": "q021",
+      "queryType": "marketplace",
+      "query": "\"4020628772376\" eBay",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q022",
+      "queryType": "marketplace",
+      "query": "\"4020628772376\" \"Sonic Forces\" \"Puyo Puyo Tetris\" ebay",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q023",
+      "queryType": "marketplace",
+      "query": "\"4020628772376\" \"Puyo Puyo Tetris\" \"Sonic Forces\" used",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q024",
+      "queryType": "marketplace",
+      "query": "\"4020628772376\" \"Sonic Forces\" \"Puyo Puyo Tetris\" \"Nintendo Switch\" price",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "voxgaming"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": "Algorithmic price context only."
+    },
+    {
+      "queryId": "q025",
+      "queryType": "exact_identifier",
+      "query": "\"4020628772376\" \"Sonic Forces\" \"Puyo Puyo Tetris\" Spain",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": "No Spain-specific evidence retained."
+    },
+    {
+      "queryId": "q026",
+      "queryType": "exact_identifier",
+      "query": "\"4020628772376\" \"Sonic Forces\" \"Puyo Puyo Tetris\" UK",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q027",
+      "queryType": "image",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" Switch box art",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "voxgaming",
+        "grouvee",
+        "soniccity_forces"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Only page thumbnails/file labels; no canonical direct image URL retained."
+    },
+    {
+      "queryId": "q028",
+      "queryType": "image",
+      "query": "\"ForcesPuyoTetrisPack Pegi.jpg\"",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images",
+        "age_rating"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "soniccity_forces"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q029",
+      "queryType": "general",
+      "query": "\"ForcesPuyoTetrisPack\" Puyo Tetris",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images",
+        "game_metadata"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "soniccity_forces"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q030",
+      "queryType": "source_specific",
+      "query": "\"ForcesPuyoTetrisPack Pegi.jpg\" sonic-city",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "soniccity_forces"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q031",
+      "queryType": "source_specific",
+      "query": "site:sonic-city.net/wiki/images \"ForcesPuyoTetrisPack\"",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q032",
+      "queryType": "general",
+      "query": "\"2 Hits Pack: Sonic Forces\" \"Puyo Puyo Tetris\" España",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No exact Spanish product source retained."
+    },
+    {
+      "queryId": "q033",
+      "queryType": "general",
+      "query": "\"Sonic Forces + Puyo Puyo Tetris\" Switch España",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No exact Spanish product source retained."
+    },
+    {
+      "queryId": "q034",
+      "queryType": "exact_identifier",
+      "query": "\"Sonic Forces Puyo Puyo Tetris\" Switch \"4020628772376\" España",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "leclerc_fr",
+        "retroplace_uk"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": "Results confirmed non-Spanish European evidence only."
+    },
+    {
+      "queryId": "q035",
+      "queryType": "source_specific",
+      "query": "\"2 Hits Pack\" \"Sonic Forces\" \"Puyo Puyo Tetris\" \"GAME.es\"",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q036",
+      "queryType": "source_specific",
+      "query": "\"2 Hits Pack\" \"Sonic Forces\" \"Puyo Puyo Tetris\" \"Fnac.es\"",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q037",
+      "queryType": "source_specific",
+      "query": "\"2 Hits Pack\" \"Sonic Forces\" \"Puyo Puyo Tetris\" \"Amazon.es\"",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q038",
+      "queryType": "exact_identifier",
+      "query": "\"4020628772376\" España \"Sonic Forces\" \"Puyo Puyo Tetris\"",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": "No Spanish exact-product evidence retained."
+    },
+    {
+      "queryId": "q039",
+      "queryType": "exact_identifier",
+      "query": "\"4020628772376\" site:es \"Nintendo Switch\"",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": "No Spanish exact-product evidence retained."
+    },
+    {
+      "queryId": "q040",
+      "queryType": "exact_identifier",
+      "query": "\"4020628772376\" \"España\"",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": "No Spanish exact-product evidence retained."
+    },
+    {
+      "queryId": "q041",
+      "queryType": "general",
+      "query": "\"2 Hits Pack\" \"Sonic Forces\" \"Puyo Puyo Tetris\" \"Nintendo Switch\" España",
+      "provider": "web",
+      "targetFields": [
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No Spanish exact-product evidence retained."
+    },
+    {
+      "queryId": "q042",
+      "queryType": "marketplace",
+      "query": "\"4020628772376\" ebay \"2 Hits Pack\"",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q043",
+      "queryType": "marketplace",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" ebay Switch used",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q044",
+      "queryType": "marketplace",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" \"Nintendo Switch\" \"GBP\"",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q045",
+      "queryType": "marketplace",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" \"Nintendo Switch\" \"EUR\" used",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "amazingtoys_ch",
+        "voxgaming"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Amazingtoys unavailable; VoxGaming algorithmic context."
+    },
+    {
+      "queryId": "q046",
+      "queryType": "marketplace",
+      "query": "\"4020628772376\" \"Nintendo Switch\" used price",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "pricecharting_search",
+        "vgpreise_switch"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": "No qualifying direct active sample."
+    },
+    {
+      "queryId": "q047",
+      "queryType": "source_specific",
+      "query": "site:gamefaqs.gamespot.com/switch \"2 Hits Pack: Sonic Forces / Puyo Puyo Tetris - Sega Collection\"",
+      "provider": "web",
+      "targetFields": [
+        "game_metadata",
+        "release_date",
+        "credits_distribution"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "gamefaqs_bundle"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q048",
+      "queryType": "source_specific",
+      "query": "site:nintendo.com \"2 Hits Pack: Sonic Forces\" \"Puyo Puyo Tetris\"",
+      "provider": "web",
+      "targetFields": [
+        "game_metadata",
+        "languages"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No exact bundle page retained."
+    },
+    {
+      "queryId": "q049",
+      "queryType": "source_specific",
+      "query": "site:proshop.dk \"2 Hits Pack\" \"Sonic Forces\" \"Puyo Puyo Tetris\"",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images",
+        "identifiers",
+        "physical_contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No exact product page retained."
+    },
+    {
+      "queryId": "q050",
+      "queryType": "source_specific",
+      "query": "site:videogamesplus.ca \"2 Hits Pack\" \"Sonic Forces\" \"Puyo Puyo Tetris\"",
+      "provider": "web",
+      "targetFields": [
+        "front_back_images",
+        "age_rating",
+        "physical_contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No exact product page retained."
+    },
+    {
+      "queryId": "q051",
+      "queryType": "source_specific",
+      "query": "site:ebay.com \"2 Hits Pack\" \"Sonic Forces\" \"Puyo Puyo Tetris\" Switch",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price",
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No direct active exact-product listing retained."
+    },
+    {
+      "queryId": "q052",
+      "queryType": "general",
+      "query": "\"2 Hits Pack: Sonic Forces / Puyo Puyo Tetris\" PEGI 7",
+      "provider": "web",
+      "targetFields": [
+        "age_rating"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "leclerc_fr",
+        "nintendo_fandom_europe"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q053",
+      "queryType": "exact_identifier",
+      "query": "\"4020628772376\" PEGI 7",
+      "provider": "web",
+      "targetFields": [
+        "age_rating",
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "leclerc_fr"
+      ],
+      "discoveredIdentifiers": [
+        "4020628772376"
+      ],
+      "notes": null
+    },
+    {
+      "queryId": "q054",
+      "queryType": "general",
+      "query": "\"2 Hits Pack: Sonic Forces / Puyo Puyo Tetris - Sega Collection\" \"PEGI\" \"Koch Media\"",
+      "provider": "web",
+      "targetFields": [
+        "age_rating",
+        "credits_distribution",
+        "release_date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "nintendo_fandom_europe",
+        "leclerc_fr"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": null
+    },
+    {
+      "queryId": "q055",
+      "queryType": "marketplace",
+      "query": "\"2 Hits Pack Sonic Forces Puyo Puyo Tetris\" PAL Nintendo Switch PriceCharting",
+      "provider": "web",
+      "targetFields": [
+        "active_market_price",
+        "age_rating",
+        "release_date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "pricecharting_search"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Price-guide context only; no qualifying active direct listing."
+    }
+  ],
+  "sourceAttempts": [
+    {
+      "attemptId": "a001",
+      "sourceName": "eBay recommended exact-product route",
+      "domain": "ebay.com",
+      "sourceType": "marketplace",
+      "platform": "switch",
+      "targetFields": [
+        "active_market_price",
+        "identifiers",
+        "regional_release_identity"
+      ],
+      "queryRefs": [
+        "q006",
+        "q051"
+      ],
+      "url": null,
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "No direct active exact-product listing was retained from the recommended eBay route."
+    },
+    {
+      "attemptId": "a002",
+      "sourceName": "GameFAQs exact compilation",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "technical_database",
+      "platform": "switch",
+      "targetFields": [
+        "game_metadata",
+        "identifiers",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q002",
+        "q047"
+      ],
+      "url": "https://gamefaqs.gamespot.com/switch/227900-2-hits-pack-sonic-forces-puyo-puyo-tetris-sega-collection",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a003",
+      "sourceName": "Nintendo exact-product route",
+      "domain": "nintendo.com",
+      "sourceType": "official",
+      "platform": "switch",
+      "targetFields": [
+        "game_metadata",
+        "languages",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q003",
+        "q048"
+      ],
+      "url": null,
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Recommended Nintendo route did not surface an exact 2 Hits Pack page; standalone products were not substituted."
+    },
+    {
+      "attemptId": "a004",
+      "sourceName": "Proshop exact-product route",
+      "domain": "proshop.dk",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "front_back_images",
+        "identifiers",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q004",
+        "q049"
+      ],
+      "url": null,
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Recommended route did not surface an exact product page."
+    },
+    {
+      "attemptId": "a005",
+      "sourceName": "VideoGamesPlus exact-product route",
+      "domain": "videogamesplus.ca",
+      "sourceType": "retailer",
+      "platform": "switch",
+      "targetFields": [
+        "age_rating",
+        "front_back_images",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q005",
+        "q050"
+      ],
+      "url": null,
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Recommended route did not surface an exact product page."
+    },
+    {
+      "attemptId": "a006",
+      "sourceName": "GameFAQs Koch Media company listing",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "technical_database",
+      "platform": "switch",
+      "targetFields": [
+        "regional_release_identity",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q002",
+        "q011"
+      ],
+      "url": "https://gamefaqs.gamespot.com/games/company/4582-koch-media",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a007",
+      "sourceName": "E.Leclerc exact product",
+      "domain": "e.leclerc",
+      "sourceType": "retailer_metadata",
+      "platform": "switch",
+      "targetFields": [
+        "identifiers",
+        "age_rating",
+        "release_date",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q009",
+        "q016",
+        "q052",
+        "q053"
+      ],
+      "url": "https://www.e.leclerc/fp/bipack-sonic-forces-puyo-puyo-tetris-switch-4020628772376",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a008",
+      "sourceName": "Retroplace exact UK country version",
+      "domain": "retroplace.com",
+      "sourceType": "collector_database",
+      "platform": "switch",
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q008",
+        "q014",
+        "q016",
+        "q026"
+      ],
+      "url": "https://www.retroplace.com/es/juegos/153644--2-hits-pack-sonic-forces-puyo-puyo-tetris-sega-collection",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": null
+    },
+    {
+      "attemptId": "a009",
+      "sourceName": "SEGAbits contemporary announcement",
+      "domain": "segabits.com",
+      "sourceType": "news",
+      "platform": "switch",
+      "targetFields": [
+        "regional_release_identity",
+        "credits_distribution",
+        "release_date",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q001",
+        "q011"
+      ],
+      "url": "https://segabits.com/blog/2017/11/19/sonic-forces-and-puyo-puyo-tetris-gets-2-hits-pack-on-nintendo-switch/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Contemporaneous report explicitly leaves one-vs-two cartridge count unresolved."
+    },
+    {
+      "attemptId": "a010",
+      "sourceName": "Grouvee / IGDB metadata",
+      "domain": "grouvee.com",
+      "sourceType": "secondary_database",
+      "platform": "switch",
+      "targetFields": [
+        "game_metadata",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q001",
+        "q027"
+      ],
+      "url": "https://www.grouvee.com/games/110248-2-hits-pack-sonic-forcespuyo-puyo-tetris/",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Publisher metadata conflicts with stronger product-level Koch Media evidence."
+    },
+    {
+      "attemptId": "a011",
+      "sourceName": "Sonic City rerelease section",
+      "domain": "sonic-city.net",
+      "sourceType": "specialist_wiki",
+      "platform": "switch",
+      "targetFields": [
+        "game_metadata",
+        "front_back_images",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q007",
+        "q028",
+        "q029",
+        "q030"
+      ],
+      "url": "https://sonic-city.net/wiki/index.php/Sonic_Forces",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Exact compilation/date supported; direct canonical box-art image URL was not retained."
+    },
+    {
+      "attemptId": "a012",
+      "sourceName": "VGDB Puyo constituent",
+      "domain": "vgdb.com.br",
+      "sourceType": "technical_database",
+      "platform": "switch",
+      "targetFields": [
+        "physical_contents",
+        "game_metadata"
+      ],
+      "queryRefs": [
+        "q001"
+      ],
+      "url": "https://www.vgdb.com.br/switch/jogos/puyo-puyo-tetris/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Standalone identifiers were not transferred to the compilation."
+    },
+    {
+      "attemptId": "a013",
+      "sourceName": "GameFAQs Sonic Forces constituent",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "technical_database",
+      "platform": "switch",
+      "targetFields": [
+        "game_metadata",
+        "players"
+      ],
+      "queryRefs": [
+        "q047"
+      ],
+      "url": "https://gamefaqs.gamespot.com/switch/193374-sonic-forces/data",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Standalone identifiers were not transferred to the compilation."
+    },
+    {
+      "attemptId": "a014",
+      "sourceName": "VoxGaming exact title",
+      "domain": "voxgaming.fr",
+      "sourceType": "price_guide",
+      "platform": "switch",
+      "targetFields": [
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "queryRefs": [
+        "q024",
+        "q027",
+        "q045"
+      ],
+      "url": "https://www.voxgaming.fr/catalog/switch/2-hits-pack-sonic-forces-puyo-puyo-tetris-10609.php",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "PAL/EUR and algorithmic price context only; not a qualifying active direct price observation."
+    },
+    {
+      "attemptId": "a015",
+      "sourceName": "Amazingtoys exact used product",
+      "domain": "amazingtoys.ch",
+      "sourceType": "retailer_inventory",
+      "platform": "switch",
+      "targetFields": [
+        "physical_contents",
+        "active_market_price"
+      ],
+      "queryRefs": [
+        "q045"
+      ],
+      "url": "https://amazingtoys.ch/2-Hits-Pack-Sonic-Forces-Puyo-Puyo-Tetris-Nintendo-Switch-DE",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Currently unavailable; retailer SKU is not a manufacturer code and generic singular-module wording cannot resolve media count."
+    },
+    {
+      "attemptId": "a016",
+      "sourceName": "PriceCharting exact PAL page",
+      "domain": "pricecharting.com",
+      "sourceType": "price_guide",
+      "platform": "switch",
+      "targetFields": [
+        "active_market_price",
+        "age_rating",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q046",
+        "q055"
+      ],
+      "url": "https://www.pricecharting.com/game/pal-nintendo-switch/2-hits-pack-sonic-forces-%26-puyo-puyo-tetris",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "No sales data/current values; aggregate guide is not a qualifying direct active listing."
+    },
+    {
+      "attemptId": "a017",
+      "sourceName": "VGPreise Switch list",
+      "domain": "vgpreise.de",
+      "sourceType": "price_guide",
+      "platform": "switch",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "queryRefs": [
+        "q046"
+      ],
+      "url": "https://www.vgpreise.de/gameslist/SWI",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Exact title listed with no values; aggregate context only."
+    },
+    {
+      "attemptId": "a018",
+      "sourceName": "Kotaku / IGDB metadata",
+      "domain": "kotaku.com",
+      "sourceType": "secondary_database",
+      "platform": "switch",
+      "targetFields": [
+        "game_metadata",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q001"
+      ],
+      "url": "https://kotaku.com/games/2-hits-pack-sonic-forces-slash-puyo-puyo-tetris",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Conflicting 2018-01-04 date and Sega Games publisher retained as conflict/context."
+    },
+    {
+      "attemptId": "a019",
+      "sourceName": "Nintendo Fandom Europe release list",
+      "domain": "nintendo.fandom.com",
+      "sourceType": "secondary_release_list",
+      "platform": "switch",
+      "targetFields": [
+        "age_rating",
+        "credits_distribution",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q054"
+      ],
+      "url": "https://nintendo.fandom.com/wiki/List_of_Nintendo_Switch_games_%28Europe%29",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [],
+      "limitation": "Secondary list used with independent exact-product retailer metadata."
+    }
+  ]
+}
