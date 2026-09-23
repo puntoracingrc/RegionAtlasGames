@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "source": "origin/main static catalog",
+  "sourceCommit": "9864731a",
+  "generatedAt": "2026-09-23T05:58:44.176Z",
+  "auditStatus": "STATIC_AND_PUBLIC_SNAPSHOT_CAPTURED_RAW_ADMIN_OVERLAY_NOT_EXPORTED",
+  "scope": "PS2 title starts with .hack, Hack, Dot Hack or _summer",
+  "count": 45,
+  "rows": [
+    {
+      "catalogId": "ps2-hack-infection",
+      "slug": "hack-infection",
+      "title": ".hack Infection",
+      "platform": "ps2",
+      "region": "PAL Europa",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLES-52237"
+      ],
+      "sourceSerials": [
+        "SLES-52237",
+        "SLES-52237-GER"
+      ],
+      "resolutionSerials": [
+        "SLES-52237",
+        "SLES-52237-GER"
+      ],
+      "barcode": null,
+      "cover": "/catalog-covers/ps2/galeria/pal/hack-part-1-infection-sles-52237-portada-364480e8cb.jpg",
+      "workId": "ps2-work-f430ca024b66f608",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-infection-ps2-pal-es",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-hack-mutation",
+      "slug": "hack-mutation",
+      "title": ".hack Mutation",
+      "platform": "ps2",
+      "region": "PAL · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-mutation-ps2-pal-es",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-hack-outbreak",
+      "slug": "hack-outbreak",
+      "title": ".hack Outbreak",
+      "platform": "ps2",
+      "region": "PAL · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-outbreak-ps2-pal-es",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-hack-quarantine",
+      "slug": "hack-quarantine",
+      "title": ".hack Quarantine",
+      "platform": "ps2",
+      "region": "PAL · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-quarantine-ps2-pal-es",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-dot-hack-wwwdothackcom-limited-sleeve",
+      "slug": "dot-hack-wwwdothackcom-limited-sleeve",
+      "title": "Dot Hack: [www.dothack.com Limited Sleeve]",
+      "platform": "ps2",
+      "region": "PAL · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/dot-hack-wwwdothackcom-limited-sleeve-ps2-pal-es",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-usa-hack-gu-rebirth",
+      "slug": "hack-gu-rebirth",
+      "title": ".hack GU Rebirth",
+      "platform": "ps2",
+      "region": "NTSC-U/C · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-gu-rebirth-ps2-pal-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-usa-hack-gu-rebirth-special-edition",
+      "slug": "hack-gu-rebirth-special-edition",
+      "title": ".hack GU Rebirth [Special Edition]",
+      "platform": "ps2",
+      "region": "NTSC-U/C · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-gu-rebirth-special-edition-ps2-pal-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-usa-hack-gu-redemption",
+      "slug": "hack-gu-redemption",
+      "title": ".hack GU Redemption",
+      "platform": "ps2",
+      "region": "NTSC-U/C · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-gu-redemption-ps2-pal-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-usa-hack-gu-reminisce",
+      "slug": "hack-gu-reminisce",
+      "title": ".hack GU Reminisce",
+      "platform": "ps2",
+      "region": "NTSC-U/C · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-gu-reminisce-ps2-pal-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-usa-hack-infection",
+      "slug": "hack-infection",
+      "title": ".hack Infection",
+      "platform": "ps2",
+      "region": "NTSC USA",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLUS-20267"
+      ],
+      "sourceSerials": [
+        "SLUS-20267"
+      ],
+      "resolutionSerials": [
+        "SLUS-20267"
+      ],
+      "barcode": null,
+      "cover": "/catalog-covers/ps2/galeria/ntsc-u/hack-part-1-infection-slus-20267-portada-b0cbe7a758.jpg",
+      "workId": "ps2-work-f430ca024b66f608",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-infection-ps2-pal-us",
+      "prices": {
+        "recommendedPrice": 25.42,
+        "pcRefPrice": 25.42,
+        "priceSource": "PriceCharting USA, convertido a EUR con referencia BCE",
+        "hasEsPrice": false,
+        "priceRegionVerified": false,
+        "priceChartingLooseUsd": 14.98,
+        "priceChartingCompleteUsd": 29.46,
+        "priceChartingSealedUsd": 120,
+        "priceChartingCurrency": "USD",
+        "priceChartingUsdPerEur": 1.159,
+        "priceChartingExchangeRateDate": "2026-09-01",
+        "priceChartingCollectedAt": "2026-09-01T20:50:00+02:00",
+        "estimatedPriceLoose": 12.92,
+        "estimatedPriceComplete": 25.42,
+        "estimatedPriceSealed": 103.54,
+        "priceDataSources": "PriceCharting USA"
+      }
+    },
+    {
+      "catalogId": "ps2-usa-hack-mutation",
+      "slug": "hack-mutation",
+      "title": ".hack Mutation",
+      "platform": "ps2",
+      "region": "NTSC-U/C · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-mutation-ps2-pal-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-usa-hack-mutation-demo-disc",
+      "slug": "hack-mutation-demo-disc",
+      "title": ".hack Mutation [Demo Disc]",
+      "platform": "ps2",
+      "region": "NTSC-U/C · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-mutation-demo-disc-ps2-pal-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-usa-hack-outbreak",
+      "slug": "hack-outbreak",
+      "title": ".hack Outbreak",
+      "platform": "ps2",
+      "region": "NTSC-U/C · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-outbreak-ps2-pal-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-usa-hack-quarantine",
+      "slug": "hack-quarantine",
+      "title": ".hack Quarantine",
+      "platform": "ps2",
+      "region": "NTSC-U/C · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-quarantine-ps2-pal-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hack-fragment",
+      "slug": "hack-fragment",
+      "title": ".hack Fragment",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-37dbee9113728abe",
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-fragment-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hack-fragment-early-release-version",
+      "slug": "hack-fragment-early-release-version",
+      "title": ".hack Fragment [Early Release Version]",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-37dbee9113728abe",
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-fragment-early-release-version-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hack-infection",
+      "slug": "hack-infection",
+      "title": ".hack Infection",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-infection-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hack-mutation",
+      "slug": "hack-mutation",
+      "title": ".hack Mutation",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-mutation-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hack-outbreak-vol-3",
+      "slug": "hack-outbreak-vol-3",
+      "title": ".hack Outbreak Vol. 3",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-outbreak-vol-3-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hack-quarantine",
+      "slug": "hack-quarantine",
+      "title": ".hack Quarantine",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-quarantine-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-_summer-first-print-limited-edition",
+      "slug": "_summer-first-print-limited-edition",
+      "title": "_Summer ## [First Print Limited Edition]",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-3fbce7710a37edb7",
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/summer-first-print-limited-edition-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-_summer",
+      "slug": "_summer",
+      "title": "_Summer##",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-3fbce7710a37edb7",
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/summer-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hack-gu-rebirth",
+      "slug": "hack-gu-rebirth",
+      "title": "Hack GU Rebirth",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-gu-rebirth-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hack-gu-redemption",
+      "slug": "hack-gu-redemption",
+      "title": "Hack GU Redemption",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-gu-redemption-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hack-gu-reminisce",
+      "slug": "hack-gu-reminisce",
+      "title": "Hack GU Reminisce",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hack-gu-reminisce-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hackvol-1-x-vol-2",
+      "slug": "hackvol-1-x-vol-2",
+      "title": "hack//Vol. 1 x Vol. 2",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hackvol-1-x-vol-2-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-japon-hackvol-3-x-vol-4",
+      "slug": "hackvol-3-x-vol-4",
+      "title": "hack//Vol. 3 x Vol. 4",
+      "platform": "ps2",
+      "region": "NTSC-J · Mercado por determinar",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [],
+      "sourceSerials": [],
+      "resolutionSerials": [],
+      "barcode": null,
+      "cover": null,
+      "workId": null,
+      "workKey": null,
+      "regionalStatus": "review",
+      "route": "/catalogo/hackvol-3-x-vol-4-ps2-pal-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-eu-sles-52467",
+      "slug": "hack-part-2-mutation-sles-52467",
+      "title": ".Hack Part 2 - Mutation",
+      "platform": "ps2",
+      "region": "PAL Europa",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLES-52467"
+      ],
+      "sourceSerials": [
+        "SLES-52467"
+      ],
+      "resolutionSerials": [
+        "SLES-52467"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-0066facfed0e2270",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-part-2-mutation-sles-52467-ps2-pal-eu",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-eu-sles-52468",
+      "slug": "hack-part-4-quarantine-sles-52468",
+      "title": ".Hack Part 4 - Quarantine",
+      "platform": "ps2",
+      "region": "PAL Europa",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLES-52468"
+      ],
+      "sourceSerials": [
+        "SLES-52468"
+      ],
+      "resolutionSerials": [
+        "SLES-52468"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-98dd8fb3c479b89d",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-part-4-quarantine-sles-52468-ps2-pal-eu",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-eu-sles-52469",
+      "slug": "hack-part-3-outbreak-sles-52469",
+      "title": ".Hack Part 3 - Outbreak",
+      "platform": "ps2",
+      "region": "PAL Europa",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLES-52469"
+      ],
+      "sourceSerials": [
+        "SLES-52469"
+      ],
+      "resolutionSerials": [
+        "SLES-52469"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-73b84a17fb9ed5d7",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-part-3-outbreak-sles-52469-ps2-pal-eu",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-jp-slps-25121",
+      "slug": "hack-kansen-kakudai-vol-1-slps-25121",
+      "title": ".Hack - Kansen Kakudai Vol.1",
+      "platform": "ps2",
+      "region": "NTSC-J Japón",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLPS-25121"
+      ],
+      "sourceSerials": [
+        "SLPS-25121",
+        "SLPS-73230"
+      ],
+      "resolutionSerials": [
+        "SLPS-25121",
+        "SLPS-73230"
+      ],
+      "barcode": null,
+      "cover": "/catalog-covers/ps2/galeria/ntsc-j/hack-kanshei-kakudai-vol-1-slps-25121-portada-647516abda.jpg",
+      "workId": "ps2-work-f430ca024b66f608",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-kansen-kakudai-vol-1-slps-25121-ps2-ntsc-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-jp-slps-25202",
+      "slug": "hack-zettai-houi-vol-4-slps-25202",
+      "title": ".Hack Zettai Houi Vol.4",
+      "platform": "ps2",
+      "region": "NTSC-J Japón",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLPS-25202"
+      ],
+      "sourceSerials": [
+        "SLPS-25202",
+        "SLPS-73233"
+      ],
+      "resolutionSerials": [
+        "SLPS-25202",
+        "SLPS-73233"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-5a0fa24e98545ba3",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-zettai-houi-vol-4-slps-25202-ps2-ntsc-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-jp-slps-25651",
+      "slug": "hack-g-u-vol-1-saitan-slps-25651",
+      "title": ".Hack G.U. Vol.1 - Saitan",
+      "platform": "ps2",
+      "region": "NTSC-J Japón",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLPS-25651"
+      ],
+      "sourceSerials": [
+        "SLPS-25651",
+        "SLPS-25755",
+        "SLPS-73259"
+      ],
+      "resolutionSerials": [
+        "SLPS-25651",
+        "SLPS-25755",
+        "SLPS-73259"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-ec6767feb28f30ab",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-g-u-vol-1-saitan-slps-25651-ps2-ntsc-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-jp-slps-25655",
+      "slug": "hack-g-u-vol-2-kimi-omou-koe-slps-25655",
+      "title": ".Hack G.U. Vol.2 - Kimi Omou Koe",
+      "platform": "ps2",
+      "region": "NTSC-J Japón",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLPS-25655"
+      ],
+      "sourceSerials": [
+        "SLPS-25655",
+        "SLPS-73266"
+      ],
+      "resolutionSerials": [
+        "SLPS-25655",
+        "SLPS-73266"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-af933e710b775080",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-g-u-vol-2-kimi-omou-koe-slps-25655-ps2-ntsc-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-jp-slps-73233-playstation-2-the-best",
+      "slug": "hack-zettai-houi-vol-4-playstation-2-the-best-slps-73233-playstation-2-the-best",
+      "title": ".Hack Zettai Houi Vol.4 (Playstation 2 The Best)",
+      "platform": "ps2",
+      "region": "NTSC-J Japón",
+      "edition": "playstation 2 the best",
+      "physicalVariant": null,
+      "serials": [
+        "SLPS-73233"
+      ],
+      "sourceSerials": [
+        "SLPS-25202",
+        "SLPS-73233"
+      ],
+      "resolutionSerials": [
+        "SLPS-25202",
+        "SLPS-73233"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-5a0fa24e98545ba3",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-zettai-houi-vol-4-playstation-2-the-best-slps-73233-playstation-2-the-best-ps2-ntsc-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-jp-slps-73259-playstatiion-2-the-best",
+      "slug": "hack-g-u-vol-1-saitan-playstatiion-2-the-best-slps-73259-playstatiion-2-the-best",
+      "title": ".Hack G.U. Vol.1 - Saitan (Playstatiion 2 The Best)",
+      "platform": "ps2",
+      "region": "NTSC-J Japón",
+      "edition": "playstatiion 2 the best",
+      "physicalVariant": null,
+      "serials": [
+        "SLPS-73259"
+      ],
+      "sourceSerials": [
+        "SLPS-25651",
+        "SLPS-25755",
+        "SLPS-73259"
+      ],
+      "resolutionSerials": [
+        "SLPS-25651",
+        "SLPS-25755",
+        "SLPS-73259"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-ec6767feb28f30ab",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-g-u-vol-1-saitan-playstatiion-2-the-best-slps-73259-playstatiion-2-the-best-ps2-ntsc-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-jp-slps-73266-playstatiion-2-the-best",
+      "slug": "hack-g-u-vol-2-kimi-omou-koe-playstatiion-2-the-best-slps-73266-playstatiion-2-the-best",
+      "title": ".Hack G.U. Vol.2 - Kimi Omou Koe (Playstatiion 2 The Best)",
+      "platform": "ps2",
+      "region": "NTSC-J Japón",
+      "edition": "playstatiion 2 the best",
+      "physicalVariant": null,
+      "serials": [
+        "SLPS-73266"
+      ],
+      "sourceSerials": [
+        "SLPS-25655",
+        "SLPS-73266"
+      ],
+      "resolutionSerials": [
+        "SLPS-25655",
+        "SLPS-73266"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-af933e710b775080",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-g-u-vol-2-kimi-omou-koe-playstatiion-2-the-best-slps-73266-playstatiion-2-the-best-ps2-ntsc-jp",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-kr-slka-25080",
+      "slug": "hack-vol-1-infection-slka-25080",
+      "title": ".Hack Vol.1 - Infection",
+      "platform": "ps2",
+      "region": "NTSC-J Corea",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLKA-25080"
+      ],
+      "sourceSerials": [
+        "SLKA-25080"
+      ],
+      "resolutionSerials": [
+        "SLKA-25080"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-55ed554d43798743",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-vol-1-infection-slka-25080-ps2-ntsc-kr",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-kr-slka-25138",
+      "slug": "hack-vol-2-mutation-slka-25138",
+      "title": ".Hack Vol.2 - Mutation",
+      "platform": "ps2",
+      "region": "NTSC-J Corea",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLKA-25138"
+      ],
+      "sourceSerials": [
+        "SLKA-25138"
+      ],
+      "resolutionSerials": [
+        "SLKA-25138"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-195b8156875e134c",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-vol-2-mutation-slka-25138-ps2-ntsc-kr",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-kr-slka-25145",
+      "slug": "hack-vol-3-outbreak-slka-25145",
+      "title": ".Hack Vol.3 - Outbreak",
+      "platform": "ps2",
+      "region": "NTSC-J Corea",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLKA-25145"
+      ],
+      "sourceSerials": [
+        "SLKA-25145"
+      ],
+      "resolutionSerials": [
+        "SLKA-25145"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-72b534ea9bee1730",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-vol-3-outbreak-slka-25145-ps2-ntsc-kr",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-us-slus-20562",
+      "slug": "hack-part-2-mutation-slus-20562",
+      "title": ".Hack - Part 2 – Mutation",
+      "platform": "ps2",
+      "region": "NTSC USA",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLUS-20562"
+      ],
+      "sourceSerials": [
+        "SLUS-20562"
+      ],
+      "resolutionSerials": [
+        "SLUS-20562"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-9a9581452239ca84",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-part-2-mutation-slus-20562-ps2-ntsc-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-us-slus-20563",
+      "slug": "hack-part-3-outbreak-slus-20563",
+      "title": ".Hack - Part 3 – Outbreak",
+      "platform": "ps2",
+      "region": "NTSC USA",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLUS-20563"
+      ],
+      "sourceSerials": [
+        "SLUS-20563"
+      ],
+      "resolutionSerials": [
+        "SLUS-20563"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-ac9f911adc3dc4db",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-part-3-outbreak-slus-20563-ps2-ntsc-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-us-slus-20564",
+      "slug": "hack-part-4-quarantine-slus-20564",
+      "title": ".Hack - Part 4 – Quarantine",
+      "platform": "ps2",
+      "region": "NTSC USA",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLUS-20564"
+      ],
+      "sourceSerials": [
+        "SLUS-20564"
+      ],
+      "resolutionSerials": [
+        "SLUS-20564"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-fe7f280a7eefa694",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-part-4-quarantine-slus-20564-ps2-ntsc-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-us-slus-21488",
+      "slug": "hack-g-u-vol-2-reminisce-slus-21488",
+      "title": ".Hack - G.U. Vol.2 - Reminisce",
+      "platform": "ps2",
+      "region": "NTSC USA",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLUS-21488"
+      ],
+      "sourceSerials": [
+        "SLUS-21488"
+      ],
+      "resolutionSerials": [
+        "SLUS-21488"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-07d80321bb4e5575",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-g-u-vol-2-reminisce-slus-21488-ps2-ntsc-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    },
+    {
+      "catalogId": "ps2-us-slus-21489",
+      "slug": "hack-g-u-vol-3-redemption-slus-21489",
+      "title": ".Hack - G.U. Vol.3 - Redemption",
+      "platform": "ps2",
+      "region": "NTSC USA",
+      "edition": "standard",
+      "physicalVariant": null,
+      "serials": [
+        "SLUS-21489"
+      ],
+      "sourceSerials": [
+        "SLUS-21489"
+      ],
+      "resolutionSerials": [
+        "SLUS-21489"
+      ],
+      "barcode": null,
+      "cover": null,
+      "workId": "ps2-work-9433e7c2b4166344",
+      "workKey": null,
+      "regionalStatus": "resolved",
+      "route": "/catalogo/hack-g-u-vol-3-redemption-slus-21489-ps2-ntsc-us",
+      "prices": {
+        "hasEsPrice": false,
+        "priceRegionVerified": false
+      }
+    }
+  ],
+  "notes": [
+    "Runtime Admin/Blob overlay not yet included; Admin search did not complete during this audit.",
+    "Do not mutate catalog or aliases until the live overlay and identity collisions are checked."
+  ],
+  "publicSnapshots": {
+    "hack": {
+      "url": "https://www.regionatlas.games/api/catalog/platform/ps2?q=hack&includePending=1&page=1",
+      "capturedAt": "2026-09-23T06:13:30.519Z",
+      "returnedTotal": 32,
+      "scopedCount": 32,
+      "cards": [
+        {
+          "catalogId": "ps2-us-slus-21489",
+          "title": ".Hack - G.U. Vol.3 - Redemption",
+          "region": "NTSC USA",
+          "slug": "hack-g-u-vol-3-redemption-slus-21489",
+          "canonicalSeoSlug": "hack-g-u-vol-3-redemption-slus-21489-ps2-ntsc-us",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-us-slus-21489",
+            "canonicalCatalogId": "ps2-us-slus-21489",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-us-slus-21489"
+            ],
+            "legacyRegions": [
+              "NTSC USA"
+            ],
+            "marketRegions": [
+              "US"
+            ],
+            "overviewRegions": [
+              "NTSC USA"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "NORTH_AMERICA",
+                "label": "Norteamérica",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-us-slus-20562",
+          "title": ".Hack - Part 2 – Mutation",
+          "region": "NTSC USA",
+          "slug": "hack-part-2-mutation-slus-20562",
+          "canonicalSeoSlug": "hack-part-2-mutation-slus-20562-ps2-ntsc-us",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-us-slus-20562",
+            "canonicalCatalogId": "ps2-us-slus-20562",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-us-slus-20562"
+            ],
+            "legacyRegions": [
+              "NTSC USA"
+            ],
+            "marketRegions": [
+              "US"
+            ],
+            "overviewRegions": [
+              "NTSC USA"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "NORTH_AMERICA",
+                "label": "Norteamérica",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-us-slus-20563",
+          "title": ".Hack - Part 3 – Outbreak",
+          "region": "NTSC USA",
+          "slug": "hack-part-3-outbreak-slus-20563",
+          "canonicalSeoSlug": "hack-part-3-outbreak-slus-20563-ps2-ntsc-us",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-us-slus-20563",
+            "canonicalCatalogId": "ps2-us-slus-20563",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-us-slus-20563"
+            ],
+            "legacyRegions": [
+              "NTSC USA"
+            ],
+            "marketRegions": [
+              "US"
+            ],
+            "overviewRegions": [
+              "NTSC USA"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "NORTH_AMERICA",
+                "label": "Norteamérica",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-us-slus-20564",
+          "title": ".Hack - Part 4 – Quarantine",
+          "region": "NTSC USA",
+          "slug": "hack-part-4-quarantine-slus-20564",
+          "canonicalSeoSlug": "hack-part-4-quarantine-slus-20564-ps2-ntsc-us",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-us-slus-20564",
+            "canonicalCatalogId": "ps2-us-slus-20564",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-us-slus-20564"
+            ],
+            "legacyRegions": [
+              "NTSC USA"
+            ],
+            "marketRegions": [
+              "US"
+            ],
+            "overviewRegions": [
+              "NTSC USA"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "NORTH_AMERICA",
+                "label": "Norteamérica",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-japon-hack-fragment",
+          "title": ".hack Fragment",
+          "region": "NTSC-J · Mercado por determinar",
+          "slug": "hack-fragment",
+          "canonicalSeoSlug": "hack-fragment-ps2-pal-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-hack-fragment",
+            "canonicalCatalogId": "ps2-japon-hack-fragment",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-japon-hack-fragment"
+            ],
+            "legacyRegions": [
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "Internacional"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-japon-hack-fragment-early-release-version",
+          "title": ".hack Fragment [Early Release Version]",
+          "region": "NTSC-J · Mercado por determinar",
+          "slug": "hack-fragment-early-release-version",
+          "canonicalSeoSlug": "hack-fragment-early-release-version-ps2-pal-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-hack-fragment-early-release-version",
+            "canonicalCatalogId": "ps2-japon-hack-fragment-early-release-version",
+            "editionFamilyId": "catalog-family-other-early-release-version",
+            "editionFamilyLabel": "Early Release Version",
+            "catalogIds": [
+              "ps2-japon-hack-fragment-early-release-version"
+            ],
+            "legacyRegions": [
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "Internacional"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "OTHER"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-jp-slps-25651",
+          "title": ".Hack G.U. Vol.1 - Saitan",
+          "region": "NTSC-J Japón",
+          "slug": "hack-g-u-vol-1-saitan-slps-25651",
+          "canonicalSeoSlug": "hack-g-u-vol-1-saitan-slps-25651-ps2-ntsc-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-jp-slps-25651",
+            "canonicalCatalogId": "ps2-jp-slps-25651",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-jp-slps-25651"
+            ],
+            "legacyRegions": [
+              "NTSC-J Japón"
+            ],
+            "marketRegions": [
+              "JP"
+            ],
+            "overviewRegions": [
+              "NTSC-J Japón"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-jp-slps-73259-playstatiion-2-the-best",
+          "title": ".Hack G.U. Vol.1 - Saitan (Playstatiion 2 The Best)",
+          "region": "NTSC-J Japón",
+          "slug": "hack-g-u-vol-1-saitan-playstatiion-2-the-best-slps-73259-playstatiion-2-the-best",
+          "canonicalSeoSlug": "hack-g-u-vol-1-saitan-playstatiion-2-the-best-slps-73259-playstatiion-2-the-best-ps2-ntsc-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-jp-slps-25651",
+            "canonicalCatalogId": "ps2-jp-slps-73259-playstatiion-2-the-best",
+            "editionFamilyId": "catalog-family-budget-reissue-playstatiion-2-the-best",
+            "editionFamilyLabel": "Playstatiion 2 The Best",
+            "catalogIds": [
+              "ps2-jp-slps-73259-playstatiion-2-the-best"
+            ],
+            "legacyRegions": [
+              "NTSC-J Japón"
+            ],
+            "marketRegions": [
+              "JP"
+            ],
+            "overviewRegions": [
+              "NTSC-J Japón"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "BUDGET_REISSUE"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-jp-slps-25655",
+          "title": ".Hack G.U. Vol.2 - Kimi Omou Koe",
+          "region": "NTSC-J Japón",
+          "slug": "hack-g-u-vol-2-kimi-omou-koe-slps-25655",
+          "canonicalSeoSlug": "hack-g-u-vol-2-kimi-omou-koe-slps-25655-ps2-ntsc-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-jp-slps-25655",
+            "canonicalCatalogId": "ps2-jp-slps-25655",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-jp-slps-25655"
+            ],
+            "legacyRegions": [
+              "NTSC-J Japón"
+            ],
+            "marketRegions": [
+              "JP"
+            ],
+            "overviewRegions": [
+              "NTSC-J Japón"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-usa-hack-gu-rebirth-special-edition",
+          "title": ".hack GU Rebirth [Special Edition]",
+          "region": "NTSC-U/C · Mercado por determinar",
+          "slug": "hack-gu-rebirth-special-edition",
+          "canonicalSeoSlug": "hack-gu-rebirth-special-edition-ps2-pal-us",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-usa-hack-gu-rebirth-special-edition",
+            "canonicalCatalogId": "ps2-usa-hack-gu-rebirth-special-edition",
+            "editionFamilyId": "catalog-family-special",
+            "editionFamilyLabel": "Special Edition",
+            "catalogIds": [
+              "ps2-usa-hack-gu-rebirth-special-edition"
+            ],
+            "legacyRegions": [
+              "NTSC-U/C · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "Internacional"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "SPECIAL"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-hack-infection",
+          "title": ".hack Infection",
+          "region": "PAL Europa",
+          "slug": "hack-infection",
+          "canonicalSeoSlug": "hack-infection-ps2-pal-es",
+          "coverUrl": "/catalog-covers/ps2/galeria/pal/hack-part-1-infection-sles-52237-portada-364480e8cb.jpg",
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-hack-infection",
+            "canonicalCatalogId": "ps2-hack-infection",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-hack-infection",
+              "ps2-usa-hack-infection",
+              "ps2-jp-slps-25121",
+              "ps2-japon-hack-infection"
+            ],
+            "legacyRegions": [
+              "PAL Europa",
+              "NTSC USA",
+              "NTSC-J Japón",
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [
+              "US",
+              "JP"
+            ],
+            "overviewRegions": [
+              "PAL Europa",
+              "NTSC USA",
+              "NTSC-J Japón",
+              "Internacional"
+            ],
+            "physicalEditionCount": 4,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "EUROPE",
+                "label": "Europa",
+                "editionCount": 1
+              },
+              {
+                "value": "NORTH_AMERICA",
+                "label": "Norteamérica",
+                "editionCount": 1
+              },
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              },
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {
+              "complete": {
+                "min": 25.42,
+                "max": 25.42
+              },
+              "sealed": {
+                "min": 103.54,
+                "max": 103.54
+              }
+            }
+          }
+        },
+        {
+          "catalogId": "ps2-hack-mutation",
+          "title": ".hack Mutation",
+          "region": "PAL · Mercado por determinar",
+          "slug": "hack-mutation",
+          "canonicalSeoSlug": "hack-mutation-ps2-pal-es",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-hack-mutation",
+            "canonicalCatalogId": "ps2-hack-mutation",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-hack-mutation",
+              "ps2-usa-hack-mutation",
+              "ps2-japon-hack-mutation"
+            ],
+            "legacyRegions": [
+              "PAL · Mercado por determinar",
+              "NTSC-U/C · Mercado por determinar",
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "PAL Europa",
+              "Internacional"
+            ],
+            "physicalEditionCount": 3,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "EUROPE",
+                "label": "Europa",
+                "editionCount": 1
+              },
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 2
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-usa-hack-mutation-demo-disc",
+          "title": ".hack Mutation [Demo Disc]",
+          "region": "NTSC-U/C · Mercado por determinar",
+          "slug": "hack-mutation-demo-disc",
+          "canonicalSeoSlug": "hack-mutation-demo-disc-ps2-pal-us",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-usa-hack-mutation-demo-disc",
+            "canonicalCatalogId": "ps2-usa-hack-mutation-demo-disc",
+            "editionFamilyId": "catalog-family-other-demo-disc",
+            "editionFamilyLabel": "Demo Disc",
+            "catalogIds": [
+              "ps2-usa-hack-mutation-demo-disc"
+            ],
+            "legacyRegions": [
+              "NTSC-U/C · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "Internacional"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "OTHER"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-hack-outbreak",
+          "title": ".hack Outbreak",
+          "region": "PAL · Mercado por determinar",
+          "slug": "hack-outbreak",
+          "canonicalSeoSlug": "hack-outbreak-ps2-pal-es",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-hack-outbreak",
+            "canonicalCatalogId": "ps2-hack-outbreak",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-hack-outbreak",
+              "ps2-usa-hack-outbreak"
+            ],
+            "legacyRegions": [
+              "PAL · Mercado por determinar",
+              "NTSC-U/C · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "PAL Europa",
+              "Internacional"
+            ],
+            "physicalEditionCount": 2,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "EUROPE",
+                "label": "Europa",
+                "editionCount": 1
+              },
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-japon-hack-outbreak-vol-3",
+          "title": ".hack Outbreak Vol. 3",
+          "region": "NTSC-J · Mercado por determinar",
+          "slug": "hack-outbreak-vol-3",
+          "canonicalSeoSlug": "hack-outbreak-vol-3-ps2-pal-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-hack-outbreak-vol-3",
+            "canonicalCatalogId": "ps2-japon-hack-outbreak-vol-3",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-japon-hack-outbreak-vol-3"
+            ],
+            "legacyRegions": [
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "Internacional"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-eu-sles-52467",
+          "title": ".Hack Part 2 - Mutation",
+          "region": "PAL Europa",
+          "slug": "hack-part-2-mutation-sles-52467",
+          "canonicalSeoSlug": "hack-part-2-mutation-sles-52467-ps2-pal-eu",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-eu-sles-52467",
+            "canonicalCatalogId": "ps2-eu-sles-52467",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-eu-sles-52467"
+            ],
+            "legacyRegions": [
+              "PAL Europa"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "PAL Europa"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "EUROPE",
+                "label": "Europa",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-eu-sles-52469",
+          "title": ".Hack Part 3 - Outbreak",
+          "region": "PAL Europa",
+          "slug": "hack-part-3-outbreak-sles-52469",
+          "canonicalSeoSlug": "hack-part-3-outbreak-sles-52469-ps2-pal-eu",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-eu-sles-52469",
+            "canonicalCatalogId": "ps2-eu-sles-52469",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-eu-sles-52469"
+            ],
+            "legacyRegions": [
+              "PAL Europa"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "PAL Europa"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "EUROPE",
+                "label": "Europa",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-eu-sles-52468",
+          "title": ".Hack Part 4 - Quarantine",
+          "region": "PAL Europa",
+          "slug": "hack-part-4-quarantine-sles-52468",
+          "canonicalSeoSlug": "hack-part-4-quarantine-sles-52468-ps2-pal-eu",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-eu-sles-52468",
+            "canonicalCatalogId": "ps2-eu-sles-52468",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-eu-sles-52468"
+            ],
+            "legacyRegions": [
+              "PAL Europa"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "PAL Europa"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "EUROPE",
+                "label": "Europa",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-hack-quarantine",
+          "title": ".hack Quarantine",
+          "region": "PAL · Mercado por determinar",
+          "slug": "hack-quarantine",
+          "canonicalSeoSlug": "hack-quarantine-ps2-pal-es",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-hack-quarantine",
+            "canonicalCatalogId": "ps2-hack-quarantine",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-hack-quarantine",
+              "ps2-usa-hack-quarantine",
+              "ps2-japon-hack-quarantine"
+            ],
+            "legacyRegions": [
+              "PAL · Mercado por determinar",
+              "NTSC-U/C · Mercado por determinar",
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "PAL Europa",
+              "Internacional"
+            ],
+            "physicalEditionCount": 3,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "EUROPE",
+                "label": "Europa",
+                "editionCount": 1
+              },
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 2
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-kr-slka-25080",
+          "title": ".Hack Vol.1 - Infection",
+          "region": "NTSC-J Corea",
+          "slug": "hack-vol-1-infection-slka-25080",
+          "canonicalSeoSlug": "hack-vol-1-infection-slka-25080-ps2-ntsc-kr",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-kr-slka-25080",
+            "canonicalCatalogId": "ps2-kr-slka-25080",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-kr-slka-25080"
+            ],
+            "legacyRegions": [
+              "NTSC-J Corea"
+            ],
+            "marketRegions": [
+              "KR"
+            ],
+            "overviewRegions": [
+              "NTSC-J Corea"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-kr-slka-25138",
+          "title": ".Hack Vol.2 - Mutation",
+          "region": "NTSC-J Corea",
+          "slug": "hack-vol-2-mutation-slka-25138",
+          "canonicalSeoSlug": "hack-vol-2-mutation-slka-25138-ps2-ntsc-kr",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-kr-slka-25138",
+            "canonicalCatalogId": "ps2-kr-slka-25138",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-kr-slka-25138"
+            ],
+            "legacyRegions": [
+              "NTSC-J Corea"
+            ],
+            "marketRegions": [
+              "KR"
+            ],
+            "overviewRegions": [
+              "NTSC-J Corea"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-kr-slka-25145",
+          "title": ".Hack Vol.3 - Outbreak",
+          "region": "NTSC-J Corea",
+          "slug": "hack-vol-3-outbreak-slka-25145",
+          "canonicalSeoSlug": "hack-vol-3-outbreak-slka-25145-ps2-ntsc-kr",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-kr-slka-25145",
+            "canonicalCatalogId": "ps2-kr-slka-25145",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-kr-slka-25145"
+            ],
+            "legacyRegions": [
+              "NTSC-J Corea"
+            ],
+            "marketRegions": [
+              "KR"
+            ],
+            "overviewRegions": [
+              "NTSC-J Corea"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-jp-slps-25202",
+          "title": ".Hack Zettai Houi Vol.4",
+          "region": "NTSC-J Japón",
+          "slug": "hack-zettai-houi-vol-4-slps-25202",
+          "canonicalSeoSlug": "hack-zettai-houi-vol-4-slps-25202-ps2-ntsc-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-jp-slps-25202",
+            "canonicalCatalogId": "ps2-jp-slps-25202",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-jp-slps-25202"
+            ],
+            "legacyRegions": [
+              "NTSC-J Japón"
+            ],
+            "marketRegions": [
+              "JP"
+            ],
+            "overviewRegions": [
+              "NTSC-J Japón"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-jp-slps-73233-playstation-2-the-best",
+          "title": ".Hack Zettai Houi Vol.4 (Playstation 2 The Best)",
+          "region": "NTSC-J Japón",
+          "slug": "hack-zettai-houi-vol-4-playstation-2-the-best-slps-73233-playstation-2-the-best",
+          "canonicalSeoSlug": "hack-zettai-houi-vol-4-playstation-2-the-best-slps-73233-playstation-2-the-best-ps2-ntsc-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-jp-slps-25202",
+            "canonicalCatalogId": "ps2-jp-slps-73233-playstation-2-the-best",
+            "editionFamilyId": "catalog-family-budget-reissue-playstation-2-the-best",
+            "editionFamilyLabel": "Playstation 2 The Best",
+            "catalogIds": [
+              "ps2-jp-slps-73233-playstation-2-the-best"
+            ],
+            "legacyRegions": [
+              "NTSC-J Japón"
+            ],
+            "marketRegions": [
+              "JP"
+            ],
+            "overviewRegions": [
+              "NTSC-J Japón"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "BUDGET_REISSUE"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-jp-slps-73266-playstatiion-2-the-best",
+          "title": ".hack//G.U. vol. 2//Reminisce",
+          "region": "NTSC-J Japón",
+          "slug": "hack-g-u-vol-2-kimi-omou-koe-playstatiion-2-the-best-slps-73266-playstatiion-2-the-best",
+          "canonicalSeoSlug": "hack-g-u-vol-2-kimi-omou-koe-playstatiion-2-the-best-slps-73266-playstatiion-2-the-best-ps2-ntsc-jp",
+          "coverUrl": "/catalog-covers/runtime/ps2/hack-g-u-vol-2-reminisce-ps2-jp-japon-playstation-2-the-best-front.jpg",
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-us-slus-21488",
+            "canonicalCatalogId": "ps2-jp-slps-73266-playstatiion-2-the-best",
+            "editionFamilyId": "catalog-family-budget-reissue-playstation-2-the-best",
+            "editionFamilyLabel": "PlayStation 2 the Best",
+            "catalogIds": [
+              "ps2-jp-slps-73266-playstatiion-2-the-best"
+            ],
+            "legacyRegions": [
+              "NTSC-J Japón"
+            ],
+            "marketRegions": [
+              "JP"
+            ],
+            "overviewRegions": [
+              "NTSC-J Japón"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "BUDGET_REISSUE"
+            ],
+            "ratingSystems": [
+              "CERO A"
+            ],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-us-slus-21488",
+          "title": ".hack//G.U. vol. 2//Reminisce",
+          "region": "NTSC USA",
+          "slug": "hack-g-u-vol-2-reminisce-slus-21488",
+          "canonicalSeoSlug": "hack-g-u-vol-2-reminisce-slus-21488-ps2-ntsc-us",
+          "coverUrl": "/catalog-covers/runtime/ps2/hack-g-u-vol-2-reminisce-ps2-us-usa-standard-front.jpg",
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-us-slus-21488",
+            "canonicalCatalogId": "ps2-us-slus-21488",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-us-slus-21488",
+              "ps2-japon-hack-g-u-vol-2-kimi-omou-koe-slps-25655"
+            ],
+            "legacyRegions": [
+              "NTSC USA",
+              "NTSC-J Japón"
+            ],
+            "marketRegions": [
+              "US",
+              "JP"
+            ],
+            "overviewRegions": [
+              "NTSC USA",
+              "NTSC-J Japón"
+            ],
+            "physicalEditionCount": 2,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "NORTH_AMERICA",
+                "label": "Norteamérica",
+                "editionCount": 1
+              },
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [
+              "ESRB Teen",
+              "CERO A"
+            ],
+            "packagingLanguages": [
+              "EN",
+              "JA"
+            ],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-dot-hack-wwwdothackcom-limited-sleeve",
+          "title": "Dot Hack: [www.dothack.com Limited Sleeve]",
+          "region": "PAL · Mercado por determinar",
+          "slug": "dot-hack-wwwdothackcom-limited-sleeve",
+          "canonicalSeoSlug": "dot-hack-wwwdothackcom-limited-sleeve-ps2-pal-es",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-dot-hack-wwwdothackcom-limited-sleeve",
+            "canonicalCatalogId": "ps2-dot-hack-wwwdothackcom-limited-sleeve",
+            "editionFamilyId": "catalog-family-limited",
+            "editionFamilyLabel": "Limited Edition",
+            "catalogIds": [
+              "ps2-dot-hack-wwwdothackcom-limited-sleeve"
+            ],
+            "legacyRegions": [
+              "PAL · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "PAL Europa"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "EUROPE",
+                "label": "Europa",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "LIMITED"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-japon-hack-gu-rebirth",
+          "title": "Hack GU Rebirth",
+          "region": "NTSC-J · Mercado por determinar",
+          "slug": "hack-gu-rebirth",
+          "canonicalSeoSlug": "hack-gu-rebirth-ps2-pal-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-hack-gu-rebirth",
+            "canonicalCatalogId": "ps2-japon-hack-gu-rebirth",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-usa-hack-gu-rebirth",
+              "ps2-japon-hack-gu-rebirth"
+            ],
+            "legacyRegions": [
+              "NTSC-U/C · Mercado por determinar",
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "Internacional"
+            ],
+            "physicalEditionCount": 2,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 2
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-japon-hack-gu-redemption",
+          "title": "Hack GU Redemption",
+          "region": "NTSC-J · Mercado por determinar",
+          "slug": "hack-gu-redemption",
+          "canonicalSeoSlug": "hack-gu-redemption-ps2-pal-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-hack-gu-redemption",
+            "canonicalCatalogId": "ps2-japon-hack-gu-redemption",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-usa-hack-gu-redemption",
+              "ps2-japon-hack-gu-redemption"
+            ],
+            "legacyRegions": [
+              "NTSC-U/C · Mercado por determinar",
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "Internacional"
+            ],
+            "physicalEditionCount": 2,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 2
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-japon-hack-gu-reminisce",
+          "title": "Hack GU Reminisce",
+          "region": "NTSC-J · Mercado por determinar",
+          "slug": "hack-gu-reminisce",
+          "canonicalSeoSlug": "hack-gu-reminisce-ps2-pal-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-hack-gu-reminisce",
+            "canonicalCatalogId": "ps2-japon-hack-gu-reminisce",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-usa-hack-gu-reminisce",
+              "ps2-japon-hack-gu-reminisce"
+            ],
+            "legacyRegions": [
+              "NTSC-U/C · Mercado por determinar",
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "Internacional"
+            ],
+            "physicalEditionCount": 2,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 2
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-japon-hackvol-1-x-vol-2",
+          "title": "hack//Vol. 1 x Vol. 2",
+          "region": "NTSC-J · Mercado por determinar",
+          "slug": "hackvol-1-x-vol-2",
+          "canonicalSeoSlug": "hackvol-1-x-vol-2-ps2-pal-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-hackvol-1-x-vol-2",
+            "canonicalCatalogId": "ps2-japon-hackvol-1-x-vol-2",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-japon-hackvol-1-x-vol-2"
+            ],
+            "legacyRegions": [
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "Internacional"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-japon-hackvol-3-x-vol-4",
+          "title": "hack//Vol. 3 x Vol. 4",
+          "region": "NTSC-J · Mercado por determinar",
+          "slug": "hackvol-3-x-vol-4",
+          "canonicalSeoSlug": "hackvol-3-x-vol-4-ps2-pal-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-hackvol-3-x-vol-4",
+            "canonicalCatalogId": "ps2-japon-hackvol-3-x-vol-4",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-japon-hackvol-3-x-vol-4"
+            ],
+            "legacyRegions": [
+              "NTSC-J · Mercado por determinar"
+            ],
+            "marketRegions": [],
+            "overviewRegions": [
+              "Internacional"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "OTHER",
+                "label": "Otra región",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        }
+      ]
+    },
+    "summer": {
+      "url": "https://www.regionatlas.games/api/catalog/platform/ps2?q=_summer&includePending=1&page=1",
+      "capturedAt": "2026-09-23T06:13:30.818Z",
+      "returnedTotal": 21,
+      "scopedCount": 3,
+      "cards": [
+        {
+          "catalogId": "ps2-japon-_summer-first-print-limited-edition",
+          "title": "_summer##",
+          "region": "NTSC-J Japón",
+          "slug": "_summer-first-print-limited-edition",
+          "canonicalSeoSlug": "summer-first-print-limited-edition-ps2-pal-jp",
+          "coverUrl": "/catalog-covers/runtime/ps2/summer-ps2-jp-first-print-limited-edition-front.jpg",
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-_summer",
+            "canonicalCatalogId": "ps2-japon-_summer-first-print-limited-edition",
+            "editionFamilyId": "catalog-family-limited",
+            "editionFamilyLabel": "Limited Edition",
+            "catalogIds": [
+              "ps2-japon-_summer-first-print-limited-edition"
+            ],
+            "legacyRegions": [
+              "NTSC-J Japón"
+            ],
+            "marketRegions": [
+              "JP"
+            ],
+            "overviewRegions": [
+              "NTSC-J Japón"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "LIMITED"
+            ],
+            "ratingSystems": [
+              "CERO B"
+            ],
+            "packagingLanguages": [
+              "JA",
+              "EN"
+            ],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-japon-_summer",
+          "title": "_summer##",
+          "region": "NTSC-J Japón",
+          "slug": "_summer",
+          "canonicalSeoSlug": "summer-ps2-pal-jp",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-_summer",
+            "canonicalCatalogId": "ps2-japon-_summer",
+            "editionFamilyId": "catalog-family-standard",
+            "editionFamilyLabel": "Estándar",
+            "catalogIds": [
+              "ps2-japon-_summer"
+            ],
+            "legacyRegions": [
+              "NTSC-J Japón"
+            ],
+            "marketRegions": [
+              "JP"
+            ],
+            "overviewRegions": [
+              "NTSC-J Japón"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "STANDARD"
+            ],
+            "ratingSystems": [
+              "CERO B"
+            ],
+            "packagingLanguages": [
+              "JA",
+              "EN"
+            ],
+            "priceRanges": {}
+          }
+        },
+        {
+          "catalogId": "ps2-japon-summer-jp-best-version",
+          "title": "_summer##",
+          "region": "NTSC-J Japón",
+          "slug": "summer-jp-best-version",
+          "coverUrl": null,
+          "existingPrice": null,
+          "physicalEditionGroup": {
+            "guideId": "catalog-derived-ps2-japon-_summer",
+            "canonicalCatalogId": "ps2-japon-summer-jp-best-version",
+            "editionFamilyId": "catalog-family-other-best-version",
+            "editionFamilyLabel": "Best Version",
+            "catalogIds": [
+              "ps2-japon-summer-jp-best-version"
+            ],
+            "legacyRegions": [
+              "NTSC-J Japón"
+            ],
+            "marketRegions": [
+              "JP"
+            ],
+            "overviewRegions": [
+              "NTSC-J Japón"
+            ],
+            "physicalEditionCount": 1,
+            "collectibleVariantCount": 0,
+            "broadRegions": [
+              {
+                "value": "ASIA",
+                "label": "Asia",
+                "editionCount": 1
+              }
+            ],
+            "editionTypes": [
+              "OTHER"
+            ],
+            "ratingSystems": [
+              "CERO B"
+            ],
+            "packagingLanguages": [],
+            "priceRanges": {}
+          }
+        }
+      ]
+    }
+  },
+  "note": "Incluye todas las filas estáticas del alcance y las tarjetas públicas actuales, incluso pending. No es un export raw de Admin ni autoriza borrar o reemplazar filas."
+}

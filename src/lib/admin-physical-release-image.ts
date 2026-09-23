@@ -15,6 +15,14 @@ export function isPhysicalReleaseImageRole(value: string): value is PhysicalRele
   return PHYSICAL_RELEASE_IMAGE_ROLES.includes(value as PhysicalReleaseImageRole);
 }
 
+export function buildPhysicalReleaseImageUploadSlug(input: {
+  catalogId: string;
+  role: PhysicalReleaseImageRole;
+  version: string;
+}): string {
+  return `${input.catalogId}-${input.role}-${input.version}`;
+}
+
 export function upsertPhysicalReleaseImage(
   group: CatalogPhysicalReleaseGroup,
   input: {
