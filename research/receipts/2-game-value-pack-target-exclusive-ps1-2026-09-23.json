@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "researchId": "2-game-value-pack-target-exclusive-ps1-2026-09-23",
+  "queueId": "catalog:ps1-usa-2-game-value-pack-target-exclusive",
+  "platform": "ps1",
+  "catalogIds": ["ps1-usa-2-game-value-pack-target-exclusive"],
+  "coverage": "partial",
+  "publishedAt": null,
+  "verifiedAt": "2026-09-23T11:24:39Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/2-game-value-pack-target-exclusive-ps1-pal-us",
+  "publishedRegions": [],
+  "publishedEditions": [],
+  "pricesPublished": [],
+  "catalogDecision": "NO_WRITE_NO_CONFIRMED_BUNDLE_OR_REGIONAL_FACTS",
+  "verification": {
+    "existingPublicPage": "PASS_HTTP_200_EXISTING_LEGACY_SEED",
+    "existingMarketLabel": "NTSC-U/C · Mercado por determinar",
+    "adminWrite": "NOT_ATTEMPTED_NO_CONFIRMED_FACTS",
+    "prices": "PASS_NONE_PUBLISHED",
+    "assets": "NOT_PUBLISHED_FRONT_IMAGE_UNRESOLVED_BACK_NOT_LOCATED"
+  },
+  "unresolved": [
+    "Exact physical identity and Target-exclusive composition remain probable, not confirmed by direct package evidence",
+    "United States market remains probable; PriceCharting catalogue placement and retailer name are insufficient",
+    "Outer barcode, product code, serial, release date, languages, back image, and exact inner SKUs remain unresolved",
+    "Disc count and player count conflict across the bundle listing and candidate standalone components",
+    "No eligible sealed or complete regional price samples"
+  ],
+  "resultFile": "research/results/2-game-value-pack-target-exclusive-ps1-2026-09-23.json",
+  "resultSha256": "11888c6bbeb643bb0c98e1f13f83fd58a54dbc1425ffe778b42376b96e7d6045",
+  "workerResultCommit": "e370bd3c"
+}
