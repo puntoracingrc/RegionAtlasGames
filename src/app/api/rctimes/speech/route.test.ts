@@ -43,13 +43,79 @@ test("keeps the OpenAI key server-side and streams the speech response", async (
     return new Response(new Uint8Array([73, 68, 51]), { headers: { "Content-Type": "audio/mpeg" } });
   }) as typeof fetch;
 
-  const response = await POST(speechRequest({ text: "Marc entra en su ventana de repostaje.", voice: "marin", mode: "broadcast" }));
+  const response = await POST(speechRequest({ text: "Marc entra en su ventana de repostaje.", voice: "marin", mode: "broadcast", eventType: "strategy" }));
   assert.equal(response.status, 200);
   assert.equal(response.headers.get("content-type"), "audio/mpeg");
   assert.equal(upstreamAuthorization, "Bearer test-openai-key");
   assert.equal(upstreamBody.model, "gpt-4o-mini-tts");
   assert.equal(upstreamBody.input, "Marc entra en su ventana de repostaje.");
+  assert.match(String(upstreamBody.instructions), /tono analítico y cercano/);
+  assert.match(String(upstreamBody.instructions), /evita la cadencia de locutor publicitario/);
   assert.equal(await response.text(), "ID3");
+});
+
+test("prepares timing notation for natural Spanish speech", async () => {
+  let upstreamBody: Record<string, unknown> = {};
+  global.fetch = (async (_input, init) => {
+    upstreamBody = JSON.parse(String(init?.body));
+    return new Response(new Uint8Array([73, 68, 51]), { headers: { "Content-Type": "audio/mpeg" } });
+  }) as typeof fetch;
+
+  const response = await POST(speechRequest({
+    text: "GT8: vuelta rápida en 17.842, a 43 km/h y con el 75% de combustible.",
+    voice: "marin",
+    mode: "broadcast",
+    eventType: "fastest",
+  }));
+
+  assert.equal(response.status, 200);
+  assert.equal(
+    upstreamBody.input,
+    "GT ocho: vuelta rápida en 17 coma 842, a 43 kilómetros por hora y con el 75 por ciento de combustible.",
+  );
+  assert.match(String(upstreamBody.instructions), /Eleva brevemente la energía/);
+});
+
+test("speaks battle gaps in seconds and tenths", async () => {
+  let upstreamBody: Record<string, unknown> = {};
+  global.fetch = (async (_input, init) => {
+    upstreamBody = JSON.parse(String(init?.body));
+    return new Response(new Uint8Array([73, 68, 51]), { headers: { "Content-Type": "audio/mpeg" } });
+  }) as typeof fetch;
+
+  const response = await POST(speechRequest({
+    text: "Toni Méndez y Sergio Oriola, separados por 1,872 segundos.",
+    eventType: "battle",
+  }));
+
+  assert.equal(response.status, 200);
+  assert.equal(upstreamBody.input, "Toni Méndez y Sergio Oriola, separados por 1 segundo y 8 décimas.");
+});
+
+test("rounds ordinary lap pace to tenths for speech", async () => {
+  let upstreamBody: Record<string, unknown> = {};
+  global.fetch = (async (_input, init) => {
+    upstreamBody = JSON.parse(String(init?.body));
+    return new Response(new Uint8Array([73, 68, 51]), { headers: { "Content-Type": "audio/mpeg" } });
+  }) as typeof fetch;
+
+  const response = await POST(speechRequest({ text: "Marc está rodando en 17.807.", eventType: "pilot" }));
+
+  assert.equal(response.status, 200);
+  assert.equal(upstreamBody.input, "Marc está rodando en 17 coma 8.");
+});
+
+test("expands FCO in driver names for speech", async () => {
+  let upstreamBody: Record<string, unknown> = {};
+  global.fetch = (async (_input, init) => {
+    upstreamBody = JSON.parse(String(init?.body));
+    return new Response(new Uint8Array([73, 68, 51]), { headers: { "Content-Type": "audio/mpeg" } });
+  }) as typeof fetch;
+
+  const response = await POST(speechRequest({ text: "FCO. Javier Ruiz ocupa la cuarta posición.", eventType: "pilot" }));
+
+  assert.equal(response.status, 200);
+  assert.equal(upstreamBody.input, "Francisco Javier Ruiz ocupa la cuarta posición.");
 });
 
 test("rejects cross-origin and oversized narration requests", async () => {

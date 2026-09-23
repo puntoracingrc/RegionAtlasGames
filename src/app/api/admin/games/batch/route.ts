@@ -170,8 +170,8 @@ async function processBatch(request: Request) {
         originalCatalogId: row.existingCatalogId,
         draft: {
           ...applyExpandedRegionalIdentity(current, row),
-          title: body.title.trim(),
-          titlePc: body.title.trim(),
+          title: row.regionalTitle ?? current.title,
+          titlePc: row.regionalTitle ?? current.titlePc,
           workId,
           regionalStatus: "resolved",
           physicalReleaseGroup: row.group,
@@ -201,7 +201,7 @@ async function processBatch(request: Request) {
     // a staging record and a second draft Blob write before that publication.
     const pcId = body.publishNow ? 0 : await nextManualPcId();
     const draft = draftFromManualInput({
-      title: body.title,
+      title: row.regionalTitle ?? body.title,
       platformSlug: body.platformSlug,
       region: row.region,
       workId,

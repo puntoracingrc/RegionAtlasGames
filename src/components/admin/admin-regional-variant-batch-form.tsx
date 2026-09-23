@@ -24,6 +24,7 @@ type ImageEvidenceType = "REAL_SCAN" | "REAL_PHOTO" | "RETAILER_ASSET" | "PUBLIS
 type VariantGroup = {
   id: number;
   label: string;
+  regionalTitle: string;
   physicalVariant: string;
   markets: string[];
   barcode: string;
@@ -65,7 +66,7 @@ const EMPTY_PRICES: PriceFields = {
 
 function emptyGroup(id: number): VariantGroup {
   return {
-    id, label: "", physicalVariant: "", markets: [], barcode: "", productCodes: "", packagingLanguages: "", softwareLanguages: "",
+    id, label: "", regionalTitle: "", physicalVariant: "", markets: [], barcode: "", productCodes: "", packagingLanguages: "", softwareLanguages: "",
     confidence: "PENDING_IDENTIFIER", ratingSystems: "",
     catalogNumber: "", serial: "", boxCode: "", releaseDate: "", releaseDateContext: "",
     physicalContentStatus: "PHYSICAL_FULL_GAME", physicalProductType: "NATIVE_GAME_DISC",
@@ -220,7 +221,8 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
           approximate: true, sourceLabel: "Alta manual de Region Atlas", notes: [],
         } : undefined;
         preparedGroups.push({
-          label: group.label || undefined, physicalVariant: group.physicalVariant || null,
+          label: group.label || undefined, regionalTitle: group.regionalTitle || undefined,
+          physicalVariant: group.physicalVariant || null,
           markets: group.markets, barcode: group.barcode || null,
           productCodes: splitValues(group.productCodes), packagingLanguages: splitValues(group.packagingLanguages),
           softwareLanguages: splitValues(group.softwareLanguages), confidence: group.confidence,
@@ -313,6 +315,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
         <div className="flex items-center justify-between gap-3"><div><h2 className="text-base font-semibold">Caja física {groupIndex + 1}</h2><p className="mt-1 text-xs text-muted">Nombre automático: {automaticLabel || "selecciona mercados"}</p></div>{groups.length > 1 ? <button type="button" className="icon-btn" title="Eliminar caja física" onClick={() => setGroups((current) => current.filter((item) => item.id !== group.id))}><Trash2 size={18} aria-hidden="true" /><span className="sr-only">Eliminar caja física</span></button> : null}</div>
         <div className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           <TextField label="Nombre personalizado (opcional)" value={group.label} onChange={(value) => updateGroup(group.id, { label: value })} placeholder={automaticLabel || "US/CA"} />
+          <TextField label="Título regional de esta caja (opcional)" value={group.regionalTitle} onChange={(value) => updateGroup(group.id, { regionalTitle: value })} placeholder="Conserva el título existente o usa el título común" />
           <TextField label="Edición de esta caja (opcional)" value={group.physicalVariant} onChange={(value) => updateGroup(group.id, { physicalVariant: value })} placeholder={physicalVariant || "Standard"} />
           <TextField label="EAN / UPC / JAN" value={group.barcode} onChange={(value) => updateGroup(group.id, { barcode: value, confidence: value.trim() ? "CONFIRMED" : "PENDING_IDENTIFIER" })} />
           <TextField label="Códigos de producto" value={group.productCodes} onChange={(value) => updateGroup(group.id, { productCodes: value })} />

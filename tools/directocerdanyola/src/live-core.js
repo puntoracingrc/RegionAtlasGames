@@ -97,6 +97,23 @@ function battleGroups(drivers,thresholdSeconds=2){
   if(active)groups.push({...active,spanSeconds:active.gaps.reduce((sum,value)=>sum+value,0)});
   return groups;
 }
+function hasPreviousChampionshipResults(seed){
+  return Boolean(seed&&Array.isArray(seed.pilots)&&seed.pilots.some(pilot=>Array.isArray(pilot.history)&&pilot.history.some(position=>position!==null&&position!==''&&Number.isFinite(Number(position))&&Number(position)>0)));
+}
+function gridPositionLabel(index){
+  if(index===0)return 'Pole';
+  const labels=['segunda','tercera','cuarta','quinta','sexta','séptima','octava','novena','décima','undécima','duodécima','decimotercera','decimocuarta','decimoquinta','decimosexta'];
+  return labels[index-1]?`${labels[index-1]} posición`:`posición ${index+1}`;
+}
+function startingGridNarrative(drivers,chunkSize=5){
+  const ordered=(drivers||[]).filter(driver=>driver&&driver.name).slice().sort((a,b)=>(Number(a.position)||Infinity)-(Number(b.position)||Infinity));
+  const size=Math.max(1,Number(chunkSize)||5),chunks=[];
+  for(let offset=0;offset<ordered.length;offset+=size){
+    const entries=ordered.slice(offset,offset+size).map((driver,index)=>`${gridPositionLabel(offset+index)}, ${driver.name}`);
+    if(entries.length)chunks.push(`${offset===0?'Parrilla de salida. ':'Continúa la parrilla. '}${entries.join('. ')}.`);
+  }
+  return chunks;
+}
 function normalizeEvent(message){
   const event=message&&message.EVENT;
   if(!event||!event.METADATA)return null;
@@ -206,5 +223,5 @@ function phaseFromGroup(value){
   if(/\b(PRACTICE|PRACTICA|ENTRENAMIENTO)\b/.test(group))return 'Entrenamientos';
   return value||'Manga activa';
 }
-return {normalize,tokens,matchPilot,categoryFromMetadata,timeSeconds,averageSpeedKmh,distanceKm,gapSeconds,median,cleanLapEstimate,estimatedLapProgress,secondsSinceLastCrossing,battleGroups,normalizeEvent,enrichDrivers,stateFromSnapshot,provisionalSeed,raceStateLabel,phaseFromGroup};
+return {normalize,tokens,matchPilot,categoryFromMetadata,timeSeconds,averageSpeedKmh,distanceKm,gapSeconds,median,cleanLapEstimate,estimatedLapProgress,secondsSinceLastCrossing,battleGroups,hasPreviousChampionshipResults,startingGridNarrative,normalizeEvent,enrichDrivers,stateFromSnapshot,provisionalSeed,raceStateLabel,phaseFromGroup};
 });

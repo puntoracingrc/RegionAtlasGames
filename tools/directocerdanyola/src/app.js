@@ -37,7 +37,7 @@ const pitStorageKey='puntoracing.directocerdanyola.pit-v1';
 const mapCollapseKey='puntoracing.directocerdanyola.map-collapsed-v1';
 const voiceStorageKey='rctimes.voice-v1';
 const voiceTypeDefaults={start:true,progress:true,pilot:true,battle:true,fastest:true,strategy:true,incident:true,recovery:true,pace:true,championship:true,final:true};
-let voiceSettings=loadVoiceSettings(),voiceEnabled=false,voiceAvailable=false,voiceQueue=[],voiceBusy=false,voiceCurrentAudio=null,voiceCurrentUrl='';
+let voiceSettings=loadVoiceSettings(),voiceEnabled=false,voiceAvailable=false,voiceQueue=[],voiceBusy=false,voicePaused=false,voiceGeneration=0,voiceCurrentAudio=null,voiceCurrentUrl='';
 const pitHistories=new Map(loadPitHistories());
 const lapTrackers=new Map();
 const trackColours=['#31dfca','#ffb536','#ff5875','#7da7ff','#c58cff','#7ee787','#ff8b52','#f2d96b','#70d7ff','#f78bd4','#a9b8ca','#ffffff'];
@@ -83,27 +83,37 @@ async function checkVoiceAvailability(){
 function voiceItemMatchesPilot(item){
   if(['start','progress','final'].includes(item.voiceType))return true;const selected=new Set(voiceSettings.pilots),pilots=(item.pilots||[]).map(String);return pilots.some(pilot=>selected.has(pilot));
 }
-function shouldSpeak(item){return item.spoken!==false&&voiceEnabled&&voiceAvailable&&voiceSettings.types[item.voiceType||'progress']!==false&&(voiceSettings.mode!=='pilot'||voiceItemMatchesPilot(item));}
+function shouldSpeak(item){return item.spoken!==false&&voiceEnabled&&voiceAvailable&&!voicePaused&&voiceSettings.types[item.voiceType||'progress']!==false&&(voiceSettings.mode!=='pilot'||voiceItemMatchesPilot(item));}
 function voiceCooldown(item){return {championship:90000,progress:90000,pilot:30000,battle:15000,strategy:20000,incident:15000,recovery:5000,pace:30000,fastest:2000,start:2000,final:2000}[item.voiceType]||10000;}
-async function requestVoiceAudio(text){
-  const response=await fetch('/api/rctimes/speech',{method:'POST',headers:{'Content-Type':'application/json',Accept:'audio/mpeg'},body:JSON.stringify({text:text.slice(0,600),voice:voiceSettings.voice,mode:voiceSettings.mode})});
+async function requestVoiceAudio(text,eventType='progress'){
+  const response=await fetch('/api/rctimes/speech',{method:'POST',headers:{'Content-Type':'application/json',Accept:'audio/mpeg'},body:JSON.stringify({text:text.slice(0,600),voice:voiceSettings.voice,mode:voiceSettings.mode,eventType})});
   if(!response.ok){let message='No se pudo generar el aviso';try{message=(await response.json()).error||message;}catch{}throw new Error(message);}return response.blob();
 }
 function clearVoiceQueue(stop=false){
-  voiceQueue=[];if(stop&&voiceCurrentAudio){const audio=voiceCurrentAudio;audio.pause();if(typeof audio.onended==='function')audio.onended();audio.src='';voiceCurrentAudio=null;}if(stop&&voiceCurrentUrl){URL.revokeObjectURL(voiceCurrentUrl);voiceCurrentUrl='';}if(stop||!voiceCurrentAudio)voiceBusy=false;if(voiceEnabled)setVoiceStatus(voiceCurrentAudio?'Terminando el aviso actual':'Escuchando nuevos avisos');
+  voiceQueue=[];if(stop)voiceGeneration+=1;if(stop&&voiceCurrentAudio){const audio=voiceCurrentAudio;audio.pause();if(typeof audio.onended==='function')audio.onended();audio.src='';voiceCurrentAudio=null;}if(stop&&voiceCurrentUrl){URL.revokeObjectURL(voiceCurrentUrl);voiceCurrentUrl='';}if(stop||!voiceCurrentAudio)voiceBusy=false;if(voiceEnabled)setVoiceStatus(voicePaused?'Voz pausada con la carrera':voiceCurrentAudio?'Terminando el aviso actual':'Escuchando nuevos avisos');
 }
 async function playVoiceQueue(){
-  if(voiceBusy||!voiceEnabled||!voiceQueue.length)return;voiceBusy=true;const item=voiceQueue.shift();setVoiceStatus(`Hablando · ${item.kind.toLowerCase()}`);
-  try{const blob=await item.audioPromise,source=URL.createObjectURL(blob),audio=new Audio(source);voiceCurrentAudio=audio;voiceCurrentUrl=source;audio.volume=voiceSettings.volume;await new Promise((resolve,reject)=>{audio.onended=resolve;audio.onerror=()=>reject(new Error('No se pudo reproducir el audio.'));audio.play().catch(reject);});}
+  if(voiceBusy||voicePaused||!voiceEnabled||!voiceQueue.length)return;voiceBusy=true;const generation=voiceGeneration,item=voiceQueue.shift();let source='',audio=null;setVoiceStatus(`Hablando · ${item.kind.toLowerCase()}`);
+  try{const blob=await item.audioPromise;if(generation!==voiceGeneration||voicePaused||!voiceEnabled)return;source=URL.createObjectURL(blob);audio=new Audio(source);voiceCurrentAudio=audio;voiceCurrentUrl=source;audio.volume=voiceSettings.volume;await new Promise((resolve,reject)=>{audio.onended=resolve;audio.onerror=()=>reject(new Error('No se pudo reproducir el audio.'));audio.play().catch(reject);});}
   catch(error){console.warn('Aviso de voz omitido',error);setVoiceStatus(error.message||'Aviso de voz omitido',true);}
-  finally{if(voiceCurrentUrl)URL.revokeObjectURL(voiceCurrentUrl);voiceCurrentUrl='';voiceCurrentAudio=null;voiceBusy=false;if(voiceEnabled)setVoiceStatus(voiceQueue.length?`${voiceQueue.length} avisos pendientes`:'Escuchando nuevos avisos');if(voiceQueue.length)void playVoiceQueue();}
+  finally{if(source)URL.revokeObjectURL(source);if(voiceCurrentUrl===source)voiceCurrentUrl='';if(voiceCurrentAudio===audio)voiceCurrentAudio=null;if(generation===voiceGeneration){voiceBusy=false;if(voiceEnabled)setVoiceStatus(voicePaused?'Voz pausada con la carrera':voiceQueue.length?`${voiceQueue.length} avisos pendientes`:'Escuchando nuevos avisos');if(!voicePaused&&voiceQueue.length)void playVoiceQueue();}}
+}
+function setVoicePlaybackPaused(value){
+  voicePaused=Boolean(value);if(voicePaused){clearVoiceQueue(true);if(voiceEnabled)setVoiceStatus('Voz pausada con la carrera');return;}if(voiceEnabled){setVoiceStatus('Escuchando nuevos avisos');void playVoiceQueue();}
 }
 function enqueueVoiceNarration(item){
-  if(!shouldSpeak(item))return;const signature=[item.voiceType,...(item.pilots||[]).map(String).sort()].join('|'),now=Date.now(),last=voiceLastSpoken.get(signature)||0;if(now-last<voiceCooldown(item))return;voiceLastSpoken.set(signature,now);const queued={...item,audioPromise:requestVoiceAudio(item.text)};queued.audioPromise.catch(()=>{});voiceQueue.push(queued);voiceQueue.sort((a,b)=>(Number(b.priority)||0)-(Number(a.priority)||0));if(voiceQueue.length>8)voiceQueue.length=8;setVoiceStatus(`${voiceQueue.length} aviso${voiceQueue.length===1?'':'s'} en cola`);void playVoiceQueue();
+  if(!shouldSpeak(item))return;const signature=[item.voiceType,...(item.pilots||[]).map(String).sort()].join('|'),now=Date.now(),last=voiceLastSpoken.get(signature)||0;if(now-last<voiceCooldown(item))return;voiceLastSpoken.set(signature,now);const queued={...item,audioPromise:requestVoiceAudio(item.text,item.voiceType)};queued.audioPromise.catch(()=>{});voiceQueue.push(queued);voiceQueue.sort((a,b)=>(Number(b.priority)||0)-(Number(a.priority)||0));if(voiceQueue.length>8)voiceQueue.length=8;setVoiceStatus(`${voiceQueue.length} aviso${voiceQueue.length===1?'':'s'} en cola`);void playVoiceQueue();
+}
+async function previewSelectedVoice(){
+  if(!voiceAvailable){await checkVoiceAvailability();if(!voiceAvailable)return;}
+  let failed=false;clearVoiceQueue(true);voiceBusy=true;setVoiceStatus(`Preparando muestra · ${voiceSettings.voice}`);$('voicePreview').disabled=true;
+  try{const blob=await requestVoiceAudio('Entramos en los últimos diez minutos. Marc García mejora su ritmo y ya está a menos de un segundo del coche que le precede. La lucha por la segunda posición está completamente abierta.','sample'),source=URL.createObjectURL(blob),audio=new Audio(source);voiceCurrentAudio=audio;voiceCurrentUrl=source;audio.volume=voiceSettings.volume;setVoiceStatus(`Muestra · ${voiceSettings.voice}`);await new Promise((resolve,reject)=>{audio.onended=resolve;audio.onerror=()=>reject(new Error('No se pudo reproducir la muestra.'));audio.play().catch(reject);});}
+  catch(error){failed=true;console.warn('Muestra de voz omitida',error);setVoiceStatus(error.message||'No se pudo reproducir la muestra',true);}
+  finally{if(voiceCurrentUrl)URL.revokeObjectURL(voiceCurrentUrl);voiceCurrentUrl='';voiceCurrentAudio=null;voiceBusy=false;$('voicePreview').disabled=false;if(!failed)setVoiceStatus(voiceEnabled?(voicePaused?'Voz pausada con la carrera':'Escuchando nuevos avisos'):'Voz desactivada');if(!voicePaused&&voiceQueue.length)void playVoiceQueue();}
 }
 async function toggleVoiceNarration(){
   if(voiceEnabled){voiceEnabled=false;clearVoiceQueue(true);renderVoiceSettings();setVoiceStatus('Voz desactivada');return;}
-  if(!voiceAvailable){await checkVoiceAvailability();if(!voiceAvailable)return;}voiceEnabled=true;renderVoiceSettings();setVoiceStatus('Escuchando nuevos avisos');enqueueVoiceNarration({kind:'SISTEMA',voiceType:'start',priority:10,text:voiceSettings.mode==='pilot'?'Radio para piloto activada.':'Narración de carrera activada.',pilots:[]});
+  if(!voiceAvailable){await checkVoiceAvailability();if(!voiceAvailable)return;}voiceEnabled=true;renderVoiceSettings();setVoiceStatus(voicePaused?'Voz pausada con la carrera':'Escuchando nuevos avisos');if(!voicePaused)enqueueVoiceNarration({kind:'SISTEMA',voiceType:'start',priority:10,text:voiceSettings.mode==='pilot'?'Radio para piloto activada.':'Narración de carrera activada.',pilots:['system']});
 }
 function resetLiveNarrative(context=''){
   liveNarrativeContext=context;liveNarrativeEntries=[];liveNarrativeLast.clear();narrativeDriverStates.clear();voiceLastSpoken.clear();clearVoiceQueue(false);renderLiveNarrative();
@@ -117,7 +127,7 @@ function recordLiveNarrative(items){
   if(context!==liveNarrativeContext)resetLiveNarrative(context);
   const now=Date.now();
   for(const item of items){
-    if(!item||!item.text)continue;const previous=liveNarrativeLast.get(item.key),cooldown=Number(item.cooldown)||0;if(previous&&previous.text===item.text)continue;if(previous&&cooldown&&now-previous.at<cooldown)continue;
+    if(!item||!item.text)continue;const previous=liveNarrativeLast.get(item.key),cooldown=Number(item.cooldown)||0;if(previous&&(item.once||previous.text===item.text))continue;if(previous&&cooldown&&now-previous.at<cooldown)continue;
     const entry={kind:item.kind||'DIRECTO',text:item.text,time:narrativeClock(),lap:item.lap||0,voiceType:item.voiceType||'progress',pilots:item.pilots||[],priority:Number(item.priority)||0,spoken:item.spoken!==false};liveNarrativeLast.set(item.key,{text:item.text,at:now});liveNarrativeEntries.push(entry);enqueueVoiceNarration(entry);
   }
   if(liveNarrativeEntries.length>80)liveNarrativeEntries.splice(0,liveNarrativeEntries.length-80);renderLiveNarrative();
@@ -277,10 +287,10 @@ function resetDemoTimeline({clearStory=true}={}){
   cancelDemoCountdown();resetFastestLapWatcher('demo');demoElapsedBase=0;demoStartedAt=0;demoPlaying=false;demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;if(clearStory)resetLiveNarrative();
 }
 function beginDemoPlayback(){
-  cancelDemoCountdown();demoStartedAt=Date.now();demoPlaying=true;setConnection('live','Reproduciendo carrera');updateDemoControls();
+  cancelDemoCountdown();demoStartedAt=Date.now();demoPlaying=true;setVoicePlaybackPaused(false);setConnection('live','Reproduciendo carrera');updateDemoControls();
 }
 function startDemoCountdown(){
-  cancelDemoCountdown();demoCountdownValue=3;$('demoCountdownValue').textContent='3';$('demoCountdown').hidden=false;setConnection('paused','La repetición empieza en 3…');updateDemoControls();
+  cancelDemoCountdown();setVoicePlaybackPaused(true);demoCountdownValue=3;$('demoCountdownValue').textContent='3';$('demoCountdown').hidden=false;setConnection('paused','La repetición empieza en 3…');updateDemoControls();
   demoCountdownTimer=setInterval(()=>{demoCountdownValue-=1;if(demoCountdownValue<=0){beginDemoPlayback();return;}$('demoCountdownValue').textContent=String(demoCountdownValue);setConnection('paused',`La repetición empieza en ${demoCountdownValue}…`);updateDemoControls();},1000);
 }
 function renderDemoFrame(force=false){
@@ -306,16 +316,16 @@ function renderDemoFrame(force=false){
 }
 function toggleDemoPlayback(){
   if(!demoMode)return;
-  if(demoCountdownValue){cancelDemoCountdown();setConnection('paused','Repetición preparada');return;}
+  if(demoCountdownValue){cancelDemoCountdown();setVoicePlaybackPaused(true);setConnection('paused','Repetición preparada');return;}
   if(demoCurrentElapsed()>=demoReplay.durationSeconds){restartDemo();startDemoCountdown();return;}
-  if(demoPlaying){demoElapsedBase=demoCurrentElapsed();demoPlaying=false;demoStartedAt=0;setConnection('paused','Repetición pausada');}
+  if(demoPlaying){demoElapsedBase=demoCurrentElapsed();demoPlaying=false;demoStartedAt=0;setVoicePlaybackPaused(true);setConnection('paused','Repetición pausada');}
   else startDemoCountdown();
   updateDemoControls();
 }
-function restartDemo(){if(!demoMode)return;resetDemoTimeline();setConnection('paused','Repetición preparada');renderDemoFrame(true);}
+function restartDemo(){if(!demoMode)return;setVoicePlaybackPaused(true);resetDemoTimeline();setConnection('paused','Repetición preparada');renderDemoFrame(true);}
 function setDemoSpeed(value){if(!demoMode)return;demoElapsedBase=demoCurrentElapsed();demoStartedAt=demoPlaying?Date.now():0;demoSpeed=[1,4,10].includes(Number(value))?Number(value):1;renderDemoFrame(true);}
 function seekDemo(value){
-  if(!demoMode)return;cancelDemoCountdown();demoElapsedBase=Math.max(0,Math.min(demoReplay.durationSeconds,Number(value)||0));demoStartedAt=demoPlaying?Date.now():0;if(demoElapsedBase>=demoReplay.durationSeconds){demoPlaying=false;demoStartedAt=0;}demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;resetLiveNarrative();renderDemoFrame(true);
+  if(!demoMode)return;cancelDemoCountdown();clearVoiceQueue(true);demoElapsedBase=Math.max(0,Math.min(demoReplay.durationSeconds,Number(value)||0));demoStartedAt=demoPlaying?Date.now():0;if(demoElapsedBase>=demoReplay.durationSeconds){demoPlaying=false;demoStartedAt=0;}voicePaused=!demoPlaying;demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;resetLiveNarrative();renderDemoFrame(true);
 }
 function stopDemo(refresh=true){
   if(!demoMode)return;
@@ -323,7 +333,7 @@ function stopDemo(refresh=true){
   const saved=demoReturnState;demoMode=false;demoPlaying=false;demoStartedAt=0;demoElapsedBase=0;demoFrameProgress.clear();demoPreviousPositions.clear();demoSignature='';demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;demoReturnState=null;$('demoControls').hidden=true;$('demoTab').classList.remove('selected');$('demoTab').setAttribute('aria-selected','false');
   if(saved){category=saved.category;document.body.dataset.category=category;snapshot=saved.snapshot;enriched=saved.enriched;officialRanking=saved.officialRanking;officialRuns=saved.officialRuns;officialSectionKey=saved.officialSectionKey;officialFinalComplete=saved.officialFinalComplete;rankingStatus=saved.rankingStatus;projectedState=saved.projectedState;result=saved.result;possibilityResult=saved.possibilityResult;broadcast=saved.broadcast;applyCircuit(saved.circuit||defaultCircuit);}
   document.querySelectorAll('.category-switch [data-category]').forEach(button=>{const selected=button.dataset.category===category;button.classList.toggle('selected',selected);button.setAttribute('aria-selected',String(selected));});
-  if(!refresh)return;
+  setVoicePlaybackPaused(paused);if(!refresh)return;
   if(queuedSnapshot){const next=queuedSnapshot;queuedSnapshot=null;applySnapshot(next,true);return;}
   if(snapshot){renderRaceHeader();renderTiming();renderMetrics();renderChampionship();renderBroadcast();renderScenarioSelector();renderStories();renderIntelligence();renderPhases();renderEventImpact();renderRules();renderHistory();renderRegistrations();renderPitStrategy();scheduleRankingFetch();}
 }
@@ -348,7 +358,7 @@ async function startDemo(){
   const returnCircuit=activeCircuit,source=await refreshReplayArchiveOptions();if(!source){toast('Todavía no hay una carrera archivada para este evento.',true);return;}if(!await loadReplaySource(source))return;$('archiveRaceSelect').value=source;
   resetFastestLapWatcher('demo');
   demoReturnState={category,snapshot,enriched,officialRanking,officialRuns,officialSectionKey,officialFinalComplete,rankingStatus,projectedState,result,possibilityResult,broadcast,circuit:returnCircuit};clearTimeout(rankingTimer);
-  demoMode=true;paused=false;$('pauseButton').textContent='Pausar pantalla';category=demoReplay.category==='ECO'?'ECO':'NITRO';document.body.dataset.category=category;officialRanking=[];officialRuns=[];officialSectionKey='';officialFinalComplete=false;rankingStatus='replay';demoSpeed=Number($('demoSpeed').value)||1;resetDemoTimeline();
+  demoMode=true;paused=false;setVoicePlaybackPaused(true);$('pauseButton').textContent='Pausar pantalla';category=demoReplay.category==='ECO'?'ECO':'NITRO';document.body.dataset.category=category;officialRanking=[];officialRuns=[];officialSectionKey='';officialFinalComplete=false;rankingStatus='replay';demoSpeed=Number($('demoSpeed').value)||1;resetDemoTimeline();
   document.querySelectorAll('.category-switch [data-category]').forEach(button=>{button.classList.remove('selected');button.setAttribute('aria-selected','false');});$('demoTab').classList.add('selected');$('demoTab').setAttribute('aria-selected','true');$('demoControls').hidden=false;updateReplayMeta();renderDemoFrame(true);setConnection('paused','Manga cargada · pulsa Play');toast('Repetición preparada. Selecciona la manga y pulsa Play.');
 }
 function basePitProfile(driver){return P.profileForName(pitProfilesData.profiles,driver.name);}
@@ -671,10 +681,14 @@ function renderBroadcast(){
   }
   insights.push(`${enriched.filter(d=>d.matchedPilot).length} pilotos están enlazados automáticamente con la clasificación del campeonato.`);
   $('liveInsights').innerHTML=insights.map(text=>`<div class="insight">${esc(text)}</div>`).join('');
-  const narrative=[],elapsed=raceElapsedSeconds(),running=elapsed>0||/RUN/i.test(snapshot.raceState||''),finished=archiveFrameFinished(archiveFrame(snapshot));
-  if(running)narrative.push({key:'race-start',kind:'SALIDA',voiceType:'start',priority:9,text:`Comienza ${snapshot.group||'la carrera'} de ${category==='NITRO'?'GT8 Nitro':'GT8 Eléctrico'} en ${activeCircuit.name}.`});
+  const narrative=[],elapsed=raceElapsedSeconds(),running=elapsed>0||/RUN/i.test(snapshot.raceState||''),finished=archiveFrameFinished(archiveFrame(snapshot)),opening=running&&elapsed<=45&&Math.max(0,...enriched.map(driver=>Number(driver.laps)||0))<=2,hasPreviousResults=L.hasPreviousChampionshipResults(seeds[category]);
+  if(opening){
+    const startingGridDrivers=demoMode?D.frame(demoReplay,0).drivers:enriched;
+    narrative.push({key:'race-start',kind:'SALIDA',voiceType:'start',priority:10,once:true,text:`Comienza ${snapshot.name||snapshot.group||'la prueba'}: ${snapshot.group||(category==='NITRO'?'GT8 Nitro':'GT8 Eléctrico')} en ${activeCircuit.name}.`});
+    L.startingGridNarrative(startingGridDrivers,5).forEach((text,index)=>narrative.push({key:`starting-grid:${index}`,kind:'PARRILLA',voiceType:'start',priority:10,once:true,pilots:startingGridDrivers.slice(index*5,index*5+5).map(voicePilotId),text}));
+  }
   const progressBucket=Math.floor(elapsed/600);if(progressBucket>0){const minute=progressBucket*10,remaining=L.timeSeconds(snapshot.remaining);narrative.push({key:`progress:${progressBucket}`,kind:'TIEMPO',voiceType:'progress',priority:5,text:`Se cumplen ${minute} minutos de carrera.${leader?` ${leader.name} lidera con ${leader.laps} vueltas.`:''}${remaining>0?` Quedan ${Math.max(0,Math.round(remaining/60))} minutos.`:''}`});}
-  for(const text of broadcast.paragraphs.slice(0,2))narrative.push({key:`championship:${text}`,kind:'CAMPEONATO',voiceType:'championship',priority:1,text});
+  if(hasPreviousResults&&elapsed>=120)for(const text of broadcast.paragraphs.slice(0,2))narrative.push({key:`championship:${text}`,kind:'CAMPEONATO',voiceType:'championship',priority:1,text});
   if(leader&&leader.laps)narrative.push({key:`leader:${leader.key||leader.name}:${leader.laps}`,kind:'CARRERA',voiceType:'battle',spoken:leader.laps%5===0,pilots:[voicePilotId(leader)],lap:leader.laps,text:`${leader.name} lidera con ${leader.laps} vuelta${leader.laps===1?'':'s'}${leader.gapPrevious?` y ${leader.gapPrevious} sobre el segundo`:''}.`});
   if(fastest)narrative.push({key:`fastest:${fastest.key||fastest.name}:${fastest.bestSeconds}`,kind:'VUELTA RÁPIDA',voiceType:'fastest',priority:7,pilots:[voicePilotId(fastest)],lap:fastest.laps,text:`${fastest.name} marca la mejor vuelta: ${fastest.best}, a ${speedLabel(fastest.bestSeconds)} de media.`});
   if(movers[0])narrative.push({key:`mover:${movers[0].key||movers[0].name}:${movers[0].position}:${movers[0].positionChange||movers[0].trend}`,kind:'POSICIONES',voiceType:'battle',priority:3,pilots:[voicePilotId(movers[0])],lap:movers[0].laps,text:`${movers[0].name} es el movimiento a vigilar en la clasificación.`});
@@ -873,12 +887,13 @@ $('voicePanelClose').addEventListener('click',()=>setVoicePanel(false));
 $('voiceMode').addEventListener('change',event=>{voiceSettings.mode=event.target.value==='pilot'?'pilot':'broadcast';saveVoiceSettings();clearVoiceQueue(true);renderVoiceSettings();if(voiceEnabled)setVoiceStatus('Modo actualizado; escuchando nuevos avisos');});
 $('voiceName').addEventListener('change',event=>{voiceSettings.voice=['marin','cedar','coral'].includes(event.target.value)?event.target.value:'marin';saveVoiceSettings();});
 $('voiceVolume').addEventListener('input',event=>{voiceSettings.volume=Math.max(0,Math.min(1,Number(event.target.value)));if(voiceCurrentAudio)voiceCurrentAudio.volume=voiceSettings.volume;saveVoiceSettings();});
+$('voicePreview').addEventListener('click',()=>void previewSelectedVoice());
 document.querySelectorAll('[data-voice-type]').forEach(input=>input.addEventListener('change',event=>{voiceSettings.types[event.target.dataset.voiceType]=event.target.checked;saveVoiceSettings();}));
 $('voicePilotList').addEventListener('change',event=>{const input=event.target.closest('[data-voice-pilot]');if(!input)return;const id=input.dataset.voicePilot,selected=new Set(voiceSettings.pilots);if(input.checked)selected.add(id);else selected.delete(id);voiceSettings.pilots=[...selected];saveVoiceSettings();});
 $('voiceSelectAllPilots').addEventListener('click',()=>{const roster=enriched.length?enriched:(snapshot&&snapshot.drivers||[]),all=roster.map(voicePilotId),selecting=all.some(id=>!voiceSettings.pilots.includes(id));voiceSettings.pilots=selecting?all:[];saveVoiceSettings();renderVoicePilotOptions();});
 $('voiceClearQueue').addEventListener('click',()=>{clearVoiceQueue(true);toast('Cola de voz vaciada.');});
 $('eventKey').addEventListener('keydown',event=>{if(event.key==='Enter')connect();});
-$('pauseButton').addEventListener('click',()=>{paused=!paused;$('pauseButton').textContent=paused?'Reanudar pantalla':'Pausar pantalla';setConnection(paused?'paused':'live',paused?'Pantalla pausada':'MyRCM conectado');if(!paused&&queuedSnapshot){const next=queuedSnapshot;queuedSnapshot=null;applySnapshot(next,true);}});
+$('pauseButton').addEventListener('click',()=>{paused=!paused;setVoicePlaybackPaused(paused);$('pauseButton').textContent=paused?'Reanudar pantalla':'Pausar pantalla';setConnection(paused?'paused':'live',paused?'Pantalla y voz pausadas':'MyRCM conectado');if(!paused&&queuedSnapshot){const next=queuedSnapshot;queuedSnapshot=null;applySnapshot(next,true);}});
 $('scenarioPilot').addEventListener('change',renderObjectives);
 $('scenarioTarget').addEventListener('change',renderObjectives);
 $('addIncident').addEventListener('click',()=>{const pilot=$('incidentPilot').value,type=$('incidentType').value,rule=R.incidents[type];if(!pilot||!rule){toast('Selecciona un piloto y una decisión confirmada.',true);return;}incidents.push({pilot,type,rule:{...rule,url:rule.url||R.categories[category].url},consequence:incidentConsequence(type),category,time:new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'})});renderIncidentFeed();renderBroadcast();toast('Incidencia añadida al guion; la proyección espera el resultado oficial.');});

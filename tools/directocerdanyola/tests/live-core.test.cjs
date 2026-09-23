@@ -77,6 +77,22 @@ test('groups only same-lap drivers separated by two seconds or less',()=>{
   assert.equal(L.gapSeconds('+0:01.234'),1.234);
 });
 
+test('detects whether a championship already has previous race results',()=>{
+  assert.equal(L.hasPreviousChampionshipResults(eco),true);
+  assert.equal(L.hasPreviousChampionshipResults({pilots:[{history:[null,null]},{history:[]}]}),false);
+  assert.equal(L.hasPreviousChampionshipResults({pilots:[{history:[null,3]}]}),true);
+});
+
+test('builds the starting grid in race order and splits it into readable groups',()=>{
+  const chunks=L.startingGridNarrative([
+    {position:3,name:'Piloto C'},{position:1,name:'Piloto A'},{position:2,name:'Piloto B'},{position:4,name:'Piloto D'}
+  ],2);
+  assert.deepEqual(chunks,[
+    'Parrilla de salida. Pole, Piloto A. segunda posición, Piloto B.',
+    'Continúa la parrilla. tercera posición, Piloto C. cuarta posición, Piloto D.'
+  ]);
+});
+
 test('estimates clean lap pace without using a refuelling outlier',()=>{
   const estimate=L.cleanLapEstimate([21.1,20.9,21.0,27.4,21.2,20.8],22.1,20.4);
   assert.ok(Math.abs(estimate-21)<0.001);
