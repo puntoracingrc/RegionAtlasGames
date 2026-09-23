@@ -30,9 +30,14 @@ const speedLabel=seconds=>{const value=L.averageSpeedKmh(seconds,activeCircuit.l
 const distanceLabel=laps=>{const value=L.distanceKm(laps,activeCircuit.lapLengthMeters);return value==null?'—':`${decimal(value,2)} km`;};
 let category='ECO',socket=null,shouldReconnect=false,reconnectTimer=null,rankingTimer=null,pitClock=null,lapClock=null,lastRankingFetch=0,paused=false,queuedSnapshot=null,snapshot=null,enriched=[],officialRanking=[],officialRuns=[],officialSectionKey='',officialFinalComplete=false,rankingStatus='pending',projectedState=null,result=null,possibilityResult=null,broadcast=null,toastTimer=null,scenarioCache=new Map(),incidents=[],pitReportBusy=false,demoMode=false,demoStartedAt=0,demoElapsedBase=0,demoSpeed=1,demoPlaying=false,demoCountdownTimer=null,demoCountdownValue=0,demoFrameProgress=new Map(),demoPreviousPositions=new Map(),demoSignature='',demoReturnState=null,demoHeavyAt=0,demoTimingAt=0,demoUiSecond=-1,fuelVisualAt=0,fastestLapFlashTimer=null,fastestLapActiveScope='',replayArchiveSummaries=[],archiveQueues=new Map(),archiveFlushTimer=null,archiveBusy=false,archiveLastSignature='',archiveSavedRace='',archiveFinalizedRace='',archiveReportFinalizedRace='',liveLowerPanel='general',liveNarrativeContext='',liveNarrativeEntries=[];
 const liveNarrativeLast=new Map();
+const narrativeDriverStates=new Map();
+const voiceLastSpoken=new Map();
 const fastestLapBaselines=new Map();
 const pitStorageKey='puntoracing.directocerdanyola.pit-v1';
 const mapCollapseKey='puntoracing.directocerdanyola.map-collapsed-v1';
+const voiceStorageKey='rctimes.voice-v1';
+const voiceTypeDefaults={start:true,progress:true,pilot:true,battle:true,fastest:true,strategy:true,incident:true,recovery:true,pace:true,championship:true,final:true};
+let voiceSettings=loadVoiceSettings(),voiceEnabled=false,voiceAvailable=false,voiceQueue=[],voiceBusy=false,voiceCurrentAudio=null,voiceCurrentUrl='';
 const pitHistories=new Map(loadPitHistories());
 const lapTrackers=new Map();
 const trackColours=['#31dfca','#ffb536','#ff5875','#7da7ff','#c58cff','#7ee787','#ff8b52','#f2d96b','#70d7ff','#f78bd4','#a9b8ca','#ffffff'];
@@ -53,8 +58,55 @@ function setLiveLowerPanel(panel){
   $('liveGeneralTab').classList.toggle('selected',!story);$('liveGeneralTab').setAttribute('aria-selected',String(!story));$('liveStoryTab').classList.toggle('selected',story);$('liveStoryTab').setAttribute('aria-selected',String(story));
   $('liveGeneralPanel').hidden=story;$('liveStoryPanel').hidden=!story;
 }
+function loadVoiceSettings(){
+  try{const stored=JSON.parse(localStorage.getItem(voiceStorageKey)||'{}');return {mode:stored.mode==='pilot'?'pilot':'broadcast',voice:['marin','cedar','coral'].includes(stored.voice)?stored.voice:'marin',volume:Number.isFinite(Number(stored.volume))?Math.max(0,Math.min(1,Number(stored.volume))):.9,types:{...voiceTypeDefaults,...stored.types},pilots:Array.isArray(stored.pilots)?stored.pilots.map(String):[]};}
+  catch{return {mode:'broadcast',voice:'marin',volume:.9,types:{...voiceTypeDefaults},pilots:[]};}
+}
+function saveVoiceSettings(){try{localStorage.setItem(voiceStorageKey,JSON.stringify(voiceSettings));}catch{}}
+function voicePilotId(driver){return String(driver&&driver.key||driver&&driver.name||'');}
+function setVoiceStatus(text,error=false){const node=$('voiceStatus');node.textContent=text;node.classList.toggle('error',error);}
+function renderVoicePilotOptions(){
+  const node=$('voicePilotList');if(!node)return;const roster=enriched.length?enriched:(snapshot&&snapshot.drivers||[]);
+  if(!roster.length){node.innerHTML='<span>Esperando la parrilla…</span>';return;}
+  node.innerHTML=roster.map(driver=>{const id=voicePilotId(driver),checked=voiceSettings.pilots.includes(id);return `<label><input type="checkbox" data-voice-pilot="${esc(id)}" ${checked?'checked':''}><span>${esc(driver.name)}</span><small>${driver.position?`P${driver.position}`:'—'}</small></label>`;}).join('');
+}
+function renderVoiceSettings(){
+  $('voiceMode').value=voiceSettings.mode;$('voiceName').value=voiceSettings.voice;$('voiceVolume').value=String(voiceSettings.volume);$('voicePanel').dataset.mode=voiceSettings.mode;
+  document.querySelectorAll('[data-voice-type]').forEach(input=>{input.checked=voiceSettings.types[input.dataset.voiceType]!==false;});renderVoicePilotOptions();
+  $('voiceToggle').classList.toggle('active',voiceEnabled);$('voiceToggle').setAttribute('aria-pressed',String(voiceEnabled));$('voiceToggle').querySelector('span').textContent=voiceEnabled?'Voz activa':'Activar voz';
+}
+function setVoicePanel(open){$('voicePanel').hidden=!open;$('voiceSettingsButton').setAttribute('aria-expanded',String(open));}
+async function checkVoiceAvailability(){
+  try{const response=await fetch('/api/rctimes/speech',{headers:{Accept:'application/json'}}),data=response.ok?await response.json():{};voiceAvailable=Boolean(data.available);$('voiceToggle').disabled=!voiceAvailable;setVoiceStatus(voiceAvailable?'Lista para activar':'Falta configurar la clave de OpenAI',!voiceAvailable);}
+  catch{voiceAvailable=false;$('voiceToggle').disabled=true;setVoiceStatus('No se pudo comprobar la voz',true);}
+}
+function voiceItemMatchesPilot(item){
+  if(['start','progress','final'].includes(item.voiceType))return true;const selected=new Set(voiceSettings.pilots),pilots=(item.pilots||[]).map(String);return pilots.some(pilot=>selected.has(pilot));
+}
+function shouldSpeak(item){return item.spoken!==false&&voiceEnabled&&voiceAvailable&&voiceSettings.types[item.voiceType||'progress']!==false&&(voiceSettings.mode!=='pilot'||voiceItemMatchesPilot(item));}
+function voiceCooldown(item){return {championship:90000,progress:90000,pilot:30000,battle:15000,strategy:20000,incident:15000,recovery:5000,pace:30000,fastest:2000,start:2000,final:2000}[item.voiceType]||10000;}
+async function requestVoiceAudio(text){
+  const response=await fetch('/api/rctimes/speech',{method:'POST',headers:{'Content-Type':'application/json',Accept:'audio/mpeg'},body:JSON.stringify({text:text.slice(0,600),voice:voiceSettings.voice,mode:voiceSettings.mode})});
+  if(!response.ok){let message='No se pudo generar el aviso';try{message=(await response.json()).error||message;}catch{}throw new Error(message);}return response.blob();
+}
+function clearVoiceQueue(stop=false){
+  voiceQueue=[];if(stop&&voiceCurrentAudio){const audio=voiceCurrentAudio;audio.pause();if(typeof audio.onended==='function')audio.onended();audio.src='';voiceCurrentAudio=null;}if(stop&&voiceCurrentUrl){URL.revokeObjectURL(voiceCurrentUrl);voiceCurrentUrl='';}if(stop||!voiceCurrentAudio)voiceBusy=false;if(voiceEnabled)setVoiceStatus(voiceCurrentAudio?'Terminando el aviso actual':'Escuchando nuevos avisos');
+}
+async function playVoiceQueue(){
+  if(voiceBusy||!voiceEnabled||!voiceQueue.length)return;voiceBusy=true;const item=voiceQueue.shift();setVoiceStatus(`Hablando · ${item.kind.toLowerCase()}`);
+  try{const blob=await item.audioPromise,source=URL.createObjectURL(blob),audio=new Audio(source);voiceCurrentAudio=audio;voiceCurrentUrl=source;audio.volume=voiceSettings.volume;await new Promise((resolve,reject)=>{audio.onended=resolve;audio.onerror=()=>reject(new Error('No se pudo reproducir el audio.'));audio.play().catch(reject);});}
+  catch(error){console.warn('Aviso de voz omitido',error);setVoiceStatus(error.message||'Aviso de voz omitido',true);}
+  finally{if(voiceCurrentUrl)URL.revokeObjectURL(voiceCurrentUrl);voiceCurrentUrl='';voiceCurrentAudio=null;voiceBusy=false;if(voiceEnabled)setVoiceStatus(voiceQueue.length?`${voiceQueue.length} avisos pendientes`:'Escuchando nuevos avisos');if(voiceQueue.length)void playVoiceQueue();}
+}
+function enqueueVoiceNarration(item){
+  if(!shouldSpeak(item))return;const signature=[item.voiceType,...(item.pilots||[]).map(String).sort()].join('|'),now=Date.now(),last=voiceLastSpoken.get(signature)||0;if(now-last<voiceCooldown(item))return;voiceLastSpoken.set(signature,now);const queued={...item,audioPromise:requestVoiceAudio(item.text)};queued.audioPromise.catch(()=>{});voiceQueue.push(queued);voiceQueue.sort((a,b)=>(Number(b.priority)||0)-(Number(a.priority)||0));if(voiceQueue.length>8)voiceQueue.length=8;setVoiceStatus(`${voiceQueue.length} aviso${voiceQueue.length===1?'':'s'} en cola`);void playVoiceQueue();
+}
+async function toggleVoiceNarration(){
+  if(voiceEnabled){voiceEnabled=false;clearVoiceQueue(true);renderVoiceSettings();setVoiceStatus('Voz desactivada');return;}
+  if(!voiceAvailable){await checkVoiceAvailability();if(!voiceAvailable)return;}voiceEnabled=true;renderVoiceSettings();setVoiceStatus('Escuchando nuevos avisos');enqueueVoiceNarration({kind:'SISTEMA',voiceType:'start',priority:10,text:voiceSettings.mode==='pilot'?'Radio para piloto activada.':'Narración de carrera activada.',pilots:[]});
+}
 function resetLiveNarrative(context=''){
-  liveNarrativeContext=context;liveNarrativeEntries=[];liveNarrativeLast.clear();renderLiveNarrative();
+  liveNarrativeContext=context;liveNarrativeEntries=[];liveNarrativeLast.clear();narrativeDriverStates.clear();voiceLastSpoken.clear();clearVoiceQueue(false);renderLiveNarrative();
 }
 function narrativeClock(){
   if(demoMode&&snapshot)return snapshot.currentTime||D.formatClock(demoCurrentElapsed());
@@ -66,7 +118,7 @@ function recordLiveNarrative(items){
   const now=Date.now();
   for(const item of items){
     if(!item||!item.text)continue;const previous=liveNarrativeLast.get(item.key),cooldown=Number(item.cooldown)||0;if(previous&&previous.text===item.text)continue;if(previous&&cooldown&&now-previous.at<cooldown)continue;
-    liveNarrativeLast.set(item.key,{text:item.text,at:now});liveNarrativeEntries.push({kind:item.kind||'DIRECTO',text:item.text,time:narrativeClock(),lap:item.lap||0});
+    const entry={kind:item.kind||'DIRECTO',text:item.text,time:narrativeClock(),lap:item.lap||0,voiceType:item.voiceType||'progress',pilots:item.pilots||[],priority:Number(item.priority)||0,spoken:item.spoken!==false};liveNarrativeLast.set(item.key,{text:item.text,at:now});liveNarrativeEntries.push(entry);enqueueVoiceNarration(entry);
   }
   if(liveNarrativeEntries.length>80)liveNarrativeEntries.splice(0,liveNarrativeEntries.length-80);renderLiveNarrative();
 }
@@ -521,7 +573,7 @@ function syncTimingRow(row,meta){
 }
 function renderTiming(){
   const tower=$('timingTower'),old=new Map([...tower.querySelectorAll('[data-driver]')].map(row=>[row.dataset.driver,row.getBoundingClientRect()])),battleMap=new Map();
-  if(!enriched.length){tower.innerHTML='<div class="empty-state">MyRCM está conectado, pero todavía no ha publicado pilotos para esta manga.</div>';tower.dataset.roster='';return;}
+  if(!enriched.length){tower.innerHTML='<div class="empty-state">MyRCM está conectado, pero todavía no ha publicado pilotos para esta manga.</div>';tower.dataset.roster='';renderVoicePilotOptions();return;}
   for(const group of L.battleGroups(enriched,battleThresholdSeconds))group.drivers.forEach((driver,index)=>battleMap.set(driver.key,{group,index,gap:index?group.gaps[index-1]:null}));
   const metas=enriched.map((driver,index)=>timingMeta(driver,index,battleMap)),roster=enriched.map(driver=>String(driver.key)).sort().join('|');
   if(tower.dataset.roster!==roster){tower.innerHTML=metas.map(timingRowMarkup).join('');tower.dataset.roster=roster;}
@@ -529,6 +581,7 @@ function renderTiming(){
   renderTrackMap();
   requestAnimationFrame(()=>tower.querySelectorAll('[data-driver]').forEach(row=>{const before=old.get(row.dataset.driver);if(!before)return;const after=row.getBoundingClientRect(),dy=before.top-after.top;if(Math.abs(dy)>1){row.style.transform=`translateY(${dy}px)`;row.style.transition='none';requestAnimationFrame(()=>{row.style.transition='transform .5s cubic-bezier(.22,1,.36,1),background .25s,opacity .25s';row.style.transform='';});}}));
   const matched=enriched.filter(driver=>driver.matchedPilot).length;$('matchStatus').textContent=`${matched} de ${enriched.length} pilotos vinculados con la general ${category}.`;
+  renderVoicePilotOptions();
 }
 function renderPitStrategy(){
   const card=$('pitStrategyCard');card.hidden=category!=='NITRO';if(category!=='NITRO')return;
@@ -574,6 +627,18 @@ function renderChampionship(){
   $('projectionLabel').textContent=projectionStatus;$('liveGeneralStatus').textContent=projectionStatus;
   $('liveGeneralRows').innerHTML=rows.slice(0,8).map(row=>{const p=row.pilot,today=!p.active?'—':p.position?ordinal(Number(p.position)):'…',points=row.min===row.max?row.min:`${row.min}–${row.max}`,baseline=Number(p.baselineRank),movement=baseline&&row.rankMin===row.rankMax?baseline-row.rankMin:0,trend=movement>0?`▲${movement}`:movement<0?`▼${Math.abs(movement)}`:'';return `<div class="live-general-row"><strong>${range(row.rankMin,row.rankMax)}</strong><div><b>${esc(p.shortName)}</b>${trend?`<small class="${movement<0?'down':''}">${trend}</small>`:''}</div><span>${esc(today)}</span><em>${esc(points)}</em></div>`;}).join('')||'<div class="empty-compact">La general sigue pendiente de resultados.</div>';
 }
+function raceElapsedSeconds(){
+  if(demoMode)return demoCurrentElapsed();const current=L.timeSeconds(snapshot&&snapshot.currentTime),total=L.timeSeconds(snapshot&&snapshot.raceTime),remaining=L.timeSeconds(snapshot&&snapshot.remaining);if(current>0)return current;if(total>0&&remaining>=0)return Math.max(0,total-remaining);return 0;
+}
+function gapSeconds(value){const match=String(value||'').replace(',','.').match(/([0-9]+(?:\.[0-9]+)?)/);return match?Number(match[1]):null;}
+function narrativeDriverState(driver){const tracking=lapProgressState(driver),signal=category==='NITRO'?pitSignal(driver):null;if(tracking&&(tracking.hiddenAfterNoCrossing||tracking.missingCrossing))return 'incident';if(signal&&(signal.state==='pit-live'||signal.state==='pit'))return 'refueling';return 'normal';}
+function driverPilotNarrative(driver,index){
+  const position=Number(driver.position)||index+1,ahead=index>0?enriched[index-1]:null,behind=enriched[index+1],parts=[`${driver.name} marcha en posición ${position}, con ${driver.laps} vueltas.`];
+  if(driver.gapPrevious)parts.push(`La diferencia con el coche precedente es ${driver.gapPrevious}.`);if(behind&&behind.gapPrevious)parts.push(`El perseguidor está a ${behind.gapPrevious}.`);
+  const gap=gapSeconds(driver.gapPrevious),gain=ahead&&Number(ahead.averageSeconds)&&Number(driver.averageSeconds)?Number(ahead.averageSeconds)-Number(driver.averageSeconds):0;if(gap&&gain>.03){const laps=Math.ceil(gap/gain);if(laps<=20)parts.push(`A este ritmo podría alcanzarlo en unas ${laps} vueltas.`);}
+  if(category==='NITRO'){const signal=pitSignal(driver);if(signal&&signal.window){if(signal.state==='window')parts.push(`Está entrando en su ventana prevista de repostaje, entre las vueltas ${signal.window.from} y ${signal.window.to}.`);else if(signal.state==='pit'||signal.state==='pit-live')parts.push('Su retraso actual encaja con un repostaje.');}}
+  return parts.join(' ');
+}
 function renderBroadcast(){
   if(!broadcast)return;$('broadcastTitle').textContent=broadcast.title;
   const activeIncidents=incidents.filter(item=>item.category===category);
@@ -605,16 +670,25 @@ function renderBroadcast(){
   }
   insights.push(`${enriched.filter(d=>d.matchedPilot).length} pilotos están enlazados automáticamente con la clasificación del campeonato.`);
   $('liveInsights').innerHTML=insights.map(text=>`<div class="insight">${esc(text)}</div>`).join('');
-  const narrative=[];
-  for(const text of broadcast.paragraphs.slice(0,2))narrative.push({key:`championship:${text}`,kind:'CAMPEONATO',text});
-  if(leader&&leader.laps)narrative.push({key:`leader:${leader.key||leader.name}:${leader.laps}`,kind:'CARRERA',lap:leader.laps,text:`${leader.name} lidera con ${leader.laps} vuelta${leader.laps===1?'':'s'}${leader.gapPrevious?` y ${leader.gapPrevious} sobre el segundo`:''}.`});
-  if(fastest)narrative.push({key:`fastest:${fastest.key||fastest.name}:${fastest.bestSeconds}`,kind:'VUELTA RÁPIDA',lap:fastest.laps,text:`${fastest.name} marca la mejor vuelta: ${fastest.best}, a ${speedLabel(fastest.bestSeconds)} de media.`});
-  if(movers[0])narrative.push({key:`mover:${movers[0].key||movers[0].name}:${movers[0].position}:${movers[0].positionChange||movers[0].trend}`,kind:'POSICIONES',lap:movers[0].laps,text:`${movers[0].name} es el movimiento a vigilar en la clasificación.`});
-  if(closeBattle){const names=closeBattle.drivers.map(driver=>driver.name),label=names.length===2?names.join(' y '):`${names.slice(0,-1).join(', ')} y ${names.at(-1)}`;narrative.push({key:`battle:${closeBattle.drivers.map(driver=>driver.key||driver.name).join('|')}`,kind:'LUCHA',lap:Math.max(...closeBattle.drivers.map(driver=>driver.laps||0)),cooldown:20000,text:`Lucha por el puesto ${closeBattle.startPosition}: ${label}, separados por ${decimal(closeBattle.spanSeconds,3)} s.`});}
-  if(trackingLost)narrative.push({key:`off-track:${trackingLost.key||trackingLost.name}`,kind:'INCIDENCIA',lap:trackingLost.laps,text:`${trackingLost.name} supera un minuto sin cruce y sale temporalmente del mapa.`});
-  else if(trackingWarning){const state=lapProgressState(trackingWarning);narrative.push({key:`tracking:${trackingWarning.key||trackingWarning.name}:${Math.floor((state.sinceLastCrossing||state.elapsed||0)/10)}`,kind:'AVISO',lap:trackingWarning.laps,cooldown:10000,text:`${trackingWarning.name} lleva ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} segundos sin registrar un cruce.`});}
-  if(urgentStrategy){const {driver,signal}=urgentStrategy,window=signal.window,lapText=window?` entre las vueltas ${window.from} y ${window.to}`:'';narrative.push({key:`strategy:${driver.key||driver.name}:${signal.state}`,kind:signal.state==='incident'?'INCIDENCIA':'ESTRATEGIA',lap:driver.laps,cooldown:15000,text:signal.state==='incident'?`${driver.name} acumula una pérdida que ya no encaja con un repostaje aislado.`:signal.state==='pit-live'||signal.state==='pit'?`${driver.name} está probablemente repostando${lapText}; su retraso encaja con el patrón previsto.`:`${driver.name} se aproxima a su ventana de repostaje${lapText}.`});}
-  for(const item of activeIncidents)narrative.push({key:`rule:${item.pilot}:${item.type}:${item.time}`,kind:'REGLAMENTO',text:`${item.pilot}: ${item.rule.title}. ${item.consequence}`});
+  const narrative=[],elapsed=raceElapsedSeconds(),running=elapsed>0||/RUN/i.test(snapshot.raceState||''),finished=archiveFrameFinished(archiveFrame(snapshot));
+  if(running)narrative.push({key:'race-start',kind:'SALIDA',voiceType:'start',priority:9,text:`Comienza ${snapshot.group||'la carrera'} de ${category==='NITRO'?'GT8 Nitro':'GT8 Eléctrico'} en ${activeCircuit.name}.`});
+  const progressBucket=Math.floor(elapsed/600);if(progressBucket>0){const minute=progressBucket*10,remaining=L.timeSeconds(snapshot.remaining);narrative.push({key:`progress:${progressBucket}`,kind:'TIEMPO',voiceType:'progress',priority:5,text:`Se cumplen ${minute} minutos de carrera.${leader?` ${leader.name} lidera con ${leader.laps} vueltas.`:''}${remaining>0?` Quedan ${Math.max(0,Math.round(remaining/60))} minutos.`:''}`});}
+  for(const text of broadcast.paragraphs.slice(0,2))narrative.push({key:`championship:${text}`,kind:'CAMPEONATO',voiceType:'championship',priority:1,text});
+  if(leader&&leader.laps)narrative.push({key:`leader:${leader.key||leader.name}:${leader.laps}`,kind:'CARRERA',voiceType:'battle',spoken:leader.laps%5===0,pilots:[voicePilotId(leader)],lap:leader.laps,text:`${leader.name} lidera con ${leader.laps} vuelta${leader.laps===1?'':'s'}${leader.gapPrevious?` y ${leader.gapPrevious} sobre el segundo`:''}.`});
+  if(fastest)narrative.push({key:`fastest:${fastest.key||fastest.name}:${fastest.bestSeconds}`,kind:'VUELTA RÁPIDA',voiceType:'fastest',priority:7,pilots:[voicePilotId(fastest)],lap:fastest.laps,text:`${fastest.name} marca la mejor vuelta: ${fastest.best}, a ${speedLabel(fastest.bestSeconds)} de media.`});
+  if(movers[0])narrative.push({key:`mover:${movers[0].key||movers[0].name}:${movers[0].position}:${movers[0].positionChange||movers[0].trend}`,kind:'POSICIONES',voiceType:'battle',priority:3,pilots:[voicePilotId(movers[0])],lap:movers[0].laps,text:`${movers[0].name} es el movimiento a vigilar en la clasificación.`});
+  if(closeBattle){const names=closeBattle.drivers.map(driver=>driver.name),label=names.length===2?names.join(' y '):`${names.slice(0,-1).join(', ')} y ${names.at(-1)}`;narrative.push({key:`battle:${closeBattle.drivers.map(driver=>driver.key||driver.name).join('|')}`,kind:'LUCHA',voiceType:'battle',priority:6,pilots:closeBattle.drivers.map(voicePilotId),lap:Math.max(...closeBattle.drivers.map(driver=>driver.laps||0)),cooldown:20000,text:`Lucha por el puesto ${closeBattle.startPosition}: ${label}, separados por ${decimal(closeBattle.spanSeconds,3)} segundos.`});}
+  if(trackingLost)narrative.push({key:`off-track:${trackingLost.key||trackingLost.name}`,kind:'INCIDENCIA',voiceType:'incident',priority:9,pilots:[voicePilotId(trackingLost)],lap:trackingLost.laps,text:`${trackingLost.name} supera un minuto sin cruce y sale temporalmente del mapa.`});
+  else if(trackingWarning){const state=lapProgressState(trackingWarning),seconds=Math.floor(state.sinceLastCrossing||state.elapsed||0);narrative.push({key:`tracking:${trackingWarning.key||trackingWarning.name}:${Math.floor(seconds/10)}`,kind:'AVISO',voiceType:'incident',spoken:seconds<50,priority:8,pilots:[voicePilotId(trackingWarning)],lap:trackingWarning.laps,cooldown:10000,text:`${trackingWarning.name} lleva ${seconds} segundos sin registrar un cruce.`});}
+  if(urgentStrategy){const {driver,signal}=urgentStrategy,window=signal.window,lapText=window?` entre las vueltas ${window.from} y ${window.to}`:'',incident=signal.state==='incident';narrative.push({key:`strategy:${driver.key||driver.name}:${signal.state}`,kind:incident?'INCIDENCIA':'ESTRATEGIA',voiceType:incident?'incident':'strategy',priority:incident?9:6,pilots:[voicePilotId(driver)],lap:driver.laps,cooldown:15000,text:incident?`${driver.name} acumula una pérdida que ya no encaja con un repostaje aislado.`:signal.state==='pit-live'||signal.state==='pit'?`${driver.name} está probablemente repostando${lapText}; su retraso encaja con el patrón previsto.`:`${driver.name} se aproxima a su ventana de repostaje${lapText}.`});}
+  for(const [index,driver] of enriched.entries()){
+    const id=voicePilotId(driver),state=narrativeDriverState(driver),previous=narrativeDriverStates.get(id);if(previous&&(previous.state==='incident'||previous.state==='refueling')&&state==='normal'&&driver.laps>previous.laps)narrative.push({key:`recovery:${id}:${driver.laps}`,kind:'RECUPERACIÓN',voiceType:'recovery',priority:8,pilots:[id],lap:driver.laps,text:`${driver.name} vuelve a registrar paso por meta y se reincorpora al seguimiento.`});
+    const baseline=Number(driver.averageSeconds||driver.bestSeconds),last=Number(driver.lastLapSeconds);if(index<4&&baseline>0&&last>baseline*1.15&&last<baseline*1.8&&state==='normal')narrative.push({key:`pace:${id}:${driver.laps}`,kind:'RITMO',voiceType:'pace',priority:7,pilots:[id],lap:driver.laps,text:`Atención al ritmo de ${driver.name}: su última vuelta ha sido ${decimal(last-baseline,1)} segundos más lenta que su referencia.`});
+    if(voiceSettings.mode==='pilot'&&voiceSettings.pilots.includes(id)&&driver.laps>0&&driver.laps%3===0)narrative.push({key:`pilot:${id}:${driver.laps}`,kind:'RADIO',voiceType:'pilot',priority:4,pilots:[id],lap:driver.laps,text:driverPilotNarrative(driver,index)});
+    narrativeDriverStates.set(id,{state,laps:driver.laps});
+  }
+  for(const item of activeIncidents){const driver=enriched.find(entry=>entry.name===item.pilot);narrative.push({key:`rule:${item.pilot}:${item.type}:${item.time}`,kind:'REGLAMENTO',voiceType:'incident',priority:9,pilots:driver?[voicePilotId(driver)]:[],text:`${item.pilot}: ${item.rule.title}. ${item.consequence}`});}
+  if(finished&&enriched.length){const positions=enriched.slice(0,10).map((driver,index)=>`${index===0?'Primero':index===1?'Segundo':index===2?'Tercero':`Posición ${index+1}`}, ${driver.name}, ${driver.laps} vueltas`).join('. ');narrative.push({key:'race-final',kind:'RESULTADO FINAL',voiceType:'final',priority:10,text:`Carrera finalizada. ${positions}.`});}
   if(!demoMode||demoPlaying||demoCurrentElapsed()>0)recordLiveNarrative(narrative);
 }
 function renderScenarioSelector(){
@@ -792,20 +866,30 @@ $('demoSpeed').addEventListener('change',event=>setDemoSpeed(event.target.value)
 $('demoSeek').addEventListener('input',event=>seekDemo(event.target.value));
 $('archiveRaceSelect').addEventListener('change',event=>void changeReplaySource(event.target.value));
 $('trackMapToggle').addEventListener('click',toggleMap);
+$('voiceToggle').addEventListener('click',()=>void toggleVoiceNarration());
+$('voiceSettingsButton').addEventListener('click',()=>setVoicePanel($('voicePanel').hidden));
+$('voicePanelClose').addEventListener('click',()=>setVoicePanel(false));
+$('voiceMode').addEventListener('change',event=>{voiceSettings.mode=event.target.value==='pilot'?'pilot':'broadcast';saveVoiceSettings();clearVoiceQueue(true);renderVoiceSettings();if(voiceEnabled)setVoiceStatus('Modo actualizado; escuchando nuevos avisos');});
+$('voiceName').addEventListener('change',event=>{voiceSettings.voice=['marin','cedar','coral'].includes(event.target.value)?event.target.value:'marin';saveVoiceSettings();});
+$('voiceVolume').addEventListener('input',event=>{voiceSettings.volume=Math.max(0,Math.min(1,Number(event.target.value)));if(voiceCurrentAudio)voiceCurrentAudio.volume=voiceSettings.volume;saveVoiceSettings();});
+document.querySelectorAll('[data-voice-type]').forEach(input=>input.addEventListener('change',event=>{voiceSettings.types[event.target.dataset.voiceType]=event.target.checked;saveVoiceSettings();}));
+$('voicePilotList').addEventListener('change',event=>{const input=event.target.closest('[data-voice-pilot]');if(!input)return;const id=input.dataset.voicePilot,selected=new Set(voiceSettings.pilots);if(input.checked)selected.add(id);else selected.delete(id);voiceSettings.pilots=[...selected];saveVoiceSettings();});
+$('voiceSelectAllPilots').addEventListener('click',()=>{const roster=enriched.length?enriched:(snapshot&&snapshot.drivers||[]),all=roster.map(voicePilotId),selecting=all.some(id=>!voiceSettings.pilots.includes(id));voiceSettings.pilots=selecting?all:[];saveVoiceSettings();renderVoicePilotOptions();});
+$('voiceClearQueue').addEventListener('click',()=>{clearVoiceQueue(true);toast('Cola de voz vaciada.');});
 $('eventKey').addEventListener('keydown',event=>{if(event.key==='Enter')connect();});
 $('pauseButton').addEventListener('click',()=>{paused=!paused;$('pauseButton').textContent=paused?'Reanudar pantalla':'Pausar pantalla';setConnection(paused?'paused':'live',paused?'Pantalla pausada':'MyRCM conectado');if(!paused&&queuedSnapshot){const next=queuedSnapshot;queuedSnapshot=null;applySnapshot(next,true);}});
 $('scenarioPilot').addEventListener('change',renderObjectives);
 $('scenarioTarget').addEventListener('change',renderObjectives);
 $('addIncident').addEventListener('click',()=>{const pilot=$('incidentPilot').value,type=$('incidentType').value,rule=R.incidents[type];if(!pilot||!rule){toast('Selecciona un piloto y una decisión confirmada.',true);return;}incidents.push({pilot,type,rule:{...rule,url:rule.url||R.categories[category].url},consequence:incidentConsequence(type),category,time:new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'})});renderIncidentFeed();renderBroadcast();toast('Incidencia añadida al guion; la proyección espera el resultado oficial.');});
 $('copyBroadcast').addEventListener('click',async()=>{const incidentText=incidents.filter(item=>item.category===category).map(item=>`REGLAMENTO · ${item.pilot}: ${item.rule.title}. ${item.rule.text} ${item.consequence}`),text=[`${snapshot&&snapshot.name||activeCircuit.name} · ${category} · DIRECTO`,snapshot&&snapshot.group||'',...(broadcast?broadcast.paragraphs:[]),...incidentText].filter(Boolean).join('\n\n');try{await navigator.clipboard.writeText(text);toast('Guion copiado.');}catch{toast('El navegador no ha permitido copiar el guion.',true);}});
-window.addEventListener('pagehide',()=>{clearInterval(pitClock);clearInterval(lapClock);clearInterval(demoCountdownTimer);clearTimeout(archiveFlushTimer);for(const frames of archiveQueues.values()){if(!frames.length)continue;const body=new Blob([JSON.stringify({eventKey:$('eventKey').value.trim(),circuit:activeCircuit,frames})],{type:'application/json'});navigator.sendBeacon('/api/myrcm/archive',body);}archiveQueues.clear();closeSocket();});
+window.addEventListener('pagehide',()=>{clearInterval(pitClock);clearInterval(lapClock);clearInterval(demoCountdownTimer);clearTimeout(archiveFlushTimer);clearVoiceQueue(true);for(const frames of archiveQueues.values()){if(!frames.length)continue;const body=new Blob([JSON.stringify({eventKey:$('eventKey').value.trim(),circuit:activeCircuit,frames})],{type:'application/json'});navigator.sendBeacon('/api/myrcm/archive',body);}archiveQueues.clear();closeSocket();});
 renderRules();
 renderHistory();
 renderRegistrations();
 $('demoReportLink').hidden=false;
 try{setMapCollapsed(localStorage.getItem(mapCollapseKey)==='1');}catch{setMapCollapsed(false);}
 applyCircuit(defaultCircuit);
-setLiveLowerPanel('general');renderLiveNarrative();
+setLiveLowerPanel('general');renderLiveNarrative();renderVoiceSettings();void checkVoiceAvailability();
 pitClock=setInterval(()=>{if(!demoMode&&category==='NITRO'&&snapshot&&!paused){renderTiming();renderPitStrategy();renderBroadcast();}},1000);
 lapClock=setInterval(()=>{if(paused)return;if(demoMode)renderDemoFrame();else if(snapshot)updateLapVisuals();},33);
 connect();

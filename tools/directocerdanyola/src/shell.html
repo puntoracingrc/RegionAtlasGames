@@ -4,8 +4,21 @@
   <header class="masthead">
     <div class="identity"><strong class="product-name">RCTimes</strong><div><strong>LIVE RACE CENTER</strong><small id="appEventLabel">Jornada MyRCM</small></div></div>
     <nav class="view-switch" role="tablist" aria-label="Vista de la aplicación"><button type="button" role="tab" class="selected" data-view-button="live" aria-selected="true">Directo</button><button type="button" role="tab" data-view-button="analysis" aria-selected="false">Análisis</button></nav>
-    <div class="connection-pill" id="connectionPill" data-state="connecting"><i></i><span id="connectionLabel">Conectando con MyRCM</span></div>
+    <div class="header-actions"><button type="button" class="voice-toggle" id="voiceToggle" aria-pressed="false"><i></i><span>Activar voz</span></button><button type="button" class="voice-settings-button" id="voiceSettingsButton" aria-expanded="false" aria-controls="voicePanel" title="Configurar narración">⚙</button><div class="connection-pill" id="connectionPill" data-state="connecting"><i></i><span id="connectionLabel">Conectando con MyRCM</span></div></div>
   </header>
+
+  <aside class="voice-panel" id="voicePanel" hidden aria-labelledby="voicePanelTitle">
+    <div class="voice-panel-head"><div><span class="kicker">NARRACIÓN IA</span><h2 id="voicePanelTitle">Voz de carrera</h2></div><button type="button" id="voicePanelClose" aria-label="Cerrar configuración">×</button></div>
+    <p class="voice-disclosure">La voz que escucharás está generada por inteligencia artificial de OpenAI.</p>
+    <label class="voice-field">Modo<select id="voiceMode"><option value="broadcast">Retransmisión</option><option value="pilot">Radio para piloto</option></select></label>
+    <label class="voice-field">Voz<select id="voiceName"><option value="marin">Marin</option><option value="cedar">Cedar</option><option value="coral">Coral</option></select></label>
+    <label class="voice-field">Volumen<input type="range" id="voiceVolume" min="0" max="1" step="0.05" value="0.9"></label>
+    <fieldset class="voice-event-settings"><legend>Avisos que se leerán</legend>
+      <label><input type="checkbox" data-voice-type="start" checked> Inicio de carrera</label><label><input type="checkbox" data-voice-type="progress" checked> Tiempo cada 10 minutos</label><label><input type="checkbox" data-voice-type="pilot" checked> Estado y previsiones del piloto</label><label><input type="checkbox" data-voice-type="battle" checked> Luchas y distancias</label><label><input type="checkbox" data-voice-type="fastest" checked> Vueltas rápidas</label><label><input type="checkbox" data-voice-type="strategy" checked> Repostajes</label><label><input type="checkbox" data-voice-type="incident" checked> Incidencias</label><label><input type="checkbox" data-voice-type="recovery" checked> Regresos a pista</label><label><input type="checkbox" data-voice-type="pace" checked> Cambios bruscos de ritmo</label><label><input type="checkbox" data-voice-type="championship" checked> Campeonato</label><label><input type="checkbox" data-voice-type="final" checked> Resultado final</label>
+    </fieldset>
+    <div class="voice-pilot-settings" id="voicePilotSettings"><div><strong>Pilotos seguidos</strong><button type="button" id="voiceSelectAllPilots">Todos</button></div><p>En modo piloto solo se leen avisos de los corredores seleccionados, además del inicio, el tiempo y el resultado final.</p><div id="voicePilotList" class="voice-pilot-list"><span>Esperando la parrilla…</span></div></div>
+    <div class="voice-panel-foot"><span id="voiceStatus">Voz desactivada</span><button type="button" id="voiceClearQueue">Vaciar cola</button></div>
+  </aside>
 
   <section class="control-deck" aria-label="Conexión de cronometraje">
     <div class="event-source"><label for="eventKey">Evento MyRCM</label><div><input id="eventKey" inputmode="numeric" pattern="[0-9]*" value="100645" aria-describedby="eventHelp"><button type="button" id="connectButton" class="primary">Conectar</button><button type="button" id="pauseButton">Pausar pantalla</button></div><small id="eventHelp">Repetición: última Final Nitro del evento 100645 y carreras que vaya archivando la aplicación.</small></div>
