@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-22",
+  "updatedAt": "2026-09-23",
   "updatedBy": "codex_after_contract_validation",
   "methodology": {
     "unit": "validated source attempt for one platform and target field",
@@ -1551,28 +1551,30 @@
     },
     "ps4": {
       "researchIds": [
-        "hack-gu-last-recode-ps4-2026-09-21"
+        "hack-gu-last-recode-ps4-2026-09-21",
+        "2dark-limited-edition-ps4-2026-09-22"
       ],
-      "observationCount": 1,
+      "observationCount": 2,
       "queryTotals": {
-        "exact_identifier": 11,
-        "general": 1,
-        "image": 9,
-        "marketplace": 10,
-        "source_specific": 5
+        "exact_identifier": 43,
+        "general": 5,
+        "image": 22,
+        "marketplace": 24,
+        "source_specific": 20
       },
       "sourceAttemptTotals": {
-        "total": 34,
-        "useful": 32,
+        "total": 87,
+        "useful": 79,
         "byOutcome": {
-          "CANDIDATE": 4,
-          "CONFIRMED_EVIDENCE": 27,
-          "CONTEXT_ONLY": 2,
-          "TECHNICAL_FAILURE": 1
+          "CANDIDATE": 39,
+          "CONFIRMED_EVIDENCE": 36,
+          "CONTEXT_ONLY": 10,
+          "TECHNICAL_FAILURE": 2
         },
         "byAccessStatus": {
           "BLOCKED": 1,
-          "OPENED": 33
+          "OPENED": 46,
+          "SEARCH_RESULT_ONLY": 40
         }
       },
       "recommendations": [],
@@ -1650,31 +1652,33 @@
           "lastObservedAt": "2026-09-22"
         },
         "books.rakuten.co.jp": {
-          "attempts": 1,
-          "usefulAttempts": 1,
+          "attempts": 2,
+          "usefulAttempts": 2,
           "usefulnessRate": 1,
           "confirmedEvidenceAttempts": 1,
-          "candidateAttempts": 0,
+          "candidateAttempts": 1,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "hack-gu-last-recode-ps4-2026-09-21"
+            "hack-gu-last-recode-ps4-2026-09-21",
+            "2dark-limited-edition-ps4-2026-09-22"
           ],
           "sourceTypes": [
             "retailer"
           ],
           "targetCategories": [
             "Japan Standard identifiers",
-            "contents"
+            "contents",
+            "research"
           ],
           "queryTypeCounts": {
-            "exact_identifier": 1
+            "exact_identifier": 2
           },
           "exampleSourceIds": [],
           "status": "observed",
@@ -1788,31 +1792,41 @@
           "lastObservedAt": "2026-09-22"
         },
         "gamefaqs.gamespot.com": {
-          "attempts": 1,
-          "usefulAttempts": 0,
-          "usefulnessRate": 0,
-          "confirmedEvidenceAttempts": 0,
-          "candidateAttempts": 0,
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "usefulnessRate": 0.667,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 1,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
           "technicalFailures": 1,
           "blockedAttempts": 1,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "hack-gu-last-recode-ps4-2026-09-21"
+            "hack-gu-last-recode-ps4-2026-09-21",
+            "2dark-limited-edition-ps4-2026-09-22"
           ],
           "sourceTypes": [
-            "technical-database"
+            "technical-database",
+            "technical_database"
           ],
           "targetCategories": [
             "Japan product codes",
-            "dates"
+            "dates",
+            "research",
+            "developer",
+            "players",
+            "modes",
+            "releaseDate",
+            "barcode",
+            "productCode",
+            "ratingSystem"
           ],
           "queryTypeCounts": {
-            "exact_identifier": 1
+            "exact_identifier": 2
           },
           "exampleSourceIds": [],
           "status": "observed",
@@ -2315,21 +2329,22 @@
           "lastObservedAt": "2026-09-22"
         },
         "store.shopping.yahoo.co.jp": {
-          "attempts": 2,
-          "usefulAttempts": 2,
+          "attempts": 3,
+          "usefulAttempts": 3,
           "usefulnessRate": 1,
           "confirmedEvidenceAttempts": 2,
-          "candidateAttempts": 0,
+          "candidateAttempts": 1,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
           "technicalFailures": 0,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "hack-gu-last-recode-ps4-2026-09-21"
+            "hack-gu-last-recode-ps4-2026-09-21",
+            "2dark-limited-edition-ps4-2026-09-22"
           ],
           "sourceTypes": [
             "marketplace-retailer",
@@ -2338,10 +2353,11 @@
           "targetCategories": [
             "Japan Standard identifiers",
             "Welcome Price identifiers",
-            "price"
+            "price",
+            "research"
           ],
           "queryTypeCounts": {
-            "exact_identifier": 2,
+            "exact_identifier": 3,
             "marketplace": 1
           },
           "exampleSourceIds": [],
@@ -2411,6 +2427,1122 @@
           ],
           "queryTypeCounts": {
             "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "store.steampowered.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "official_or_primary"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "store.playstation.com": {
+          "attempts": 3,
+          "usefulAttempts": 1,
+          "usefulnessRate": 0.333,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 2,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 3,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "official_or_primary"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "source_specific": 1,
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.gameswelt.de": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "press_or_media"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.playstationlifestyle.net": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "press_or_media"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.playfrance.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "press_or_media"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.tradergames.fr": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 2,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1,
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "vgcollect.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 2,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 2,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "technical_database"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "general": 1,
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.fnac.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.bol.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.smartoys.be": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.ebay.fr": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.ebay.co.uk": {
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "usefulnessRate": 0.667,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 2,
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.ibs.it": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "vgdb.uk": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "technical_database"
+          ],
+          "targetCategories": [
+            "research",
+            "barcode",
+            "productCode",
+            "releaseDate",
+            "publisher"
+          ],
+          "queryTypeCounts": {
+            "general": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.wog.ch": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.rebuy.de": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.ebay.de": {
+          "attempts": 5,
+          "usefulAttempts": 5,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 5,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 5,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 3,
+            "marketplace": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.thegamebusters.it": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "m3elettronica.it": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.ebay.it": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.yambalu.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.ebay.es": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.ebay.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 2,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 2
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.fnac.pt": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.game.es": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.jollyrogerbay.it": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 1,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "geedie.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "technical_database"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.value-press.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "official_or_primary"
+          ],
+          "targetCategories": [
+            "research",
+            "title",
+            "developer",
+            "publisher",
+            "genres",
+            "players",
+            "releaseDate",
+            "ratingSystem",
+            "regionalPublisher"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.famitsu.com": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 1,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "press_or_media",
+            "press"
+          ],
+          "targetCategories": [
+            "research",
+            "title",
+            "genres",
+            "players",
+            "releaseDate",
+            "ratingSystem",
+            "regionalPublisher"
+          ],
+          "queryTypeCounts": {
+            "source_specific": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.suruga-ya.jp": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.kaitori-world.jp": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "item.rakuten.co.jp": {
+          "attempts": 2,
+          "usefulAttempts": 2,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 2,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 2,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "retailer"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "exact_identifier": 1,
+            "marketplace": 1
+          },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-22"
+        },
+        "www.doorzo.com": {
+          "attempts": 1,
+          "usefulAttempts": 1,
+          "usefulnessRate": 1,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 1,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 0,
+          "blockedAttempts": 0,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 1,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "2dark-limited-edition-ps4-2026-09-22"
+          ],
+          "sourceTypes": [
+            "marketplace"
+          ],
+          "targetCategories": [
+            "research"
+          ],
+          "queryTypeCounts": {
+            "marketplace": 1
           },
           "exampleSourceIds": [],
           "status": "observed",
