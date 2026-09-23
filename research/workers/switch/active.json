@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 41,
+  "generation": 42,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
@@ -10,6 +10,11 @@
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": 11,
   "currentItemResearchId": "3d-mini-golf-code-in-box-switch-2026-09-23",
+  "lease": {
+    "runId": "switch-20260923T132233Z-a1c74e9b",
+    "claimedAt": "2026-09-23T13:22:33Z",
+    "expiresAt": "2026-09-23T14:02:33Z"
+  },
   "workPackage": {
     "packageId": "switch-2026-09-23-002",
     "grouping": {
@@ -41,7 +46,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-23T12:39:31Z",
+  "updatedAt": "2026-09-23T13:22:33Z",
   "updatedBy": "chatgpt",
-  "note": "3D Mini Golf [Code In Box] factual research checkpointed; lease released. Final ORDER_TEMPLATE_VERSION 11 result assembly/validation remains for the same item."
+  "note": "Resumed CHECKPOINTED 3D Mini Golf [Code In Box] for final ORDER_TEMPLATE_VERSION 11 result assembly and validation."
 }
