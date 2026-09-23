@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "researchId": "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
+  "queueId": "platform-work:ps1:ps1-work-836eb036b9e7b0eb",
+  "platform": "ps1",
+  "catalogIds": ["ps1-jp-slps-02920"],
+  "publishedAt": "2026-09-23T00:52:23Z",
+  "verifiedAt": "2026-09-23T00:52:23Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/0-kara-no-shogi-shogi-youchien-ayumi-gumi-r-slps-02920-ps1-ntsc-jp",
+  "relatedPublicUrls": ["https://www.regionatlas.games/catalogo/0-kara-no-shogi-shogi-youchien-ayumi-gumi-limited-edition-slps-01986-limited-edition-ps1-ntsc-jp"],
+  "publishedRegions": ["NTSC-J Japón"],
+  "publishedEditions": ["R / reedición económica"],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_INSUFFICIENT_EXACT_ACTIVE_LISTINGS",
+  "verification": {
+    "publicPage": "PASS",
+    "originalCatalogId": "PASS",
+    "familyNavigation": "PASS_LINKED_TO_LIMITED_EDITION",
+    "barcode": "PASS_4537744108106",
+    "productCode": "PASS_SLPS-02920",
+    "releaseDate": "PASS_2000-08-10",
+    "softwareLanguage": "PASS_JA",
+    "prices": "PASS_NONE_PUBLISHED",
+    "assets": "PASS_EXISTING_INTERNAL_COVER_PRESERVED",
+    "duplicateCheck": "PASS"
+  },
+  "warnings": [
+    "Packaging languages and physical age rating remain unresolved.",
+    "The research did not prove factory-included manual contents; a used-listing description was not promoted to that fact.",
+    "A retailer release-date conflict was retained in the public note."
+  ],
+  "resultFile": "research/results/0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22.json",
+  "resultSha256": "72ecf558405c213590e5865aa44920749cacaf151465fd111577fc231c9da0a5",
+  "workerResultCommit": "1a8a2c5982f0adc3d50c0871dafac4d0f9a280d7"
+}
