@@ -48,10 +48,11 @@
   <section class="track-map-card surface live-only" aria-labelledby="trackMapTitle">
     <h2 id="trackMapTitle" class="sr-only">Posición virtual en el circuito</h2><span id="trackLiveStatus" hidden></span>
     <button type="button" class="track-map-toggle" id="trackMapToggle" aria-expanded="true" aria-controls="trackMapContent">− Contraer mapa</button>
-    <div class="demo-replay-controls" id="demoControls" hidden><div><strong id="demoRaceLabel">Final Nitro real · MyRCM 100645</strong><span id="demoClockSummary">0:00 / 30:12</span></div><button type="button" id="demoPlayPause">❚❚ Pausar</button><button type="button" id="demoRestart">↺ Reiniciar</button><label>Velocidad<select id="demoSpeed"><option value="1" selected>1× · tiempo real</option><option value="4">4×</option><option value="10">10×</option></select></label><label class="archive-race-picker" id="archiveRacePicker" hidden>Manga<select id="archiveRaceSelect"></select></label><a id="demoReportLink" href="https://www.myrcm.ch/en/report/100645/398202?reportKey=1150&amp;reportType=final" target="_blank" rel="noopener noreferrer">Informe original</a><label class="demo-seek"><span id="demoSeekElapsed">0:00</span><input type="range" id="demoSeek" min="0" max="1812" value="0" step="0.1" aria-label="Posición de la repetición"><span id="demoSeekDuration">30:12</span></label></div>
+    <div class="demo-replay-controls" id="demoControls" hidden><div><strong id="demoRaceLabel">Final Nitro real · MyRCM 100645</strong><span id="demoClockSummary">0:00 / 30:12</span></div><button type="button" id="demoPlayPause">▶ Reproducir</button><button type="button" id="demoRestart">↺ Al inicio</button><label>Velocidad<select id="demoSpeed"><option value="1" selected>1× · tiempo real</option><option value="4">4×</option><option value="10">10×</option></select></label><label class="archive-race-picker" id="archiveRacePicker" hidden>Manga<select id="archiveRaceSelect" aria-label="Manga para reproducir"></select></label><a id="demoReportLink" href="https://www.myrcm.ch/en/report/100645/398202?reportKey=1150&amp;reportType=final" target="_blank" rel="noopener noreferrer">Informe original</a><label class="demo-seek"><span id="demoSeekElapsed">0:00</span><input type="range" id="demoSeek" min="0" max="1812" value="0" step="0.1" aria-label="Posición de la repetición"><span id="demoSeekDuration">30:12</span></label></div>
     <div id="trackMapContent">
     <div class="track-map-layout">
       <div class="track-stage">
+        <div class="demo-countdown" id="demoCountdown" hidden aria-live="assertive"><small>LA REPETICIÓN EMPIEZA EN</small><strong id="demoCountdownValue">3</strong></div>
         <svg id="trackMap" viewBox="0 0 1000 390" role="img" aria-labelledby="trackMapSvgTitle trackMapSvgDesc">
           <title id="trackMapSvgTitle">Circuito de Cerdanyola orientado como la vista aérea, con pilotos en sentido antihorario</title>
           <desc id="trackMapSvgDesc">La línea roja marca el transpondedor en el extremo inferior derecho. La chicane está a la izquierda y el carril de boxes discurre por la parte inferior. Los coches aparecen en la línea al completar la primera vuelta.</desc>
@@ -74,9 +75,19 @@
   </section>
 
   <section class="live-general-card surface live-only" aria-labelledby="liveGeneralTitle">
-    <div class="section-head compact"><div><span class="kicker">GENERAL PROVISIONAL</span><h2 id="liveGeneralTitle">Campeonato ahora</h2></div><span id="liveGeneralStatus">Esperando resultados</span></div>
-    <div class="live-general-head"><span>POS</span><span>PILOTO</span><span>HOY</span><span>PTS</span></div>
-    <div id="liveGeneralRows" class="live-general-rows"><div class="empty-compact">La general aparecerá al calcular los resultados.</div></div>
+    <div class="live-lower-tabs" role="tablist" aria-label="Información inferior en directo">
+      <button type="button" id="liveGeneralTab" class="selected" role="tab" aria-selected="true" aria-controls="liveGeneralPanel">Clasificación</button>
+      <button type="button" id="liveStoryTab" role="tab" aria-selected="false" aria-controls="liveStoryPanel">Relato en directo <span id="liveStoryCount">0</span></button>
+    </div>
+    <div id="liveGeneralPanel" class="live-lower-panel" role="tabpanel" aria-labelledby="liveGeneralTab">
+      <div class="section-head compact"><div><span class="kicker">GENERAL PROVISIONAL</span><h2 id="liveGeneralTitle">Campeonato ahora</h2></div><span id="liveGeneralStatus">Esperando resultados</span></div>
+      <div class="live-general-head"><span>POS</span><span>PILOTO</span><span>HOY</span><span>PTS</span></div>
+      <div id="liveGeneralRows" class="live-general-rows"><div class="empty-compact">La general aparecerá al calcular los resultados.</div></div>
+    </div>
+    <div id="liveStoryPanel" class="live-lower-panel live-story-panel" role="tabpanel" aria-labelledby="liveStoryTab" hidden>
+      <div class="live-story-head"><div><span class="kicker">ANÁLISIS AUTOMÁTICO</span><strong>Lo que está pasando</strong></div><span id="liveStoryStatus">Esperando la carrera</span></div>
+      <div id="liveNarrativeFeed" class="live-story-feed" aria-live="polite"><div class="empty-compact">Las claves de la carrera aparecerán aquí en orden cronológico.</div></div>
+    </div>
   </section>
 
   <main class="dashboard">

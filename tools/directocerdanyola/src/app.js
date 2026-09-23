@@ -28,7 +28,8 @@ let demoReplay=D.prepareReplay({...builtInReplayData,circuit:defaultCircuit});
 const battleThresholdSeconds=2;
 const speedLabel=seconds=>{const value=L.averageSpeedKmh(seconds,activeCircuit.lapLengthMeters);return value==null?'—':`${decimal(value,1)} km/h`;};
 const distanceLabel=laps=>{const value=L.distanceKm(laps,activeCircuit.lapLengthMeters);return value==null?'—':`${decimal(value,2)} km`;};
-let category='ECO',socket=null,shouldReconnect=false,reconnectTimer=null,rankingTimer=null,pitClock=null,lapClock=null,lastRankingFetch=0,paused=false,queuedSnapshot=null,snapshot=null,enriched=[],officialRanking=[],officialRuns=[],officialSectionKey='',officialFinalComplete=false,rankingStatus='pending',projectedState=null,result=null,possibilityResult=null,broadcast=null,toastTimer=null,scenarioCache=new Map(),incidents=[],pitReportBusy=false,demoMode=false,demoStartedAt=0,demoElapsedBase=0,demoSpeed=1,demoPlaying=false,demoFrameProgress=new Map(),demoPreviousPositions=new Map(),demoSignature='',demoReturnState=null,demoHeavyAt=0,demoTimingAt=0,demoUiSecond=-1,fuelVisualAt=0,fastestLapFlashTimer=null,fastestLapActiveScope='',replayArchiveSummaries=[],archiveQueues=new Map(),archiveFlushTimer=null,archiveBusy=false,archiveLastSignature='',archiveSavedRace='',archiveFinalizedRace='',archiveReportFinalizedRace='';
+let category='ECO',socket=null,shouldReconnect=false,reconnectTimer=null,rankingTimer=null,pitClock=null,lapClock=null,lastRankingFetch=0,paused=false,queuedSnapshot=null,snapshot=null,enriched=[],officialRanking=[],officialRuns=[],officialSectionKey='',officialFinalComplete=false,rankingStatus='pending',projectedState=null,result=null,possibilityResult=null,broadcast=null,toastTimer=null,scenarioCache=new Map(),incidents=[],pitReportBusy=false,demoMode=false,demoStartedAt=0,demoElapsedBase=0,demoSpeed=1,demoPlaying=false,demoCountdownTimer=null,demoCountdownValue=0,demoFrameProgress=new Map(),demoPreviousPositions=new Map(),demoSignature='',demoReturnState=null,demoHeavyAt=0,demoTimingAt=0,demoUiSecond=-1,fuelVisualAt=0,fastestLapFlashTimer=null,fastestLapActiveScope='',replayArchiveSummaries=[],archiveQueues=new Map(),archiveFlushTimer=null,archiveBusy=false,archiveLastSignature='',archiveSavedRace='',archiveFinalizedRace='',archiveReportFinalizedRace='',liveLowerPanel='general',liveNarrativeContext='',liveNarrativeEntries=[];
+const liveNarrativeLast=new Map();
 const fastestLapBaselines=new Map();
 const pitStorageKey='puntoracing.directocerdanyola.pit-v1';
 const mapCollapseKey='puntoracing.directocerdanyola.map-collapsed-v1';
@@ -46,6 +47,32 @@ function setView(view){
   const next=view==='analysis'?'analysis':'live';document.body.dataset.view=next;
   document.querySelectorAll('[data-view-button]').forEach(button=>{const selected=button.dataset.viewButton===next;button.classList.toggle('selected',selected);button.setAttribute('aria-selected',String(selected));});
   window.scrollTo(0,0);
+}
+function setLiveLowerPanel(panel){
+  liveLowerPanel=panel==='story'?'story':'general';const story=liveLowerPanel==='story';
+  $('liveGeneralTab').classList.toggle('selected',!story);$('liveGeneralTab').setAttribute('aria-selected',String(!story));$('liveStoryTab').classList.toggle('selected',story);$('liveStoryTab').setAttribute('aria-selected',String(story));
+  $('liveGeneralPanel').hidden=story;$('liveStoryPanel').hidden=!story;
+}
+function resetLiveNarrative(context=''){
+  liveNarrativeContext=context;liveNarrativeEntries=[];liveNarrativeLast.clear();renderLiveNarrative();
+}
+function narrativeClock(){
+  if(demoMode&&snapshot)return snapshot.currentTime||D.formatClock(demoCurrentElapsed());
+  return new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+function recordLiveNarrative(items){
+  if(!snapshot||!enriched.length)return;const context=[demoMode?'replay':'live',$('eventKey').value.trim(),snapshot.sectionCode||snapshot.section,snapshot.groupKey||snapshot.group,category].join('|');
+  if(context!==liveNarrativeContext)resetLiveNarrative(context);
+  const now=Date.now();
+  for(const item of items){
+    if(!item||!item.text)continue;const previous=liveNarrativeLast.get(item.key),cooldown=Number(item.cooldown)||0;if(previous&&previous.text===item.text)continue;if(previous&&cooldown&&now-previous.at<cooldown)continue;
+    liveNarrativeLast.set(item.key,{text:item.text,at:now});liveNarrativeEntries.push({kind:item.kind||'DIRECTO',text:item.text,time:narrativeClock(),lap:item.lap||0});
+  }
+  if(liveNarrativeEntries.length>80)liveNarrativeEntries.splice(0,liveNarrativeEntries.length-80);renderLiveNarrative();
+}
+function renderLiveNarrative(){
+  $('liveStoryCount').textContent=String(liveNarrativeEntries.length);$('liveStoryStatus').textContent=liveNarrativeEntries.length?`${liveNarrativeEntries.length} apuntes de esta manga`:'Esperando la carrera';
+  $('liveNarrativeFeed').innerHTML=liveNarrativeEntries.length?[...liveNarrativeEntries].reverse().map(item=>`<article class="live-story-entry"><time>${esc(item.time)}${item.lap?` · V${item.lap}`:''}</time><div><span>${esc(item.kind)}</span><p>${esc(item.text)}</p></div></article>`).join(''):'<div class="empty-compact">Las claves de la carrera aparecerán aquí en orden cronológico.</div>';
 }
 function setMapCollapsed(collapsed){
   const value=Boolean(collapsed),card=document.querySelector('.track-map-card');if(!card)return;
@@ -82,6 +109,7 @@ async function flushRaceArchives(completeKey=''){
 }
 function switchCategory(next,{manual=false}={}){
   if(!seeds[next])return;if(manual&&demoMode)stopDemo(false);category=next;document.body.dataset.category=next;
+  if(manual)resetLiveNarrative();
   if(!demoMode){document.querySelectorAll('.category-switch [data-category]').forEach(button=>{const selected=button.dataset.category===next;button.classList.toggle('selected',selected);button.setAttribute('aria-selected',String(selected));});$('demoTab').classList.remove('selected');$('demoTab').setAttribute('aria-selected','false');}
   scenarioCache.clear();
   if(manual&&snapshot&&snapshot.category&&snapshot.category!==next){officialRanking=[];officialRuns=[];officialFinalComplete=false;rankingStatus='category-mismatch';}
@@ -92,7 +120,7 @@ function connect(){
   if(demoMode)stopDemo(false);
   const eventKey=$('eventKey').value.trim();
   if(!/^\d{1,12}$/.test(eventKey)){toast('El identificador de MyRCM debe contener solo números.',true);return;}
-  closeSocket();officialRanking=[];officialRuns=[];officialSectionKey='';officialFinalComplete=false;rankingStatus='pending';lastRankingFetch=0;shouldReconnect=true;setConnection('connecting','Conectando con MyRCM');$('lastUpdate').textContent=`Evento ${eventKey} · abriendo canal público`;
+  closeSocket();resetLiveNarrative();officialRanking=[];officialRuns=[];officialSectionKey='';officialFinalComplete=false;rankingStatus='pending';lastRankingFetch=0;shouldReconnect=true;setConnection('connecting','Conectando con MyRCM');$('lastUpdate').textContent=`Evento ${eventKey} · abriendo canal público`;
   try{socket=new WebSocket('wss://www.myrcm.ch/websocket');}catch(error){setConnection('error','No se pudo abrir MyRCM');toast(error.message,true);return;}
   socket.onopen=()=>{setConnection('live','MyRCM conectado');socket.send(JSON.stringify({EventKey:eventKey,Language:'en',Format:'JSON'}));history.replaceState(null,'',`${location.pathname}?event=${encodeURIComponent(eventKey)}`);};
   socket.onmessage=event=>{try{const normalized=L.normalizeEvent(JSON.parse(event.data));if(!normalized)return;if(paused){queuedSnapshot=normalized;return;}applySnapshot(normalized,true);}catch(error){console.warn('Actualización MyRCM ignorada',error);}};
@@ -186,9 +214,22 @@ function updateReplayMeta(){
 function updateDemoControls(frame){
   if(!demoMode)return;
   const elapsed=frame?frame.elapsed:demoCurrentElapsed(),finished=elapsed>=demoReplay.durationSeconds;
-  $('demoClockSummary').textContent=`${D.formatClock(elapsed)} / ${D.formatClock(demoReplay.durationSeconds)} · ${Math.round(elapsed/demoReplay.durationSeconds*100)}%`;
-  $('demoPlayPause').textContent=finished?'▶ Repetir':demoPlaying?'❚❚ Pausar':'▶ Continuar';
+  $('demoClockSummary').textContent=`${D.formatClock(elapsed)} / ${D.formatClock(demoReplay.durationSeconds)} · ${Math.round(elapsed/Math.max(1,demoReplay.durationSeconds)*100)}%`;
+  $('demoPlayPause').textContent=demoCountdownValue?'Cancelar':finished?'▶ Repetir':demoPlaying?'❚❚ Pausar':elapsed>0?'▶ Continuar':'▶ Reproducir';
   $('demoSpeed').value=String(demoSpeed);$('demoSeek').max=String(demoReplay.durationSeconds);$('demoSeek').value=String(elapsed);$('demoSeekElapsed').textContent=D.formatClock(elapsed);$('demoSeekDuration').textContent=D.formatClock(demoReplay.durationSeconds);
+}
+function cancelDemoCountdown(){
+  clearInterval(demoCountdownTimer);demoCountdownTimer=null;demoCountdownValue=0;$('demoCountdown').hidden=true;if(demoMode)updateDemoControls();
+}
+function resetDemoTimeline({clearStory=true}={}){
+  cancelDemoCountdown();resetFastestLapWatcher('demo');demoElapsedBase=0;demoStartedAt=0;demoPlaying=false;demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;if(clearStory)resetLiveNarrative();
+}
+function beginDemoPlayback(){
+  cancelDemoCountdown();demoStartedAt=Date.now();demoPlaying=true;setConnection('live','Reproduciendo carrera');updateDemoControls();
+}
+function startDemoCountdown(){
+  cancelDemoCountdown();demoCountdownValue=3;$('demoCountdownValue').textContent='3';$('demoCountdown').hidden=false;setConnection('paused','La repetición empieza en 3…');updateDemoControls();
+  demoCountdownTimer=setInterval(()=>{demoCountdownValue-=1;if(demoCountdownValue<=0){beginDemoPlayback();return;}$('demoCountdownValue').textContent=String(demoCountdownValue);setConnection('paused',`La repetición empieza en ${demoCountdownValue}…`);updateDemoControls();},1000);
 }
 function renderDemoFrame(force=false){
   if(!demoMode)return;
@@ -213,19 +254,20 @@ function renderDemoFrame(force=false){
 }
 function toggleDemoPlayback(){
   if(!demoMode)return;
-  if(demoCurrentElapsed()>=demoReplay.durationSeconds){restartDemo();return;}
+  if(demoCountdownValue){cancelDemoCountdown();setConnection('paused','Repetición preparada');return;}
+  if(demoCurrentElapsed()>=demoReplay.durationSeconds){restartDemo();startDemoCountdown();return;}
   if(demoPlaying){demoElapsedBase=demoCurrentElapsed();demoPlaying=false;demoStartedAt=0;setConnection('paused','Repetición pausada');}
-  else{demoStartedAt=Date.now();demoPlaying=true;setConnection('live','Reproduciendo carrera');}
+  else startDemoCountdown();
   updateDemoControls();
 }
-function restartDemo(){if(!demoMode)return;resetFastestLapWatcher('demo');demoElapsedBase=0;demoStartedAt=Date.now();demoPlaying=true;demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;setConnection('live','Reproduciendo carrera');renderDemoFrame(true);}
-function setDemoSpeed(value){if(!demoMode)return;demoElapsedBase=demoCurrentElapsed();demoStartedAt=Date.now();demoSpeed=[1,4,10].includes(Number(value))?Number(value):1;renderDemoFrame(true);}
+function restartDemo(){if(!demoMode)return;resetDemoTimeline();setConnection('paused','Repetición preparada');renderDemoFrame(true);}
+function setDemoSpeed(value){if(!demoMode)return;demoElapsedBase=demoCurrentElapsed();demoStartedAt=demoPlaying?Date.now():0;demoSpeed=[1,4,10].includes(Number(value))?Number(value):1;renderDemoFrame(true);}
 function seekDemo(value){
-  if(!demoMode)return;demoElapsedBase=Math.max(0,Math.min(demoReplay.durationSeconds,Number(value)||0));demoStartedAt=Date.now();if(demoElapsedBase>=demoReplay.durationSeconds){demoPlaying=false;demoStartedAt=0;}demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;renderDemoFrame(true);
+  if(!demoMode)return;cancelDemoCountdown();demoElapsedBase=Math.max(0,Math.min(demoReplay.durationSeconds,Number(value)||0));demoStartedAt=demoPlaying?Date.now():0;if(demoElapsedBase>=demoReplay.durationSeconds){demoPlaying=false;demoStartedAt=0;}demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;resetLiveNarrative();renderDemoFrame(true);
 }
 function stopDemo(refresh=true){
   if(!demoMode)return;
-  clearFastestLapFlash();fastestLapActiveScope='';
+  cancelDemoCountdown();clearFastestLapFlash();fastestLapActiveScope='';
   const saved=demoReturnState;demoMode=false;demoPlaying=false;demoStartedAt=0;demoElapsedBase=0;demoFrameProgress.clear();demoPreviousPositions.clear();demoSignature='';demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;demoReturnState=null;$('demoControls').hidden=true;$('demoTab').classList.remove('selected');$('demoTab').setAttribute('aria-selected','false');
   if(saved){category=saved.category;document.body.dataset.category=category;snapshot=saved.snapshot;enriched=saved.enriched;officialRanking=saved.officialRanking;officialRuns=saved.officialRuns;officialSectionKey=saved.officialSectionKey;officialFinalComplete=saved.officialFinalComplete;rankingStatus=saved.rankingStatus;projectedState=saved.projectedState;result=saved.result;possibilityResult=saved.possibilityResult;broadcast=saved.broadcast;applyCircuit(saved.circuit||defaultCircuit);}
   document.querySelectorAll('.category-switch [data-category]').forEach(button=>{const selected=button.dataset.category===category;button.classList.toggle('selected',selected);button.setAttribute('aria-selected',String(selected));});
@@ -238,20 +280,23 @@ async function refreshReplayArchiveOptions(){
   const eventKey=$('eventKey').value.trim(),select=$('archiveRaceSelect');replayArchiveSummaries=[];select.innerHTML='';
   if(eventKey==='100645'){const option=document.createElement('option');option.value='builtin';option.textContent='Final Nitro · archivo original';select.append(option);}
   try{const response=await fetch(`/api/myrcm/archive?event=${encodeURIComponent(eventKey)}`,{headers:{Accept:'application/json'}});if(response.ok){const data=await response.json();replayArchiveSummaries=Array.isArray(data.archives)?data.archives.filter(item=>item.replayAvailable):[];if(data.jornada&&data.jornada.title)$('eventHelp').textContent=`Jornada archivada: ${data.jornada.title} · ${data.jornada.raceCount} mangas guardadas.`;for(const summary of replayArchiveSummaries){const option=document.createElement('option');option.value=summary.raceId;option.textContent=replayOptionLabel(summary);select.append(option);}}}catch(error){console.warn('No se pudo consultar el archivo de la jornada',error);}
-  $('archiveRacePicker').hidden=select.options.length<2;const complete=replayArchiveSummaries.find(item=>item.status==='complete');return complete&&complete.raceId||select.options[0]&&select.options[0].value||'';
+  $('archiveRacePicker').hidden=select.options.length===0;const complete=replayArchiveSummaries.find(item=>item.status==='complete');return complete&&complete.raceId||select.options[0]&&select.options[0].value||'';
 }
 async function loadReplaySource(source){
   if(source==='builtin'){applyCircuit(defaultCircuit);demoReplay=D.prepareReplay({...builtInReplayData,circuit:defaultCircuit});updateReplayMeta();return true;}
   const eventKey=$('eventKey').value.trim();try{const response=await fetch(`/api/myrcm/archive?event=${encodeURIComponent(eventKey)}&race=${encodeURIComponent(source)}`,{headers:{Accept:'application/json'}});if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();if(!data.archive||!data.archive.replay)throw new Error('La manga todavía no tiene suficientes vueltas para reproducirse.');const circuit=data.archive.replay.circuit||data.archive.circuit;if(circuit)applyCircuit(circuit);demoReplay=D.prepareReplay({...data.archive.replay,circuit:circuit||activeCircuit});updateReplayMeta();return true;}catch(error){toast(error.message||'No se pudo abrir la repetición.',true);return false;}
 }
-async function changeReplaySource(source){if(!await loadReplaySource(source))return;$('archiveRaceSelect').value=source;if(demoMode){category=demoReplay.category==='ECO'?'ECO':'NITRO';document.body.dataset.category=category;restartDemo();}}
+async function changeReplaySource(source){
+  if(!await loadReplaySource(source))return;$('archiveRaceSelect').value=source;
+  if(demoMode){category=demoReplay.category==='ECO'?'ECO':'NITRO';document.body.dataset.category=category;resetDemoTimeline();renderDemoFrame(true);setConnection('paused','Manga cargada · pulsa Play');toast('Manga cargada. Pulsa Play para iniciar la repetición.');}
+}
 async function startDemo(){
-  if(demoMode){toggleDemoPlayback();return;}
+  if(demoMode)return;
   const returnCircuit=activeCircuit,source=await refreshReplayArchiveOptions();if(!source){toast('Todavía no hay una carrera archivada para este evento.',true);return;}if(!await loadReplaySource(source))return;$('archiveRaceSelect').value=source;
   resetFastestLapWatcher('demo');
   demoReturnState={category,snapshot,enriched,officialRanking,officialRuns,officialSectionKey,officialFinalComplete,rankingStatus,projectedState,result,possibilityResult,broadcast,circuit:returnCircuit};clearTimeout(rankingTimer);
-  demoMode=true;paused=false;$('pauseButton').textContent='Pausar pantalla';category=demoReplay.category==='ECO'?'ECO':'NITRO';document.body.dataset.category=category;officialRanking=[];officialRuns=[];officialSectionKey='';officialFinalComplete=false;rankingStatus='replay';demoSpeed=Number($('demoSpeed').value)||1;demoElapsedBase=0;demoStartedAt=Date.now();demoPlaying=true;demoSignature='';demoPreviousPositions.clear();demoFrameProgress.clear();demoHeavyAt=0;demoTimingAt=0;demoUiSecond=-1;fuelVisualAt=0;
-  document.querySelectorAll('.category-switch [data-category]').forEach(button=>{button.classList.remove('selected');button.setAttribute('aria-selected','false');});$('demoTab').classList.add('selected');$('demoTab').setAttribute('aria-selected','true');$('demoControls').hidden=false;updateReplayMeta();setConnection('live','Reproduciendo carrera');renderDemoFrame(true);toast('Repetición iniciada con los datos guardados de MyRCM.');
+  demoMode=true;paused=false;$('pauseButton').textContent='Pausar pantalla';category=demoReplay.category==='ECO'?'ECO':'NITRO';document.body.dataset.category=category;officialRanking=[];officialRuns=[];officialSectionKey='';officialFinalComplete=false;rankingStatus='replay';demoSpeed=Number($('demoSpeed').value)||1;resetDemoTimeline();
+  document.querySelectorAll('.category-switch [data-category]').forEach(button=>{button.classList.remove('selected');button.setAttribute('aria-selected','false');});$('demoTab').classList.add('selected');$('demoTab').setAttribute('aria-selected','true');$('demoControls').hidden=false;updateReplayMeta();renderDemoFrame(true);setConnection('paused','Manga cargada · pulsa Play');toast('Repetición preparada. Selecciona la manga y pulsa Play.');
 }
 function basePitProfile(driver){return P.profileForName(pitProfilesData.profiles,driver.name);}
 function pitProfile(driver){
@@ -547,9 +592,10 @@ function renderBroadcast(){
   if(trackingLost)insights.push(`${trackingLost.name} lleva más de un minuto sin un nuevo cruce y se ha retirado temporalmente del mapa. Reaparecerá si vuelve a pasar por el transpondedor.`);
   else if(trackingWarning){const state=lapProgressState(trackingWarning);insights.push(`${trackingWarning.name} lleva ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} segundos sin registrar un cruce: posible incidencia en pista.`);}
   if(demoMode){const noStart=enriched.find(driver=>{const state=lapProgressState(driver);return state&&state.didNotStart;});if(noStart)insights.push(`${noStart.name} figura sin salida registrada en el cronometraje.`);}
+  let urgentStrategy=null;
   if(category==='NITRO'){
     const strategy=enriched.map(driver=>({driver,signal:pitSignal(driver),profile:pitProfile(driver)})).filter(item=>item.signal&&item.profile);
-    const urgent=strategy.find(item=>item.signal.state==='pit-live'||item.signal.state==='pit'||item.signal.state==='incident')||strategy.find(item=>item.signal.state==='window');
+    const urgent=strategy.find(item=>item.signal.state==='pit-live'||item.signal.state==='pit'||item.signal.state==='incident')||strategy.find(item=>item.signal.state==='window');urgentStrategy=urgent||null;
     if(urgent){
       const window=urgent.signal.window,lapText=window?` en torno a las vueltas ${window.from}–${window.to}`:'';
       if(urgent.signal.state==='incident')insights.push(`${urgent.driver.name} encadena una pérdida que ya no encaja con una parada aislada: posible incidencia, con confianza ${urgent.signal.confidence}.`);
@@ -559,6 +605,17 @@ function renderBroadcast(){
   }
   insights.push(`${enriched.filter(d=>d.matchedPilot).length} pilotos están enlazados automáticamente con la clasificación del campeonato.`);
   $('liveInsights').innerHTML=insights.map(text=>`<div class="insight">${esc(text)}</div>`).join('');
+  const narrative=[];
+  for(const text of broadcast.paragraphs.slice(0,2))narrative.push({key:`championship:${text}`,kind:'CAMPEONATO',text});
+  if(leader&&leader.laps)narrative.push({key:`leader:${leader.key||leader.name}:${leader.laps}`,kind:'CARRERA',lap:leader.laps,text:`${leader.name} lidera con ${leader.laps} vuelta${leader.laps===1?'':'s'}${leader.gapPrevious?` y ${leader.gapPrevious} sobre el segundo`:''}.`});
+  if(fastest)narrative.push({key:`fastest:${fastest.key||fastest.name}:${fastest.bestSeconds}`,kind:'VUELTA RÁPIDA',lap:fastest.laps,text:`${fastest.name} marca la mejor vuelta: ${fastest.best}, a ${speedLabel(fastest.bestSeconds)} de media.`});
+  if(movers[0])narrative.push({key:`mover:${movers[0].key||movers[0].name}:${movers[0].position}:${movers[0].positionChange||movers[0].trend}`,kind:'POSICIONES',lap:movers[0].laps,text:`${movers[0].name} es el movimiento a vigilar en la clasificación.`});
+  if(closeBattle){const names=closeBattle.drivers.map(driver=>driver.name),label=names.length===2?names.join(' y '):`${names.slice(0,-1).join(', ')} y ${names.at(-1)}`;narrative.push({key:`battle:${closeBattle.drivers.map(driver=>driver.key||driver.name).join('|')}`,kind:'LUCHA',lap:Math.max(...closeBattle.drivers.map(driver=>driver.laps||0)),cooldown:20000,text:`Lucha por el puesto ${closeBattle.startPosition}: ${label}, separados por ${decimal(closeBattle.spanSeconds,3)} s.`});}
+  if(trackingLost)narrative.push({key:`off-track:${trackingLost.key||trackingLost.name}`,kind:'INCIDENCIA',lap:trackingLost.laps,text:`${trackingLost.name} supera un minuto sin cruce y sale temporalmente del mapa.`});
+  else if(trackingWarning){const state=lapProgressState(trackingWarning);narrative.push({key:`tracking:${trackingWarning.key||trackingWarning.name}:${Math.floor((state.sinceLastCrossing||state.elapsed||0)/10)}`,kind:'AVISO',lap:trackingWarning.laps,cooldown:10000,text:`${trackingWarning.name} lleva ${Math.floor(state.sinceLastCrossing||state.elapsed||0)} segundos sin registrar un cruce.`});}
+  if(urgentStrategy){const {driver,signal}=urgentStrategy,window=signal.window,lapText=window?` entre las vueltas ${window.from} y ${window.to}`:'';narrative.push({key:`strategy:${driver.key||driver.name}:${signal.state}`,kind:signal.state==='incident'?'INCIDENCIA':'ESTRATEGIA',lap:driver.laps,cooldown:15000,text:signal.state==='incident'?`${driver.name} acumula una pérdida que ya no encaja con un repostaje aislado.`:signal.state==='pit-live'||signal.state==='pit'?`${driver.name} está probablemente repostando${lapText}; su retraso encaja con el patrón previsto.`:`${driver.name} se aproxima a su ventana de repostaje${lapText}.`});}
+  for(const item of activeIncidents)narrative.push({key:`rule:${item.pilot}:${item.type}:${item.time}`,kind:'REGLAMENTO',text:`${item.pilot}: ${item.rule.title}. ${item.consequence}`});
+  if(!demoMode||demoPlaying||demoCurrentElapsed()>0)recordLiveNarrative(narrative);
 }
 function renderScenarioSelector(){
   if(!result)return;const select=$('scenarioPilot'),current=select.value;
@@ -725,6 +782,8 @@ function renderEventImpact(){
 }
 document.querySelectorAll('.category-switch [data-category]').forEach(button=>button.addEventListener('click',()=>switchCategory(button.dataset.category,{manual:true})));
 document.querySelectorAll('[data-view-button]').forEach(button=>button.addEventListener('click',()=>setView(button.dataset.viewButton)));
+$('liveGeneralTab').addEventListener('click',()=>setLiveLowerPanel('general'));
+$('liveStoryTab').addEventListener('click',()=>setLiveLowerPanel('story'));
 $('connectButton').addEventListener('click',connect);
 $('demoTab').addEventListener('click',()=>void startDemo());
 $('demoPlayPause').addEventListener('click',toggleDemoPlayback);
@@ -739,13 +798,14 @@ $('scenarioPilot').addEventListener('change',renderObjectives);
 $('scenarioTarget').addEventListener('change',renderObjectives);
 $('addIncident').addEventListener('click',()=>{const pilot=$('incidentPilot').value,type=$('incidentType').value,rule=R.incidents[type];if(!pilot||!rule){toast('Selecciona un piloto y una decisión confirmada.',true);return;}incidents.push({pilot,type,rule:{...rule,url:rule.url||R.categories[category].url},consequence:incidentConsequence(type),category,time:new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'})});renderIncidentFeed();renderBroadcast();toast('Incidencia añadida al guion; la proyección espera el resultado oficial.');});
 $('copyBroadcast').addEventListener('click',async()=>{const incidentText=incidents.filter(item=>item.category===category).map(item=>`REGLAMENTO · ${item.pilot}: ${item.rule.title}. ${item.rule.text} ${item.consequence}`),text=[`${snapshot&&snapshot.name||activeCircuit.name} · ${category} · DIRECTO`,snapshot&&snapshot.group||'',...(broadcast?broadcast.paragraphs:[]),...incidentText].filter(Boolean).join('\n\n');try{await navigator.clipboard.writeText(text);toast('Guion copiado.');}catch{toast('El navegador no ha permitido copiar el guion.',true);}});
-window.addEventListener('pagehide',()=>{clearInterval(pitClock);clearInterval(lapClock);clearTimeout(archiveFlushTimer);for(const frames of archiveQueues.values()){if(!frames.length)continue;const body=new Blob([JSON.stringify({eventKey:$('eventKey').value.trim(),circuit:activeCircuit,frames})],{type:'application/json'});navigator.sendBeacon('/api/myrcm/archive',body);}archiveQueues.clear();closeSocket();});
+window.addEventListener('pagehide',()=>{clearInterval(pitClock);clearInterval(lapClock);clearInterval(demoCountdownTimer);clearTimeout(archiveFlushTimer);for(const frames of archiveQueues.values()){if(!frames.length)continue;const body=new Blob([JSON.stringify({eventKey:$('eventKey').value.trim(),circuit:activeCircuit,frames})],{type:'application/json'});navigator.sendBeacon('/api/myrcm/archive',body);}archiveQueues.clear();closeSocket();});
 renderRules();
 renderHistory();
 renderRegistrations();
 $('demoReportLink').hidden=false;
 try{setMapCollapsed(localStorage.getItem(mapCollapseKey)==='1');}catch{setMapCollapsed(false);}
 applyCircuit(defaultCircuit);
+setLiveLowerPanel('general');renderLiveNarrative();
 pitClock=setInterval(()=>{if(!demoMode&&category==='NITRO'&&snapshot&&!paused){renderTiming();renderPitStrategy();renderBroadcast();}},1000);
 lapClock=setInterval(()=>{if(paused)return;if(demoMode)renderDemoFrame();else if(snapshot)updateLapVisuals();},33);
 connect();
