@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 43,
+  "generation": 44,
   "workerId": "switch",
-  "state": "RESULT_READY",
+  "state": "PROCESSING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": 11,
-  "currentItemResearchId": "3d-mini-golf-code-in-box-switch-2026-09-23",
+  "currentItemResearchId": "3d-mini-golf-switch-2026-09-23",
   "workPackage": {
     "packageId": "switch-2026-09-23-002",
     "grouping": {
@@ -41,7 +41,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-23T13:30:40Z",
-  "updatedBy": "chatgpt",
-  "note": "3D Mini Golf [Code In Box] ORDER_TEMPLATE_VERSION 11 result published; checkpoint removed and lease released. All items in package switch-2026-09-23-002 are RESULT_READY."
+  "updatedAt": "2026-09-23T16:59:00Z",
+  "updatedBy": "codex",
+  "note": "3D Mini Golf base publicado por Admin con portada y contraportada internas, datos regionales verificados. La etiqueta pública del tipo de edición dice Otra edición debido al clasificador general; PR #365 corrige Multi-PAL como STANDARD. No consumir hasta despliegue y verificación pública. El segundo resultado del paquete permanece intacto."
 }
