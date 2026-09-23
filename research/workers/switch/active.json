@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generation": 31,
+  "generation": 32,
   "workerId": "switch",
   "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
@@ -46,11 +46,11 @@
     ]
   },
   "lease": {
-    "runId": "chatgpt-switch-20260923T082353Z-11",
-    "claimedAt": "2026-09-23T08:23:53Z",
-    "expiresAt": "2026-09-23T09:13:53Z"
+    "runId": "chatgpt-switch-20260923T092802Z-recovery-11",
+    "claimedAt": "2026-09-23T09:28:02Z",
+    "expiresAt": "2026-09-23T10:18:02Z"
   },
-  "updatedAt": "2026-09-23T08:23:53Z",
+  "updatedAt": "2026-09-23T09:28:02Z",
   "updatedBy": "chatgpt",
-  "note": "Researching 3D Mini Golf under package switch-2026-09-23-002."
+  "note": "Recovered expired lease chatgpt-switch-20260923T082353Z-11; continuing 3D Mini Golf under package switch-2026-09-23-002."
 }
