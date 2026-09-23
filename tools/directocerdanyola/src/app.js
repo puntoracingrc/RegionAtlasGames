@@ -85,8 +85,8 @@ function voiceItemMatchesPilot(item){
 }
 function shouldSpeak(item){return item.spoken!==false&&voiceEnabled&&voiceAvailable&&voiceSettings.types[item.voiceType||'progress']!==false&&(voiceSettings.mode!=='pilot'||voiceItemMatchesPilot(item));}
 function voiceCooldown(item){return {championship:90000,progress:90000,pilot:30000,battle:15000,strategy:20000,incident:15000,recovery:5000,pace:30000,fastest:2000,start:2000,final:2000}[item.voiceType]||10000;}
-async function requestVoiceAudio(text){
-  const response=await fetch('/api/rctimes/speech',{method:'POST',headers:{'Content-Type':'application/json',Accept:'audio/mpeg'},body:JSON.stringify({text:text.slice(0,600),voice:voiceSettings.voice,mode:voiceSettings.mode})});
+async function requestVoiceAudio(text,eventType='progress'){
+  const response=await fetch('/api/rctimes/speech',{method:'POST',headers:{'Content-Type':'application/json',Accept:'audio/mpeg'},body:JSON.stringify({text:text.slice(0,600),voice:voiceSettings.voice,mode:voiceSettings.mode,eventType})});
   if(!response.ok){let message='No se pudo generar el aviso';try{message=(await response.json()).error||message;}catch{}throw new Error(message);}return response.blob();
 }
 function clearVoiceQueue(stop=false){
@@ -99,7 +99,14 @@ async function playVoiceQueue(){
   finally{if(voiceCurrentUrl)URL.revokeObjectURL(voiceCurrentUrl);voiceCurrentUrl='';voiceCurrentAudio=null;voiceBusy=false;if(voiceEnabled)setVoiceStatus(voiceQueue.length?`${voiceQueue.length} avisos pendientes`:'Escuchando nuevos avisos');if(voiceQueue.length)void playVoiceQueue();}
 }
 function enqueueVoiceNarration(item){
-  if(!shouldSpeak(item))return;const signature=[item.voiceType,...(item.pilots||[]).map(String).sort()].join('|'),now=Date.now(),last=voiceLastSpoken.get(signature)||0;if(now-last<voiceCooldown(item))return;voiceLastSpoken.set(signature,now);const queued={...item,audioPromise:requestVoiceAudio(item.text)};queued.audioPromise.catch(()=>{});voiceQueue.push(queued);voiceQueue.sort((a,b)=>(Number(b.priority)||0)-(Number(a.priority)||0));if(voiceQueue.length>8)voiceQueue.length=8;setVoiceStatus(`${voiceQueue.length} aviso${voiceQueue.length===1?'':'s'} en cola`);void playVoiceQueue();
+  if(!shouldSpeak(item))return;const signature=[item.voiceType,...(item.pilots||[]).map(String).sort()].join('|'),now=Date.now(),last=voiceLastSpoken.get(signature)||0;if(now-last<voiceCooldown(item))return;voiceLastSpoken.set(signature,now);const queued={...item,audioPromise:requestVoiceAudio(item.text,item.voiceType)};queued.audioPromise.catch(()=>{});voiceQueue.push(queued);voiceQueue.sort((a,b)=>(Number(b.priority)||0)-(Number(a.priority)||0));if(voiceQueue.length>8)voiceQueue.length=8;setVoiceStatus(`${voiceQueue.length} aviso${voiceQueue.length===1?'':'s'} en cola`);void playVoiceQueue();
+}
+async function previewSelectedVoice(){
+  if(!voiceAvailable){await checkVoiceAvailability();if(!voiceAvailable)return;}
+  let failed=false;clearVoiceQueue(true);voiceBusy=true;setVoiceStatus(`Preparando muestra · ${voiceSettings.voice}`);$('voicePreview').disabled=true;
+  try{const blob=await requestVoiceAudio('Entramos en los últimos diez minutos. Marc García mejora su ritmo y ya está a menos de un segundo del coche que le precede. La lucha por la segunda posición está completamente abierta.','sample'),source=URL.createObjectURL(blob),audio=new Audio(source);voiceCurrentAudio=audio;voiceCurrentUrl=source;audio.volume=voiceSettings.volume;setVoiceStatus(`Muestra · ${voiceSettings.voice}`);await new Promise((resolve,reject)=>{audio.onended=resolve;audio.onerror=()=>reject(new Error('No se pudo reproducir la muestra.'));audio.play().catch(reject);});}
+  catch(error){failed=true;console.warn('Muestra de voz omitida',error);setVoiceStatus(error.message||'No se pudo reproducir la muestra',true);}
+  finally{if(voiceCurrentUrl)URL.revokeObjectURL(voiceCurrentUrl);voiceCurrentUrl='';voiceCurrentAudio=null;voiceBusy=false;$('voicePreview').disabled=false;if(!failed)setVoiceStatus(voiceEnabled?'Escuchando nuevos avisos':'Voz desactivada');if(voiceQueue.length)void playVoiceQueue();}
 }
 async function toggleVoiceNarration(){
   if(voiceEnabled){voiceEnabled=false;clearVoiceQueue(true);renderVoiceSettings();setVoiceStatus('Voz desactivada');return;}
@@ -873,6 +880,7 @@ $('voicePanelClose').addEventListener('click',()=>setVoicePanel(false));
 $('voiceMode').addEventListener('change',event=>{voiceSettings.mode=event.target.value==='pilot'?'pilot':'broadcast';saveVoiceSettings();clearVoiceQueue(true);renderVoiceSettings();if(voiceEnabled)setVoiceStatus('Modo actualizado; escuchando nuevos avisos');});
 $('voiceName').addEventListener('change',event=>{voiceSettings.voice=['marin','cedar','coral'].includes(event.target.value)?event.target.value:'marin';saveVoiceSettings();});
 $('voiceVolume').addEventListener('input',event=>{voiceSettings.volume=Math.max(0,Math.min(1,Number(event.target.value)));if(voiceCurrentAudio)voiceCurrentAudio.volume=voiceSettings.volume;saveVoiceSettings();});
+$('voicePreview').addEventListener('click',()=>void previewSelectedVoice());
 document.querySelectorAll('[data-voice-type]').forEach(input=>input.addEventListener('change',event=>{voiceSettings.types[event.target.dataset.voiceType]=event.target.checked;saveVoiceSettings();}));
 $('voicePilotList').addEventListener('change',event=>{const input=event.target.closest('[data-voice-pilot]');if(!input)return;const id=input.dataset.voicePilot,selected=new Set(voiceSettings.pilots);if(input.checked)selected.add(id);else selected.delete(id);voiceSettings.pilots=[...selected];saveVoiceSettings();});
 $('voiceSelectAllPilots').addEventListener('click',()=>{const roster=enriched.length?enriched:(snapshot&&snapshot.drivers||[]),all=roster.map(voicePilotId),selecting=all.some(id=>!voiceSettings.pilots.includes(id));voiceSettings.pilots=selecting?all:[];saveVoiceSettings();renderVoicePilotOptions();});
