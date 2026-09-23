@@ -32,7 +32,7 @@ Se añadió una corrección mínima a la ruta de subida para generar rutas disti
 
 ## QA ejecutado
 
-- 8 tests de imagen física/ruta CDN/tarjeta: correctos.
+- 61 tests de imágenes físicas, rutas CDN, overlay y guías V2: correctos. El primer intento en el checkout disperso no tenía los assets `public/` requeridos por cuatro pruebas de integridad; tras incorporar esa carpeta al worktree, las 61 pasaron.
 - ESLint de los tres archivos de código cambiados: correcto.
 - Typecheck: correcto con `NODE_OPTIONS=--max-old-space-size=8192`; el primer intento con el límite de memoria por defecto agotó el heap.
 - Build de Next.js: correcto (296 páginas estáticas generadas).
