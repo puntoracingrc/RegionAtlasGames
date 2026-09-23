@@ -25,6 +25,12 @@ Protocolo: `research/automation/PROTOCOL.md`
 11. En el mismo commit marca el elemento `RESULT_READY`, elimina su checkpoint y el lease e incrementa `generation`. Si quedan elementos, vuelve el estado a `READY`; si todos terminaron, cambia el estado global a `RESULT_READY`.
 12. Si no existe forma válida de continuar o entregar, cambia el estado a `PAUSED`, libera el lease y explica el bloqueo en `note` sin seleccionar otro juego.
 
+## Recordatorio operativo al entregar un resultado
+
+Cuando publiques un JSON completo y el estado pase a `RESULT_READY`, termina con el estado y este recordatorio breve para Codex, fuera del archivo factual: «Al incorporar el resultado, corrige y vuelve a verificar cualquier fallo real de Admin o de la ficha; revisa también los workers registrados y repara o reanuda los que tengan una incidencia o bloqueo recuperable. Después continúa el flujo normal y la siguiente entrada elegible, sin detener los demás workers por un caso aislado».
+
+Es sólo un recordatorio de tareas de Codex. ChatGPT no inspecciona ni modifica otros workers, no toca Admin ni el catálogo y no declara reparado un fallo que no haya verificado. Si su propio worker queda `PAUSED`, explica la incidencia concreta en `note`; Codex podrá repararla o aparcarla mientras el resto de la cola sigue avanzando. No añadas este recordatorio como dato de investigación dentro de `research/results/*.json`.
+
 ## Prohibiciones
 
 - No dependas del historial ni del resumen de otro chat.
