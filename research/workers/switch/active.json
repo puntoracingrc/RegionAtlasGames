@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 27,
+  "generation": 28,
   "workerId": "switch",
-  "state": "READY",
+  "state": "RUNNING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
@@ -32,8 +32,12 @@
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-23T00:28:15Z",
-  "updatedBy": "codex",
-  "note": "1-2-Switch publicado y verificado como ficha central V2 con ES, US y JP; resultado archivado con recibo. Se prepara el siguiente paquete independiente de Switch."
+  "lease": {
+    "runId": "chatgpt-switch-20260923T012702Z-11",
+    "claimedAt": "2026-09-23T01:27:02Z",
+    "expiresAt": "2026-09-23T02:22:02Z"
+  },
+  "updatedAt": "2026-09-23T01:27:02Z",
+  "updatedBy": "chatgpt",
+  "note": "Lease reclamado para investigar exclusivamente el elemento actual del paquete preparado."
 }
