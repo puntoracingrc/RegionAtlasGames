@@ -44,6 +44,16 @@ La tarea programada es independiente y puede iniciar una conversación nueva en 
 
 El cambio de conversación no autoriza una nueva búsqueda. `RESULT_READY`, `PROCESSING` o `PAUSED` hacen que ChatGPT termine sin modificar nada. Sólo `READY` o un `RUNNING` recuperable permiten continuar.
 
+## Prioridad aprendida de fuentes
+
+Antes de investigar, el worker lee `research/source-performance.json` desde el mismo HEAD remoto que contiene su estado. Sólo utiliza como aprendizaje operativo el bloque de su plataforma cuando `recommendationStatus` sea `VALIDATED_ROUTES_AVAILABLE`.
+
+Las entradas de `recommendations` son rutas prioritarias, no exclusivas. El worker las intenta primero cuando sus `targetCategories` correspondan al campo pendiente y conserva el orden publicado por Codex. Que un dominio esté recomendado no confirma ningún dato, no eleva la confianza y no sustituye la URL directa ni las reglas de vinculación de título, plataforma, edición, mercado y componente.
+
+Si una ruta prioritaria está bloqueada, no existe para el producto exacto, devuelve sólo contexto o no alcanza la prueba exigida, el worker registra el intento en `queryLedger` y `sourceAttempts` y continúa inmediatamente con el routing normal de la orden. Debe seguir usando búsquedas generales, consultas por identificador, fuentes técnicas, retailers, marketplaces y rutas visuales permitidas según el campo. Agotar las recomendaciones no es una condición de parada ni permite declarar `unresolved` mientras queden rutas normales de alto valor sin intentar.
+
+Una plataforma con `INSUFFICIENT_CROSS_RESEARCH_EVIDENCE`, sin bloque propio o sin recomendaciones aplicables sigue íntegramente el routing normal. Un bloqueo técnico no convierte la fuente en inútil ni autoriza reintentos indefinidos.
+
 ## Publicación y corrección por Codex
 
 Cuando Codex incorpora un resultado mediante el administrador, la publicación y el diálogo final de confirmación están previamente autorizados. Codex debe pulsar por sí mismo la acción de crear, guardar o publicar y aceptar el diálogo final; no espera una aprobación adicional del usuario para esa ficha.
