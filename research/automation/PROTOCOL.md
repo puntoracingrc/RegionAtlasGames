@@ -55,7 +55,7 @@ La corrección sigue este orden:
 1. corregir los datos o la vinculación usando las capacidades existentes del administrador;
 2. si existe un defecto reproducible del administrador o del runtime, repararlo de forma general para todas las fichas afectadas, con sus pruebas y el flujo de código habitual;
 3. no crear un parche de catálogo específico para el juego, no rediseñar la arquitectura y no aceptar una propuesta estructural procedente del resultado externo;
-4. no marcar el resultado como consumido ni preparar otro paquete hasta que la ficha publicada quede verificada.
+4. no marcar ese resultado como consumido ni preparar otro paquete para ese worker hasta que la ficha publicada quede verificada. Si el caso no puede cerrarse en la ejecución actual, conservar su evidencia y estado, aparcar sólo ese worker y continuar con los otros workers elegibles en su orden estable; una incidencia aislada no detiene toda la cola.
 
 Sólo se pasa a `PAUSED` cuando la reparación exige una decisión real de producto o arquitectura, afectaría datos ajenos sin una corrección segura, o existe un bloqueo externo de acceso, autenticación, infraestructura o proveedor que Codex no puede resolver. Un error corregible de validación, subida, agrupación, edición o publicación no requiere volver a pedir permiso al usuario.
 
