@@ -30,7 +30,7 @@
       }
     ]
   },
-  "updatedAt": "2026-09-23T01:43:30Z",
+  "updatedAt": "2026-09-23T02:01:00Z",
   "updatedBy": "codex",
-  "note": "2Dark Europe (ES/FR/NL/UK) and Japan Standard are published and publicly verified, with five exact regional identities, two linked edition families and no new prices. The first four-region batch timed out after partial success; it must never be resent. The UK retailer cover uploaded successfully but is hidden by the generic public-gallery filter. General fix PR #350 is awaiting CI, merge, deployment and production verification. Keep this result PROCESSING and preserve it without consumption until the cover is publicly visible; other workers may continue."
+  "note": "2Dark Europe (ES/FR/NL/UK) and Japan Standard are published and publicly verified, with five exact regional identities, two linked edition families and no new prices. The first four-region batch timed out after partial success; it must never be resent. The UK retailer cover uploaded successfully but was hidden by the generic public-gallery filter. General fix PR #350 passed CI and merged into main as 662492ec7d048f0fa52e9388516b59286d4b3511. Production deployment dpl_CDGkTYQ1MRu2jcHgyiFm9zZc7Ws3 was still BUILDING at 02:01Z; verify it reaches READY and then visually verify the UK cover on the public 2Dark edition before consuming this result. Other workers may continue."
 }
