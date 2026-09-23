@@ -1,0 +1,625 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-23T06:12:47.533Z",
+  "sourceManifest": "regionatlas_ps2_hack_summer_codex_pack (1).zip/assets_manifest.json",
+  "entries": [
+    {
+      "work": "_summer##",
+      "family": "Standard",
+      "serials": [
+        "SLPM-66460"
+      ],
+      "barcode": "4571164030180",
+      "market": "JP",
+      "placement": "front",
+      "sourcePage": "https://gamefaqs.gamespot.com/ps2/931604-summer-/images",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-j/summer-slpm-66460-portada-7417924bc9.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/_summer/slpm-66460__jp__4571164030180__front.jpg",
+      "sha256": "7417924bc989baf59a58c455a38005b5c2611dc117365cbb9bfb25ff2c57a306",
+      "copySha256": "7417924bc989baf59a58c455a38005b5c2611dc117365cbb9bfb25ff2c57a306",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": "_summer##",
+      "family": "Standard",
+      "serials": [
+        "SLPM-66460"
+      ],
+      "barcode": "4571164030180",
+      "market": "JP",
+      "placement": "back",
+      "sourcePage": "https://gamefaqs.gamespot.com/ps2/931604-summer-/images",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-j/summer-slpm-66460-contraportada-8740414de1.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/_summer/slpm-66460__jp__4571164030180__back.jpg",
+      "sha256": "8740414de187e227d55254f321eb1a8028cbb9b52a4f10ff8eb450bd07b8a598",
+      "copySha256": "8740414de187e227d55254f321eb1a8028cbb9b52a4f10ff8eb450bd07b8a598",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": "_summer##",
+      "family": "First Print Limited Edition",
+      "serials": [
+        "GN-06017"
+      ],
+      "barcode": "4571164030173",
+      "market": "JP",
+      "placement": "front",
+      "sourcePage": "https://gamefaqs.gamespot.com/ps2/931604-summer-/boxes/73056",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-j/summer-first-print-limited-edition-sin-codigo-portada-0b6ea5a1c3.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/_summer/gn-06017__jp__4571164030173__front.jpg",
+      "sha256": "0b6ea5a1c31d2419edd559591f7a1816f02b57d7c3fd4cec328bb0d57033eaa4",
+      "copySha256": "0b6ea5a1c31d2419edd559591f7a1816f02b57d7c3fd4cec328bb0d57033eaa4",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": "_summer##",
+      "family": "First Print Limited Edition",
+      "serials": [
+        "GN-06017"
+      ],
+      "barcode": "4571164030173",
+      "market": "JP",
+      "placement": "back",
+      "sourcePage": "https://gamefaqs.gamespot.com/ps2/931604-summer-/boxes/73056",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-j/summer-first-print-limited-edition-sin-codigo-contraportada-9e550b0ad5.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/_summer/gn-06017__jp__4571164030173__back.jpg",
+      "sha256": "9e550b0ad5eb7a966867ebcb2ad6a150fa93e795d980f9d532f99921ff7a2bac",
+      "copySha256": "9e550b0ad5eb7a966867ebcb2ad6a150fa93e795d980f9d532f99921ff7a2bac",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": "_summer##",
+      "family": "Best Version",
+      "serials": [
+        "SLPM-66877"
+      ],
+      "barcode": "4571164038186",
+      "market": "JP",
+      "placement": "front",
+      "sourcePage": "https://gamefaqs.gamespot.com/ps2/931604-summer-/images",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-j/summer-best-version-slpm-66877-portada-0b5dcd74ef.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/_summer/slpm-66877__jp__4571164038186__front.jpg",
+      "sha256": "0b5dcd74efb311da3396bb22d11fd5c61a51de8576ae406411121228e67168fd",
+      "copySha256": "0b5dcd74efb311da3396bb22d11fd5c61a51de8576ae406411121228e67168fd",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": "_summer##",
+      "family": "Best Version",
+      "serials": [
+        "SLPM-66877"
+      ],
+      "barcode": "4571164038186",
+      "market": "JP",
+      "placement": "back",
+      "sourcePage": "https://gamefaqs.gamespot.com/ps2/931604-summer-/images",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-j/summer-best-version-slpm-66877-contraportada-23b2e99207.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/_summer/slpm-66877__jp__4571164038186__back.jpg",
+      "sha256": "23b2e9920758504bb0679fc1185a1c6b6cb80446f601585427a7b15e039c5db4",
+      "copySha256": "23b2e9920758504bb0679fc1185a1c6b6cb80446f601585427a7b15e039c5db4",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "serials": [
+        "SLPS-25121"
+      ],
+      "barcode": "4543112084477",
+      "market": "JP",
+      "placement": "front",
+      "sourcePage": "https://gamefaqs.gamespot.com/ps2/551240-hack-infection-part-1/data",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-j/hack-kanshei-kakudai-vol-1-slps-25121-portada-647516abda.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/hack-original/slps-25121__jp__4543112084477__front.jpg",
+      "sha256": "647516abdaf25487f73a2beeffa29802e63463f67a5b7850f1dc6f2eb28e9a78",
+      "copySha256": "647516abdaf25487f73a2beeffa29802e63463f67a5b7850f1dc6f2eb28e9a78",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "serials": [
+        "SLPS-25121"
+      ],
+      "barcode": "4543112084477",
+      "market": "JP",
+      "placement": "back",
+      "sourcePage": "https://gamefaqs.gamespot.com/ps2/551240-hack-infection-part-1/data",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-j/hack-kanshei-kakudai-vol-1-slps-25121-contraportada-d16023a66c.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/hack-original/slps-25121__jp__4543112084477__back.jpg",
+      "sha256": "d16023a66cd04eab009b8765d43fc586968805d392b6d0237e73a350a975242a",
+      "copySha256": "d16023a66cd04eab009b8765d43fc586968805d392b6d0237e73a350a975242a",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "serials": [
+        "SLUS-20267"
+      ],
+      "barcode": "045557180119",
+      "market": "US",
+      "placement": "front",
+      "sourcePage": "https://gamefaqs.gamespot.com/ps2/551240-hack-infection-part-1/boxes/44778",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-u/hack-part-1-infection-slus-20267-portada-b0cbe7a758.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/hack-original/slus-20267__us__045557180119__front.jpg",
+      "sha256": "b0cbe7a758cbbd7d0e184d4cf24067fab2dea079d7281a01b1d89e90a72f55c4",
+      "copySha256": "b0cbe7a758cbbd7d0e184d4cf24067fab2dea079d7281a01b1d89e90a72f55c4",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": ".hack//Vol. 1 x Vol. 2",
+      "family": "PlayStation 2 the Best Compilation",
+      "serials": [
+        "SLPS-73230",
+        "SLPS-73231"
+      ],
+      "barcode": "4543112415325",
+      "market": "JP",
+      "placement": "front",
+      "sourcePage": "https://psxdatacenter.com/psx2/games2/SLPS-73230.html",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-j/hack-vol-1-x-vol-2-playstation-2-the-best-2-discs-slps-73230-portada-0beb37ea83.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/hack-compilations/slps-73230-73231__jp__4543112415325__front.jpg",
+      "sha256": "0beb37ea83298506bc3d2a894f97112c9b0d2e03ac873d5296dc84890c95b6de",
+      "copySha256": "0beb37ea83298506bc3d2a894f97112c9b0d2e03ac873d5296dc84890c95b6de",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": ".hack//Vol. 1 x Vol. 2",
+      "family": "PlayStation 2 the Best Compilation",
+      "serials": [
+        "SLPS-73230",
+        "SLPS-73231"
+      ],
+      "barcode": "4543112415325",
+      "market": "JP",
+      "placement": "back",
+      "sourcePage": "https://psxdatacenter.com/psx2/games2/SLPS-73230.html",
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/ntsc-j/hack-vol-1-x-vol-2-playstation-2-the-best-2-discs-slps-73230-contraportada-eceb38b84d.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/hack-compilations/slps-73230-73231__jp__4543112415325__back.jpg",
+      "sha256": "eceb38b84d71ad61ecb94f93b536b7767548fb031e068597bcfc30c2a270d9a6",
+      "copySha256": "eceb38b84d71ad61ecb94f93b536b7767548fb031e068597bcfc30c2a270d9a6",
+      "status": "REPO_SOURCE_MATCHED",
+      "note": "Identidad declarada por el manifest de investigación; pendiente de vinculación pública a la ficha exacta."
+    },
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "serials": [
+        "SLES-52237"
+      ],
+      "barcode": null,
+      "market": null,
+      "placement": "front",
+      "sourcePage": null,
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/pal/hack-part-1-infection-sles-52237-portada-1b1e617265.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/hack-original/infection-pal-unassigned/hack-part-1-infection-sles-52237-portada-1b1e617265.jpg",
+      "sha256": "1b1e6172656f4602b9720567b4b7f58752255f979f3da79f0cfc27bc0cc0a442",
+      "copySha256": "1b1e6172656f4602b9720567b4b7f58752255f979f3da79f0cfc27bc0cc0a442",
+      "status": "PENDING_REVIEW",
+      "note": "Portada PAL sin EAN asignado; no publicar como país específico."
+    },
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "serials": [
+        "SLES-52237"
+      ],
+      "barcode": null,
+      "market": null,
+      "placement": "front",
+      "sourcePage": null,
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/pal/hack-part-1-infection-sles-52237-portada-2ea78d2e18.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/hack-original/infection-pal-unassigned/hack-part-1-infection-sles-52237-portada-2ea78d2e18.jpg",
+      "sha256": "2ea78d2e18c3fa291a3c2c8006beacdf9e0edb6161be87fa19d4f93cbb9195ed",
+      "copySha256": "2ea78d2e18c3fa291a3c2c8006beacdf9e0edb6161be87fa19d4f93cbb9195ed",
+      "status": "PENDING_REVIEW",
+      "note": "Portada PAL sin EAN asignado; no publicar como país específico."
+    },
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "serials": [
+        "SLES-52237"
+      ],
+      "barcode": null,
+      "market": null,
+      "placement": "front",
+      "sourcePage": null,
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/pal/hack-part-1-infection-sles-52237-portada-364480e8cb.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/hack-original/infection-pal-unassigned/hack-part-1-infection-sles-52237-portada-364480e8cb.jpg",
+      "sha256": "364480e8cb7cef15a774f2a272c852c22f001d208231a0ab43256630a121b5ab",
+      "copySha256": "364480e8cb7cef15a774f2a272c852c22f001d208231a0ab43256630a121b5ab",
+      "status": "PENDING_REVIEW",
+      "note": "Portada PAL sin EAN asignado; no publicar como país específico."
+    },
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "serials": [
+        "SLES-52237"
+      ],
+      "barcode": null,
+      "market": null,
+      "placement": "front",
+      "sourcePage": null,
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/pal/hack-part-1-infection-sles-52237-portada-a973fdf5b4.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/hack-original/infection-pal-unassigned/hack-part-1-infection-sles-52237-portada-a973fdf5b4.jpg",
+      "sha256": "a973fdf5b4a91636a06611ba3433eea92932b2abfa7bbd1203c84a9e061852fc",
+      "copySha256": "a973fdf5b4a91636a06611ba3433eea92932b2abfa7bbd1203c84a9e061852fc",
+      "status": "PENDING_REVIEW",
+      "note": "Portada PAL sin EAN asignado; no publicar como país específico."
+    },
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "serials": [
+        "SLES-52237"
+      ],
+      "barcode": null,
+      "market": null,
+      "placement": "front",
+      "sourcePage": null,
+      "repoOriginalPath": "artifacts/ps2-region-migration/original-covers/pal/hack-part-1-infection-sles-52237-portada-b358635a48.jpg",
+      "copiedPath": "artifacts/ps2-hack-summer-canonicalization/images/hack-original/infection-pal-unassigned/hack-part-1-infection-sles-52237-portada-b358635a48.jpg",
+      "sha256": "b358635a48263069aaef7aef9ee5ef6b518584237d62ecc7d2f79975bf9b1503",
+      "copySha256": "b358635a48263069aaef7aef9ee5ef6b518584237d62ecc7d2f79975bf9b1503",
+      "status": "PENDING_REVIEW",
+      "note": "Portada PAL sin EAN asignado; no publicar como país específico."
+    }
+  ],
+  "pendingProducts": [
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "market": "US",
+      "serials": [
+        "SLUS-20267"
+      ],
+      "barcode": "045557180119",
+      "sourceStatus": "repo_front_external_back",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/551240-hack-infection-part-1/boxes/44778",
+        "https://gamefaqs.gamespot.com/ps2/551240-hack-infection-part-1/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "market": "KR",
+      "serials": [
+        "SLKA-25080"
+      ],
+      "barcode": "8809070472043",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/551240-hack-infection-part-1/boxes/101164",
+        "https://gamefaqs.gamespot.com/ps2/551240-hack-infection-part-1/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//Infection Part 1",
+      "family": "Standard",
+      "market": "EU variants",
+      "serials": [
+        "SLES-52237"
+      ],
+      "barcode": "multiple",
+      "sourceStatus": "repo_unassigned_fronts_plus_external_back",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/551240-hack-infection-part-1/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//Mutation Part 2",
+      "family": "Standard",
+      "market": "JP",
+      "serials": [
+        "SLPS-25143"
+      ],
+      "barcode": "4543112084484",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/582446-hack-mutation-part-2/boxes/51591",
+        "https://gamefaqs.gamespot.com/ps2/582446-hack-mutation-part-2/data",
+        "https://www.mobygames.com/game/9859/hackmutation-part-2/covers/"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//Mutation Part 2",
+      "family": "Standard",
+      "market": "US",
+      "serials": [
+        "SLUS-20562"
+      ],
+      "barcode": "045557180126",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://www.mobygames.com/game/9859/hackmutation-part-2/covers/",
+        "https://gamefaqs.gamespot.com/ps2/582446-hack-mutation-part-2/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//Mutation Part 2",
+      "family": "Standard",
+      "market": "KR",
+      "serials": [
+        "SLKA-25138"
+      ],
+      "barcode": "8809126041025",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/582446-hack-mutation-part-2/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//Mutation Part 2",
+      "family": "Standard",
+      "market": "EU variants",
+      "serials": [
+        "SLES-52467"
+      ],
+      "barcode": "multiple",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/582446-hack-mutation-part-2/data",
+        "https://www.mobygames.com/game/9859/hackmutation-part-2/covers/",
+        "https://www.covercentury.com/covers/ps2/d/dot_hack_mutation_-_part_2_d.jpg"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//Outbreak Part 3",
+      "family": "Standard",
+      "market": "JP/US/KR/EU variants",
+      "serials": [
+        "SLPS-25158",
+        "SLUS-20563",
+        "SLKA-25145",
+        "SLES-52469"
+      ],
+      "barcode": "multiple",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/589681-hack-outbreak-part-3/media",
+        "https://gamefaqs.gamespot.com/ps2/589681-hack-outbreak-part-3/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//Quarantine Part 4",
+      "family": "Standard",
+      "market": "JP/US/KR/EU variants",
+      "serials": [
+        "SLPS-25202",
+        "SLUS-20564",
+        "SLKA-25174",
+        "SLES-52468"
+      ],
+      "barcode": "multiple",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/589682-hack-quarantine-part-4/media",
+        "https://gamefaqs.gamespot.com/ps2/589682-hack-quarantine-part-4/data",
+        "https://gamesdb.launchbox-app.com/games/images/6925-hackquarantine-part-4"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//Vol. 3 x Vol. 4",
+      "family": "PlayStation 2 the Best Compilation",
+      "market": "JP",
+      "serials": [
+        "SLPS-73232",
+        "SLPS-73233"
+      ],
+      "barcode": "4543112415332",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/589681-hack-outbreak-part-3/media",
+        "https://gamefaqs.gamespot.com/ps2/589681-hack-outbreak-part-3/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//Fragment",
+      "family": "Standard",
+      "market": "JP",
+      "serials": [
+        "SLPS-25527"
+      ],
+      "barcode": "4543112378798",
+      "sourceStatus": "external_front_known_back_seek",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/929056-hack-fragment/boxes/77041",
+        "https://gamefaqs.gamespot.com/ps2/929056-hack-fragment/data",
+        "https://psxdatacenter.com/psx2/manuals2.html"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 1",
+      "family": "Standard",
+      "market": "JP",
+      "serials": [
+        "SLPS-25651",
+        "SLPS-25652"
+      ],
+      "barcode": "4582224491094",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/928400-hack-gu-vol-1-rebirth/boxes/67654",
+        "https://gamefaqs.gamespot.com/ps2/928400-hack-gu-vol-1-rebirth/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 1",
+      "family": "Standard",
+      "market": "US",
+      "serials": [
+        "SLUS-21258"
+      ],
+      "barcode": "722674100571",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/928400-hack-gu-vol-1-rebirth/boxes/67464",
+        "https://gamefaqs.gamespot.com/ps2/928400-hack-gu-vol-1-rebirth/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 1",
+      "family": "Special Edition",
+      "market": "US",
+      "serials": [
+        "SLUS-21258",
+        "SLUS-21480"
+      ],
+      "barcode": "722674600088",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/928400-hack-gu-vol-1-rebirth/boxes",
+        "https://gamefaqs.gamespot.com/ps2/928400-hack-gu-vol-1-rebirth/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 1",
+      "family": "Welcome Price!!",
+      "market": "JP",
+      "serials": [
+        "SLPS-25755",
+        "SLPS-25756"
+      ],
+      "barcode": "4582224491506",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/928400-hack-gu-vol-1-rebirth/boxes/82824",
+        "https://gamefaqs.gamespot.com/ps2/928400-hack-gu-vol-1-rebirth/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 1",
+      "family": "PlayStation 2 the Best",
+      "market": "JP",
+      "serials": [
+        "SLPS-73259"
+      ],
+      "barcode": "4582224492183",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/928400-hack-gu-vol-1-rebirth/boxes",
+        "https://gamefaqs.gamespot.com/ps2/928400-hack-gu-vol-1-rebirth/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 2",
+      "family": "Standard",
+      "market": "JP",
+      "serials": [
+        "SLPS-25655"
+      ],
+      "barcode": "4582224491117",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/boxes/70198",
+        "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 2",
+      "family": "Standard",
+      "market": "US",
+      "serials": [
+        "SLUS-21488"
+      ],
+      "barcode": "722674100649",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/boxes",
+        "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 2",
+      "family": "PlayStation 2 the Best",
+      "market": "JP",
+      "serials": [
+        "SLPS-73266"
+      ],
+      "barcode": "4582224492190",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/boxes/144219",
+        "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 3",
+      "family": "Standard",
+      "market": "JP",
+      "serials": [
+        "SLPS-25656"
+      ],
+      "barcode": "4582224491124",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/929995-hack-gu-vol-3-redemption/boxes",
+        "https://gamefaqs.gamespot.com/ps2/929995-hack-gu-vol-3-redemption/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 3",
+      "family": "Standard",
+      "market": "US",
+      "serials": [
+        "SLUS-21489"
+      ],
+      "barcode": "722674100687",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/929995-hack-gu-vol-3-redemption/boxes",
+        "https://gamefaqs.gamespot.com/ps2/929995-hack-gu-vol-3-redemption/data"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "work": ".hack//G.U. Vol. 3",
+      "family": "PlayStation 2 the Best",
+      "market": "JP",
+      "serials": [
+        "SLPS-73267"
+      ],
+      "barcode": "4582224493135",
+      "sourceStatus": "external_needed",
+      "sourcePages": [
+        "https://gamefaqs.gamespot.com/ps2/929995-hack-gu-vol-3-redemption/boxes/144220",
+        "https://gamefaqs.gamespot.com/ps2/929995-hack-gu-vol-3-redemption/data"
+      ],
+      "status": "PENDING_REVIEW"
+    }
+  ]
+}

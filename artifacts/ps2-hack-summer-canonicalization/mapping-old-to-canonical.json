@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "status": "AUDIT_MAPPING_NOT_APPLIED",
+  "generatedAt": "2026-09-23",
+  "canonicalEntityCount": {
+    "gameWorks": 9,
+    "compilationProducts": 2
+  },
+  "overlayOnly": [
+    {
+      "catalogId": "ps2-japon-summer-jp-best-version",
+      "workKey": "summer",
+      "familyKey": "best-version",
+      "serial": "SLPM-66877",
+      "state": "EXISTING_ADMIN_OVERLAY"
+    }
+  ],
+  "mapping": [
+    {
+      "catalogId": "ps2-hack-infection",
+      "currentRoute": "/catalogo/hack-infection-ps2-pal-es",
+      "workKey": "hack-infection",
+      "familyKey": "standard-eu",
+      "verifiedSerial": "SLES-52237",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-hack-mutation",
+      "currentRoute": "/catalogo/hack-mutation-ps2-pal-es",
+      "proposedWorkKey": "hack-mutation",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-hack-outbreak",
+      "currentRoute": "/catalogo/hack-outbreak-ps2-pal-es",
+      "proposedWorkKey": "hack-outbreak",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-hack-quarantine",
+      "currentRoute": "/catalogo/hack-quarantine-ps2-pal-es",
+      "proposedWorkKey": "hack-quarantine",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-dot-hack-wwwdothackcom-limited-sleeve",
+      "currentRoute": "/catalogo/dot-hack-wwwdothackcom-limited-sleeve-ps2-pal-es",
+      "state": "OUT_OF_MAIN_WORK_OR_BONUS",
+      "action": "preserve_and_review_separately"
+    },
+    {
+      "catalogId": "ps2-usa-hack-gu-rebirth",
+      "currentRoute": "/catalogo/hack-gu-rebirth-ps2-pal-us",
+      "proposedWorkKey": "hack-gu-vol-1",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-usa-hack-gu-rebirth-special-edition",
+      "currentRoute": "/catalogo/hack-gu-rebirth-special-edition-ps2-pal-us",
+      "proposedWorkKey": "hack-gu-vol-1",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-usa-hack-gu-redemption",
+      "currentRoute": "/catalogo/hack-gu-redemption-ps2-pal-us",
+      "proposedWorkKey": "hack-gu-vol-3",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-usa-hack-gu-reminisce",
+      "currentRoute": "/catalogo/hack-gu-reminisce-ps2-pal-us",
+      "proposedWorkKey": "hack-gu-vol-2",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-usa-hack-infection",
+      "currentRoute": "/catalogo/hack-infection-ps2-pal-us",
+      "workKey": "hack-infection",
+      "familyKey": "standard-us",
+      "verifiedSerial": "SLUS-20267",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-usa-hack-mutation",
+      "currentRoute": "/catalogo/hack-mutation-ps2-pal-us",
+      "proposedWorkKey": "hack-mutation",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-usa-hack-mutation-demo-disc",
+      "currentRoute": "/catalogo/hack-mutation-demo-disc-ps2-pal-us",
+      "state": "OUT_OF_MAIN_WORK_OR_BONUS",
+      "action": "preserve_and_review_separately"
+    },
+    {
+      "catalogId": "ps2-usa-hack-outbreak",
+      "currentRoute": "/catalogo/hack-outbreak-ps2-pal-us",
+      "proposedWorkKey": "hack-outbreak",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-usa-hack-quarantine",
+      "currentRoute": "/catalogo/hack-quarantine-ps2-pal-us",
+      "proposedWorkKey": "hack-quarantine",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-japon-hack-fragment",
+      "currentRoute": "/catalogo/hack-fragment-ps2-pal-jp",
+      "proposedWorkKey": "hack-fragment",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-japon-hack-fragment-early-release-version",
+      "currentRoute": "/catalogo/hack-fragment-early-release-version-ps2-pal-jp",
+      "proposedWorkKey": "hack-fragment",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-japon-hack-infection",
+      "currentRoute": "/catalogo/hack-infection-ps2-pal-jp",
+      "proposedWorkKey": "hack-infection",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-japon-hack-mutation",
+      "currentRoute": "/catalogo/hack-mutation-ps2-pal-jp",
+      "proposedWorkKey": "hack-mutation",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-japon-hack-outbreak-vol-3",
+      "currentRoute": "/catalogo/hack-outbreak-vol-3-ps2-pal-jp",
+      "proposedWorkKey": "hack-outbreak",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-japon-hack-quarantine",
+      "currentRoute": "/catalogo/hack-quarantine-ps2-pal-jp",
+      "proposedWorkKey": "hack-quarantine",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-japon-_summer-first-print-limited-edition",
+      "currentRoute": "/catalogo/summer-first-print-limited-edition-ps2-pal-jp",
+      "workKey": "summer",
+      "familyKey": "first-print-limited",
+      "verifiedSerial": "GN-06017",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-japon-_summer",
+      "currentRoute": "/catalogo/summer-ps2-pal-jp",
+      "workKey": "summer",
+      "familyKey": "standard",
+      "verifiedSerial": "SLPM-66460",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-japon-hack-gu-rebirth",
+      "currentRoute": "/catalogo/hack-gu-rebirth-ps2-pal-jp",
+      "proposedWorkKey": "hack-gu-vol-1",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-japon-hack-gu-redemption",
+      "currentRoute": "/catalogo/hack-gu-redemption-ps2-pal-jp",
+      "proposedWorkKey": "hack-gu-vol-3",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-japon-hack-gu-reminisce",
+      "currentRoute": "/catalogo/hack-gu-reminisce-ps2-pal-jp",
+      "proposedWorkKey": "hack-gu-vol-2",
+      "state": "TITLE_MATCH_ONLY_PHYSICAL_IDENTITY_UNRESOLVED",
+      "action": "do_not_merge_or_redirect_yet"
+    },
+    {
+      "catalogId": "ps2-japon-hackvol-1-x-vol-2",
+      "currentRoute": "/catalogo/hackvol-1-x-vol-2-ps2-pal-jp",
+      "productKey": "hack-vol-1-x-vol-2",
+      "editionType": "COMPILATION",
+      "verifiedEan": "4543112415325",
+      "discSerials": [
+        "SLPS-73230",
+        "SLPS-73231"
+      ],
+      "state": "PRODUCT_TITLE_MATCH_PHYSICAL_LINK_PENDING",
+      "action": "preserve_route_and_collection_until_bridge_verified"
+    },
+    {
+      "catalogId": "ps2-japon-hackvol-3-x-vol-4",
+      "currentRoute": "/catalogo/hackvol-3-x-vol-4-ps2-pal-jp",
+      "productKey": "hack-vol-3-x-vol-4",
+      "editionType": "COMPILATION",
+      "verifiedEan": "4543112415332",
+      "discSerials": [
+        "SLPS-73232",
+        "SLPS-73233"
+      ],
+      "state": "PRODUCT_TITLE_MATCH_PHYSICAL_LINK_PENDING",
+      "action": "preserve_route_and_collection_until_bridge_verified"
+    },
+    {
+      "catalogId": "ps2-eu-sles-52467",
+      "currentRoute": "/catalogo/hack-part-2-mutation-sles-52467-ps2-pal-eu",
+      "workKey": "hack-mutation",
+      "familyKey": "standard-eu",
+      "verifiedSerial": "SLES-52467",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-eu-sles-52468",
+      "currentRoute": "/catalogo/hack-part-4-quarantine-sles-52468-ps2-pal-eu",
+      "workKey": "hack-quarantine",
+      "familyKey": "standard-eu",
+      "verifiedSerial": "SLES-52468",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-eu-sles-52469",
+      "currentRoute": "/catalogo/hack-part-3-outbreak-sles-52469-ps2-pal-eu",
+      "workKey": "hack-outbreak",
+      "familyKey": "standard-eu",
+      "verifiedSerial": "SLES-52469",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-jp-slps-25121",
+      "currentRoute": "/catalogo/hack-kansen-kakudai-vol-1-slps-25121-ps2-ntsc-jp",
+      "workKey": "hack-infection",
+      "familyKey": "standard-jp",
+      "verifiedSerial": "SLPS-25121",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-jp-slps-25202",
+      "currentRoute": "/catalogo/hack-zettai-houi-vol-4-slps-25202-ps2-ntsc-jp",
+      "workKey": "hack-quarantine",
+      "familyKey": "standard-jp",
+      "verifiedSerial": "SLPS-25202",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-jp-slps-25651",
+      "currentRoute": "/catalogo/hack-g-u-vol-1-saitan-slps-25651-ps2-ntsc-jp",
+      "workKey": "hack-gu-vol-1",
+      "familyKey": "standard-jp",
+      "verifiedSerial": "SLPS-25651",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-jp-slps-25655",
+      "currentRoute": "/catalogo/hack-g-u-vol-2-kimi-omou-koe-slps-25655-ps2-ntsc-jp",
+      "workKey": "hack-gu-vol-2",
+      "familyKey": "standard-jp",
+      "verifiedSerial": "SLPS-25655",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-jp-slps-73233-playstation-2-the-best",
+      "currentRoute": "/catalogo/hack-zettai-houi-vol-4-playstation-2-the-best-slps-73233-playstation-2-the-best-ps2-ntsc-jp",
+      "productKey": "hack-vol-3-x-vol-4",
+      "editionType": "COMPILATION",
+      "verifiedEan": "4543112415332",
+      "discSerials": [
+        "SLPS-73232",
+        "SLPS-73233"
+      ],
+      "state": "DISC_BRIDGE_PENDING_REVIEW",
+      "action": "preserve_route_and_collection_until_bridge_verified"
+    },
+    {
+      "catalogId": "ps2-jp-slps-73259-playstatiion-2-the-best",
+      "currentRoute": "/catalogo/hack-g-u-vol-1-saitan-playstatiion-2-the-best-slps-73259-playstatiion-2-the-best-ps2-ntsc-jp",
+      "workKey": "hack-gu-vol-1",
+      "familyKey": "ps2-the-best-jp",
+      "verifiedSerial": "SLPS-73259",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-jp-slps-73266-playstatiion-2-the-best",
+      "currentRoute": "/catalogo/hack-g-u-vol-2-kimi-omou-koe-playstatiion-2-the-best-slps-73266-playstatiion-2-the-best-ps2-ntsc-jp",
+      "workKey": "hack-gu-vol-2",
+      "familyKey": "ps2-the-best-jp",
+      "verifiedSerial": "SLPS-73266",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-kr-slka-25080",
+      "currentRoute": "/catalogo/hack-vol-1-infection-slka-25080-ps2-ntsc-kr",
+      "workKey": "hack-infection",
+      "familyKey": "standard-kr",
+      "verifiedSerial": "SLKA-25080",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-kr-slka-25138",
+      "currentRoute": "/catalogo/hack-vol-2-mutation-slka-25138-ps2-ntsc-kr",
+      "workKey": "hack-mutation",
+      "familyKey": "standard-kr",
+      "verifiedSerial": "SLKA-25138",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-kr-slka-25145",
+      "currentRoute": "/catalogo/hack-vol-3-outbreak-slka-25145-ps2-ntsc-kr",
+      "workKey": "hack-outbreak",
+      "familyKey": "standard-kr",
+      "verifiedSerial": "SLKA-25145",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-us-slus-20562",
+      "currentRoute": "/catalogo/hack-part-2-mutation-slus-20562-ps2-ntsc-us",
+      "workKey": "hack-mutation",
+      "familyKey": "standard-us",
+      "verifiedSerial": "SLUS-20562",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-us-slus-20563",
+      "currentRoute": "/catalogo/hack-part-3-outbreak-slus-20563-ps2-ntsc-us",
+      "workKey": "hack-outbreak",
+      "familyKey": "standard-us",
+      "verifiedSerial": "SLUS-20563",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-us-slus-20564",
+      "currentRoute": "/catalogo/hack-part-4-quarantine-slus-20564-ps2-ntsc-us",
+      "workKey": "hack-quarantine",
+      "familyKey": "standard-us",
+      "verifiedSerial": "SLUS-20564",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-us-slus-21488",
+      "currentRoute": "/catalogo/hack-g-u-vol-2-reminisce-slus-21488-ps2-ntsc-us",
+      "workKey": "hack-gu-vol-2",
+      "familyKey": "standard-us",
+      "verifiedSerial": "SLUS-21488",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    },
+    {
+      "catalogId": "ps2-us-slus-21489",
+      "currentRoute": "/catalogo/hack-g-u-vol-3-redemption-slus-21489-ps2-ntsc-us",
+      "workKey": "hack-gu-vol-3",
+      "familyKey": "standard-us",
+      "verifiedSerial": "SLUS-21489",
+      "state": "IDENTITY_MATCHED_BY_SERIAL",
+      "action": "preserve_id_and_price_identity"
+    }
+  ]
+}

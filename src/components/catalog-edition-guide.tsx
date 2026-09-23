@@ -18,6 +18,7 @@ import {
   catalogPhysicalContentStatusLabel,
   catalogPhysicalEditionTypeLabel,
   isStrongPhysicalEvidence,
+  type CatalogEditionCatalogLink,
   type CatalogEditionFamily,
   type CatalogEditionGuideModel,
   type CatalogPhysicalEdition,
@@ -41,6 +42,15 @@ import {
 } from "@/lib/catalog-region-rail";
 import { cn } from "@/lib/cn";
 import type { CatalogGame } from "@/lib/types";
+
+export function uniqueAlternateCatalogLinks(links: CatalogEditionCatalogLink[]): CatalogEditionCatalogLink[] {
+  const seen = new Set<string>();
+  return links.filter((link) => {
+    if (link.current || seen.has(link.href)) return false;
+    seen.add(link.href);
+    return true;
+  });
+}
 
 type CatalogEditionGuideProps = {
   game: CatalogGame;
@@ -410,7 +420,7 @@ function PhysicalEditionRow({
   const documentedRegions = edition.marketRegions.length
     ? edition.marketRegions.map(catalogMarketRegionToLegacyRegion)
     : catalogPhysicalEditionOverviewRegions([edition]);
-  const alternateCatalogLinks = edition.catalogLinks.filter((link) => !link.current);
+  const alternateCatalogLinks = uniqueAlternateCatalogLinks(edition.catalogLinks);
   const includedEditions = edition.includesEditionIds.flatMap((id) => {
     const target = guide.physicalEditions.find((candidate) => candidate.id === id);
     return target ? [catalogPhysicalEditionHeadingLabel(target)] : [];

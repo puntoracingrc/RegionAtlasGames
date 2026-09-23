@@ -6,6 +6,7 @@ import {
   updatePublishedCatalogGame,
 } from "@/lib/admin-catalog-publish";
 import {
+  buildPhysicalReleaseImageUploadSlug,
   isPhysicalReleaseImageRole,
   upsertPhysicalReleaseImage,
 } from "@/lib/admin-physical-release-image";
@@ -27,13 +28,6 @@ import {
 export const maxDuration = 180;
 
 type RouteParams = { params: Promise<{ catalogId: string }> };
-
-const ROLE_FILE_LABELS = {
-  front: "portada",
-  back: "contraportada",
-  spine: "lomo",
-  contents: "contenido",
-} as const;
 
 function errorMessage(error: unknown) {
   return error instanceof Error ? error.message : "Error inesperado al subir la imagen física.";
@@ -88,8 +82,14 @@ export async function POST(request: Request, { params }: RouteParams) {
     const version = new Date().toISOString().replace(/\D/g, "").slice(0, 14);
     const uploaded = await uploadCoverToCdn({
       platformSlug: draft.platformSlug,
-      slug: `${draft.slug}-${ROLE_FILE_LABELS[roleValue]}-${version}`,
-      catalogId: draft.catalogId,
+      // Physical images need distinct immutable paths. Passing catalogId here
+      // makes uploadCoverToCdn ignore the role/version slug and overwrites the
+      // front with the back (or vice versa) at the same CDN URL.
+      slug: buildPhysicalReleaseImageUploadSlug({
+        catalogId: draft.catalogId,
+        role: roleValue,
+        version,
+      }),
       fileBuffer: Buffer.from(await file.arrayBuffer()),
       mimeType: file.type,
     });

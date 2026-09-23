@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import type { CatalogPhysicalReleaseGroup } from "./types";
-import { upsertPhysicalReleaseImage } from "./admin-physical-release-image";
+import { buildPhysicalReleaseImageUploadSlug, upsertPhysicalReleaseImage } from "./admin-physical-release-image";
+import { buildCoverBlobPath, buildCoverFileSlug } from "./covers-upload";
 
 const group: CatalogPhysicalReleaseGroup = {
   id: "n64-test-us",
@@ -63,4 +64,16 @@ test("a contents image uses the contents placement", () => {
   });
 
   assert.equal(next.images?.[0]?.placement, "CONTENTS");
+});
+
+test("front and back physical uploads cannot resolve to the same CDN path", () => {
+  const catalogId = "ps2-japon-_summer";
+  const version = "20260923064000";
+  const pathFor = (role: "front" | "back") => buildCoverBlobPath("ps2", buildCoverFileSlug({
+    slug: buildPhysicalReleaseImageUploadSlug({ catalogId, role, version }),
+  }));
+
+  assert.equal(pathFor("front"), "/catalog-covers/runtime/ps2/ps2-japon-summer-front-20260923064000.jpg");
+  assert.equal(pathFor("back"), "/catalog-covers/runtime/ps2/ps2-japon-summer-back-20260923064000.jpg");
+  assert.notEqual(pathFor("front"), pathFor("back"));
 });
