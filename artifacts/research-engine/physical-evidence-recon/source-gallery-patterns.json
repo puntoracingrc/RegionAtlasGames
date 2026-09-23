@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-09-16",
+  "answerLeakage": false,
+  "patterns": [
+    {
+      "sourceId": "launchbox-gamesdb",
+      "hosts": ["gamesdb.launchbox-app.com", "images.launchbox-app.com"],
+      "caseNeed": "Discovery DS component scans",
+      "pagePattern": "/games/images/<game-id>-<slug>",
+      "listingIdPattern": "/games/images/(?<recordId>[0-9]+)-",
+      "thumbnailMechanisms": ["img.src"],
+      "originalMechanisms": ["ancestor-a.href"],
+      "labelMechanisms": ["gallery component label", "gallery region label", "img.alt", "img.title"],
+      "capabilities": ["component-labelled gallery", "region-labelled gallery", "original image link"],
+      "limitations": ["labels require visual verification", "gallery can contain multiple regions"]
+    },
+    {
+      "sourceId": "game-es",
+      "hosts": ["www.game.es", "media.game.es"],
+      "caseNeed": "Discovery DS Spanish retailer identity",
+      "pagePattern": "/VIDEOJUEGOS/<genre>/<platform>/<slug>/<sku>",
+      "listingIdPattern": "/(?<recordId>[0-9]{6})$",
+      "thumbnailMechanisms": ["meta[property=og:image]", "JSON-LD.image"],
+      "originalMechanisms": ["meta[property=og:image]", "JSON-LD.image"],
+      "labelMechanisms": ["page title", "JSON-LD name"],
+      "capabilities": ["retailer SKU", "retailer market context", "front product render"],
+      "limitations": ["retailer market is not packaging market", "static page did not expose back/cart gallery"]
+    },
+    {
+      "sourceId": "retroplace",
+      "hosts": ["www.retroplace.com"],
+      "caseNeed": "Discovery DS technical identifier discovery",
+      "pagePattern": "/<locale>/games/<record-id>--<slug>",
+      "listingIdPattern": "/games/(?<recordId>[0-9]+)--",
+      "thumbnailMechanisms": ["carousel img", "placeholder"],
+      "originalMechanisms": ["carousel link when present"],
+      "labelMechanisms": ["variant table row", "country/version", "field name"],
+      "capabilities": ["EAN candidate", "box identity candidate", "medium identity candidate", "variant metadata"],
+      "limitations": ["aggregate page can contain multiple variants", "observed specimen carousel was placeholder-only"]
+    },
+    {
+      "sourceId": "todocoleccion",
+      "hosts": ["www.todocoleccion.net", "cloud10.todocoleccion.online"],
+      "caseNeed": "Xbox 360 Double Pack outer/inner specimen photos",
+      "pagePattern": "<listing-slug>~x<listing-id>",
+      "listingIdPattern": "~x(?<recordId>[0-9]+)",
+      "thumbnailMechanisms": ["meta[property=og:image]", "img.src", "img.srcset"],
+      "originalMechanisms": ["data-image-url", "data-original", "data-zoom", "ancestor-a.href"],
+      "labelMechanisms": ["listing title", "gallery position", "img.alt", "img.title"],
+      "capabilities": ["specific listing", "multi-image gallery", "physical specimen photos"],
+      "limitations": ["listings expire", "thumbnails may be cropped", "listing identity does not bind every component"]
+    }
+  ]
+}

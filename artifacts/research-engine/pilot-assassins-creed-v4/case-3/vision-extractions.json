@@ -1,0 +1,178 @@
+[
+  {
+    "targetField": "BARCODE",
+    "imageUrl": "https://www.thevideogamecompany.com/cdn/shop/products/assassins-creed-iv-black-flag-nintendo-wii-u-008888188117-cover-art.jpg?v=1655772909&width=1029",
+    "result": {
+      "component": "UNKNOWN_COMPONENT",
+      "titleCandidate": "Assassin's Creed IV: Black Flag",
+      "platformCandidate": "wiiu",
+      "editionCandidate": "Skull Edition · España · barcode pendiente",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "UNREADABLE",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "UNREADABLE",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {},
+      "subjectClass": "SAME_TITLE_DIFFERENT_EDITION",
+      "bindingState": "REJECTED",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": null,
+      "componentNodeLabel": null,
+      "editionClass": "SKULL",
+      "visibleEditionMarker": "Skull Edition · España · barcode pendiente",
+      "visualStages": {
+        "subject": "REJECTED",
+        "component": "UNREADABLE",
+        "extraction": "SKIPPED",
+        "binding": "REJECTED"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 3284,
+      "outputTokens": 64,
+      "estimatedCostUsd": 0.000531
+    }
+  },
+  {
+    "targetField": "BARCODE",
+    "imageUrl": "https://www.rarewaves.com/cdn/shop/files/orig_396970_1372981_jpg.jpg?v=1751636167&width=1445",
+    "result": {
+      "component": "UNKNOWN_COMPONENT",
+      "titleCandidate": null,
+      "platformCandidate": null,
+      "editionCandidate": null,
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "UNREADABLE",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "UNREADABLE",
+      "stickerDetected": false,
+      "imageQuality": "LIMITED",
+      "confidenceByField": {},
+      "subjectClass": "IRRELEVANT",
+      "bindingState": "REJECTED",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": null,
+      "componentNodeLabel": null,
+      "editionClass": "UNKNOWN",
+      "visibleEditionMarker": null,
+      "visualStages": {
+        "subject": "REJECTED",
+        "component": "UNREADABLE",
+        "extraction": "SKIPPED",
+        "binding": "REJECTED"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 3292,
+      "outputTokens": 42,
+      "estimatedCostUsd": 0.000519
+    }
+  },
+  {
+    "targetField": "BOX_CODE",
+    "imageUrl": "https://i.ebayimg.com/images/g/oWIAAeSwPN5p~ixQ/s-l400.webp",
+    "result": {
+      "component": "UNKNOWN_COMPONENT",
+      "titleCandidate": "Assassin's Creed IV: Black Flag",
+      "platformCandidate": "wiiu",
+      "editionCandidate": "Skull Edition · España · barcode pendiente",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "UNREADABLE",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "UNREADABLE",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {},
+      "subjectClass": "SAME_TITLE_DIFFERENT_EDITION",
+      "bindingState": "REJECTED",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": null,
+      "componentNodeLabel": null,
+      "editionClass": "SKULL",
+      "visibleEditionMarker": "Skull Edition · España · barcode pendiente",
+      "visualStages": {
+        "subject": "REJECTED",
+        "component": "UNREADABLE",
+        "extraction": "SKIPPED",
+        "binding": "REJECTED"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 3327,
+      "outputTokens": 64,
+      "estimatedCostUsd": 0.000537
+    }
+  },
+  {
+    "targetField": "BOX_CODE",
+    "imageUrl": "https://i.ebayimg.com/images/g/IuMAAeSwXT9o-sXp/s-l225.jpg",
+    "result": {
+      "component": "UNKNOWN_COMPONENT",
+      "titleCandidate": "Assassin's Creed IV: Black Flag",
+      "platformCandidate": "wiiu",
+      "editionCandidate": "null",
+      "barcodeCandidates": [],
+      "printedCodes": [],
+      "packagingLanguagesObserved": [],
+      "ratingMarks": [],
+      "publisherText": [],
+      "distributorText": [],
+      "downloadStatements": [],
+      "physicalContentAssessment": "UNREADABLE",
+      "barcodeBinding": "UNKNOWN",
+      "barcodeProductRole": "UNREADABLE",
+      "stickerDetected": false,
+      "imageQuality": "GOOD",
+      "confidenceByField": {},
+      "subjectClass": "SAME_TITLE_DIFFERENT_EDITION",
+      "bindingState": "REJECTED",
+      "marketBindingState": "UNBOUND",
+      "productNodeType": null,
+      "componentNodeLabel": null,
+      "editionClass": "SKULL",
+      "visibleEditionMarker": "Skull Edition · España · barcode pendiente",
+      "visualStages": {
+        "subject": "REJECTED",
+        "component": "UNREADABLE",
+        "extraction": "SKIPPED",
+        "binding": "REJECTED"
+      }
+    },
+    "usage": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "calls": 1,
+      "inputTokens": 3279,
+      "outputTokens": 62,
+      "estimatedCostUsd": 0.000529
+    }
+  }
+]

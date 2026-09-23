@@ -1,0 +1,45 @@
+# Assassin's Creed research pilot closure
+
+- case-1-black-flag-resynced-ps5: CONFIRMED
+- case-2-ac2-discovery-ds-spain: PARTIAL
+- case-3-ac4-skull-wiiu-spain: UNRESOLVED
+- case-4-ezio-collection-switch: PARTIAL
+- case-5-brotherhood-revelations-double-pack-xbox360: UNRESOLVED
+
+- Cases: 5 (5 completed)
+- Confirmed: 1
+- Partial: 2
+- Unresolved: 2
+- Failed: 0
+- Blocked infrastructure: 0
+- Retrieval pass: PASS
+- Physical evidence binding: PASS
+- Development pilot research quality: FAIL
+- Generalized autonomous research: NOT YET HOLDOUT VALIDATED
+- Functional validation: FAIL
+- Unsafe false positives: 0
+- Cross-attribution errors accepted: 0
+- Platform contamination errors accepted: 0
+- Search calls: 87
+- Generic queries: 13
+- Exact-identifier queries: 39
+- Source-specific queries: 29
+- Image queries: 6
+- Brave web calls: 81
+- Brave image calls: 6
+- Pages: 37
+- Images: 10
+- LLM calls: 31
+- Vision calls: 18
+- Input tokens: 263694
+- Output tokens: 5184
+- Estimated OpenAI cost: $0.042669
+- Estimated Brave cost: $0.435000
+- Preflight cost: $0.005000
+- Case cost: $0.477669
+- Estimated total cost: $0.482669
+- Cost per confirmed target: $0.482669
+- Technical failures recovered: 25
+- Technical failures unrecovered: 0
+- Duration: 257740 ms
+- Catalog mutations: 0

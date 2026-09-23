@@ -1,0 +1,76 @@
+{
+  "case": {
+    "number": 2,
+    "id": "case-2-ac2-discovery-ds-spain",
+    "title": "Assassin's Creed II: Discovery",
+    "titleCandidates": [
+      "Assassin's Creed II: Discovery"
+    ],
+    "platformSlug": "ds",
+    "edition": "Spain physical release",
+    "editionNeedles": [
+      "spain",
+      "espana",
+      "españa"
+    ],
+    "region": "Spain",
+    "identifiers": [],
+    "targetFields": [
+      "BARCODE",
+      "BOX_CODE",
+      "PRODUCT_CODE"
+    ],
+    "objective": "Find the Spanish outer barcode, Nintendo box code and cartridge/product code, keeping each physical component separate."
+  },
+  "subjectId": "edition:assassins-creed-ii-discovery-ds-worldwide:ac2-discovery-ds-standard-es-pending",
+  "tasks": [
+    {
+      "id": "pilot:v4:case-2-ac2-discovery-ds-spain:barcode",
+      "subjectId": "edition:assassins-creed-ii-discovery-ds-worldwide:ac2-discovery-ds-standard-es-pending",
+      "targetField": "BARCODE",
+      "question": "Find the Spanish outer barcode, Nintendo box code and cartridge/product code, keeping each physical component separate. Target field: BARCODE.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T12:28:08.325Z",
+      "updatedAt": "2026-09-16T12:28:08.325Z"
+    },
+    {
+      "id": "pilot:v4:case-2-ac2-discovery-ds-spain:box_code",
+      "subjectId": "edition:assassins-creed-ii-discovery-ds-worldwide:ac2-discovery-ds-standard-es-pending",
+      "targetField": "BOX_CODE",
+      "question": "Find the Spanish outer barcode, Nintendo box code and cartridge/product code, keeping each physical component separate. Target field: BOX_CODE.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T12:28:08.325Z",
+      "updatedAt": "2026-09-16T12:28:08.325Z"
+    },
+    {
+      "id": "pilot:v4:case-2-ac2-discovery-ds-spain:product_code",
+      "subjectId": "edition:assassins-creed-ii-discovery-ds-worldwide:ac2-discovery-ds-standard-es-pending",
+      "targetField": "PRODUCT_CODE",
+      "question": "Find the Spanish outer barcode, Nintendo box code and cartridge/product code, keeping each physical component separate. Target field: PRODUCT_CODE.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T12:28:08.325Z",
+      "updatedAt": "2026-09-16T12:28:08.325Z"
+    }
+  ]
+}

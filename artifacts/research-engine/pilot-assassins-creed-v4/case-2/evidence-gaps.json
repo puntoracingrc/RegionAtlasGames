@@ -1,0 +1,40 @@
+[
+  {
+    "field": "BOX_CODE",
+    "type": "MISSING_BACK_COVER",
+    "candidateValue": null,
+    "missingProof": "Readable code on the exact box component; a cart or manual code is not equivalent.",
+    "recommendedActions": [
+      "OPEN_EXISTING_GALLERIES",
+      "RESOLVE_ORIGINAL_IMAGE",
+      "SEARCH_EXACT_BACK_COVER"
+    ],
+    "recommendedSourceTypes": [
+      "dbox",
+      "ogdb",
+      "retroplace",
+      "legacy:spinecard-ds-documentary-v1-20260908:printing-1",
+      "legacy:spinecard-ds-documentary-v1-20260908:distribution-1"
+    ],
+    "exhaustedActions": []
+  },
+  {
+    "field": "PRODUCT_CODE",
+    "type": "MISSING_CART_PHOTO",
+    "candidateValue": null,
+    "missingProof": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+    "recommendedActions": [
+      "OPEN_EXISTING_GALLERIES",
+      "SEARCH_EXACT_CART_PHOTO",
+      "SEARCH_PHYSICAL_UNBOXING"
+    ],
+    "recommendedSourceTypes": [
+      "dbox",
+      "ogdb",
+      "retroplace",
+      "platform-holder-official",
+      "nintendo-official"
+    ],
+    "exhaustedActions": []
+  }
+]

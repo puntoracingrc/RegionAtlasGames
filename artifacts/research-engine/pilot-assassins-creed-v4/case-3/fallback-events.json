@@ -1,0 +1,65 @@
+[
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T12:18:29.199Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T12:18:29.827Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "BARCODE",
+    "at": "2026-09-16T12:18:30.431Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T12:18:41.907Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T12:18:42.264Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "at": "2026-09-16T12:18:42.797Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "at": "2026-09-16T12:19:05.007Z",
+    "operation": "SEARCH",
+    "provider": "serpapi-google",
+    "outcome": "FAILOVER",
+    "failureCode": "SOURCE_BLOCKED",
+    "detail": "ResearchSearchProviderError SERPAPI_HTTP_401: Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+  }
+]

@@ -1,0 +1,3005 @@
+[
+  {
+    "targetField": "BARCODE",
+    "history": [
+      {
+        "targetField": "BARCODE",
+        "factsUsed": [
+          "target=BARCODE",
+          "platform=ds",
+          "title=Assassin's Creed II: Discovery",
+          "edition=Standard · España · identificadores pendientes",
+          "legacyScannerReviewed=3",
+          "legacyScannerCandidates=0",
+          "playbook=MISSING_BARCODE"
+        ],
+        "selectedPlaybook": {
+          "id": "MISSING_BARCODE",
+          "targets": [
+            "BARCODE"
+          ],
+          "triggers": [
+            "BARCODE_UNKNOWN"
+          ],
+          "sourceRoles": [
+            "OWN_SCAN",
+            "PHYSICAL_SPECIMEN",
+            "RETAILER",
+            "SPECIALIZED_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "EDITION",
+            "SERIAL"
+          ],
+          "deterministicChecks": [
+            "BARCODE_CHECKSUM",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [],
+          "stopWhen": null,
+          "stopRule": null,
+          "sourceIds": [],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 82,
+            "reason": "Field capability 82; default reliability 76."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 82,
+            "reason": "Field capability 82; default reliability 76."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 90,
+            "reason": "Field capability 90; default reliability 72."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 76,
+            "reason": "Field capability 76; default reliability 70."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 72,
+            "reason": "Field capability 72; default reliability 55."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 68,
+            "reason": "Field capability 68; default reliability 52."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:printing-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 62,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:distribution-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 62,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 65,
+            "reason": "Field capability 65; default reliability 55."
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 58."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "query": "site:dbox.tools \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "dbox",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ogdb",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"Assassin's Creed II: Discovery\" \"España\"",
+            "sourceId": "national-retailer",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "retroplace",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:todocoleccion.net \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "todocoleccion",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ebay",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "\"Assassin's Creed II: Discovery\" \"España\" \"Nintendo DS\"",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed II: Discovery\" \"España\" barcode",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed II: Discovery\" \"España\" \"back cover\"",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          },
+          {
+            "query": "\"Assassin's Creed II: Discovery\" \"España\" unboxing",
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "GENERIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "OUTER_PACKAGE_BACK",
+            "fields": [
+              "BARCODE"
+            ],
+            "reason": "Barcode must be read from the exact rear package or sticker."
+          }
+        ],
+        "deterministicChecks": [
+          "BARCODE_CHECKSUM",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "9261b3e3d633d48d87bc767a69de47106e174cf926cf0aaa16bbc7300da12967"
+      },
+      {
+        "targetField": "BARCODE",
+        "factsUsed": [
+          "target=BARCODE",
+          "platform=ds",
+          "title=Assassin's Creed II: Discovery",
+          "edition=Standard · España · identificadores pendientes",
+          "BARCODE=008888165347",
+          "BARCODE=3307211667419",
+          "BARCODE=3307211667426",
+          "legacyScannerReviewed=3",
+          "legacyScannerCandidates=0",
+          "playbook=VERIFY_IDENTIFIER"
+        ],
+        "selectedPlaybook": {
+          "id": "VERIFY_IDENTIFIER",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "PRODUCT_CODE",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "BARCODE_KNOWN",
+            "BOX_CODE_KNOWN",
+            "PRODUCT_CODE_KNOWN",
+            "SERIAL_KNOWN"
+          ],
+          "sourceRoles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN",
+            "TECHNICAL_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "BARCODE",
+            "BOX_CODE",
+            "PRODUCT_CODE",
+            "SERIAL"
+          ],
+          "deterministicChecks": [
+            "BARCODE_CHECKSUM",
+            "PLATFORM_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Search every exact identifier before any remaining title query.",
+            "Bind the identifier to the exact edition and physical component.",
+            "Seek a second authoritative source or exact physical photo."
+          ],
+          "stopWhen": "IDENTIFIER_CONFIRMED_OR_HIGH_VALUE_ROUTES_EXHAUSTED",
+          "stopRule": null,
+          "sourceIds": [
+            "dbox",
+            "ogdb",
+            "retroplace",
+            "mobygames",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 82,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 82."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 82,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 82."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 76,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 76."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 68,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 68."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 90,
+            "reason": "Field capability 90; default reliability 72."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 72,
+            "reason": "Field capability 72; default reliability 55."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:printing-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 62,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:distribution-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 62,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 65,
+            "reason": "Field capability 65; default reliability 55."
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 58."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "\"008888165347\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667419",
+            "query": "\"3307211667419\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667426",
+            "query": "\"3307211667426\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "\"008888165347\" \"Nintendo DS\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667419",
+            "query": "\"3307211667419\" \"Nintendo DS\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BARCODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667426",
+            "query": "\"3307211667426\" \"Nintendo DS\""
+          },
+          {
+            "sourceId": "dbox",
+            "purpose": "BARCODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "site:dbox.tools \"008888165347\""
+          },
+          {
+            "sourceId": "dbox",
+            "purpose": "BARCODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667419",
+            "query": "site:dbox.tools \"3307211667419\""
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ogdb",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "retroplace",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.com \"008888165347\"",
+            "sourceId": "ebay",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "mobygames",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"008888165347\"",
+            "sourceId": "national-retailer",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:todocoleccion.net \"008888165347\"",
+            "sourceId": "todocoleccion",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"008888165347\"",
+            "sourceId": "dbox",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"008888165347\"",
+            "sourceId": "ogdb",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"008888165347\"",
+            "sourceId": "retroplace",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ebay",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:game.es \"Assassin's Creed II: Discovery\" \"España\"",
+            "sourceId": "national-retailer",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:todocoleccion.net \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "todocoleccion",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "dbox",
+            "purpose": "BARCODE",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "OUTER_PACKAGE_BACK",
+            "fields": [
+              "BARCODE"
+            ],
+            "reason": "Barcode must be read from the exact rear package or sticker."
+          }
+        ],
+        "deterministicChecks": [
+          "BARCODE_CHECKSUM",
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "39aaf116a9d8129e3dd2f36ab38e567d8910161b1468c7ed02c8fbc322deacaf"
+      }
+    ]
+  },
+  {
+    "targetField": "BOX_CODE",
+    "history": [
+      {
+        "targetField": "BOX_CODE",
+        "factsUsed": [
+          "target=BOX_CODE",
+          "platform=ds",
+          "title=Assassin's Creed II: Discovery",
+          "edition=Standard · España · identificadores pendientes",
+          "BARCODE=008888165347",
+          "BARCODE=3307211667419",
+          "BARCODE=3307211667426",
+          "BARCODE=\"3 307211 667402\"",
+          "legacyScannerReviewed=3",
+          "legacyScannerCandidates=0",
+          "playbook=MISSING_BOX_CODE"
+        ],
+        "selectedPlaybook": {
+          "id": "MISSING_BOX_CODE",
+          "targets": [
+            "BOX_CODE"
+          ],
+          "triggers": [
+            "BOX_CODE_UNKNOWN"
+          ],
+          "sourceRoles": [
+            "OWN_SCAN",
+            "PHYSICAL_SPECIMEN",
+            "SPECIALIZED_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "BARCODE",
+            "BOX_CODE",
+            "EDITION"
+          ],
+          "deterministicChecks": [
+            "PLATFORM_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [],
+          "stopWhen": null,
+          "stopRule": null,
+          "sourceIds": [],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 90,
+            "reason": "Field capability 90; default reliability 76."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 78,
+            "reason": "Field capability 78; default reliability 76."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 78,
+            "reason": "Field capability 78; default reliability 70."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:printing-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 82,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:distribution-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 82,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 60,
+            "reason": "Field capability 60; default reliability 55."
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 58."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "\"008888165347\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667419",
+            "query": "\"3307211667419\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667426",
+            "query": "\"3307211667426\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3 307211 667402",
+            "query": "\"3 307211 667402\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "\"008888165347\" \"Nintendo DS\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667419",
+            "query": "\"3307211667419\" \"Nintendo DS\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667426",
+            "query": "\"3307211667426\" \"Nintendo DS\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3 307211 667402",
+            "query": "\"3 307211 667402\" \"Nintendo DS\""
+          },
+          {
+            "query": "site:dbox.tools \"008888165347\"",
+            "sourceId": "dbox",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ogdb",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "retroplace",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:gamesdb.launchbox-app.com \"Assassin's Creed II: Discovery\" Nintendo DS back",
+            "sourceId": "launchbox-images",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ubisoft.com \"Assassin's Creed II: Discovery\" \"España\" Nintendo DS",
+            "sourceId": "ubisoft-official",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "platform-holder-official",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"008888165347\"",
+            "sourceId": "dbox",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"008888165347\"",
+            "sourceId": "ogdb",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"008888165347\"",
+            "sourceId": "retroplace",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:news.ubisoft.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ubisoft-official",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "dbox",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "OUTER_PACKAGE_FLAP",
+            "fields": [
+              "BOX_CODE",
+              "PRINT_REVISION"
+            ],
+            "reason": "Box codes and print revisions are component-scoped."
+          }
+        ],
+        "deterministicChecks": [
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "45545598a83df19e1d56edb086a26ded62309421890d4429de555bb0ca814144"
+      },
+      {
+        "targetField": "BOX_CODE",
+        "factsUsed": [
+          "target=BOX_CODE",
+          "platform=ds",
+          "title=Assassin's Creed II: Discovery",
+          "edition=Standard · España · identificadores pendientes",
+          "BARCODE=008888165347",
+          "BARCODE=3307211667419",
+          "BARCODE=3307211667426",
+          "BARCODE=\"3 307211 667402\"",
+          "BOX_CODE=008888165347",
+          "legacyScannerReviewed=3",
+          "legacyScannerCandidates=0",
+          "playbook=VERIFY_IDENTIFIER"
+        ],
+        "selectedPlaybook": {
+          "id": "VERIFY_IDENTIFIER",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "PRODUCT_CODE",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "BARCODE_KNOWN",
+            "BOX_CODE_KNOWN",
+            "PRODUCT_CODE_KNOWN",
+            "SERIAL_KNOWN"
+          ],
+          "sourceRoles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN",
+            "TECHNICAL_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "BARCODE",
+            "BOX_CODE",
+            "PRODUCT_CODE",
+            "SERIAL"
+          ],
+          "deterministicChecks": [
+            "BARCODE_CHECKSUM",
+            "PLATFORM_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Search every exact identifier before any remaining title query.",
+            "Bind the identifier to the exact edition and physical component.",
+            "Seek a second authoritative source or exact physical photo."
+          ],
+          "stopWhen": "IDENTIFIER_CONFIRMED_OR_HIGH_VALUE_ROUTES_EXHAUSTED",
+          "stopRule": null,
+          "sourceIds": [
+            "dbox",
+            "ogdb",
+            "retroplace",
+            "mobygames",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 90,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 90."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 78,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 78."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 78,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 78."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:printing-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 82,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:distribution-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 82,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 60,
+            "reason": "Field capability 60; default reliability 55."
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 58."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "\"008888165347\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667419",
+            "query": "\"3307211667419\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667426",
+            "query": "\"3307211667426\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3 307211 667402",
+            "query": "\"3 307211 667402\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "\"008888165347\" \"Nintendo DS\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667419",
+            "query": "\"3307211667419\" \"Nintendo DS\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667426",
+            "query": "\"3307211667426\" \"Nintendo DS\""
+          },
+          {
+            "query": "site:dbox.tools \"008888165347\"",
+            "sourceId": "dbox",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ogdb",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "retroplace",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "mobygames",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.com \"008888165347\"",
+            "sourceId": "ebay",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:gamesdb.launchbox-app.com \"Assassin's Creed II: Discovery\" Nintendo DS back",
+            "sourceId": "launchbox-images",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"008888165347\"",
+            "sourceId": "dbox",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"008888165347\"",
+            "sourceId": "ogdb",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"008888165347\"",
+            "sourceId": "retroplace",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ebay",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "dbox",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "OUTER_PACKAGE_FLAP",
+            "fields": [
+              "BOX_CODE",
+              "PRINT_REVISION"
+            ],
+            "reason": "Box codes and print revisions are component-scoped."
+          }
+        ],
+        "deterministicChecks": [
+          "BARCODE_CHECKSUM",
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "047e44cb9efcf883d4f90c78e3b82fd43aa7390d393a98d82fb4369ef5fa8451"
+      },
+      {
+        "targetField": "BOX_CODE",
+        "factsUsed": [
+          "target=BOX_CODE",
+          "platform=ds",
+          "title=Assassin's Creed II: Discovery",
+          "edition=Standard · España · identificadores pendientes",
+          "BARCODE=008888165347",
+          "BARCODE=3307211667419",
+          "BARCODE=3307211667426",
+          "BARCODE=\"3 307211 667402\"",
+          "BOX_CODE=008888165347",
+          "BOX_CODE=TWL-VACE-USA",
+          "BOX_CODE=TWL-VACV-EUR",
+          "legacyScannerReviewed=3",
+          "legacyScannerCandidates=0",
+          "playbook=VERIFY_IDENTIFIER"
+        ],
+        "selectedPlaybook": {
+          "id": "VERIFY_IDENTIFIER",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "PRODUCT_CODE",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "BARCODE_KNOWN",
+            "BOX_CODE_KNOWN",
+            "PRODUCT_CODE_KNOWN",
+            "SERIAL_KNOWN"
+          ],
+          "sourceRoles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN",
+            "TECHNICAL_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "BARCODE",
+            "BOX_CODE",
+            "PRODUCT_CODE",
+            "SERIAL"
+          ],
+          "deterministicChecks": [
+            "BARCODE_CHECKSUM",
+            "PLATFORM_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Search every exact identifier before any remaining title query.",
+            "Bind the identifier to the exact edition and physical component.",
+            "Seek a second authoritative source or exact physical photo."
+          ],
+          "stopWhen": "IDENTIFIER_CONFIRMED_OR_HIGH_VALUE_ROUTES_EXHAUSTED",
+          "stopRule": null,
+          "sourceIds": [
+            "dbox",
+            "ogdb",
+            "retroplace",
+            "mobygames",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 90,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 90."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 78,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 78."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 78,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 78."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:printing-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 82,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:distribution-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 82,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 60,
+            "reason": "Field capability 60; default reliability 55."
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 90."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 58."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "\"008888165347\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667419",
+            "query": "\"3307211667419\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667426",
+            "query": "\"3307211667426\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3 307211 667402",
+            "query": "\"3 307211 667402\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BOX_CODE",
+            "identifierValue": "TWL-VACE-USA",
+            "query": "\"TWL-VACE-USA\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BOX_CODE",
+            "identifierValue": "TWL-VACV-EUR",
+            "query": "\"TWL-VACV-EUR\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "BOX_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "\"008888165347\" \"Nintendo DS\""
+          },
+          {
+            "query": "site:dbox.tools \"008888165347\"",
+            "sourceId": "dbox",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ogdb",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "retroplace",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "mobygames",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.com \"008888165347\"",
+            "sourceId": "ebay",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:gamesdb.launchbox-app.com \"Assassin's Creed II: Discovery\" Nintendo DS back",
+            "sourceId": "launchbox-images",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"008888165347\"",
+            "sourceId": "dbox",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"008888165347\"",
+            "sourceId": "ogdb",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"008888165347\"",
+            "sourceId": "retroplace",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ebay",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "dbox",
+            "purpose": "BOX_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "OUTER_PACKAGE_FLAP",
+            "fields": [
+              "BOX_CODE",
+              "PRINT_REVISION"
+            ],
+            "reason": "Box codes and print revisions are component-scoped."
+          }
+        ],
+        "deterministicChecks": [
+          "BARCODE_CHECKSUM",
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "cb05edb5162678354dfda109c554145a846e8f514135e41a61f267e4140dbe08"
+      }
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "history": [
+      {
+        "targetField": "PRODUCT_CODE",
+        "factsUsed": [
+          "target=PRODUCT_CODE",
+          "platform=ds",
+          "title=Assassin's Creed II: Discovery",
+          "edition=Standard · España · identificadores pendientes",
+          "BARCODE=008888165347",
+          "BARCODE=3307211667419",
+          "BARCODE=3307211667426",
+          "BARCODE=\"3 307211 667402\"",
+          "BOX_CODE=008888165347",
+          "BOX_CODE=TWL-VACE-USA",
+          "BOX_CODE=TWL-VACV-EUR",
+          "legacyScannerReviewed=3",
+          "legacyScannerCandidates=0",
+          "playbook=VERIFY_IDENTIFIER"
+        ],
+        "selectedPlaybook": {
+          "id": "VERIFY_IDENTIFIER",
+          "targets": [
+            "BARCODE",
+            "BOX_CODE",
+            "PRODUCT_CODE",
+            "OUTER_INNER_RELATION"
+          ],
+          "triggers": [
+            "BARCODE_KNOWN",
+            "BOX_CODE_KNOWN",
+            "PRODUCT_CODE_KNOWN",
+            "SERIAL_KNOWN"
+          ],
+          "sourceRoles": [
+            "SPECIALIZED_DATABASE",
+            "PHYSICAL_SPECIMEN",
+            "TECHNICAL_DATABASE"
+          ],
+          "queryTemplateGroups": [
+            "BARCODE",
+            "BOX_CODE",
+            "PRODUCT_CODE",
+            "SERIAL"
+          ],
+          "deterministicChecks": [
+            "BARCODE_CHECKSUM",
+            "PLATFORM_MATCH",
+            "SUBJECT_BINDING",
+            "COMPONENT_BINDING"
+          ],
+          "steps": [
+            "Search every exact identifier before any remaining title query.",
+            "Bind the identifier to the exact edition and physical component.",
+            "Seek a second authoritative source or exact physical photo."
+          ],
+          "stopWhen": "IDENTIFIER_CONFIRMED_OR_HIGH_VALUE_ROUTES_EXHAUSTED",
+          "stopRule": null,
+          "sourceIds": [
+            "dbox",
+            "ogdb",
+            "retroplace",
+            "mobygames",
+            "ebay"
+          ],
+          "requiredEvidencePreference": []
+        },
+        "sourcePlan": [
+          {
+            "sourceId": "dbox",
+            "hosts": [
+              "dbox.tools",
+              "dbox.space"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 88,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 88."
+          },
+          {
+            "sourceId": "ogdb",
+            "hosts": [
+              "ogdb.eu"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 84,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 84."
+          },
+          {
+            "sourceId": "retroplace",
+            "hosts": [
+              "retroplace.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 78,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 78."
+          },
+          {
+            "sourceId": "platform-holder-official",
+            "hosts": [
+              "nintendo.com",
+              "playstation.com",
+              "xbox.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 86,
+            "reason": "Field capability 86; default reliability 90."
+          },
+          {
+            "sourceId": "nintendo-official",
+            "hosts": [
+              "nintendo.es",
+              "nintendo-europe.com",
+              "nintendo.com"
+            ],
+            "roles": [
+              "PLATFORM_HOLDER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 90,
+            "reason": "Field capability 90; default reliability 90."
+          },
+          {
+            "sourceId": "mobygames",
+            "hosts": [
+              "mobygames.com"
+            ],
+            "roles": [
+              "SPECIALIZED_DATABASE",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+          },
+          {
+            "sourceId": "ebay",
+            "hosts": [
+              "ebay.com",
+              "ebay.es",
+              "ebay.co.uk"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "MARKETPLACE_API",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 45,
+            "reason": "Ordered by VERIFY_IDENTIFIER; target capability 45."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:printing-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 82,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:distribution-1",
+            "hosts": [
+              "foro.spinecard.com"
+            ],
+            "roles": [
+              "LEGACY_SCANNER_DOCUMENTARY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 82,
+            "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+          },
+          {
+            "sourceId": "launchbox-images",
+            "hosts": [
+              "gamesdb.launchbox-app.com"
+            ],
+            "roles": [
+              "PHYSICAL_SPECIMEN_DISCOVERY",
+              "COVER_GALLERY"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 55,
+            "reason": "Field capability 55; default reliability 55."
+          },
+          {
+            "sourceId": "ubisoft-official",
+            "hosts": [
+              "ubisoft.com",
+              "news.ubisoft.com",
+              "store.ubisoft.com"
+            ],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "national-retailer",
+            "hosts": [
+              "game.es",
+              "fnac.es",
+              "mediamarkt.es"
+            ],
+            "roles": [
+              "RETAILER"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 72."
+          },
+          {
+            "sourceId": "todocoleccion",
+            "hosts": [
+              "todocoleccion.net",
+              "www.todocoleccion.net"
+            ],
+            "roles": [
+              "MARKETPLACE",
+              "PHYSICAL_SPECIMEN_DISCOVERY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "BROWSER",
+              "IMAGE_SEARCH"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 55."
+          },
+          {
+            "sourceId": "publisher-official",
+            "hosts": [],
+            "roles": [
+              "PUBLISHER",
+              "OFFICIAL_SOURCE_CANDIDATE"
+            ],
+            "accessModes": [
+              "DIRECT_FETCH",
+              "SEARCH_ENGINE",
+              "DOMAIN_SEARCH",
+              "BROWSER",
+              "ARCHIVE"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 92."
+          },
+          {
+            "sourceId": "gamefaqs-guarded",
+            "hosts": [
+              "gamefaqs.gamespot.com"
+            ],
+            "roles": [
+              "DISCOVERY_ONLY",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "DOMAIN_SEARCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 52."
+          },
+          {
+            "sourceId": "yambalu",
+            "hosts": [
+              "yambalu.com",
+              "www.yambalu.com"
+            ],
+            "roles": [
+              "RETAILER_AGGREGATOR",
+              "RELEASE_IDENTITY"
+            ],
+            "accessModes": [
+              "SEARCH_ENGINE",
+              "DIRECT_FETCH",
+              "BROWSER"
+            ],
+            "capabilityScore": 0,
+            "reason": "Field capability unspecified; default reliability 58."
+          }
+        ],
+        "directUrlPlan": [],
+        "queryPlan": [
+          {
+            "sourceId": null,
+            "purpose": "PRODUCT_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "\"008888165347\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "PRODUCT_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667419",
+            "query": "\"3307211667419\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "PRODUCT_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3307211667426",
+            "query": "\"3307211667426\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "PRODUCT_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "3 307211 667402",
+            "query": "\"3 307211 667402\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "PRODUCT_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BOX_CODE",
+            "identifierValue": "TWL-VACE-USA",
+            "query": "\"TWL-VACE-USA\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "PRODUCT_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BOX_CODE",
+            "identifierValue": "TWL-VACV-EUR",
+            "query": "\"TWL-VACV-EUR\""
+          },
+          {
+            "sourceId": null,
+            "purpose": "PRODUCT_CODE",
+            "strategy": "EXACT_IDENTIFIER",
+            "identifierType": "BARCODE",
+            "identifierValue": "008888165347",
+            "query": "\"008888165347\" \"Nintendo DS\""
+          },
+          {
+            "query": "site:dbox.tools \"008888165347\"",
+            "sourceId": "dbox",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ogdb",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "retroplace",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "platform-holder-official",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:nintendo-europe.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "nintendo-official",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:mobygames.com \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "mobygames",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.com \"008888165347\"",
+            "sourceId": "ebay",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.space \"008888165347\"",
+            "sourceId": "dbox",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ogdb.eu \"008888165347\"",
+            "sourceId": "ogdb",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:retroplace.com \"008888165347\"",
+            "sourceId": "retroplace",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:ebay.es \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "ebay",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          },
+          {
+            "query": "site:dbox.tools \"Assassin's Creed II: Discovery\" Nintendo DS",
+            "sourceId": "dbox",
+            "purpose": "PRODUCT_CODE",
+            "strategy": "SOURCE_SPECIFIC"
+          }
+        ],
+        "imagePlan": [
+          {
+            "component": "CARTRIDGE_FRONT",
+            "fields": [
+              "PRODUCT_CODE"
+            ],
+            "reason": "Read the code from the exact physical medium."
+          },
+          {
+            "component": "CART_FRONT",
+            "fields": [
+              "PRODUCT_CODE"
+            ],
+            "reason": "Legacy compatibility alias; canonicalized to CARTRIDGE_FRONT before binding."
+          }
+        ],
+        "deterministicChecks": [
+          "BARCODE_CHECKSUM",
+          "PLATFORM_MATCH",
+          "SUBJECT_BINDING",
+          "COMPONENT_BINDING"
+        ],
+        "escalationRules": [
+          "REPLAN_AFTER_NEW_IDENTIFIER",
+          "BROWSER_ONLY_AFTER_DIRECT_FETCH_FAILURE",
+          "IMAGE_SEARCH_IS_DISCOVERY_NOT_FINAL_EVIDENCE",
+          "PRESERVE_CONFLICT_OR_RETURN_UNRESOLVED",
+          "TIER_3_ONLY_FOR_EXCEPTIONAL_UNRESOLVED_CONFLICT"
+        ],
+        "researchMode": "STANDARD",
+        "evidenceGapTypes": [],
+        "routeFingerprint": "908dee634b0d8ca53cdf34c9ee68679f2be9eb9ea0aaffbae03dabe42e0924e8"
+      }
+    ]
+  }
+]

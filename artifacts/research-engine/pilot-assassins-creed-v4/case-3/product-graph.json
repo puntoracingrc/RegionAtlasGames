@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "id": "954ab4dd295a9fbfd1cf",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "Assassin's Creed IV: Black Flag · wiiu · Skull Edition · España · barcode pendiente",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "2f306e550937ff6fe0c5",
+      "type": "OUTER_PACKAGE",
+      "label": "OUTER_PACKAGE:UNKNOWN_COMPONENT",
+      "parentProductId": "954ab4dd295a9fbfd1cf",
+      "component": "UNKNOWN_COMPONENT"
+    }
+  ],
+  "relations": [
+    {
+      "fromNodeId": "2f306e550937ff6fe0c5",
+      "toNodeId": "954ab4dd295a9fbfd1cf",
+      "relation": "WRAPS",
+      "evidenceIds": [
+        "ev-3c410528aef7565dbafff7a6"
+      ]
+    }
+  ]
+}

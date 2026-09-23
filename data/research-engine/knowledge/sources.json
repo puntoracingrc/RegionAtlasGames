@@ -78,7 +78,8 @@
       },
       "defaultReliability": 72,
       "knownRisks": ["Retailer country proves circulation, not automatically packaging market.", "Mockups may differ from released packaging."],
-      "queryTemplates": ["site:{HOST} \"{BARCODE}\"", "site:{HOST} \"{TITLE}\" \"{EDITION}\""]
+      "queryTemplates": ["site:{HOST} \"{BARCODE}\"", "site:{HOST} \"{TITLE}\" \"{EDITION}\""],
+      "physicalImageCapabilities": { "realSpecimenImages": false, "frontImages": true, "backImages": false, "spineImages": false, "cartImages": false, "discImages": false, "outerPackageImages": false, "innerContentsImages": false, "gallery": false, "originalImages": true, "componentLabels": false, "regionLabels": false, "listingIds": true, "accessRisk": ["front-render-only", "market-does-not-prove-packaging"] }
     },
     {
       "id": "ebay",
@@ -117,7 +118,8 @@
       },
       "defaultReliability": 55,
       "knownRisks": ["Seller descriptions are weak; exact listing photos can be strong component evidence."],
-      "queryTemplates": ["site:todocoleccion.net \"{BARCODE}\"", "site:todocoleccion.net \"{TITLE}\" {PLATFORM}"]
+      "queryTemplates": ["site:todocoleccion.net \"{BARCODE}\"", "site:todocoleccion.net \"{TITLE}\" {PLATFORM}"],
+      "physicalImageCapabilities": { "realSpecimenImages": true, "frontImages": true, "backImages": true, "spineImages": false, "cartImages": false, "discImages": false, "outerPackageImages": true, "innerContentsImages": false, "gallery": true, "originalImages": true, "componentLabels": false, "regionLabels": false, "listingIds": true, "accessRisk": ["listing-expiry", "cropped-thumbnails", "seller-metadata"] }
     },
     {
       "id": "ubisoft-official",
@@ -189,7 +191,8 @@
       "fieldCapabilities": { "BARCODE": 76, "BOX_CODE": 78, "PRODUCT_CODE": 78, "CANONICAL_IDENTITY": 72 },
       "defaultReliability": 70,
       "knownRisks": ["Community records require exact subject and component validation."],
-      "queryTemplates": ["site:retroplace.com \"{TITLE}\" {PLATFORM}", "site:retroplace.com \"{BARCODE}\""]
+      "queryTemplates": ["site:retroplace.com \"{TITLE}\" {PLATFORM}", "site:retroplace.com \"{BARCODE}\""],
+      "physicalImageCapabilities": { "realSpecimenImages": false, "frontImages": false, "backImages": false, "spineImages": false, "cartImages": false, "discImages": false, "outerPackageImages": false, "innerContentsImages": false, "gallery": true, "originalImages": false, "componentLabels": false, "regionLabels": true, "listingIds": true, "accessRisk": ["aggregate-variants", "placeholder-gallery"] }
     },
     {
       "id": "mobygames",
@@ -221,11 +224,12 @@
       "platforms": ["*"],
       "countries": ["*"],
       "roles": ["PHYSICAL_SPECIMEN_DISCOVERY", "COVER_GALLERY"],
-      "accessModes": ["SEARCH_ENGINE", "BROWSER", "IMAGE_SEARCH"],
+      "accessModes": ["DIRECT_FETCH", "SEARCH_ENGINE", "BROWSER", "IMAGE_SEARCH"],
       "fieldCapabilities": { "BARCODE": 65, "BOX_CODE": 60, "PRODUCT_CODE": 55, "PHYSICAL_PRODUCT_TYPE": 60, "PACKAGING_LANGUAGES": 62 },
       "defaultReliability": 55,
       "knownRisks": ["Community cover galleries can mix regions; only exact readable component photos are eligible."],
-      "queryTemplates": ["site:gamesdb.launchbox-app.com \"{TITLE}\" {PLATFORM} back"]
+      "queryTemplates": ["site:gamesdb.launchbox-app.com \"{TITLE}\" {PLATFORM} back"],
+      "physicalImageCapabilities": { "realSpecimenImages": true, "frontImages": true, "backImages": true, "spineImages": true, "cartImages": true, "discImages": true, "outerPackageImages": true, "innerContentsImages": true, "gallery": true, "originalImages": true, "componentLabels": true, "regionLabels": true, "listingIds": true, "accessRisk": ["mixed-regions", "community-labels"] }
     },
     {
       "id": "yambalu",

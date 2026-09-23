@@ -1,0 +1,44 @@
+{
+  "status": "PARTIAL",
+  "resolutions": [
+    {
+      "targetField": "BARCODE",
+      "field": "BARCODE",
+      "status": "CONFLICT",
+      "value": null,
+      "score": 0.855,
+      "claimIds": [
+        "cl-9159c33a06125efa8c9f0dbd"
+      ],
+      "sourceIds": [
+        "launchbox-images"
+      ],
+      "reason": "Conflicting values are too close to resolve safely."
+    },
+    {
+      "targetField": "BOX_CODE",
+      "field": "BOX_CODE",
+      "status": "CONFLICT",
+      "value": null,
+      "score": 0.624,
+      "claimIds": [
+        "cl-1882f0b5c7e94b7d776a75a4"
+      ],
+      "sourceIds": [
+        "retroplace"
+      ],
+      "reason": "Conflicting values are too close to resolve safely."
+    },
+    {
+      "targetField": "PRODUCT_CODE",
+      "field": "PRODUCT_CODE",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    }
+  ],
+  "failures": []
+}

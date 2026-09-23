@@ -1,0 +1,23 @@
+[
+  {
+    "at": "2026-09-16T12:18:38.100Z",
+    "from": "STANDARD",
+    "to": "PHYSICAL_EVIDENCE_MODE",
+    "reason": "Exact subject/edition binding plus a second authoritative source or readable component-bound photo.",
+    "gapType": "MISSING_BARCODE_PHOTO"
+  },
+  {
+    "at": "2026-09-16T12:18:49.623Z",
+    "from": "STANDARD",
+    "to": "PHYSICAL_EVIDENCE_MODE",
+    "reason": "Readable code on the exact box component; a cart or manual code is not equivalent.",
+    "gapType": "MISSING_BACK_COVER"
+  },
+  {
+    "at": "2026-09-16T12:19:05.461Z",
+    "from": "STANDARD",
+    "to": "PHYSICAL_EVIDENCE_MODE",
+    "reason": "Exact title, platform, edition, and variant agreement from an authoritative or independent source.",
+    "gapType": "MISSING_EDITION_PROOF"
+  }
+]

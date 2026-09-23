@@ -45,6 +45,7 @@ function mergeSources(values: ResearchSourceDefinition[]): ResearchSourceDefinit
       defaultReliability: Math.max(current.defaultReliability, source.defaultReliability),
       knownRisks: [...new Set([...current.knownRisks, ...source.knownRisks])],
       queryTemplates: [...new Set([...current.queryTemplates, ...source.queryTemplates])],
+      physicalImageCapabilities: source.physicalImageCapabilities ?? current.physicalImageCapabilities,
     });
   }
   return [...merged.values()];

@@ -1,0 +1,26 @@
+[
+  {
+    "targetField": "BARCODE",
+    "imageUrl": "https://www.thevideogamecompany.com/cdn/shop/products/assassins-creed-iv-black-flag-nintendo-wii-u-008888188117-cover-art.jpg?v=1655772909&width=1029",
+    "subjectClass": "SAME_TITLE_DIFFERENT_EDITION",
+    "reason": "SUBJECT_GATE_REJECTED"
+  },
+  {
+    "targetField": "BARCODE",
+    "imageUrl": "https://www.rarewaves.com/cdn/shop/files/orig_396970_1372981_jpg.jpg?v=1751636167&width=1445",
+    "subjectClass": "IRRELEVANT",
+    "reason": "SUBJECT_GATE_REJECTED"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "imageUrl": "https://i.ebayimg.com/images/g/oWIAAeSwPN5p~ixQ/s-l400.webp",
+    "subjectClass": "SAME_TITLE_DIFFERENT_EDITION",
+    "reason": "SUBJECT_GATE_REJECTED"
+  },
+  {
+    "targetField": "BOX_CODE",
+    "imageUrl": "https://i.ebayimg.com/images/g/IuMAAeSwXT9o-sXp/s-l225.jpg",
+    "subjectClass": "SAME_TITLE_DIFFERENT_EDITION",
+    "reason": "SUBJECT_GATE_REJECTED"
+  }
+]

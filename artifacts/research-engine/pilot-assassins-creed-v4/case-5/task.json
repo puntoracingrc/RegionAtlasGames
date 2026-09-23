@@ -1,0 +1,77 @@
+{
+  "case": {
+    "number": 5,
+    "id": "case-5-brotherhood-revelations-double-pack-xbox360",
+    "title": "Assassin's Creed Brotherhood + Revelations Double Pack",
+    "titleCandidates": [
+      "Assassin's Creed Brotherhood + Revelations Double Pack",
+      "Assassin's Creed Brotherhood + Assassin's Creed Revelations"
+    ],
+    "platformSlug": "xbox360",
+    "edition": "Double Pack",
+    "editionNeedles": [
+      "double",
+      "brotherhood",
+      "revelations"
+    ],
+    "region": "Europe",
+    "identifiers": [
+      {
+        "type": "BARCODE",
+        "value": "3307215689271"
+      },
+      {
+        "type": "BARCODE",
+        "value": "3307215689165"
+      },
+      {
+        "type": "BARCODE",
+        "value": "3307215693865"
+      },
+      {
+        "type": "BARCODE",
+        "value": "3307215673393"
+      }
+    ],
+    "targetFields": [
+      "OUTER_INNER_RELATION",
+      "CANONICAL_IDENTITY"
+    ],
+    "objective": "Bind each barcode to outer pack, inner game or standalone product and reject platform-contaminated evidence."
+  },
+  "subjectId": "pilot:case-5-brotherhood-revelations-double-pack-xbox360",
+  "tasks": [
+    {
+      "id": "pilot:v4:case-5-brotherhood-revelations-double-pack-xbox360:outer_inner_relation",
+      "subjectId": "pilot:case-5-brotherhood-revelations-double-pack-xbox360",
+      "targetField": "OUTER_INNER_RELATION",
+      "question": "Bind each barcode to outer pack, inner game or standalone product and reject platform-contaminated evidence. Target field: OUTER_INNER_RELATION.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T11:56:51.540Z",
+      "updatedAt": "2026-09-16T11:56:51.540Z"
+    },
+    {
+      "id": "pilot:v4:case-5-brotherhood-revelations-double-pack-xbox360:canonical_identity",
+      "subjectId": "pilot:case-5-brotherhood-revelations-double-pack-xbox360",
+      "targetField": "CANONICAL_IDENTITY",
+      "question": "Bind each barcode to outer pack, inner game or standalone product and reject platform-contaminated evidence. Target field: CANONICAL_IDENTITY.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T11:56:51.540Z",
+      "updatedAt": "2026-09-16T11:56:51.540Z"
+    }
+  ]
+}

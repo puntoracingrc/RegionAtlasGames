@@ -7,9 +7,21 @@ import { loadResearchKnowledge } from "./knowledge-loader";
 import { researchPageTextHash } from "./page-fetcher";
 import { boundedBackoff, classifyRetrievalFailure, isInfrastructureRetrievalFailure, isRetryableRetrievalFailure, safeRetrievalDetail } from "./retrieval-resilience";
 import { applicableDecisionTests, knownIdentifiersForRouter, routeResearch, shouldDynamicallyReplan } from "./router";
-import { ResearchRunStore, createResearchState } from "./state-store";
+import { ResearchRunStore, createResearchPhysicalMetrics, createResearchState } from "./state-store";
 import type { ResearchSubject } from "./types";
 import { validateClaimDeterministically } from "./validators";
+import {
+  canonicalImageUrl,
+  canonicalResearchComponent,
+  createEvidenceGap,
+  createProductNode,
+  fetchImageContentHash,
+  genericQueriesAllowedAfterPhysicalMode,
+  identifierBinding,
+  isPhysicalEvidenceGap,
+  mergeProductGraph,
+  sourceRecordIdFromUrl,
+} from "./physical-evidence";
 import type {
   DurableResearchTask,
   ResearchBrowserProvider,
@@ -18,6 +30,7 @@ import type {
   ResearchEvidenceRecord,
   ResearchImageSearchProvider,
   ResearchImageSearchResult,
+  ResearchImageCandidate,
   ResearchLlmProvider,
   ResearchModelUsage,
   ResearchPage,
@@ -50,6 +63,7 @@ type PageArtifact = Pick<ResearchPage, "requestedUrl" | "canonicalUrl" | "status
   excerpt: string;
   linkCount: number;
   imageCount: number;
+  imageCandidates: ResearchImageCandidate[];
   mode: "DIRECT_FETCH" | "BROWSER";
 };
 
@@ -60,7 +74,7 @@ export type ResearchWorkerResult = {
   searchResults: ResearchSearchResult[];
   pages: PageArtifact[];
   images: ResearchImageSearchResult[];
-  visionResults: Array<{ imageUrl: string; result: ResearchVisionResult }>;
+  visionResults: Array<{ imageUrl: string; result: ResearchVisionResult; usage?: ResearchModelUsage }>;
   sourceCandidates: Array<{ host: string; sampleUrls: string[]; fieldsObserved: ResearchTargetField[]; status: "PENDING_SOURCE_REVIEW" }>;
   resolution: ResearchFieldResolution;
   providerUsage: Record<string, number>;
@@ -182,13 +196,21 @@ function recoverSourceAttempt(failures: TechnicalFailure[], target: string): voi
   for (const failure of failures.filter((row) => row.target === target)) failure.recovered = true;
 }
 
+function recoverPhysicalRouteFallbacks(failures: TechnicalFailure[]): void {
+  for (const failure of failures) {
+    if (!failure.recovered && ["DIRECT_FETCH", "BROWSER", "IMAGE_INSPECTION"].includes(failure.operation)) failure.recovered = true;
+  }
+}
+
 function packagingImageScore(candidate: ResearchPage["imageCandidates"][number]): number {
-  const text = `${candidate.alt ?? ""} ${candidate.caption ?? ""} ${candidate.url}`.toLowerCase();
+  const text = `${candidate.galleryLabel ?? ""} ${candidate.alt ?? ""} ${candidate.caption ?? ""} ${candidate.originalUrl ?? ""} ${candidate.url}`.toLowerCase();
   if (/facebook\.com\/tr|\.svg(?:[?#]|$)|favicon|sprite|logo|icon|appstore|googleplay|tracking|pixel/i.test(text)) return -100;
   let score = 0;
   if (/\bback\b|\brear\b|\bbarcode\b|contraportada|trasera/i.test(text)) score += 8;
   if (/\bbox\b|\bcover\b|caratula|\bcart\b|cartridge|\bdisc\b|package|packaging|product/i.test(text)) score += 4;
   if (/\bfront\b|portada/i.test(text)) score += 1;
+  if (candidate.originalUrl) score += 3;
+  if (candidate.acquisitionMechanisms.includes("ancestor-a.href") || candidate.acquisitionMechanisms.includes("img.data-original")) score += 2;
   return score;
 }
 
@@ -266,6 +288,8 @@ function imageEvidence(input: {
   sourcePageUrl: string | null;
   result: ResearchVisionResult;
   ownScan: boolean;
+  imageHash?: string | null;
+  visionModel?: string | null;
 }): ResearchEvidenceRecord {
   const sourceUrl = input.sourcePageUrl ?? input.imageUrl;
   let host: string | null = null;
@@ -282,6 +306,7 @@ function imageEvidence(input: {
     observedComponent: input.result.component,
     expectedComponent: null,
   });
+  const subjectClass = input.result.subjectClass ?? (binding.game === "MATCH" && binding.platform === "MATCH" && binding.edition !== "MISMATCH" ? "EXACT_PRODUCT" : "RELATED_PRODUCT");
   const collector = /\b(?:skull|buccaneer|black chest|collector|double pack)\b/i.test(input.context.edition);
   const exactPhysical = !input.ownScan
     && input.result.imageQuality === "GOOD"
@@ -304,11 +329,33 @@ function imageEvidence(input: {
     subjectBinding: binding,
     relevantExcerpt: null,
     imageUrl: input.imageUrl,
-    imageHash: createHash("sha256").update(input.imageUrl).digest("hex"),
+    imageHash: input.imageHash ?? null,
     textHash: null,
     capabilities: input.ownScan ? [input.task.targetField] : input.source && input.source.capabilityScore > 0 ? [input.task.targetField] : [],
     reliability: input.ownScan ? 100 : exactPhysical ? 95 : Math.min(95, (input.source?.capabilityScore ?? 0) + 5),
     component: input.result.component,
+    productNodeId: null,
+    componentNodeId: null,
+    bindingState: input.result.bindingState ?? "UNBOUND",
+    marketBindingState: input.result.marketBindingState ?? "UNBOUND",
+    subjectClass,
+    editionClass: input.result.editionClass,
+    visibleEditionMarker: input.result.visibleEditionMarker ?? null,
+    sourcePageUrl: input.sourcePageUrl,
+    originalImageUrl: input.imageUrl,
+    resolvedImageUrl: input.imageUrl,
+    sourceRecordId: sourceRecordIdFromUrl(input.imageUrl),
+    listingId: input.sourcePageUrl ? sourceRecordIdFromUrl(input.sourcePageUrl) : null,
+    platformClassification: input.result.platformCandidate,
+    editionClassification: input.result.editionCandidate,
+    marketEvidence: input.result.distributorText,
+    languageEvidence: input.result.packagingLanguagesObserved,
+    extractedIdentifiers: [
+      ...input.result.barcodeCandidates.map((value) => ({ type: "BARCODE", value })),
+      ...input.result.printedCodes.map((value) => ({ type: "PRINTED_CODE", value })),
+    ],
+    visionModel: input.visionModel ?? null,
+    visionSchemaVersion: 1,
   };
 }
 
@@ -320,19 +367,20 @@ export function claimsFromVision(input: {
   result: ResearchVisionResult;
 }): ResearchClaimRecord[] {
   const values: unknown[] = [];
-  const boxComponents = new Set(["BACK", "BOX_BACK", "BOX_FRONT", "BOX_FLAPS", "OUTER_BOX", "INNER_BOX"]);
-  const mediumComponents = new Set(["CART_FRONT", "CART_BACK", "DISC"]);
+  const component = canonicalResearchComponent(input.result.component);
+  const boxComponents = new Set(["OUTER_PACKAGE_BACK", "OUTER_PACKAGE_FRONT", "OUTER_PACKAGE_FLAP", "INNER_CASE_BACK", "INNER_CASE_FRONT"]);
+  const mediumComponents = new Set(["CARTRIDGE_FRONT", "CARTRIDGE_BACK", "DISC"]);
   switch (input.task.targetField) {
     case "BARCODE":
       if (input.result.barcodeBinding !== "RETAILER_STICKER") values.push(...input.result.barcodeCandidates);
       break;
     case "BOX_CODE":
-      if (boxComponents.has(input.result.component)) values.push(...input.result.printedCodes);
+      if (boxComponents.has(component)) values.push(...input.result.printedCodes);
       break;
     case "SERIAL": values.push(...input.result.printedCodes); break;
     case "PRODUCT_CODE":
     case "MEDIA_ID":
-      if (mediumComponents.has(input.result.component)) values.push(...input.result.printedCodes);
+      if (mediumComponents.has(component)) values.push(...input.result.printedCodes);
       break;
     case "PACKAGING_LANGUAGES": if (input.result.packagingLanguagesObserved.length) values.push(input.result.packagingLanguagesObserved); break;
     case "RATING": if (input.result.ratingMarks.length) values.push(input.result.ratingMarks); break;
@@ -362,7 +410,7 @@ export function claimsFromVision(input: {
       platformSlug: input.context.platformSlug,
       editionId: input.context.physicalEditionId,
       variantId: input.context.physicalVariant,
-      component: input.result.component,
+      component,
       field: input.task.targetField,
       value,
       sourceId: input.evidence.sourceId,
@@ -375,6 +423,95 @@ export function claimsFromVision(input: {
     };
     return { ...base, validationErrors: validateClaimDeterministically(base, input.context) };
   });
+}
+
+function registerPhysicalBinding(input: {
+  state: ResearchState;
+  context: ResearchCatalogContext;
+  evidence: ResearchEvidenceRecord;
+  result: ResearchVisionResult;
+  claims: ResearchClaimRecord[];
+}): void {
+  const subjectClass = input.result.subjectClass ?? input.evidence.subjectClass ?? "UNREADABLE";
+  const root = createProductNode({ label: `${input.context.title} · ${input.context.platformSlug} · ${input.context.edition}`, type: "PHYSICAL_PRODUCT" });
+  const componentType = input.result.productNodeType
+    ?? (input.result.barcodeProductRole === "OUTER_PRODUCT" ? "OUTER_PACKAGE"
+      : input.result.barcodeProductRole === "INNER_GAME" ? "INNER_PRODUCT"
+        : ["CARTRIDGE_FRONT", "CARTRIDGE_BACK", "DISC"].includes(canonicalResearchComponent(input.result.component)) ? "MEDIA"
+          : ["MANUAL_FRONT", "MANUAL_BACK", "INSERT", "CODE_VOUCHER", "DOWNLOAD_CARD"].includes(canonicalResearchComponent(input.result.component)) ? "DOCUMENT"
+            : ["STICKER", "SELLER_STICKER"].includes(canonicalResearchComponent(input.result.component)) ? "STICKER"
+              : "OUTER_PACKAGE");
+  const component = createProductNode({
+    label: input.result.componentNodeLabel ?? `${componentType}:${canonicalResearchComponent(input.result.component)}`,
+    type: componentType,
+    component: input.result.component,
+    parentProductId: root.id,
+  });
+  const relation = componentType === "MEDIA" ? "MEDIA_FOR"
+    : componentType === "DOCUMENT" ? (canonicalResearchComponent(input.result.component) === "CODE_VOUCHER" || canonicalResearchComponent(input.result.component) === "DOWNLOAD_CARD" ? "VOUCHER_FOR" : "MANUAL_FOR")
+      : componentType === "STICKER" ? "STICKER_ON"
+        : componentType === "INNER_PRODUCT" ? "BUNDLES" : "WRAPS";
+  const graph = mergeProductGraph({
+    nodes: input.state.productNodes ?? [], relations: input.state.productRelations ?? [], nextNodes: [root, component],
+    nextRelations: [{ fromNodeId: component.id, toNodeId: root.id, relation, evidenceIds: [input.evidence.id] }],
+  });
+  input.state.productNodes = graph.nodes;
+  input.state.productRelations = graph.relations;
+  input.evidence.productNodeId = root.id;
+  input.evidence.componentNodeId = component.id;
+  const extractedRows = input.claims.flatMap((claim) => typeof claim.value === "string"
+    ? [{ type: claim.field, value: claim.value, validationErrors: claim.validationErrors }]
+    : []);
+  const seenValues = new Set(extractedRows.map((row) => `${row.type}:${row.value}`));
+  for (const value of input.result.barcodeCandidates) {
+    if (!seenValues.has(`BARCODE:${value}`)) extractedRows.push({
+      type: "BARCODE", value,
+      validationErrors: validateClaimDeterministically({ field: "BARCODE", value, component: input.result.component }, input.context),
+    });
+  }
+  const bindings = extractedRows.map((row) => {
+    const binding = identifierBinding({
+      identifierType: row.type,
+      value: row.value,
+      component: input.result.component,
+      productNodeId: root.id,
+      componentNodeId: component.id,
+      evidenceId: input.evidence.id,
+      subjectClass,
+    });
+    return row.validationErrors.length ? { ...binding, state: "REJECTED" as const, rejectionReason: row.validationErrors.join(",") } : binding;
+  });
+  input.state.identifierBindings = [...new Map([...(input.state.identifierBindings ?? []), ...bindings]
+    .map((row) => [`${row.identifierType}:${row.value}:${row.componentNodeId ?? ""}`, row])).values()];
+  input.evidence.bindingState = subjectClass === "EXACT_PRODUCT" ? "PRODUCT_BOUND" : subjectClass === "UNREADABLE" ? "UNBOUND" : "REJECTED";
+  const metric = input.state.physicalMetrics;
+  if (metric) {
+    const canonicalComponent = canonicalResearchComponent(input.result.component);
+    metric.imagesInspected += 1;
+    metric.imagesClassified += 1;
+    if (subjectClass === "EXACT_PRODUCT") {
+      metric.subjectAccepted += 1;
+      metric.exactTargetImages += 1;
+    } else {
+      metric.rejectedImages += 1;
+      if (subjectClass === "SAME_TITLE_DIFFERENT_EDITION") metric.wrongEditionImagesRejected += 1;
+      else if (subjectClass === "SAME_TITLE_DIFFERENT_PLATFORM") metric.wrongPlatformImagesRejected += 1;
+      else metric.ambiguousImagesRejected += 1;
+    }
+    if (canonicalComponent !== "UNKNOWN_COMPONENT") metric.componentAccepted += 1;
+    if (canonicalComponent.startsWith("OUTER_PACKAGE_")) metric.outerPackageImages += 1;
+    if (canonicalComponent.startsWith("INNER_CASE_")) metric.innerCaseImages += 1;
+    if (canonicalComponent.startsWith("CARTRIDGE_")) metric.cartImages += 1;
+    if (canonicalComponent === "DISC") metric.discImages += 1;
+    if (canonicalComponent === "OUTER_PACKAGE_BACK" || canonicalComponent === "INNER_CASE_BACK") metric.backCoverImages += 1;
+    metric.identifierExtractions += bindings.length;
+    metric.productBindings += bindings.filter((row) => row.state === "PRODUCT_BOUND").length;
+    metric.componentBoundClaims += input.claims.filter((row) => canonicalResearchComponent(row.component ?? "UNKNOWN_COMPONENT") !== "UNKNOWN_COMPONENT").length;
+    metric.productBoundIdentifiers += bindings.filter((row) => row.state === "PRODUCT_BOUND").length;
+    metric.unboundIdentifierCandidates += bindings.filter((row) => row.state === "UNBOUND").length;
+    metric.sellerStickerIdentifiers += bindings.filter((row) => canonicalResearchComponent(row.component ?? "UNKNOWN_COMPONENT") === "SELLER_STICKER").length;
+    if (input.evidence.marketBindingState === "MARKET_BOUND") metric.marketBoundClaims += input.claims.length;
+  }
 }
 
 function mergeIdentifiers(state: ResearchState, values: Array<{ type: string; value: string; component: string | null }>): ResearchState["identifiersSeen"] {
@@ -433,6 +570,8 @@ function routerInput(input: {
     legacyKnowledge: input.knowledge.legacyEntries,
     currentClaims: input.state.claims,
     currentConflicts: input.state.conflicts,
+    evidenceGaps: input.state.evidenceGaps ?? [],
+    researchMode: input.state.researchMode ?? "STANDARD",
   };
 }
 
@@ -461,6 +600,7 @@ async function inspectOwnedScans(input: {
           : null;
     if (deterministicValue !== null) {
       const image = scan.images[0]?.url ? absoluteOwnedScanUrl(scan.images[0].url) : null;
+      const ownedImageHash = image ? await fetchImageContentHash(image) : null;
       const evidence: ResearchEvidenceRecord = {
         id: evidenceId(input.state.runId, image ?? `owned-scan:${scan.catalogId}`, "OWN_SCAN", null),
         runId: input.state.runId,
@@ -475,7 +615,7 @@ async function inspectOwnedScans(input: {
         subjectBinding: { game: "MATCH", platform: "MATCH", edition: "UNKNOWN", variant: "UNKNOWN", component: "UNKNOWN", risks: [] },
         relevantExcerpt: `Owned scan metadata for ${scan.sourceLabel}.`,
         imageUrl: image,
-        imageHash: image ? createHash("sha256").update(image).digest("hex") : null,
+        imageHash: ownedImageHash,
         textHash: null,
         capabilities: [input.task.targetField],
         reliability: 100,
@@ -524,7 +664,8 @@ async function inspectOwnedScans(input: {
       input.state.usage = recordBudgetUse(input.state.usage, "images");
       recordUsage(input.state, inspected.usage);
       input.modelUsages.push(inspected.usage);
-      input.visionResults.push({ imageUrl, result: inspected.result });
+      input.visionResults.push({ imageUrl, result: inspected.result, usage: inspected.usage });
+      const imageHash = await fetchImageContentHash(imageUrl);
       const evidence = imageEvidence({
         state: input.state,
         task: input.task,
@@ -534,9 +675,13 @@ async function inspectOwnedScans(input: {
         sourcePageUrl: null,
         result: inspected.result,
         ownScan: true,
+        imageHash,
+        visionModel: inspected.usage.model,
       });
       addUniqueEvidence(input.state, evidence);
-      addUniqueClaims(input.state, claimsFromVision({ state: input.state, task: input.task, context: input.context, evidence, result: inspected.result }));
+      const claims = claimsFromVision({ state: input.state, task: input.task, context: input.context, evidence, result: inspected.result });
+      addUniqueClaims(input.state, claims);
+      registerPhysicalBinding({ state: input.state, context: input.context, evidence, result: inspected.result, claims });
       await persist(input.store, input.state);
       const resolved = resolveResearchClaimRecords({ field: input.task.targetField, claims: input.state.claims, evidence: input.state.evidence });
       input.state.claims = resolved.claims;
@@ -685,7 +830,10 @@ async function inspectDiscoveredImages(input: {
   plan: ResearchRouterPlan;
   imageSearchProvider: ResearchImageSearchProvider | null;
   visionProvider: ResearchVisionProvider | null;
+  pageFetcher: ResearchPageFetcher;
+  browserProvider: ResearchBrowserProvider | null;
   store: ResearchRunStore;
+  pages: PageArtifact[];
   images: ResearchImageSearchResult[];
   visionResults: ResearchWorkerResult["visionResults"];
   modelUsages: ResearchModelUsage[];
@@ -696,9 +844,9 @@ async function inspectDiscoveredImages(input: {
   const previousIdentifiers = [...input.state.identifiersSeen];
   const component = input.plan.imagePlan[0]?.component ?? "UNKNOWN";
   const visualCue = input.task.targetField === "PHYSICAL_PRODUCT_TYPE" ? '"back cover"'
-    : component === "BACK" ? '"back cover" barcode'
-    : component === "BOX_FLAPS" ? '"box code" packaging'
-      : component === "CART_FRONT" ? 'cartridge label "product code"'
+    : ["BACK", "BOX_BACK", "OUTER_PACKAGE_BACK", "INNER_CASE_BACK"].includes(component) ? '"back cover" barcode'
+    : ["BOX_FLAPS", "OUTER_PACKAGE_FLAP"].includes(component) ? '"box code" packaging'
+      : ["CART_FRONT", "CARTRIDGE_FRONT"].includes(component) ? 'cartridge label "product code"'
         : "physical packaging";
   const platformLabel: Record<string, string> = { ds: "Nintendo DS", "3ds": "Nintendo 3DS", wiiu: "Wii U", switch: "Nintendo Switch", ps3: "PlayStation 3", ps4: "PlayStation 4", ps5: "PlayStation 5", xbox360: "Xbox 360" };
   const region = input.context.marketRegions.join(" ") || input.context.region || input.context.edition;
@@ -722,12 +870,47 @@ async function inspectDiscoveredImages(input: {
     .filter((image) => imageResultLooksRelevant(image, input.context, input.task.targetField))
     .sort((left, right) => imageTargetScore(right, input.task.targetField) - imageTargetScore(left, input.task.targetField));
   input.images.push(...relevant);
+  const sourcePages = [...new Map(relevant.filter((image) => image.sourcePageUrl).map((image) => [image.sourcePageUrl!, image])).values()].slice(0, 2);
+  for (const image of sourcePages) {
+    const sourcePageUrl = image.sourcePageUrl!;
+    if (input.state.urlsVisited.includes(sourcePageUrl) || !budgetAllows(input.state.budget, input.state.usage, "pages")) continue;
+    const source = sourceForUrl(sourcePageUrl, input.plan);
+    updateState(input.state, { status: "READING", urlsVisited: [...input.state.urlsVisited, sourcePageUrl] });
+    try {
+      const fetched = await fetchWithFallback({
+        url: sourcePageUrl,
+        source,
+        state: input.state,
+        pageFetcher: input.pageFetcher,
+        browserProvider: input.browserProvider,
+        technicalFailures: input.technicalFailures,
+      });
+      input.state.usage = recordBudgetUse(input.state.usage, "pages");
+      input.pages.push(pageArtifact(fetched.page, fetched.mode));
+      const inspectedBefore = input.visionResults.length;
+      const galleryReplan = await inspectPageImages({
+        task: input.task, context: input.context, state: input.state, plan: input.plan, page: fetched.page, source,
+        visionProvider: input.visionProvider, store: input.store, images: input.images, visionResults: input.visionResults,
+        modelUsages: input.modelUsages, technicalFailures: input.technicalFailures,
+      });
+      if (input.visionResults.length > inspectedBefore) recoverPhysicalRouteFallbacks(input.technicalFailures);
+      if (galleryReplan) return true;
+    } catch (error) {
+      input.state.rejectedHypotheses.push({ value: sourcePageUrl, reason: `GALLERY_PAGE_UNAVAILABLE: ${safeRetrievalDetail(error)}` });
+    }
+  }
   for (const image of relevant.slice(0, 2)) {
-    if (!image.sourcePageUrl || input.state.urlsVisited.includes(image.imageUrl) || !budgetAllows(input.state.budget, input.state.usage, "images") || !hasTokenReserve(input.state, VISION_TOKEN_RESERVE)) continue;
+    if (!image.sourcePageUrl || canonicalImageUrl(image.imageUrl) === canonicalImageUrl(image.sourcePageUrl)
+      || input.state.urlsVisited.includes(image.imageUrl) || !budgetAllows(input.state.budget, input.state.usage, "images") || !hasTokenReserve(input.state, VISION_TOKEN_RESERVE)) continue;
     const source = sourceForUrl(image.sourcePageUrl, input.plan);
     updateState(input.state, { status: "INSPECTING_IMAGES", urlsVisited: [...input.state.urlsVisited, image.imageUrl] });
     try {
-      const inspectionUrl = image.thumbnailUrl ?? image.imageUrl;
+      const inspectionUrl = image.imageUrl;
+      const imageHash = await fetchImageContentHash(inspectionUrl);
+      if (imageHash && input.state.evidence.some((row) => row.imageHash === imageHash)) {
+        if (input.state.physicalMetrics) input.state.physicalMetrics.duplicateImages += 1;
+        continue;
+      }
       const inspected = await input.visionProvider.inspect({
         imageUrl: inspectionUrl,
         componentHint: input.plan.imagePlan[0]?.component,
@@ -738,7 +921,7 @@ async function inspectDiscoveredImages(input: {
       input.state.usage = recordBudgetUse(input.state.usage, "images");
       recordUsage(input.state, inspected.usage);
       input.modelUsages.push(inspected.usage);
-      input.visionResults.push({ imageUrl: inspectionUrl, result: inspected.result });
+      input.visionResults.push({ imageUrl: inspectionUrl, result: inspected.result, usage: inspected.usage });
       const evidence = imageEvidence({
         state: input.state,
         task: input.task,
@@ -748,11 +931,16 @@ async function inspectDiscoveredImages(input: {
         sourcePageUrl: image.sourcePageUrl,
         result: inspected.result,
         ownScan: false,
+        imageHash,
+        visionModel: inspected.usage.model,
       });
       addUniqueEvidence(input.state, evidence);
       const claims = claimsFromVision({ state: input.state, task: input.task, context: input.context, evidence, result: inspected.result });
       addUniqueClaims(input.state, claims);
+      registerPhysicalBinding({ state: input.state, context: input.context, evidence, result: inspected.result, claims });
       input.state.identifiersSeen = mergeIdentifiers(input.state, claimIdentifiers(claims));
+      if (image.sourcePageUrl) recoverSourceAttempt(input.technicalFailures, image.sourcePageUrl);
+      recoverPhysicalRouteFallbacks(input.technicalFailures);
     } catch (error) {
       input.technicalFailures.push({ operation: "IMAGE_INSPECTION", target: image.imageUrl, code: classifyRetrievalFailure(error), detail: safeRetrievalDetail(error), recovered: false });
     }
@@ -777,37 +965,52 @@ async function inspectPageImages(input: {
 }): Promise<boolean> {
   if (!input.visionProvider || !input.plan.imagePlan.length) return false;
   const previousIdentifiers = [...input.state.identifiersSeen];
-  const requiredScore = input.plan.imagePlan.some((row) => row.component === "BACK") ? 8 : 4;
+  const requiredScore = input.plan.imagePlan.some((row) => ["BACK", "BOX_BACK", "OUTER_PACKAGE_BACK", "INNER_CASE_BACK"].includes(row.component)) ? 8 : 4;
+  if (input.state.physicalMetrics && input.page.imageCandidates.length) {
+    input.state.physicalMetrics.galleriesOpened += 1;
+    input.state.physicalMetrics.galleryPagesOpened += 1;
+    input.state.physicalMetrics.imagesDiscovered += input.page.imageCandidates.length;
+    input.state.physicalMetrics.imageCandidatesDiscovered += input.page.imageCandidates.length;
+    input.state.physicalMetrics.originalImagesResolved += input.page.imageCandidates.filter((row) => Boolean(row.originalUrl)).length;
+  }
   const ranked = input.page.imageCandidates
-    .filter((candidate) => /^https?:\/\//i.test(candidate.url))
+    .filter((candidate) => /^https?:\/\//i.test(candidate.resolvedUrl || candidate.url))
     .map((candidate) => ({ candidate, score: packagingImageScore(candidate) }))
     .filter((row) => row.score >= requiredScore)
     .sort((a, b) => b.score - a.score)
     .map((row) => row.candidate)
     .slice(0, 3);
   for (const [index, candidate] of ranked.entries()) {
-    if (input.state.urlsVisited.includes(candidate.url) || !budgetAllows(input.state.budget, input.state.usage, "images") || !hasTokenReserve(input.state, VISION_TOKEN_RESERVE)) continue;
-    input.images.push({ imageUrl: candidate.url, thumbnailUrl: null, sourcePageUrl: input.page.canonicalUrl, title: candidate.alt ?? candidate.caption ?? input.page.title, host: new URL(input.page.canonicalUrl).hostname, rank: index + 1 });
-    updateState(input.state, { status: "INSPECTING_IMAGES", urlsVisited: [...input.state.urlsVisited, candidate.url] });
+    const inspectionUrl = candidate.originalUrl ?? candidate.resolvedUrl ?? candidate.url;
+    if (input.state.urlsVisited.includes(inspectionUrl) || !budgetAllows(input.state.budget, input.state.usage, "images") || !hasTokenReserve(input.state, VISION_TOKEN_RESERVE)) continue;
+    input.images.push({ imageUrl: inspectionUrl, thumbnailUrl: candidate.thumbnailUrl, sourcePageUrl: input.page.canonicalUrl, title: candidate.galleryLabel ?? candidate.alt ?? candidate.caption ?? input.page.title, host: new URL(input.page.canonicalUrl).hostname, rank: index + 1 });
+    updateState(input.state, { status: "INSPECTING_IMAGES", urlsVisited: [...input.state.urlsVisited, inspectionUrl] });
     try {
+      const imageHash = await fetchImageContentHash(inspectionUrl);
+      if (imageHash && input.state.evidence.some((row) => row.imageHash === imageHash)) {
+        if (input.state.physicalMetrics) input.state.physicalMetrics.duplicateImages += 1;
+        continue;
+      }
       const inspected = await input.visionProvider.inspect({
-        imageUrl: candidate.url,
+        imageUrl: inspectionUrl,
         componentHint: input.plan.imagePlan[0]?.component,
         requestedFields: input.plan.imagePlan.flatMap((row) => row.fields),
         expected: { title: input.context.title, platform: input.context.platformSlug, edition: input.context.edition, region: input.context.region },
-        sourceContext: { pageTitle: input.page.title, pageUrl: input.page.canonicalUrl, imageLabel: candidate.alt ?? candidate.caption },
+        sourceContext: { pageTitle: input.page.title, pageUrl: input.page.canonicalUrl, imageLabel: candidate.galleryLabel ?? candidate.alt ?? candidate.caption },
       });
       input.state.usage = recordBudgetUse(input.state.usage, "images");
+      if (candidate.originalUrl && input.state.physicalMetrics) input.state.physicalMetrics.fullResolutionImagesFetched += 1;
       recordUsage(input.state, inspected.usage);
       input.modelUsages.push(inspected.usage);
-      input.visionResults.push({ imageUrl: candidate.url, result: inspected.result });
-      const evidence = imageEvidence({ state: input.state, task: input.task, context: input.context, source: input.source, imageUrl: candidate.url, sourcePageUrl: input.page.canonicalUrl, result: inspected.result, ownScan: false });
+      input.visionResults.push({ imageUrl: inspectionUrl, result: inspected.result, usage: inspected.usage });
+      const evidence = imageEvidence({ state: input.state, task: input.task, context: input.context, source: input.source, imageUrl: inspectionUrl, sourcePageUrl: input.page.canonicalUrl, result: inspected.result, ownScan: false, imageHash, visionModel: inspected.usage.model });
       addUniqueEvidence(input.state, evidence);
       const claims = claimsFromVision({ state: input.state, task: input.task, context: input.context, evidence, result: inspected.result });
       addUniqueClaims(input.state, claims);
+      registerPhysicalBinding({ state: input.state, context: input.context, evidence, result: inspected.result, claims });
       input.state.identifiersSeen = mergeIdentifiers(input.state, claimIdentifiers(claims));
     } catch (error) {
-      input.technicalFailures.push({ operation: "IMAGE_INSPECTION", target: candidate.url, code: classifyRetrievalFailure(error), detail: safeRetrievalDetail(error), recovered: false });
+      input.technicalFailures.push({ operation: "IMAGE_INSPECTION", target: inspectionUrl, code: classifyRetrievalFailure(error), detail: safeRetrievalDetail(error), recovered: false });
     }
     await persist(input.store, input.state);
   }
@@ -828,6 +1031,7 @@ function pageArtifact(page: ResearchPage, mode: PageArtifact["mode"]): PageArtif
     excerpt: page.text.slice(0, 2_000),
     linkCount: page.links.length,
     imageCount: page.imageCandidates.length,
+    imageCandidates: page.imageCandidates,
     mode,
   };
 }
@@ -875,13 +1079,26 @@ function evidenceGap(input: { state: ResearchState; resolution: ResearchFieldRes
     CANONICAL_IDENTITY: "Exact title, platform, edition, and variant agreement from an authoritative or independent source.",
   };
   const last = input.plans.at(-1);
-  return {
+  return createEvidenceGap({
     field,
     candidateValue: input.resolution.value,
     missingProof: missingProof[field] ?? "Additional independently bound evidence meeting the field confirmation threshold.",
-    recommendedNextEvidence: input.state.nextEvidenceNeeded.length ? input.state.nextEvidenceNeeded : ["EXACT_SUBJECT_BINDING", "COMPONENT_SPECIFIC_EVIDENCE"],
     recommendedSourceTypes: (last?.sourcePlan ?? []).filter((source) => source.capabilityScore > 0).slice(0, 5).map((source) => source.sourceId),
-  };
+  });
+}
+
+function activatePhysicalEvidenceMode(state: ResearchState, resolution: ResearchFieldResolution, plans: ResearchRouterPlan[]): boolean {
+  const gap = evidenceGap({ state, resolution, plans });
+  if (!gap) return false;
+  const existed = (state.evidenceGaps ?? []).some((row) => row.field === gap.field && row.type === gap.type);
+  state.evidenceGaps = [...new Map([...(state.evidenceGaps ?? []), gap].map((row) => [`${row.field}:${row.type}`, row])).values()];
+  state.nextEvidenceNeeded = [...new Set([...state.nextEvidenceNeeded, ...gap.recommendedActions])];
+  if (!isPhysicalEvidenceGap(gap) || state.researchMode === "PHYSICAL_EVIDENCE_MODE") return !existed;
+  const at = now();
+  state.modeTransitions = [...(state.modeTransitions ?? []), { at, from: state.researchMode ?? "STANDARD", to: "PHYSICAL_EVIDENCE_MODE", reason: gap.missingProof, gapType: gap.type }];
+  state.researchMode = "PHYSICAL_EVIDENCE_MODE";
+  if (state.physicalMetrics) state.physicalMetrics.physicalEvidenceModeEntries += 1;
+  return true;
 }
 
 async function writeArtifacts(input: {
@@ -905,6 +1122,32 @@ async function writeArtifacts(input: {
   const { store, state } = input;
   const queryExecution = executedQueries(state, input.plans);
   const gap = evidenceGap(input);
+  const pageImageCandidates = input.pages.flatMap((page) => page.imageCandidates);
+  const evidenceImages = state.evidence.filter((row) => row.imageUrl).map((row) => ({
+    evidenceId: row.id,
+    sourcePageUrl: row.sourcePageUrl ?? row.canonicalUrl,
+    originalUrl: row.originalImageUrl ?? row.imageUrl,
+    resolvedUrl: row.resolvedImageUrl ?? row.imageUrl,
+    contentHash: row.imageHash,
+    sourceId: row.sourceId,
+    sourceRecordId: row.sourceRecordId ?? (row.imageUrl ? sourceRecordIdFromUrl(row.imageUrl) : null),
+    listingId: row.listingId ?? (row.sourceUrl ? sourceRecordIdFromUrl(row.sourceUrl) : null),
+    subjectClass: row.subjectClass ?? "UNREADABLE",
+    component: row.component,
+    marketBindingState: row.marketBindingState ?? "UNBOUND",
+    bindingState: row.bindingState ?? "UNBOUND",
+    productNodeId: row.productNodeId ?? null,
+    componentNodeId: row.componentNodeId ?? null,
+    platformClassification: row.platformClassification ?? null,
+    editionClassification: row.editionClassification ?? null,
+    editionClass: row.editionClass ?? "UNKNOWN",
+    visibleEditionMarker: row.visibleEditionMarker ?? null,
+    marketEvidence: row.marketEvidence ?? [],
+    languageEvidence: row.languageEvidence ?? [],
+    extractedIdentifiers: row.extractedIdentifiers ?? [],
+    model: row.visionModel ?? input.modelUsages.filter((usage) => usage.model).at(-1)?.model ?? null,
+    schemaVersion: row.visionSchemaVersion ?? 1,
+  }));
   await Promise.all([
     store.writeArtifact(state.runId, "task.json", input.task),
     store.writeArtifact(state.runId, "catalog-context.json", input.context),
@@ -915,6 +1158,17 @@ async function writeArtifacts(input: {
     store.writeArtifact(state.runId, "search-results.json", input.searchResults),
     store.writeArtifact(state.runId, "pages.json", input.pages),
     store.writeArtifact(state.runId, "images.json", input.images),
+    store.writeArtifact(state.runId, "image-candidates.json", pageImageCandidates),
+    store.writeArtifact(state.runId, "evidence-images.json", evidenceImages),
+    store.writeArtifact(state.runId, "subject-classifications.json", input.visionResults.map((row) => ({ imageUrl: row.imageUrl, subjectClass: row.result.subjectClass ?? "UNREADABLE", stage: row.result.visualStages?.subject ?? "UNREADABLE" }))),
+    store.writeArtifact(state.runId, "component-classifications.json", input.visionResults.map((row) => ({ imageUrl: row.imageUrl, component: row.result.component, componentNodeLabel: row.result.componentNodeLabel ?? null, stage: row.result.visualStages?.component ?? "UNREADABLE" }))),
+    store.writeArtifact(state.runId, "identifier-bindings.json", state.identifierBindings ?? []),
+    store.writeArtifact(state.runId, "product-graph.json", { nodes: state.productNodes ?? [], relations: state.productRelations ?? [] }),
+    store.writeArtifact(state.runId, "market-binding.json", evidenceImages.map((row) => ({ evidenceId: row.evidenceId, marketBindingState: row.marketBindingState }))),
+    store.writeArtifact(state.runId, "mode-transitions.json", state.modeTransitions ?? []),
+    store.writeArtifact(state.runId, "evidence-gaps.json", state.evidenceGaps ?? (gap ? [gap] : [])),
+    store.writeArtifact(state.runId, "physical-metrics.json", state.physicalMetrics ?? {}),
+    store.writeArtifact(state.runId, "rejected-images.json", input.visionResults.filter((row) => row.result.subjectClass && row.result.subjectClass !== "EXACT_PRODUCT").map((row) => ({ imageUrl: row.imageUrl, subjectClass: row.result.subjectClass, reason: "SUBJECT_GATE_REJECTED" }))),
     store.writeArtifact(state.runId, "vision-results.json", input.visionResults),
     store.writeArtifact(state.runId, "evidence.json", state.evidence),
     store.writeArtifact(state.runId, "claims.json", state.claims),
@@ -995,6 +1249,7 @@ export async function runResearchTaskV2(input: {
     priority: input.task.priority,
     riskCodes: input.task.riskCodes,
   });
+  state.physicalMetrics = { ...createResearchPhysicalMetrics(), ...(state.physicalMetrics ?? {}) };
   const priorRouter = input.resumeState
     ? await store.readArtifact<{ history?: ResearchRouterPlan[] }>(state.runId, "router-plan.json", () => ({}))
     : {};
@@ -1107,6 +1362,8 @@ export async function runResearchTaskV2(input: {
         for (const planned of plan.queryPlan) {
           const normalized = normalizedQuery(planned.query);
           if (state.normalizedQueries.includes(normalized)) continue;
+          if (state.researchMode === "PHYSICAL_EVIDENCE_MODE" && planned.strategy === "GENERIC"
+            && !genericQueriesAllowedAfterPhysicalMode(executedQueries(state, plans).map((row) => row.strategy), 2)) continue;
           if (!budgetAllows(state.budget, state.usage, "searches")) break;
           const shouldReserveImageSearch = Boolean(
             input.dependencies.imageSearchProvider
@@ -1219,7 +1476,10 @@ export async function runResearchTaskV2(input: {
         plan,
         imageSearchProvider: input.dependencies.imageSearchProvider ?? null,
         visionProvider: input.dependencies.visionProvider ?? null,
+        pageFetcher: input.dependencies.pageFetcher,
+        browserProvider: input.dependencies.browserProvider ?? null,
         store,
+        pages,
         images,
         visionResults,
         modelUsages,
@@ -1233,6 +1493,7 @@ export async function runResearchTaskV2(input: {
         updateState(state, { status: "CONFIRMED", whyStopped: "TARGET_CONFIRMED", decisionSummary: resolved.resolution.reason });
         break;
       }
+      replan ||= activatePhysicalEvidenceMode(state, resolved.resolution, plans);
       noProgressRounds = progressed || replan ? 0 : noProgressRounds + 1;
       if (noProgressRounds >= 1 || !replan) {
         updateState(state, { whyStopped: budgetExhaustionReason(state.budget, state.usage) ?? "NO_NEW_DISCRIMINATING_EVIDENCE" });

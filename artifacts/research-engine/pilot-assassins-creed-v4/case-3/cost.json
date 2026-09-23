@@ -1,0 +1,27 @@
+{
+  "searchCalls": 20,
+  "braveSearchCalls": 20,
+  "braveWebCalls": 18,
+  "braveImageCalls": 2,
+  "googleCalls": 0,
+  "serpApiCalls": 7,
+  "ebayApiCalls": 0,
+  "pagesOpened": 5,
+  "imagesInspected": 4,
+  "browserSessions": 5,
+  "llmCalls": 3,
+  "visionCalls": 4,
+  "inputTokens": 19902,
+  "outputTokens": 802,
+  "estimatedOpenAiCostUsd": 0.003467,
+  "estimatedBraveCostUsd": 0.1,
+  "estimatedTotalCostUsd": 0.103467,
+  "estimatedCostUsd": 0.003467,
+  "durationMs": 41443,
+  "providerCalls": {
+    "brave-search": 18,
+    "serpapi-google": 7,
+    "brave-images": 2,
+    "serpapi-google-images": 0
+  }
+}

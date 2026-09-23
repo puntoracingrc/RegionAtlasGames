@@ -1,0 +1,9 @@
+[
+  {
+    "at": "2026-09-16T11:57:41.323Z",
+    "from": "STANDARD",
+    "to": "PHYSICAL_EVIDENCE_MODE",
+    "reason": "Each identifier bound separately to the outer product or named inner product.",
+    "gapType": "MISSING_OUTER_BOX_PHOTO"
+  }
+]

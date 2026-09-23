@@ -1,0 +1,40 @@
+[
+  {
+    "field": "PRODUCT_CODE",
+    "type": "MISSING_CART_PHOTO",
+    "candidateValue": null,
+    "missingProof": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+    "recommendedActions": [
+      "OPEN_EXISTING_GALLERIES",
+      "SEARCH_EXACT_CART_PHOTO",
+      "SEARCH_PHYSICAL_UNBOXING"
+    ],
+    "recommendedSourceTypes": [
+      "platform-holder-official",
+      "nintendo-official",
+      "dbox",
+      "ogdb",
+      "ebay"
+    ],
+    "exhaustedActions": []
+  },
+  {
+    "field": "PHYSICAL_PRODUCT_TYPE",
+    "type": "MISSING_DOWNLOAD_STATEMENT",
+    "candidateValue": "PHYSICAL_FULL_GAME",
+    "missingProof": "Exact-platform back-cover, unboxing, or technical evidence stating cart/download/code distribution.",
+    "recommendedActions": [
+      "OPEN_EXISTING_GALLERIES",
+      "SEARCH_EXACT_BACK_COVER",
+      "SEARCH_PHYSICAL_UNBOXING"
+    ],
+    "recommendedSourceTypes": [
+      "ubisoft-official",
+      "nintendo-official",
+      "doesitplay",
+      "platform-holder-official",
+      "ebay"
+    ],
+    "exhaustedActions": []
+  }
+]

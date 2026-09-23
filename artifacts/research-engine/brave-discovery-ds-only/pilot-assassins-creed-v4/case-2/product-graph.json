@@ -1,0 +1,43 @@
+{
+  "nodes": [
+    {
+      "id": "36d26eb7319ff95c585d",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "Assassin's Creed II: Discovery · ds · Standard · España · identificadores pendientes",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "c5cc5e31287b61883389",
+      "type": "OUTER_PACKAGE",
+      "label": "OUTER_PACKAGE:OUTER_PACKAGE_BACK",
+      "parentProductId": "36d26eb7319ff95c585d",
+      "component": "OUTER_PACKAGE_BACK"
+    },
+    {
+      "id": "d88762c3c672ca0ae0ea",
+      "type": "OUTER_PACKAGE",
+      "label": "OUTER_PACKAGE:OUTER_PACKAGE_FLAP",
+      "parentProductId": "36d26eb7319ff95c585d",
+      "component": "OUTER_PACKAGE_FLAP"
+    }
+  ],
+  "relations": [
+    {
+      "fromNodeId": "c5cc5e31287b61883389",
+      "toNodeId": "36d26eb7319ff95c585d",
+      "relation": "WRAPS",
+      "evidenceIds": [
+        "ev-8577c0e94fe9a759a5a14265"
+      ]
+    },
+    {
+      "fromNodeId": "d88762c3c672ca0ae0ea",
+      "toNodeId": "36d26eb7319ff95c585d",
+      "relation": "WRAPS",
+      "evidenceIds": [
+        "ev-7646612a31bf29b1c9af2200"
+      ]
+    }
+  ]
+}

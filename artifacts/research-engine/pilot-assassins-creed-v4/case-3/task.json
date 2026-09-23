@@ -1,0 +1,78 @@
+{
+  "case": {
+    "number": 3,
+    "id": "case-3-ac4-skull-wiiu-spain",
+    "title": "Assassin's Creed IV: Black Flag",
+    "titleCandidates": [
+      "Assassin's Creed IV: Black Flag",
+      "Assassin's Creed IV: Black Flag [Skull Edition]"
+    ],
+    "platformSlug": "wiiu",
+    "edition": "Skull Edition · Spain",
+    "editionNeedles": [
+      "skull",
+      "spain",
+      "espana",
+      "españa"
+    ],
+    "region": "Spain",
+    "identifiers": [],
+    "targetFields": [
+      "BARCODE",
+      "BOX_CODE",
+      "CANONICAL_IDENTITY"
+    ],
+    "objective": "Find the Spanish Skull Edition barcode and box/product code while rejecting evidence attributable only to the Standard edition."
+  },
+  "subjectId": "edition:assassins-creed-iv-black-flag-wiiu-worldwide:ac4-wiiu-skull-es",
+  "tasks": [
+    {
+      "id": "pilot:v4:case-3-ac4-skull-wiiu-spain:barcode",
+      "subjectId": "edition:assassins-creed-iv-black-flag-wiiu-worldwide:ac4-wiiu-skull-es",
+      "targetField": "BARCODE",
+      "question": "Find the Spanish Skull Edition barcode and box/product code while rejecting evidence attributable only to the Standard edition. Target field: BARCODE.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T12:18:24.308Z",
+      "updatedAt": "2026-09-16T12:18:24.308Z"
+    },
+    {
+      "id": "pilot:v4:case-3-ac4-skull-wiiu-spain:box_code",
+      "subjectId": "edition:assassins-creed-iv-black-flag-wiiu-worldwide:ac4-wiiu-skull-es",
+      "targetField": "BOX_CODE",
+      "question": "Find the Spanish Skull Edition barcode and box/product code while rejecting evidence attributable only to the Standard edition. Target field: BOX_CODE.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T12:18:24.308Z",
+      "updatedAt": "2026-09-16T12:18:24.308Z"
+    },
+    {
+      "id": "pilot:v4:case-3-ac4-skull-wiiu-spain:canonical_identity",
+      "subjectId": "edition:assassins-creed-iv-black-flag-wiiu-worldwide:ac4-wiiu-skull-es",
+      "targetField": "CANONICAL_IDENTITY",
+      "question": "Find the Spanish Skull Edition barcode and box/product code while rejecting evidence attributable only to the Standard edition. Target field: CANONICAL_IDENTITY.",
+      "priority": "P1",
+      "evidenceNeeded": [
+        "EXACT_PRODUCT",
+        "SUBJECT_BOUND_SOURCE",
+        "COMPONENT_BOUND_EVIDENCE"
+      ],
+      "riskCodes": [],
+      "status": "PENDING",
+      "createdAt": "2026-09-16T12:18:24.308Z",
+      "updatedAt": "2026-09-16T12:18:24.308Z"
+    }
+  ]
+}

@@ -1,0 +1,893 @@
+[
+  {
+    "targetField": "BARCODE",
+    "sources": [
+      {
+        "sourceId": "dbox",
+        "hosts": [
+          "dbox.tools",
+          "dbox.space"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 82,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 82."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 82,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 82."
+      },
+      {
+        "sourceId": "retroplace",
+        "hosts": [
+          "retroplace.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 76,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 76."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 68,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 68."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+      },
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 90,
+        "reason": "Field capability 90; default reliability 72."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 72,
+        "reason": "Field capability 72; default reliability 55."
+      },
+      {
+        "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:printing-1",
+        "hosts": [
+          "foro.spinecard.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:distribution-1",
+        "hosts": [
+          "foro.spinecard.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 62,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 65,
+        "reason": "Field capability 65; default reliability 55."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "nintendo-official",
+        "hosts": [
+          "nintendo.es",
+          "nintendo-europe.com",
+          "nintendo.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "gamefaqs-guarded",
+        "hosts": [
+          "gamefaqs.gamespot.com"
+        ],
+        "roles": [
+          "DISCOVERY_ONLY",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 52."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 58."
+      }
+    ]
+  },
+  {
+    "targetField": "BOX_CODE",
+    "sources": [
+      {
+        "sourceId": "dbox",
+        "hosts": [
+          "dbox.tools",
+          "dbox.space"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 90,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 90."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 78,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 78."
+      },
+      {
+        "sourceId": "retroplace",
+        "hosts": [
+          "retroplace.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 78,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 78."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+      },
+      {
+        "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:printing-1",
+        "hosts": [
+          "foro.spinecard.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 82,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:distribution-1",
+        "hosts": [
+          "foro.spinecard.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 82,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 60,
+        "reason": "Field capability 60; default reliability 55."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "nintendo-official",
+        "hosts": [
+          "nintendo.es",
+          "nintendo-europe.com",
+          "nintendo.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 90."
+      },
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 72."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 55."
+      },
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "gamefaqs-guarded",
+        "hosts": [
+          "gamefaqs.gamespot.com"
+        ],
+        "roles": [
+          "DISCOVERY_ONLY",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 52."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 58."
+      }
+    ]
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "sources": [
+      {
+        "sourceId": "dbox",
+        "hosts": [
+          "dbox.tools",
+          "dbox.space"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 88,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 88."
+      },
+      {
+        "sourceId": "ogdb",
+        "hosts": [
+          "ogdb.eu"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 84,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 84."
+      },
+      {
+        "sourceId": "retroplace",
+        "hosts": [
+          "retroplace.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 78,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 78."
+      },
+      {
+        "sourceId": "platform-holder-official",
+        "hosts": [
+          "nintendo.com",
+          "playstation.com",
+          "xbox.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 86,
+        "reason": "Field capability 86; default reliability 90."
+      },
+      {
+        "sourceId": "nintendo-official",
+        "hosts": [
+          "nintendo.es",
+          "nintendo-europe.com",
+          "nintendo.com"
+        ],
+        "roles": [
+          "PLATFORM_HOLDER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 90,
+        "reason": "Field capability 90; default reliability 90."
+      },
+      {
+        "sourceId": "mobygames",
+        "hosts": [
+          "mobygames.com"
+        ],
+        "roles": [
+          "SPECIALIZED_DATABASE",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability not declared."
+      },
+      {
+        "sourceId": "ebay",
+        "hosts": [
+          "ebay.com",
+          "ebay.es",
+          "ebay.co.uk"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "MARKETPLACE_API",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 45,
+        "reason": "Ordered by VERIFY_IDENTIFIER; target capability 45."
+      },
+      {
+        "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:printing-1",
+        "hosts": [
+          "foro.spinecard.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 82,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "legacy:spinecard-ds-documentary-v1-20260908:distribution-1",
+        "hosts": [
+          "foro.spinecard.com"
+        ],
+        "roles": [
+          "LEGACY_SCANNER_DOCUMENTARY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 82,
+        "reason": "Reviewed legacy scanner guidance contributes a component-bound documentary source; it is not runtime truth."
+      },
+      {
+        "sourceId": "launchbox-images",
+        "hosts": [
+          "gamesdb.launchbox-app.com"
+        ],
+        "roles": [
+          "PHYSICAL_SPECIMEN_DISCOVERY",
+          "COVER_GALLERY"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 55,
+        "reason": "Field capability 55; default reliability 55."
+      },
+      {
+        "sourceId": "ubisoft-official",
+        "hosts": [
+          "ubisoft.com",
+          "news.ubisoft.com",
+          "store.ubisoft.com"
+        ],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "national-retailer",
+        "hosts": [
+          "game.es",
+          "fnac.es",
+          "mediamarkt.es"
+        ],
+        "roles": [
+          "RETAILER"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 72."
+      },
+      {
+        "sourceId": "todocoleccion",
+        "hosts": [
+          "todocoleccion.net",
+          "www.todocoleccion.net"
+        ],
+        "roles": [
+          "MARKETPLACE",
+          "PHYSICAL_SPECIMEN_DISCOVERY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "BROWSER",
+          "IMAGE_SEARCH"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 55."
+      },
+      {
+        "sourceId": "publisher-official",
+        "hosts": [],
+        "roles": [
+          "PUBLISHER",
+          "OFFICIAL_SOURCE_CANDIDATE"
+        ],
+        "accessModes": [
+          "DIRECT_FETCH",
+          "SEARCH_ENGINE",
+          "DOMAIN_SEARCH",
+          "BROWSER",
+          "ARCHIVE"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 92."
+      },
+      {
+        "sourceId": "gamefaqs-guarded",
+        "hosts": [
+          "gamefaqs.gamespot.com"
+        ],
+        "roles": [
+          "DISCOVERY_ONLY",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "DOMAIN_SEARCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 52."
+      },
+      {
+        "sourceId": "yambalu",
+        "hosts": [
+          "yambalu.com",
+          "www.yambalu.com"
+        ],
+        "roles": [
+          "RETAILER_AGGREGATOR",
+          "RELEASE_IDENTITY"
+        ],
+        "accessModes": [
+          "SEARCH_ENGINE",
+          "DIRECT_FETCH",
+          "BROWSER"
+        ],
+        "capabilityScore": 0,
+        "reason": "Field capability unspecified; default reliability 58."
+      }
+    ]
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307216308898\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307216308898"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307216308904\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307216308904"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307216308898\" \"PlayStation 5\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307216308898"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307216308904\" \"PlayStation 5\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307216308904"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "site:ubisoft.com \"3307216308898\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": "ubisoft-official",
+    "identifierType": "BARCODE",
+    "identifierValue": "3307216308898"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "site:ubisoft.com \"3307216308904\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": "ubisoft-official",
+    "identifierType": "BARCODE",
+    "identifierValue": "3307216308904"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307216308898\" \"Assassin's Creed Black Flag Resynced\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307216308898"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "\"3307216308904\" \"Assassin's Creed Black Flag Resynced\"",
+    "strategy": "EXACT_IDENTIFIER",
+    "sourceId": null,
+    "identifierType": "BARCODE",
+    "identifierValue": "3307216308904"
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "site:news.ubisoft.com \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ubisoft-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "site:ogdb.eu \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "ogdb",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "site:mobygames.com \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "mobygames",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "site:yambalu.com \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "yambalu",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "site:playstation.com \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "platform-holder-official",
+    "identifierType": null,
+    "identifierValue": null
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "query": "site:gamefaqs.gamespot.com \"Assassin's Creed Black Flag Resynced\" PlayStation 5",
+    "strategy": "SOURCE_SPECIFIC",
+    "sourceId": "gamefaqs-guarded",
+    "identifierType": null,
+    "identifierValue": null
+  }
+]

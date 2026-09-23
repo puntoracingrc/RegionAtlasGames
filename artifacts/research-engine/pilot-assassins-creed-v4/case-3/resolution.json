@@ -1,0 +1,36 @@
+{
+  "status": "UNRESOLVED",
+  "resolutions": [
+    {
+      "targetField": "BARCODE",
+      "field": "BARCODE",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    },
+    {
+      "targetField": "BOX_CODE",
+      "field": "BOX_CODE",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    },
+    {
+      "targetField": "CANONICAL_IDENTITY",
+      "field": "CANONICAL_IDENTITY",
+      "status": "UNRESOLVED",
+      "value": null,
+      "score": 0,
+      "claimIds": [],
+      "sourceIds": [],
+      "reason": "No eligible field-level claims."
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "id": "9ff4297949bd101134b3",
+      "type": "PHYSICAL_PRODUCT",
+      "label": "Assassin's Creed Brotherhood + Revelations Double Pack · xbox360 · Double Pack",
+      "parentProductId": null,
+      "component": null
+    },
+    {
+      "id": "c5cc5e31287b61883389",
+      "type": "OUTER_PACKAGE",
+      "label": "OUTER_PACKAGE:OUTER_PACKAGE_BACK",
+      "parentProductId": "9ff4297949bd101134b3",
+      "component": "OUTER_PACKAGE_BACK"
+    }
+  ],
+  "relations": [
+    {
+      "fromNodeId": "c5cc5e31287b61883389",
+      "toNodeId": "9ff4297949bd101134b3",
+      "relation": "WRAPS",
+      "evidenceIds": [
+        "ev-a6b77f04682493b16b357be4"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "physicalEvidenceModeEntries": 8,
+  "galleryPagesOpened": 37,
+  "imageCandidatesDiscovered": 1542,
+  "fullResolutionImagesFetched": 3,
+  "imagesClassified": 10,
+  "exactTargetImages": 4,
+  "wrongEditionImagesRejected": 3,
+  "wrongPlatformImagesRejected": 1,
+  "ambiguousImagesRejected": 2,
+  "outerPackageImages": 3,
+  "innerCaseImages": 0,
+  "cartImages": 1,
+  "discImages": 0,
+  "backCoverImages": 2,
+  "componentBoundClaims": 1,
+  "productBoundIdentifiers": 1,
+  "unboundIdentifierCandidates": 0,
+  "sellerStickerIdentifiers": 0,
+  "marketBoundClaims": 0,
+  "wrongComponentRejected": 0
+}

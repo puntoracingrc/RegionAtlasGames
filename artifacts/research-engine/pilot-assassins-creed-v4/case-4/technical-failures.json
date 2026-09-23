@@ -1,0 +1,18 @@
+[
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.shinestar.es/SOFT/11263-SWACECC-3307216259374.html",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_PAGE_HTTP_404",
+    "recovered": true
+  },
+  {
+    "targetField": "PHYSICAL_PRODUCT_TYPE",
+    "operation": "BROWSER",
+    "target": "https://www.shinestar.es/SOFT/11263-SWACECC-3307216259374.html",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_BROWSER_HTTP_404",
+    "recovered": true
+  }
+]

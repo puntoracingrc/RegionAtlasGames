@@ -1,0 +1,58 @@
+[
+  {
+    "field": "BARCODE",
+    "type": "MISSING_BARCODE_PHOTO",
+    "candidateValue": null,
+    "missingProof": "Exact subject/edition binding plus a second authoritative source or readable component-bound photo.",
+    "recommendedActions": [
+      "OPEN_EXISTING_GALLERIES",
+      "RESOLVE_ORIGINAL_IMAGE",
+      "SEARCH_EXACT_BARCODE_PHOTO"
+    ],
+    "recommendedSourceTypes": [
+      "national-retailer",
+      "ogdb",
+      "retroplace",
+      "todocoleccion",
+      "ebay"
+    ],
+    "exhaustedActions": []
+  },
+  {
+    "field": "BOX_CODE",
+    "type": "MISSING_BACK_COVER",
+    "candidateValue": null,
+    "missingProof": "Readable code on the exact box component; a cart or manual code is not equivalent.",
+    "recommendedActions": [
+      "OPEN_EXISTING_GALLERIES",
+      "RESOLVE_ORIGINAL_IMAGE",
+      "SEARCH_EXACT_BACK_COVER"
+    ],
+    "recommendedSourceTypes": [
+      "ogdb",
+      "retroplace",
+      "dbox",
+      "launchbox-images"
+    ],
+    "exhaustedActions": []
+  },
+  {
+    "field": "CANONICAL_IDENTITY",
+    "type": "MISSING_EDITION_PROOF",
+    "candidateValue": null,
+    "missingProof": "Exact title, platform, edition, and variant agreement from an authoritative or independent source.",
+    "recommendedActions": [
+      "OPEN_EXISTING_GALLERIES",
+      "INSPECT_EDITION_MARKERS",
+      "SEARCH_EXACT_EDITION_PACKAGE"
+    ],
+    "recommendedSourceTypes": [
+      "ubisoft-official",
+      "ogdb",
+      "retroplace",
+      "nintendo-official",
+      "dbox"
+    ],
+    "exhaustedActions": []
+  }
+]

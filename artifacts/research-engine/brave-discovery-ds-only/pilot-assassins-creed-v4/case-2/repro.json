@@ -1,0 +1,11 @@
+{
+  "command": "npm run research:pilot:assassins-creed:v4 -- --case 2",
+  "researchOnly": true,
+  "sequential": true,
+  "freshSemanticRun": true,
+  "targetFields": [
+    "BARCODE",
+    "BOX_CODE",
+    "PRODUCT_CODE"
+  ]
+}

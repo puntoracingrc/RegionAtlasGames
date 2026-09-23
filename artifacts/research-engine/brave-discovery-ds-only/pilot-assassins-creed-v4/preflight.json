@@ -1,0 +1,58 @@
+{
+  "status": "READY",
+  "checkedAt": "2026-09-16T13:07:58.458Z",
+  "checks": {
+    "brave": {
+      "ok": true,
+      "detail": "HEALTHY"
+    },
+    "google": {
+      "ok": true,
+      "detail": "NOT_CONFIGURED"
+    },
+    "serpApi": {
+      "ok": true,
+      "detail": "NOT_CONFIGURED"
+    },
+    "browser": {
+      "ok": true,
+      "detail": "playwright-chromium"
+    },
+    "vision": {
+      "ok": true,
+      "detail": "gpt-4o-mini; calls=3; image=/catalog-covers/ps3/ac-regional-2026-09-13/original/o109.jpg"
+    },
+    "localStorage": {
+      "ok": true,
+      "detail": "Research artifact write/read succeeded."
+    }
+  },
+  "providerHealth": [
+    {
+      "provider": "brave-search",
+      "state": "HEALTHY",
+      "checkedAt": "2026-09-16T13:07:47.904Z",
+      "failureCode": null,
+      "detail": null
+    },
+    {
+      "provider": "google-custom-search",
+      "state": "NOT_CONFIGURED",
+      "checkedAt": "2026-09-16T13:07:47.904Z",
+      "failureCode": null,
+      "detail": "Credential not configured."
+    },
+    {
+      "provider": "serpapi-google",
+      "state": "NOT_CONFIGURED",
+      "checkedAt": "2026-09-16T13:07:47.904Z",
+      "failureCode": null,
+      "detail": "Credential not configured."
+    }
+  ],
+  "providerUsage": {
+    "brave-search": 1
+  },
+  "braveSearchCalls": 1,
+  "estimatedBraveCostUsd": 0.005
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "cl-816caa2986ecd156edf62c51",
+    "runId": "v4-case-5-brotherhood-revelations-double-pack-xbox360-canonical_identity-cec1d8ed-e510-405d-aa0f-244d1a77908e",
+    "taskId": "pilot:v4:case-5-brotherhood-revelations-double-pack-xbox360:canonical_identity",
+    "subjectId": "pilot:case-5-brotherhood-revelations-double-pack-xbox360",
+    "gameId": null,
+    "platformSlug": "xbox360",
+    "editionId": null,
+    "variantId": null,
+    "component": "UNKNOWN",
+    "field": "CANONICAL_IDENTITY",
+    "value": "Assassin's Creed Brotherhood + Revelations Double Pack",
+    "sourceId": "retroplace",
+    "sourceUrl": "https://www.retroplace.com/es/juegos/167999--assassins-creed-compilation",
+    "evidenceId": "ev-afc0faf5f9844e77f6d50406",
+    "confidence": 0.5,
+    "status": "REJECTED",
+    "validationErrors": [
+      "CROSS_ATTRIBUTION_RISK"
+    ],
+    "createdAt": "2026-09-16T11:57:54.249Z"
+  }
+]

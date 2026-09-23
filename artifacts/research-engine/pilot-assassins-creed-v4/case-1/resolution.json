@@ -1,0 +1,22 @@
+{
+  "status": "CONFIRMED",
+  "resolutions": [
+    {
+      "targetField": "CANONICAL_IDENTITY",
+      "field": "CANONICAL_IDENTITY",
+      "status": "CONFIRMED",
+      "value": "Assassin's Creed Black Flag Resynced",
+      "score": 1.52,
+      "claimIds": [
+        "cl-36190d317dbf45a49306a3fb",
+        "cl-a68b6222b2b9f40de9653856"
+      ],
+      "sourceIds": [
+        "ubisoft-official",
+        "gamefaqs-guarded"
+      ],
+      "reason": "Independent sources corroborate the field."
+    }
+  ],
+  "failures": []
+}

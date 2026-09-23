@@ -51,11 +51,12 @@ export function researchRuntimeCapabilities(): {
   visionModel: string;
 } {
   const textModel = process.env.RESEARCH_LLM_MODEL?.trim() || "gpt-4o-mini";
+  const serpApiDisabled = ["1", "true", "yes", "on"].includes((process.env.RESEARCH_DISABLE_SERPAPI ?? "").trim().toLowerCase());
   return {
     openai: Boolean(process.env.OPENAI_API_KEY?.trim()),
     braveSearch: Boolean(process.env.BRAVE_SEARCH_API_KEY?.trim()),
     googleSearch: Boolean(process.env.GOOGLE_SEARCH_API_KEY?.trim() && process.env.GOOGLE_SEARCH_CX?.trim()),
-    serpApi: Boolean(process.env.SERPAPI_KEY?.trim() || process.env.SERPAPI_API_KEY?.trim()),
+    serpApi: !serpApiDisabled && Boolean(process.env.SERPAPI_KEY?.trim() || process.env.SERPAPI_API_KEY?.trim()),
     textModel,
     visionModel: process.env.RESEARCH_VISION_MODEL?.trim() || textModel,
   };

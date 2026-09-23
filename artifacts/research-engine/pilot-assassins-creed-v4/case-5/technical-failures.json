@@ -1,0 +1,58 @@
+[
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.worldofbooks.com/products/assassin-s-creed-brotherhood-and-assassin-s-creed-revelations-double-pack-xbox-360-video-game-3307215689271",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_PAGE_HTTP_404",
+    "recovered": true
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "operation": "BROWSER",
+    "target": "https://www.worldofbooks.com/products/assassin-s-creed-brotherhood-and-assassin-s-creed-revelations-double-pack-xbox-360-video-game-3307215689271",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_BROWSER_HTTP_404",
+    "recovered": true
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.carrefour.es/assassins-creed-revelations-greatest-hits-juego-para-consola-microsoft-xbox-360/3307215693865/p",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "OUTER_INNER_RELATION",
+    "operation": "BROWSER",
+    "target": "https://www.ebay.co.uk/itm/226239994888",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_BROWSER_HTTP_403",
+    "recovered": true
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.worldofbooks.com/products/assassin-s-creed-brotherhood-and-assassin-s-creed-revelations-double-pack-xbox-360-video-game-3307215689271",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_PAGE_HTTP_404",
+    "recovered": true
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "operation": "BROWSER",
+    "target": "https://www.worldofbooks.com/products/assassin-s-creed-brotherhood-and-assassin-s-creed-revelations-double-pack-xbox-360-video-game-3307215689271",
+    "code": "SOURCE_NOT_FOUND",
+    "detail": "Error RESEARCH_BROWSER_HTTP_404",
+    "recovered": true
+  },
+  {
+    "targetField": "CANONICAL_IDENTITY",
+    "operation": "DIRECT_FETCH",
+    "target": "https://www.carrefour.es/assassins-creed-revelations-greatest-hits-juego-para-consola-microsoft-xbox-360/3307215693865/p",
+    "code": "SOURCE_BLOCKED",
+    "detail": "Error RESEARCH_PAGE_HTTP_403",
+    "recovered": true
+  }
+]

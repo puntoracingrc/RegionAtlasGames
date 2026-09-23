@@ -1,0 +1,29 @@
+[
+  {
+    "targetField": "BARCODE",
+    "searches": 7,
+    "searchResults": 12,
+    "pagesAttempted": 5,
+    "pagesOpened": 3,
+    "imagesDiscovered": 5,
+    "imagesInspected": 1
+  },
+  {
+    "targetField": "BOX_CODE",
+    "searches": 7,
+    "searchResults": 12,
+    "pagesAttempted": 5,
+    "pagesOpened": 3,
+    "imagesDiscovered": 4,
+    "imagesInspected": 1
+  },
+  {
+    "targetField": "PRODUCT_CODE",
+    "searches": 6,
+    "searchResults": 12,
+    "pagesAttempted": 4,
+    "pagesOpened": 2,
+    "imagesDiscovered": 0,
+    "imagesInspected": 0
+  }
+]

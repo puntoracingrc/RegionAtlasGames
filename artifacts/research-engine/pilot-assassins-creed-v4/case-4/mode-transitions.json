@@ -1,0 +1,16 @@
+[
+  {
+    "at": "2026-09-16T11:56:19.097Z",
+    "from": "STANDARD",
+    "to": "PHYSICAL_EVIDENCE_MODE",
+    "reason": "Platform-valid code on the exact cartridge/disc or an exact technical database record.",
+    "gapType": "MISSING_CART_PHOTO"
+  },
+  {
+    "at": "2026-09-16T11:56:51.247Z",
+    "from": "STANDARD",
+    "to": "PHYSICAL_EVIDENCE_MODE",
+    "reason": "Exact-platform back-cover, unboxing, or technical evidence stating cart/download/code distribution.",
+    "gapType": "MISSING_DOWNLOAD_STATEMENT"
+  }
+]

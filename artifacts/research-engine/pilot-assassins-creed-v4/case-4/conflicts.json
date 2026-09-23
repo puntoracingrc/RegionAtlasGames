@@ -1,0 +1,14 @@
+[
+  {
+    "id": "cross-ev-3229cd1cbf712cbc5635d045",
+    "field": "CANONICAL_IDENTITY",
+    "claimIds": [],
+    "values": [],
+    "severity": "CRITICAL",
+    "reason": "Evidence ev-3229cd1cbf712cbc5635d045 is bound to the wrong game/platform/edition/variant/component.",
+    "nextEvidenceNeeded": [
+      "CORRECT_EXACT_SUBJECT",
+      "EXACT_COMPONENT_PHOTO"
+    ]
+  }
+]
