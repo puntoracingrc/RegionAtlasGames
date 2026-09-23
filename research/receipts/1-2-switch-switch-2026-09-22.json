@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "researchId": "1-2-switch-switch-2026-09-22",
+  "queueId": "catalog-group:switch-1-2-switch",
+  "platform": "switch",
+  "catalogIds": [
+    "switch-1-2-switch",
+    "switch-usa-1-2-switch",
+    "switch-japon-1-2-switch"
+  ],
+  "publishedAt": "2026-09-23T00:26:00Z",
+  "verifiedAt": "2026-09-23T00:26:00Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/1-2-switch-switch-pal-es",
+  "publishedRegions": ["PAL España", "NTSC USA", "NTSC-J Japón"],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_NO_ADMISSIBLE_SOLD_PRICE_EVIDENCE",
+  "internalAssets": {
+    "front": "/covers/switch/1-2-switch.jpg",
+    "back": "/catalog-covers/runtime/switch/1-2-switch-switch-jp-standard-back.jpg"
+  },
+  "verification": {
+    "publicPage": "PASS",
+    "catalogApi": "PASS",
+    "centralV2Families": "PASS",
+    "duplicateCheck": "PASS",
+    "backCoverHttp": "PASS_200_IMAGE_JPEG",
+    "notes": "Tres identidades regionales vinculadas a los catalogIds originales. PEGI de España y serial del cartucho japonés conservados como candidatos, no publicados como hechos. La entrada de cola permanece pending por campos no resueltos."
+  },
+  "resultFile": "research/results/1-2-switch-switch-2026-09-22.json",
+  "resultSha256": "99539d75c1382e4f983420a08a6a96545b8a7d9efd992288ce1d6f508c1e4be2",
+  "workerResultCommit": "7cee880ecec81d6ee49f477ed658057ef0474903"
+}
