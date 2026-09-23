@@ -1,14 +1,14 @@
 {
   "schemaVersion": 2,
-  "generation": 25,
+  "generation": 26,
   "workerId": "ps4",
-  "state": "PAUSED",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps4",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
+  "resultOrderTemplateVersion": 11,
   "currentItemResearchId": "2dark-limited-edition-ps4-2026-09-22",
   "workPackage": {
     "packageId": "ps4-2026-09-22-001",
@@ -25,12 +25,12 @@
         "researchId": "2dark-limited-edition-ps4-2026-09-22",
         "orderPath": "research/workers/ps4/orders/2dark-limited-edition-ps4-2026-09-22.md",
         "resultPath": "research/results/2dark-limited-edition-ps4-2026-09-22.json",
-        "status": "CHECKPOINTED",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/ps4/checkpoints/2dark-limited-edition-ps4-2026-09-22.json"
       }
     ]
   },
-  "updatedAt": "2026-09-22T20:01:37Z",
-  "updatedBy": "chatgpt",
-  "note": "Bloqueo real de infraestructura al serializar el resultado ya corregido: el checkpoint conserva el draft gzip+base64 completo; se verificó de nuevo que decodifica a 79364 bytes, SHA-256 afd51a7732b142a1006082f0d12b1b0ed0900f19686531a33246b39368f3c629, JSON válido y referencias internas válidas. El conector de escritura trunca el payload necesario para crear el blob JSON exacto en resultPath; no se publicó ningún resultado parcial y el blob huérfano de una prueba fallida no está referenciado por la rama. Lease liberado. Requiere revisión/serialización por una vía de infraestructura que acepte el JSON completo antes de reanudar este worker."
+  "updatedAt": "2026-09-23T01:05:00Z",
+  "updatedBy": "codex",
+  "note": "Recovered the complete corrected result from its gzip checkpoint after correcting one flipped compressed bit; the restored 79364-byte JSON exactly matches the worker's recorded SHA-256. No external research was repeated. Awaiting Codex validation and Admin incorporation."
 }
