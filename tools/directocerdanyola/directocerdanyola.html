@@ -1407,9 +1407,10 @@ function stopDemo(refresh=true){
 function replayOptionLabel(summary){const state=summary.status==='complete'?'Finalizada':'En curso';return `${summary.category||'GT8'} · ${summary.section||'Categoría'} · ${summary.group||'Manga'} · ${state}`;}
 async function refreshReplayArchiveOptions(){
   const eventKey=$('eventKey').value.trim(),select=$('archiveRaceSelect');replayArchiveSummaries=[];select.innerHTML='';
-  if(eventKey==='100645'){const option=document.createElement('option');option.value='builtin';option.textContent='Final Nitro · archivo original';select.append(option);}
+  const hasCompleteNitroDemo=eventKey==='100645';
+  if(hasCompleteNitroDemo){const option=document.createElement('option');option.value='builtin';option.textContent='Demo completa · Nitro · Marc García · 30:12';select.append(option);}
   try{const response=await fetch(`/api/myrcm/archive?event=${encodeURIComponent(eventKey)}`,{headers:{Accept:'application/json'}});if(response.ok){const data=await response.json();replayArchiveSummaries=Array.isArray(data.archives)?data.archives.filter(item=>item.replayAvailable):[];if(data.jornada&&data.jornada.title)$('eventHelp').textContent=`Jornada archivada: ${data.jornada.title} · ${data.jornada.raceCount} mangas guardadas.`;for(const summary of replayArchiveSummaries){const option=document.createElement('option');option.value=summary.raceId;option.textContent=replayOptionLabel(summary);select.append(option);}}}catch(error){console.warn('No se pudo consultar el archivo de la jornada',error);}
-  $('archiveRacePicker').hidden=select.options.length===0;const complete=replayArchiveSummaries.find(item=>item.status==='complete');return complete&&complete.raceId||select.options[0]&&select.options[0].value||'';
+  $('archiveRacePicker').hidden=select.options.length===0;const complete=replayArchiveSummaries.find(item=>item.status==='complete');return hasCompleteNitroDemo?'builtin':complete&&complete.raceId||select.options[0]&&select.options[0].value||'';
 }
 async function loadReplaySource(source){
   if(source==='builtin'){applyCircuit(defaultCircuit);demoReplay=D.prepareReplay({...builtInReplayData,circuit:defaultCircuit});updateReplayMeta();return true;}
