@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 42,
+  "generation": 43,
   "workerId": "switch",
-  "state": "RUNNING",
+  "state": "RESULT_READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
@@ -10,11 +10,6 @@
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": 11,
   "currentItemResearchId": "3d-mini-golf-code-in-box-switch-2026-09-23",
-  "lease": {
-    "runId": "switch-20260923T132233Z-a1c74e9b",
-    "claimedAt": "2026-09-23T13:22:33Z",
-    "expiresAt": "2026-09-23T14:02:33Z"
-  },
   "workPackage": {
     "packageId": "switch-2026-09-23-002",
     "grouping": {
@@ -41,12 +36,12 @@
         "researchId": "3d-mini-golf-code-in-box-switch-2026-09-23",
         "orderPath": "research/workers/switch/orders/3d-mini-golf-code-in-box-switch-2026-09-23.md",
         "resultPath": "research/results/3d-mini-golf-code-in-box-switch-2026-09-23.json",
-        "status": "CHECKPOINTED",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/switch/checkpoints/3d-mini-golf-code-in-box-switch-2026-09-23.json"
       }
     ]
   },
-  "updatedAt": "2026-09-23T13:22:33Z",
+  "updatedAt": "2026-09-23T13:30:40Z",
   "updatedBy": "chatgpt",
-  "note": "Resumed CHECKPOINTED 3D Mini Golf [Code In Box] for final ORDER_TEMPLATE_VERSION 11 result assembly and validation."
+  "note": "3D Mini Golf [Code In Box] ORDER_TEMPLATE_VERSION 11 result published; checkpoint removed and lease released. All items in package switch-2026-09-23-002 are RESULT_READY."
 }
