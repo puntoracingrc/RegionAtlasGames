@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "researchId": "99-koshien-ps1-2026-09-22",
+  "queueId": "platform-work:ps1:ps1-work-e1395f1867436fa4",
+  "platform": "ps1",
+  "catalogIds": [
+    "ps1-japon-%2799-koshien",
+    "ps1-japon-99-koshien-jp-magical-1500",
+    "ps1-japon-99-koshien-jp-taikenban-demo"
+  ],
+  "publishedAt": "2026-09-22T15:56:52Z",
+  "verifiedAt": "2026-09-22T15:56:52Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/99-koshien-ps1-pal-jp",
+  "relatedPublicUrls": [
+    "https://www.regionatlas.games/catalogo/99-koshien-jp-magical-1500-ps1-pal-jp",
+    "https://www.regionatlas.games/catalogo/99-koshien-jp-taikenban-demo-ps1-pal-jp"
+  ],
+  "publishedRegions": [
+    "NTSC-J Japón"
+  ],
+  "publishedEditions": [
+    "Standard",
+    "Magical 1500",
+    "Taikenban / Demo"
+  ],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_ACTIVE_LISTINGS_NOT_ACCEPTED_FOR_THIS_CONSUMPTION",
+  "internalAssets": {
+    "standardFront": "https://www.regionatlas.games/catalog-covers/runtime/ps1/99-koshien-ps1-jp-standard-front.jpg",
+    "standardBack": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers/_source-inbox/psxdatacenter/2026-09-10-01a082a4/objects/e9/e984a5043dec2fab939dfdbcda1eaec8893f02b16626efd3f80c680f9ac7ef4a.png",
+    "magical1500Front": null,
+    "magical1500Back": null,
+    "taikenbanFront": null,
+    "taikenbanBack": null
+  },
+  "verification": {
+    "publicPage": "PASS",
+    "centralV2Families": "PASS_THREE_EDITIONS_ONE_CENTRAL_CARD",
+    "standardIdentifiers": "PASS",
+    "magical1500Identifiers": "PASS",
+    "taikenbanIdentifiers": "PASS",
+    "regionalScope": "PASS_JAPAN_ONLY",
+    "prices": "PASS_NONE_PUBLISHED",
+    "standardAssets": "PASS_INTERNAL_FRONT_AND_EXISTING_INTERNAL_BACK",
+    "otherAssets": "PENDING_NO_CONFIRMED_DIRECT_ASSET_NON_BLOCKING",
+    "duplicateCheck": "PASS"
+  },
+  "warnings": [
+    "The additional back-cover upload failed in Admin, but the existing internally hosted standard back cover remains public; image failures are non-blocking by protocol.",
+    "Exact factory contents for the Magical 1500 release remain unresolved and are stated as pending in the public notes."
+  ],
+  "resultFile": "research/results/99-koshien-ps1-2026-09-22.json",
+  "resultSha256": "d380fa97a94c8ce651901aa6b2b1987e07e1f30f5d228b21a09f50b5763e0b03",
+  "workerResultCommit": "4ff1e003518d82fda09c1db90cb80b61e1129aca"
+}

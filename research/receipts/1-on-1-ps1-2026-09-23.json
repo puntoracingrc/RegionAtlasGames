@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "researchId": "1-on-1-ps1-2026-09-23",
+  "queueId": "platform-work:ps1:ps1-work-d71f23ca38ccf0f0",
+  "platform": "ps1",
+  "catalogIds": [
+    "ps1-japon-1-on-1",
+    "ps1-jp-slps-02298-rerelease",
+    "ps1-jp-slps-02756",
+    "ps1-japon-1-on-1-jp-taikenban-demo"
+  ],
+  "publishedAt": null,
+  "publishedAtNote": "Published during the 2026-09-23 05:18 UTC consumer run; exact server timestamp was not captured.",
+  "verifiedAt": "2026-09-23T05:38:11Z",
+  "publicUrl": "https://www.regionatlas.games/catalogo/1-on-1-ps1-pal-jp",
+  "relatedPublicUrls": [
+    "https://www.regionatlas.games/catalogo/1-on-1-rerelease-slps-02298-rerelease-ps1-ntsc-jp",
+    "https://www.regionatlas.games/catalogo/simple-1500-series-vol-030-1-on-1-the-basketball-slps-02756-ps1-ntsc-jp",
+    "https://www.regionatlas.games/catalogo/1-on-1-jp-taikenban-demo-ps1-pal-jp"
+  ],
+  "publishedRegions": ["NTSC-J Japón"],
+  "publishedEditions": ["Standard", "Renkaban", "SIMPLE 1500 Series Vol.30", "Taikenban / Demo"],
+  "pricesPublished": [],
+  "priceDecision": "NOT_PUBLISHED_ACTIVE_LISTINGS_NOT_ACCEPTED_FOR_THIS_CONSUMPTION",
+  "internalAssets": {
+    "standardFront": "https://www.regionatlas.games/catalog-covers/runtime/ps1/1-on-1-ps1-jp-standard-front.jpg",
+    "standardBack": "https://www.regionatlas.games/catalog-covers/runtime/ps1/1-on-1-ps1-jp-standard-back.jpg",
+    "renkabanFront": "https://www.regionatlas.games/catalog-covers/runtime/ps1/1-on-1-ps1-jp-rerelease-renkaban-front.jpg",
+    "simple1500Front": "https://www.regionatlas.games/catalog-covers/runtime/ps1/1-on-1-ps1-jp-simple-1500-series-vol-30-1on1-plus-front.jpg",
+    "taikenbanFront": null
+  },
+  "verification": {
+    "publicPages": "PASS_FOUR_LINKED_EDITION_FAMILIES",
+    "existingCatalogIdsPreserved": "PASS_THREE",
+    "newDemoCatalogId": "PASS",
+    "identifiers": "PASS_SLPS_01706_SLPS_02298_SLPS_02756_SLPM_80351",
+    "regionalScope": "PASS_JAPAN_ONLY",
+    "prices": "PASS_NONE_PUBLISHED",
+    "assets": "PASS_FOUR_INTERNAL_UPLOADS_DEMO_UNRESOLVED",
+    "duplicateCheck": "PASS"
+  },
+  "unresolved": ["Demo barcode", "Packaging languages", "Factory packout", "Confirmed regional price"],
+  "resultFile": "research/results/1-on-1-ps1-2026-09-23.json",
+  "resultSha256": "4268dd78270a20adef9201c0f6054c955f843c33391c0bf088c0cea745913c48",
+  "workerResultCommit": "baed5ec1c002d75c0ffce243ea1e5ad6cb0b183e"
+}

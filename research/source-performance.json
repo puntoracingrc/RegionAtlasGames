@@ -2752,31 +2752,33 @@
         "98-koshien-ps1-2026-09-21",
         "99-koshien-ps1-2026-09-22",
         "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
-        "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22"
+        "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
+        "1-on-1-ps1-2026-09-23"
       ],
-      "observationCount": 4,
+      "observationCount": 5,
       "queryTotals": {
         "general": 5,
-        "exact_identifier": 36,
+        "exact_identifier": 40,
         "image": 27,
-        "source_specific": 24,
+        "source_specific": 26,
         "marketplace": 63
       },
       "sourceAttemptTotals": {
-        "total": 86,
-        "useful": 64,
+        "total": 102,
+        "useful": 74,
         "byOutcome": {
-          "CONFIRMED_EVIDENCE": 45,
-          "TECHNICAL_FAILURE": 19,
-          "CONTEXT_ONLY": 18,
+          "CONFIRMED_EVIDENCE": 55,
+          "TECHNICAL_FAILURE": 24,
+          "CONTEXT_ONLY": 19,
           "CANDIDATE": 2,
           "NO_RELEVANT_DATA": 2
         },
         "byAccessStatus": {
-          "OPENED": 59,
-          "SEARCH_RESULT_ONLY": 20,
-          "BLOCKED": 3,
-          "TIMEOUT": 4
+          "OPENED": 69,
+          "SEARCH_RESULT_ONLY": 21,
+          "BLOCKED": 7,
+          "TIMEOUT": 4,
+          "NOT_FOUND": 1
         }
       },
       "recommendations": [
@@ -2913,10 +2915,10 @@
       "recommendationStatus": "VALIDATED_ROUTES_AVAILABLE",
       "domains": {
         "arcade-history.com": {
-          "attempts": 2,
-          "usefulAttempts": 1,
-          "usefulnessRate": 0.5,
-          "confirmedEvidenceAttempts": 1,
+          "attempts": 3,
+          "usefulAttempts": 2,
+          "usefulnessRate": 0.6667,
+          "confirmedEvidenceAttempts": 2,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -2925,10 +2927,11 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 2,
+          "distinctResearchIds": 3,
           "researchIds": [
             "98-koshien-ps1-2026-09-21",
-            "99-koshien-ps1-2026-09-22"
+            "99-koshien-ps1-2026-09-22",
+            "1-on-1-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "technical_database"
@@ -2938,7 +2941,11 @@
             "demo_identity",
             "media",
             "product_code",
-            "publisher"
+            "publisher",
+            "market",
+            "identity",
+            "barcode",
+            "release_date"
           ],
           "queryTypeCounts": {
             "exact_identifier": 2,
@@ -2949,7 +2956,7 @@
           "recommended": false,
           "recommendationReason": "insufficient_cross_research_evidence",
           "normalizedQueryPatterns": [],
-          "lastObservedAt": "2026-09-22"
+          "lastObservedAt": "2026-09-23"
         },
         "auctions.c.yimg.jp": {
           "attempts": 3,
@@ -3107,30 +3114,32 @@
           "lastObservedAt": "2026-09-23"
         },
         "gamefaqs.gamespot.com": {
-          "attempts": 8,
-          "usefulAttempts": 6,
-          "usefulnessRate": 0.75,
-          "confirmedEvidenceAttempts": 4,
+          "attempts": 10,
+          "usefulAttempts": 7,
+          "usefulnessRate": 0.7,
+          "confirmedEvidenceAttempts": 5,
           "candidateAttempts": 0,
-          "contextOnlyAttempts": 2,
+          "contextOnlyAttempts": 3,
           "noRelevantDataAttempts": 0,
           "technicalFailures": 2,
           "blockedAttempts": 0,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
-          "searchResultOnlyAttempts": 4,
-          "distinctResearchIds": 4,
+          "searchResultOnlyAttempts": 5,
+          "distinctResearchIds": 5,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
             "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
             "98-koshien-ps1-2026-09-21",
-            "99-koshien-ps1-2026-09-22"
+            "99-koshien-ps1-2026-09-22",
+            "1-on-1-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "game_database",
             "image_gallery",
             "image_page",
-            "specialist_database"
+            "specialist_database",
+            "search_result"
           ],
           "targetCategories": [
             "barcode",
@@ -3151,7 +3160,9 @@
             "serial",
             "series",
             "standard_box",
-            "standard_box_image"
+            "standard_box_image",
+            "release_date",
+            "market"
           ],
           "queryTypeCounts": {
             "general": 1,
@@ -3539,28 +3550,31 @@
           "lastObservedAt": "2026-09-22"
         },
         "psxdatacenter.com": {
-          "attempts": 6,
-          "usefulAttempts": 5,
-          "usefulnessRate": 0.8333,
-          "confirmedEvidenceAttempts": 5,
+          "attempts": 12,
+          "usefulAttempts": 8,
+          "usefulnessRate": 0.6667,
+          "confirmedEvidenceAttempts": 8,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 1,
-          "technicalFailures": 0,
-          "blockedAttempts": 0,
+          "technicalFailures": 3,
+          "blockedAttempts": 3,
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 4,
+          "distinctResearchIds": 5,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
             "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
             "98-koshien-ps1-2026-09-21",
-            "99-koshien-ps1-2026-09-22"
+            "99-koshien-ps1-2026-09-22",
+            "1-on-1-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "direct_image",
-            "technical_database"
+            "technical_database",
+            "technical_release_page",
+            "direct_image_page"
           ],
           "targetCategories": [
             "back image",
@@ -3585,7 +3599,11 @@
             "serial",
             "software language",
             "standard barcode",
-            "standard product code"
+            "standard product code",
+            "software_language",
+            "modes",
+            "disc_count",
+            "front_back_images"
           ],
           "queryTypeCounts": {
             "general": 2,
@@ -3601,10 +3619,10 @@
           "lastObservedAt": "2026-09-23"
         },
         "redump.org": {
-          "attempts": 5,
-          "usefulAttempts": 4,
-          "usefulnessRate": 0.8,
-          "confirmedEvidenceAttempts": 3,
+          "attempts": 6,
+          "usefulAttempts": 5,
+          "usefulnessRate": 0.8333,
+          "confirmedEvidenceAttempts": 4,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 1,
           "noRelevantDataAttempts": 1,
@@ -3613,16 +3631,18 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 2,
-          "distinctResearchIds": 4,
+          "distinctResearchIds": 5,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
             "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
             "98-koshien-ps1-2026-09-21",
-            "99-koshien-ps1-2026-09-22"
+            "99-koshien-ps1-2026-09-22",
+            "1-on-1-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "preservation_database",
-            "technical_preservation_database"
+            "technical_preservation_database",
+            "technical_preservation_list"
           ],
           "targetCategories": [
             "budget_disc_serial",
@@ -3634,7 +3654,9 @@
             "market",
             "release type",
             "software language",
-            "software_language"
+            "software_language",
+            "release_type",
+            "serial"
           ],
           "queryTypeCounts": {
             "exact_identifier": 6,
@@ -3683,10 +3705,10 @@
           "lastObservedAt": "2026-09-22"
         },
         "suruga-ya.jp": {
-          "attempts": 8,
-          "usefulAttempts": 8,
+          "attempts": 9,
+          "usefulAttempts": 9,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 6,
+          "confirmedEvidenceAttempts": 7,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 2,
           "noRelevantDataAttempts": 0,
@@ -3695,16 +3717,18 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 3,
+          "distinctResearchIds": 4,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
             "98-koshien-ps1-2026-09-21",
-            "99-koshien-ps1-2026-09-22"
+            "99-koshien-ps1-2026-09-22",
+            "1-on-1-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "marketplace_listing",
             "retailer_metadata",
-            "secondhand_retail_listing"
+            "secondhand_retail_listing",
+            "direct_listing"
           ],
           "targetCategories": [
             "budgetIdentifiers",
@@ -3722,7 +3746,9 @@
             "release date",
             "release_type",
             "standardIdentifiers",
-            "used market context"
+            "used market context",
+            "used_market_context",
+            "front_back_images"
           ],
           "queryTypeCounts": {
             "exact_identifier": 11,
@@ -3738,10 +3764,10 @@
           "lastObservedAt": "2026-09-23"
         },
         "w.atwiki.jp": {
-          "attempts": 5,
-          "usefulAttempts": 5,
+          "attempts": 6,
+          "usefulAttempts": 6,
           "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 5,
+          "confirmedEvidenceAttempts": 6,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
@@ -3750,17 +3776,19 @@
           "notFoundAttempts": 0,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 2,
-          "distinctResearchIds": 4,
+          "distinctResearchIds": 5,
           "researchIds": [
             "0-kara-no-shogi-ayumi-gumi-limited-ps1-2026-09-22",
             "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
             "98-koshien-ps1-2026-09-21",
-            "99-koshien-ps1-2026-09-22"
+            "99-koshien-ps1-2026-09-22",
+            "1-on-1-ps1-2026-09-23"
           ],
           "sourceTypes": [
             "reference_database",
             "release_database",
-            "specialist_database"
+            "specialist_database",
+            "historical_catalog"
           ],
           "targetCategories": [
             "factory bonus",
@@ -3774,7 +3802,8 @@
             "release variants",
             "release_dates",
             "release_variants",
-            "series"
+            "series",
+            "demo_release_type"
           ],
           "queryTypeCounts": {
             "general": 4,
@@ -4152,30 +4181,36 @@
           "lastObservedAt": "2026-09-23"
         },
         "ebay.com": {
-          "attempts": 2,
-          "usefulAttempts": 2,
-          "usefulnessRate": 1,
-          "confirmedEvidenceAttempts": 2,
+          "attempts": 5,
+          "usefulAttempts": 4,
+          "usefulnessRate": 0.8,
+          "confirmedEvidenceAttempts": 4,
           "candidateAttempts": 0,
           "contextOnlyAttempts": 0,
           "noRelevantDataAttempts": 0,
-          "technicalFailures": 0,
+          "technicalFailures": 1,
           "blockedAttempts": 0,
-          "notFoundAttempts": 0,
+          "notFoundAttempts": 1,
           "timeoutAttempts": 0,
           "searchResultOnlyAttempts": 0,
-          "distinctResearchIds": 1,
+          "distinctResearchIds": 2,
           "researchIds": [
-            "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22"
+            "0-kara-no-shogi-ayumi-gumi-r-ps1-2026-09-22",
+            "1-on-1-ps1-2026-09-23"
           ],
           "sourceTypes": [
-            "active_secondhand_listing"
+            "active_secondhand_listing",
+            "marketplace_direct_listing"
           ],
           "targetCategories": [
             "complete price",
             "edition evidence",
             "physical contents",
-            "region evidence"
+            "region evidence",
+            "active_market_price",
+            "identifiers",
+            "regional_release_identity",
+            "physical_contents"
           ],
           "queryTypeCounts": {
             "marketplace": 8
@@ -4219,6 +4254,39 @@
             "general": 1,
             "exact_identifier": 1
           },
+          "exampleSourceIds": [],
+          "status": "observed",
+          "recommended": false,
+          "recommendationReason": "insufficient_cross_research_evidence",
+          "normalizedQueryPatterns": [],
+          "lastObservedAt": "2026-09-23"
+        },
+        "japanzon.com": {
+          "attempts": 1,
+          "usefulAttempts": 0,
+          "usefulnessRate": 0,
+          "confirmedEvidenceAttempts": 0,
+          "candidateAttempts": 0,
+          "contextOnlyAttempts": 0,
+          "noRelevantDataAttempts": 0,
+          "technicalFailures": 1,
+          "blockedAttempts": 1,
+          "notFoundAttempts": 0,
+          "timeoutAttempts": 0,
+          "searchResultOnlyAttempts": 0,
+          "distinctResearchIds": 1,
+          "researchIds": [
+            "1-on-1-ps1-2026-09-23"
+          ],
+          "sourceTypes": [
+            "direct_listing"
+          ],
+          "targetCategories": [
+            "active_market_price",
+            "rerelease_identity",
+            "physical_contents"
+          ],
+          "queryTypeCounts": {},
           "exampleSourceIds": [],
           "status": "observed",
           "recommended": false,

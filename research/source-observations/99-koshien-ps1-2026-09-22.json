@@ -1,0 +1,1428 @@
+{
+  "schemaVersion": 1,
+  "researchId": "99-koshien-ps1-2026-09-22",
+  "platform": "ps1",
+  "resultFile": "research/results/99-koshien-ps1-2026-09-22.json",
+  "resultSha256": "d380fa97a94c8ce651901aa6b2b1987e07e1f30f5d228b21a09f50b5763e0b03",
+  "observedAt": "2026-09-22",
+  "validation": {
+    "jsonParse": "PASS",
+    "requiredFields": "PASS",
+    "sourceReferenceIntegrity": "PASS",
+    "queryReferenceIntegrity": "PASS",
+    "priceContractIntegrity": "PASS_NO_PRICE_PUBLISHED",
+    "focusedDirectSourceSpotCheck": {
+      "status": "PASS",
+      "domains": [
+        "psxdatacenter.com",
+        "suruga-ya.jp",
+        "redump.org",
+        "w.atwiki.jp"
+      ]
+    },
+    "claimLevelImportReview": "PASS",
+    "catalogMutations": 3,
+    "priceMutations": 0
+  },
+  "counts": {
+    "sources": 20,
+    "queries": 30,
+    "sourceAttempts": 33,
+    "usefulSourceAttempts": 20,
+    "releases": 3,
+    "images": 2,
+    "regionalPriceBlocks": 6
+  },
+  "sources": [
+    {
+      "sourceId": "src-psxdatacenter-standard",
+      "url": "https://psxdatacenter.com/games/J/0-9/SLPS-02110.html",
+      "title": "'99 KOSHIEN - (NTSC-J) - PSX DataCenter",
+      "accessedAt": "2026-09-22",
+      "supports": "Standard PS1 identity; SLPS-02110; 4990951997039; Magical Company; 1999-06-17; one CD; Japanese software; 1-2 players; also notes a Magical 1500 release code SLPS-03085."
+    },
+    {
+      "sourceId": "src-gamefaqs-release-data",
+      "url": "https://gamefaqs.gamespot.com/ps/575404-99-koushien/data",
+      "title": "'99 Koushien Release Information for PlayStation - GameFAQs",
+      "accessedAt": "2026-09-22",
+      "supports": "Japan standard SLPS-02110 / 4990951997039 / 1999-06-17 and Japan Magical 1500 SLPS-03085 / 4990951007110 / 2000-12-07; developer and 1-2 players."
+    },
+    {
+      "sourceId": "src-gamefaqs-summary",
+      "url": "https://gamefaqs.gamespot.com/ps/575404-99-koushien",
+      "title": "'99 Koushien for PlayStation - GameFAQs",
+      "accessedAt": "2026-09-22",
+      "supports": "PlayStation identity, Magical Company, 1999-06-17 and Koushien franchise context."
+    },
+    {
+      "sourceId": "src-retrogame-hall",
+      "url": "https://w.atwiki.jp/yamamura2/pages/9226.html",
+      "title": "99甲子園 - レトロゲームの殿堂",
+      "accessedAt": "2026-09-22",
+      "supports": "Standard SLPS-02110 dated 1999-06-17; Magical 1500 SLPS-03085 dated 2000-12-07; demo SLPM-80421 marked 体験版 and 非売品; Koshien series context."
+    },
+    {
+      "sourceId": "src-surugaya-budget",
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140002942",
+      "title": "駿河屋 - ’99甲子園MAGICAL 1500 - PlayStation",
+      "accessedAt": "2026-09-22",
+      "supports": "Magical 1500 metadata: JAN 4990951007110, model SLPS-03085, 2000-12-07, Magical."
+    },
+    {
+      "sourceId": "src-surugaya-demo",
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140005886",
+      "title": "駿河屋 - ’99 甲子園 [体験版] - PlayStation",
+      "accessedAt": "2026-09-22",
+      "supports": "Demo metadata: 体験版, model SLPM-80421, Magical; JAN and release date not supplied."
+    },
+    {
+      "sourceId": "src-redump-psx-japan",
+      "url": "https://redump.org/discs/system/psx/region/As/",
+      "title": "redump.org - PlayStation Japan discs",
+      "accessedAt": "2026-09-22",
+      "supports": "Japan PSX disc rows for original ’99 Koushien SLPS-02110 and Taikenban SLPM-80421, both Japanese."
+    },
+    {
+      "sourceId": "src-arcade-history-demo",
+      "url": "https://www.arcade-history.com/?id=300215&n=99-koushien-taikenban-model-slpm-80421&page=detail",
+      "title": "'99 Koushien Taikenban (Model SLPM-80421) - Arcade History",
+      "accessedAt": "2026-09-22",
+      "supports": "Taikenban model SLPM-80421 on Sony PlayStation NTSC-J CD-ROM, Magical Co. [Japan], ©1999."
+    },
+    {
+      "sourceId": "src-muuseo-demo",
+      "url": "https://muuseo.com/en/collection_rooms/49356",
+      "title": "PlayStation demo disc collection - Muuseo",
+      "accessedAt": "2026-09-22",
+      "supports": "Collection entry explicitly labels SLPM-80421 '99 甲子園 体験版; secondary visual catalog context."
+    },
+    {
+      "sourceId": "src-launchbox-images",
+      "url": "https://gamesdb.launchbox-app.com/games/images/107808-99-koushien",
+      "title": "'99 Koushien Images - LaunchBox Games Database",
+      "accessedAt": "2026-09-22",
+      "supports": "Image gallery labels a Japan Box Front and Japan Box Back for the standard release; direct image URLs retained only as image candidates, not textual evidence."
+    },
+    {
+      "sourceId": "src-gamefaqs-media",
+      "url": "https://gamefaqs.gamespot.com/ps/575404-99-koushien/media",
+      "title": "'99 Koushien Media for PlayStation - GameFAQs",
+      "accessedAt": "2026-09-22",
+      "supports": "Separate Japan box-shot entries dated 1999-06-17 and 2000-12-07, supporting distinct standard and budget physical presentations."
+    },
+    {
+      "sourceId": "src-gsdb-budget",
+      "url": "https://gsdb.f5.si/index.php?cat=ps&date%5Bem%5D=0&date%5Bey%5D=0&date%5Bsm%5D=0&date%5Bsy%5D=0&enc=%EF%BC%B5%EF%BC%B4%EF%BC%98&head=2000&page=700",
+      "title": "GSDB PlayStation release list",
+      "accessedAt": "2026-09-22",
+      "supports": "Lists ’99甲子園 (廉価版) MAGICAL 1500シリーズ, Magical, PS, SLPS-03085, 2000-12-07."
+    },
+    {
+      "sourceId": "src-gavas-standard",
+      "url": "https://www.gavas.jp/products/detail.php?product_id=9860",
+      "title": "’99甲子園 / 99 Koushien - Gavas",
+      "accessedAt": "2026-09-22",
+      "supports": "Used-game product metadata for standard PS1 release: Magical, 1999-06-17, SLPS-02110."
+    },
+    {
+      "sourceId": "src-furuichi-standard",
+      "url": "https://www.furu1.online/product/detail/10016355",
+      "title": "99甲子園 - ふるいちオンライン",
+      "accessedAt": "2026-09-22",
+      "supports": "Active used standard listing context: 680 yen, stock 1, rank A, SLPS-02110, 1999-06-17, Magical; contents not specified enough for a complete-price observation."
+    },
+    {
+      "sourceId": "src-rakuten-standard",
+      "url": "https://item.rakuten.co.jp/mottainaihonpo/gm6lkk5www2wqtzn/",
+      "title": "中古 99甲子園 / 楽天市場",
+      "accessedAt": "2026-09-22",
+      "supports": "Standard physical listing metadata: EAN 4990951997039, model SLPS-02110, 1999-06-17, Magical."
+    },
+    {
+      "sourceId": "src-rakuten-conflict",
+      "url": "https://item.rakuten.co.jp/mediaworldkaitoriworld/10271927001/",
+      "title": "99甲子園 / 楽天市場",
+      "accessedAt": "2026-09-22",
+      "supports": "Page pairs standard identifiers SLPS-02110 and 4990951997039 with date 2000-12-07, creating a date conflict against independent release sources."
+    },
+    {
+      "sourceId": "src-yugiya-standard",
+      "url": "https://www.yugiyahiranonetshop.com/product/32187",
+      "title": "'99 甲子園 箱説有 PS1プレイステーション - 遊戯屋",
+      "accessedAt": "2026-09-22",
+      "supports": "Active used-copy page advertises ’99甲子園 with case/box and manual at 220 yen; exact serial/edition linkage is insufficient for confirmed price sampling."
+    },
+    {
+      "sourceId": "src-yahoo-search-current",
+      "url": "https://auctions.yahoo.co.jp/search/search/99%E7%94%B2%E5%AD%90%E5%9C%92/22860/",
+      "title": "99甲子園 Yahoo!オークション search results",
+      "accessedAt": "2026-09-22",
+      "supports": "Discovery-only current marketplace results containing standard, Magical 1500 and demo candidates, including exact identifiers on some snippets; aggregate results are not direct price observations."
+    },
+    {
+      "sourceId": "src-yahoo-demo-ended",
+      "url": "https://auctions.yahoo.co.jp/jp/auction/d1001972715",
+      "title": "PS体験版ソフト ’99甲子園 体験版 非売品 - Yahoo!オークション",
+      "accessedAt": "2026-09-22",
+      "supports": "Ended physical PlayStation demo / non-sale listing at 4,800 yen; excluded from active price sample."
+    },
+    {
+      "sourceId": "src-pricecharting-standard",
+      "url": "https://www.pricecharting.com/fr/game/jp-playstation/%2799-koshien",
+      "title": "'99 Koshien Prices JP PlayStation - PriceCharting",
+      "accessedAt": "2026-09-22",
+      "supports": "JP PlayStation standard identity, EAN 4990951997039, one game disc and aggregate condition values; aggregate prices are context only."
+    }
+  ],
+  "queryLedger": [
+    {
+      "queryId": "q01",
+      "queryType": "exact_identifier",
+      "query": "\"99 Koshien\" SLPS-02110 4990951997039",
+      "provider": "web search",
+      "targetFields": [
+        "identity",
+        "standard identifiers",
+        "release date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-psxdatacenter-standard",
+        "src-gamefaqs-release-data",
+        "src-rakuten-standard"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact standard identifiers used to locate technical and retailer metadata."
+    },
+    {
+      "queryId": "q02",
+      "queryType": "exact_identifier",
+      "query": "\"99 Koshien\" SLPS-03085 4990951007110",
+      "provider": "web search",
+      "targetFields": [
+        "budget identity",
+        "budget identifiers",
+        "release date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-gamefaqs-release-data",
+        "src-surugaya-budget"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact budget identifiers used to corroborate the Magical 1500 product."
+    },
+    {
+      "queryId": "q03",
+      "queryType": "exact_identifier",
+      "query": "\"99 Koshien\" SLPM-80421",
+      "provider": "web search",
+      "targetFields": [
+        "demo identity",
+        "demo product code"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-surugaya-demo",
+        "src-redump-psx-japan",
+        "src-arcade-history-demo"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Located the Taikenban/demo identity and code."
+    },
+    {
+      "queryId": "q04",
+      "queryType": "exact_identifier",
+      "query": "\"99甲子園\" \"SLPS-03085\"",
+      "provider": "web search",
+      "targetFields": [
+        "budget release",
+        "identifiers",
+        "date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-surugaya-budget",
+        "src-gsdb-budget"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Japanese-title exact code corroboration."
+    },
+    {
+      "queryId": "q05",
+      "queryType": "exact_identifier",
+      "query": "\"99甲子園\" \"SLPM-80421\"",
+      "provider": "web search",
+      "targetFields": [
+        "demo release",
+        "promo status"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-surugaya-demo",
+        "src-retrogame-hall",
+        "src-muuseo-demo"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Japanese-title exact demo code corroboration."
+    },
+    {
+      "queryId": "q06",
+      "queryType": "marketplace",
+      "query": "\"99甲子園\" \"SLPS-02110\" 中古",
+      "provider": "web search",
+      "targetFields": [
+        "standard active market price",
+        "physical contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-furuichi-standard",
+        "src-rakuten-standard"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Used for active-market discovery; exact complete condition could not be established across two direct listings."
+    },
+    {
+      "queryId": "q07",
+      "queryType": "marketplace",
+      "query": "\"99甲子園\" \"SLPS-03085\" 中古",
+      "provider": "web search",
+      "targetFields": [
+        "budget active market price",
+        "physical contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-yahoo-search-current"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Found current search-level candidates but no qualifying direct sample."
+    },
+    {
+      "queryId": "q08",
+      "queryType": "marketplace",
+      "query": "\"99甲子園\" \"SLPM-80421\" 中古",
+      "provider": "web search",
+      "targetFields": [
+        "demo active market price",
+        "physical contents"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-yahoo-search-current",
+        "src-yahoo-demo-ended"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Found current search candidates and one ended direct listing; ended listing excluded from price sample."
+    },
+    {
+      "queryId": "q09",
+      "queryType": "image",
+      "query": "\"99 Koshien\" PS1 SLPS-02110 front back",
+      "provider": "web image/search",
+      "targetFields": [
+        "standard front image",
+        "standard back image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-launchbox-images"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "LaunchBox provided Japan front/back direct image URLs; direct images were not analyzed."
+    },
+    {
+      "queryId": "q10",
+      "queryType": "image",
+      "query": "\"99 Koshien Magical 1500\" SLPS-03085",
+      "provider": "web image/search",
+      "targetFields": [
+        "budget front image",
+        "budget back image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-gamefaqs-media"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Distinct GameFAQs Japan box entry discovered, but a stable direct image URL was not successfully obtained."
+    },
+    {
+      "queryId": "q11",
+      "queryType": "image",
+      "query": "\"99 Koshien\" SLPM-80421 demo",
+      "provider": "web image/search",
+      "targetFields": [
+        "demo front image",
+        "demo back image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-muuseo-demo",
+        "src-yahoo-demo-ended"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Physical demo imagery was discoverable, but exact front/back original URLs could not be reliably assigned."
+    },
+    {
+      "queryId": "q12",
+      "queryType": "source_specific",
+      "query": "\"99 Koushien\" GameFAQs SLPS-02110 SLPS-03085",
+      "provider": "web search",
+      "targetFields": [
+        "release variants",
+        "dates",
+        "identifiers"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-gamefaqs-release-data"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Source-specific release data route."
+    },
+    {
+      "queryId": "q13",
+      "queryType": "source_specific",
+      "query": "\"SLPM-80421\" redump",
+      "provider": "web search",
+      "targetFields": [
+        "demo serial",
+        "software language",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-redump-psx-japan"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Technical preservation verification for demo disc."
+    },
+    {
+      "queryId": "q14",
+      "queryType": "source_specific",
+      "query": "\"SLPS-03085\" redump",
+      "provider": "web search",
+      "targetFields": [
+        "budget disc serial",
+        "software language"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No exact budget row was located in the Redump Japan list; this was not treated as proof of absence."
+    },
+    {
+      "queryId": "q15",
+      "queryType": "source_specific",
+      "query": "\"SLPS-02110\" redump",
+      "provider": "web search",
+      "targetFields": [
+        "standard serial",
+        "software language",
+        "market"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-redump-psx-japan"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Technical preservation verification for standard disc."
+    },
+    {
+      "queryId": "q16",
+      "queryType": "marketplace",
+      "query": "\"99甲子園\" \"箱説\" \"SLPS-03085\"",
+      "provider": "web search",
+      "targetFields": [
+        "budget complete contents",
+        "complete active price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "No qualifying pair of direct active complete Magical 1500 listings was established."
+    },
+    {
+      "queryId": "q17",
+      "queryType": "marketplace",
+      "query": "\"99甲子園\" \"SLPM-80421\" \"非売品\"",
+      "provider": "web search",
+      "targetFields": [
+        "demo physical identity",
+        "demo active price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-yahoo-demo-ended"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Direct physical demo evidence found, but listing was ended."
+    },
+    {
+      "queryId": "q18",
+      "queryType": "image",
+      "query": "\"99甲子園\" \"SLPS-03085\"",
+      "provider": "web image/search",
+      "targetFields": [
+        "budget front/back images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-gamefaqs-media"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Budget presentation discovered; direct auditable image file not retained."
+    },
+    {
+      "queryId": "q19",
+      "queryType": "image",
+      "query": "\"99甲子園\" \"SLPM-80421\"",
+      "provider": "web image/search",
+      "targetFields": [
+        "demo front/back images"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-muuseo-demo",
+        "src-yahoo-demo-ended"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Demo imagery discovered; exact front/back direct files could not be safely classified."
+    },
+    {
+      "queryId": "q20",
+      "queryType": "marketplace",
+      "query": "q1238387792 \"99甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "direct marketplace listing",
+        "standard price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Direct Yahoo listing candidate could not be fetched."
+    },
+    {
+      "queryId": "q21",
+      "queryType": "marketplace",
+      "query": "c1240548022 \"99甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "direct marketplace listing",
+        "standard price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Direct Yahoo listing candidate could not be fetched."
+    },
+    {
+      "queryId": "q22",
+      "queryType": "marketplace",
+      "query": "n1231565222 \"99甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "direct marketplace listing",
+        "budget price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Direct Yahoo listing candidate could not be fetched."
+    },
+    {
+      "queryId": "q23",
+      "queryType": "marketplace",
+      "query": "o1126774157 \"99甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "direct marketplace listing",
+        "demo price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Direct Yahoo listing candidate could not be fetched."
+    },
+    {
+      "queryId": "q24",
+      "queryType": "marketplace",
+      "query": "o1213928149 \"99甲子園\"",
+      "provider": "web search",
+      "targetFields": [
+        "direct marketplace listing",
+        "demo price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Direct Yahoo listing candidate could not be fetched."
+    },
+    {
+      "queryId": "q25",
+      "queryType": "source_specific",
+      "query": "\"SLPM-80421\" arcade-history",
+      "provider": "web search",
+      "targetFields": [
+        "demo identity",
+        "media type",
+        "publisher"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-arcade-history-demo"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Specialist database corroboration for Taikenban."
+    },
+    {
+      "queryId": "q26",
+      "queryType": "marketplace",
+      "query": "\"99 甲子園\" \"箱説有\" PS1 遊戯屋",
+      "provider": "web search",
+      "targetFields": [
+        "standard physical contents",
+        "standard complete price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-yugiya-standard"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Found one active used copy advertising case and manual, but exact serial/edition evidence was insufficient for price confirmation."
+    },
+    {
+      "queryId": "q27",
+      "queryType": "general",
+      "query": "\"SLPS-02110\" \"CD-ROM\" \"Magical\"",
+      "provider": "web search",
+      "targetFields": [
+        "media",
+        "standard identity",
+        "publisher"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-psxdatacenter-standard",
+        "src-gavas-standard"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "General corroboration for standard identity and media."
+    },
+    {
+      "queryId": "q28",
+      "queryType": "source_specific",
+      "query": "\"SLPS-03085\" \"99\" \"Koshien\" site:gamefaqs.gamespot.com",
+      "provider": "web search",
+      "targetFields": [
+        "budget edition",
+        "release date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-gamefaqs-release-data",
+        "src-gamefaqs-media"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "GameFAQs-specific budget verification."
+    },
+    {
+      "queryId": "q29",
+      "queryType": "image",
+      "query": "\"575404-99-koushien/boxes/16203\"",
+      "provider": "web search",
+      "targetFields": [
+        "budget box image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-gamefaqs-media"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Budget box page was discoverable but direct fetch was unavailable."
+    },
+    {
+      "queryId": "q30",
+      "queryType": "image",
+      "query": "\"99 Koushien\" \"12/07/2000\" \"box\"",
+      "provider": "web search",
+      "targetFields": [
+        "budget box identity",
+        "budget image"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "src-gamefaqs-media"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Corroborated separate budget box presentation date; no stable direct image URL retained."
+    }
+  ],
+  "sourceAttempts": [
+    {
+      "attemptId": "a01",
+      "sourceName": "PSX DataCenter",
+      "domain": "psxdatacenter.com",
+      "sourceType": "technical_database",
+      "platform": "ps1",
+      "targetFields": [
+        "identity",
+        "identifiers",
+        "release_date",
+        "languages",
+        "players",
+        "media"
+      ],
+      "queryRefs": [
+        "q01",
+        "q27"
+      ],
+      "url": "https://psxdatacenter.com/games/J/0-9/SLPS-02110.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.officialTitle",
+        "releases.Standard.productCode",
+        "releases.Standard.barcode",
+        "releases.Standard.serial"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a02",
+      "sourceName": "GameFAQs release data",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "specialist_database",
+      "platform": "ps1",
+      "targetFields": [
+        "release_variants",
+        "identifiers",
+        "release_dates",
+        "developer",
+        "players"
+      ],
+      "queryRefs": [
+        "q01",
+        "q02",
+        "q12",
+        "q28"
+      ],
+      "url": "https://gamefaqs.gamespot.com/ps/575404-99-koushien/data",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Standard",
+        "releases.Magical1500",
+        "gameFacts.developer",
+        "gameFacts.players"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a03",
+      "sourceName": "GameFAQs summary",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "specialist_database",
+      "platform": "ps1",
+      "targetFields": [
+        "identity",
+        "series",
+        "publisher"
+      ],
+      "queryRefs": [
+        "q12"
+      ],
+      "url": "https://gamefaqs.gamespot.com/ps/575404-99-koushien",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.series",
+        "gameFacts.publisher"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a04",
+      "sourceName": "Retro Game Hall",
+      "domain": "w.atwiki.jp",
+      "sourceType": "specialist_database",
+      "platform": "ps1",
+      "targetFields": [
+        "release_variants",
+        "product_codes",
+        "release_dates",
+        "series"
+      ],
+      "queryRefs": [
+        "q04",
+        "q05"
+      ],
+      "url": "https://w.atwiki.jp/yamamura2/pages/9226.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Standard",
+        "releases.Magical1500",
+        "releases.Demo",
+        "gameFacts.series"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a05",
+      "sourceName": "Suruga-ya Magical 1500 metadata",
+      "domain": "suruga-ya.jp",
+      "sourceType": "retailer_metadata",
+      "platform": "ps1",
+      "targetFields": [
+        "budget_identifiers",
+        "budget_release_date",
+        "budget_publisher"
+      ],
+      "queryRefs": [
+        "q02",
+        "q04"
+      ],
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140002942",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Magical1500.barcode",
+        "releases.Magical1500.productCode",
+        "releases.Magical1500.releaseDate"
+      ],
+      "limitation": "Buyback metadata page; not used as an active market-price observation."
+    },
+    {
+      "attemptId": "a06",
+      "sourceName": "Suruga-ya demo metadata",
+      "domain": "suruga-ya.jp",
+      "sourceType": "retailer_metadata",
+      "platform": "ps1",
+      "targetFields": [
+        "demo_identity",
+        "demo_product_code",
+        "release_type"
+      ],
+      "queryRefs": [
+        "q03",
+        "q05"
+      ],
+      "url": "https://www.suruga-ya.jp/kaitori/kaitori_detail/140005886",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Demo.productCode",
+        "releases.Demo.releaseType"
+      ],
+      "limitation": "JAN and release date are blank; blanks are not treated as proof of nonexistence."
+    },
+    {
+      "attemptId": "a07",
+      "sourceName": "Redump PlayStation Japan discs",
+      "domain": "redump.org",
+      "sourceType": "preservation_database",
+      "platform": "ps1",
+      "targetFields": [
+        "disc_serial",
+        "market",
+        "software_language"
+      ],
+      "queryRefs": [
+        "q13",
+        "q14",
+        "q15"
+      ],
+      "url": "https://redump.org/discs/system/psx/region/As/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Standard.serial",
+        "releases.Standard.softwareLanguages",
+        "releases.Demo.serial",
+        "releases.Demo.softwareLanguages"
+      ],
+      "limitation": "No SLPS-03085 row was located; this is not treated as proof that the budget disc/language is absent."
+    },
+    {
+      "attemptId": "a08",
+      "sourceName": "Arcade History Taikenban",
+      "domain": "arcade-history.com",
+      "sourceType": "technical_database",
+      "platform": "ps1",
+      "targetFields": [
+        "demo_identity",
+        "product_code",
+        "media",
+        "publisher"
+      ],
+      "queryRefs": [
+        "q03",
+        "q25"
+      ],
+      "url": "https://www.arcade-history.com/?id=300215&n=99-koushien-taikenban-model-slpm-80421&page=detail",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Demo",
+        "gameFacts.physicalMedia"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a09",
+      "sourceName": "Muuseo demo collection",
+      "domain": "muuseo.com",
+      "sourceType": "collection_catalog",
+      "platform": "ps1",
+      "targetFields": [
+        "demo_identity",
+        "demo_image_discovery"
+      ],
+      "queryRefs": [
+        "q05",
+        "q11",
+        "q19"
+      ],
+      "url": "https://muuseo.com/en/collection_rooms/49356",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Demo.productCode"
+      ],
+      "limitation": "Collection page is secondary and image-side provenance was insufficient for front/back assignment."
+    },
+    {
+      "attemptId": "a10",
+      "sourceName": "LaunchBox image gallery",
+      "domain": "gamesdb.launchbox-app.com",
+      "sourceType": "image_gallery",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_front_image",
+        "standard_back_image"
+      ],
+      "queryRefs": [
+        "q09"
+      ],
+      "url": "https://gamesdb.launchbox-app.com/games/images/107808-99-koushien",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images.Standard.front",
+        "images.Standard.back"
+      ],
+      "limitation": "Gallery labels the Japan sides; direct image content was not analyzed, so retained as IMAGE_URL_FOUND only."
+    },
+    {
+      "attemptId": "a11",
+      "sourceName": "LaunchBox standard front direct image",
+      "domain": "images.launchbox-app.com",
+      "sourceType": "direct_image",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_front_image"
+      ],
+      "queryRefs": [
+        "q09"
+      ],
+      "url": "https://images.launchbox-app.com/e48abe5b-39c8-46c1-8adb-9ee354108d50.png",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct image fetch was unavailable in this run; image content was not used as evidence."
+    },
+    {
+      "attemptId": "a12",
+      "sourceName": "LaunchBox standard back direct image",
+      "domain": "images.launchbox-app.com",
+      "sourceType": "direct_image",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_back_image"
+      ],
+      "queryRefs": [
+        "q09"
+      ],
+      "url": "https://images.launchbox-app.com/7a4f5ca8-8aba-42cc-8fd4-a98f4c084ac2.png",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct image fetch was unavailable in this run; image content was not used as evidence."
+    },
+    {
+      "attemptId": "a13",
+      "sourceName": "GameFAQs media gallery",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "image_gallery",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_box",
+        "budget_box",
+        "release_variant_visual_identity"
+      ],
+      "queryRefs": [
+        "q10",
+        "q18",
+        "q28",
+        "q29",
+        "q30"
+      ],
+      "url": "https://gamefaqs.gamespot.com/ps/575404-99-koushien/media",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Standard",
+        "releases.Magical1500"
+      ],
+      "limitation": "Separate dated Japan box entries are visible in metadata; direct image files were not successfully obtained."
+    },
+    {
+      "attemptId": "a14",
+      "sourceName": "GameFAQs standard box page",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "image_page",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_box_image"
+      ],
+      "queryRefs": [
+        "q09"
+      ],
+      "url": "https://gamefaqs.gamespot.com/ps/575404-99-koushien/boxes/16202",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct box page fetch unavailable."
+    },
+    {
+      "attemptId": "a15",
+      "sourceName": "GameFAQs budget box page",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "image_page",
+      "platform": "ps1",
+      "targetFields": [
+        "budget_box_image"
+      ],
+      "queryRefs": [
+        "q10",
+        "q18",
+        "q29"
+      ],
+      "url": "https://gamefaqs.gamespot.com/ps/575404-99-koushien/boxes/16203",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct box page fetch unavailable; no image URL was retained."
+    },
+    {
+      "attemptId": "a16",
+      "sourceName": "GSDB",
+      "domain": "gsdb.f5.si",
+      "sourceType": "release_database",
+      "platform": "ps1",
+      "targetFields": [
+        "budget_identity",
+        "budget_product_code",
+        "budget_date"
+      ],
+      "queryRefs": [
+        "q04"
+      ],
+      "url": "https://gsdb.f5.si/index.php?cat=ps&date%5Bem%5D=0&date%5Bey%5D=0&date%5Bsm%5D=0&date%5Bsy%5D=0&enc=%EF%BC%B5%EF%BC%B4%EF%BC%98&head=2000&page=700",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Magical1500.productCode",
+        "releases.Magical1500.releaseDate",
+        "releases.Magical1500.releaseType"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a17",
+      "sourceName": "Gavas",
+      "domain": "gavas.jp",
+      "sourceType": "retailer_metadata",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_identity",
+        "standard_product_code",
+        "standard_date"
+      ],
+      "queryRefs": [
+        "q01",
+        "q27"
+      ],
+      "url": "https://www.gavas.jp/products/detail.php?product_id=9860",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Standard.productCode",
+        "releases.Standard.releaseDate"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a18",
+      "sourceName": "Furuichi",
+      "domain": "furu1.online",
+      "sourceType": "marketplace_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_active_price",
+        "standard_identity"
+      ],
+      "queryRefs": [
+        "q06"
+      ],
+      "url": "https://www.furu1.online/product/detail/10016355",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Standard.productCode"
+      ],
+      "limitation": "Active price and stock were visible, but included contents were not sufficiently specified to classify the copy as complete."
+    },
+    {
+      "attemptId": "a19",
+      "sourceName": "Rakuten Mottainaihonpo",
+      "domain": "item.rakuten.co.jp",
+      "sourceType": "marketplace_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_identifiers",
+        "standard_date",
+        "active_market_context"
+      ],
+      "queryRefs": [
+        "q01",
+        "q06"
+      ],
+      "url": "https://item.rakuten.co.jp/mottainaihonpo/gm6lkk5www2wqtzn/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Standard.barcode",
+        "releases.Standard.productCode",
+        "releases.Standard.releaseDate"
+      ],
+      "limitation": "A numeric auditable asking price was not extracted, so it is excluded from regionalPrices observations."
+    },
+    {
+      "attemptId": "a20",
+      "sourceName": "Rakuten Mediaworld/Kaitoriworld",
+      "domain": "item.rakuten.co.jp",
+      "sourceType": "marketplace_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_identifiers",
+        "release_date_conflict"
+      ],
+      "queryRefs": [
+        "q01",
+        "q06"
+      ],
+      "url": "https://item.rakuten.co.jp/mediaworldkaitoriworld/10271927001/",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "conflicts.standardDateRakuten"
+      ],
+      "limitation": "Page date conflicts with multiple independent release sources; not used to override the standard release date."
+    },
+    {
+      "attemptId": "a21",
+      "sourceName": "Yugiya",
+      "domain": "yugiyahiranonetshop.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_physical_contents",
+        "standard_active_price"
+      ],
+      "queryRefs": [
+        "q26"
+      ],
+      "url": "https://www.yugiyahiranonetshop.com/product/32187",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Standard.components"
+      ],
+      "limitation": "Copy is advertised with case and manual, but exact serial/standard-vs-budget linkage was not explicit enough for confirmed price sampling."
+    },
+    {
+      "attemptId": "a22",
+      "sourceName": "Yahoo Auctions current search",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_search",
+      "platform": "ps1",
+      "targetFields": [
+        "active_market_price",
+        "release_variant_discovery"
+      ],
+      "queryRefs": [
+        "q07",
+        "q08"
+      ],
+      "url": "https://auctions.yahoo.co.jp/search/search/99%E7%94%B2%E5%AD%90%E5%9C%92/22860/",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices"
+      ],
+      "limitation": "Aggregate search page had 15 current results but cannot itself satisfy the direct-listing observation contract."
+    },
+    {
+      "attemptId": "a23",
+      "sourceName": "Yahoo Auctions candidate q1238387792",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_active_price"
+      ],
+      "queryRefs": [
+        "q20"
+      ],
+      "url": "https://auctions.yahoo.co.jp/jp/auction/q1238387792",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct listing page could not be fetched for audit."
+    },
+    {
+      "attemptId": "a24",
+      "sourceName": "Yahoo Auctions candidate c1240548022",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_active_price"
+      ],
+      "queryRefs": [
+        "q21"
+      ],
+      "url": "https://auctions.yahoo.co.jp/jp/auction/c1240548022",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct listing page could not be fetched for audit."
+    },
+    {
+      "attemptId": "a25",
+      "sourceName": "Yahoo Auctions candidate n1231565222",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "budget_active_price"
+      ],
+      "queryRefs": [
+        "q22"
+      ],
+      "url": "https://auctions.yahoo.co.jp/jp/auction/n1231565222",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct listing page could not be fetched for audit."
+    },
+    {
+      "attemptId": "a26",
+      "sourceName": "Yahoo Auctions candidate o1126774157",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "demo_active_price"
+      ],
+      "queryRefs": [
+        "q23"
+      ],
+      "url": "https://auctions.yahoo.co.jp/jp/auction/o1126774157",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct listing page could not be fetched for audit."
+    },
+    {
+      "attemptId": "a27",
+      "sourceName": "Yahoo Auctions candidate o1213928149",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "demo_active_price"
+      ],
+      "queryRefs": [
+        "q24"
+      ],
+      "url": "https://auctions.yahoo.co.jp/jp/auction/o1213928149",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Direct listing page could not be fetched for audit."
+    },
+    {
+      "attemptId": "a28",
+      "sourceName": "Yahoo Auctions ended demo",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_listing",
+      "platform": "ps1",
+      "targetFields": [
+        "demo_physical_identity",
+        "demo_release_type",
+        "price_context"
+      ],
+      "queryRefs": [
+        "q08",
+        "q17"
+      ],
+      "url": "https://auctions.yahoo.co.jp/jp/auction/d1001972715",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Demo.releaseType"
+      ],
+      "limitation": "Auction ended 2026-08-22; excluded from active price sampling."
+    },
+    {
+      "attemptId": "a29",
+      "sourceName": "PriceCharting",
+      "domain": "pricecharting.com",
+      "sourceType": "price_aggregator",
+      "platform": "ps1",
+      "targetFields": [
+        "standard_identity",
+        "barcode",
+        "physical_contents",
+        "price_context"
+      ],
+      "queryRefs": [
+        "q01",
+        "q06"
+      ],
+      "url": "https://www.pricecharting.com/fr/game/jp-playstation/%2799-koshien",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases.Standard.barcode"
+      ],
+      "limitation": "Aggregate condition values are excluded from direct active listing sample."
+    },
+    {
+      "attemptId": "a30",
+      "sourceName": "Yahoo demo image candidate 1",
+      "domain": "auctions.c.yimg.jp",
+      "sourceType": "direct_image",
+      "platform": "ps1",
+      "targetFields": [
+        "demo_front_back_images"
+      ],
+      "queryRefs": [
+        "q11",
+        "q19"
+      ],
+      "url": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/users/3c3f980ece237afa46e57cf873112bf622760d31/i-img1024x767-1630181339gpsuoz409056.jpg",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Image could not be fetched/inspected and side could not be safely assigned."
+    },
+    {
+      "attemptId": "a31",
+      "sourceName": "Yahoo demo image candidate 2",
+      "domain": "auctions.c.yimg.jp",
+      "sourceType": "direct_image",
+      "platform": "ps1",
+      "targetFields": [
+        "demo_front_back_images"
+      ],
+      "queryRefs": [
+        "q11",
+        "q19"
+      ],
+      "url": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/users/3c3f980ece237afa46e57cf873112bf622760d31/i-img1024x767-1630181339imjitl409056.jpg",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Image could not be fetched/inspected and side could not be safely assigned."
+    },
+    {
+      "attemptId": "a32",
+      "sourceName": "Yahoo demo image candidate 3",
+      "domain": "auctions.c.yimg.jp",
+      "sourceType": "direct_image",
+      "platform": "ps1",
+      "targetFields": [
+        "demo_front_back_images"
+      ],
+      "queryRefs": [
+        "q11",
+        "q19"
+      ],
+      "url": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0208/users/3c3f980ece237afa46e57cf873112bf622760d31/i-img1024x767-1630181339ewt7ny409056.jpg",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Image could not be fetched/inspected and side could not be safely assigned."
+    },
+    {
+      "attemptId": "a33",
+      "sourceName": "Redump budget exact-code attempt",
+      "domain": "redump.org",
+      "sourceType": "preservation_database",
+      "platform": "ps1",
+      "targetFields": [
+        "budget_disc_serial",
+        "budget_software_language"
+      ],
+      "queryRefs": [
+        "q14"
+      ],
+      "url": "https://redump.org/discs/system/psx/region/As/",
+      "accessStatus": "OPENED",
+      "outcome": "NO_RELEVANT_DATA",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "No SLPS-03085 row located; this does not demonstrate that no such physical budget disc exists."
+    }
+  ]
+}
