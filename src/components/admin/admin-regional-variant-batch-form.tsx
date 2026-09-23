@@ -6,7 +6,9 @@ import { useMemo, useState } from "react";
 import { Panel, PanelTitle } from "@/components/ui";
 import { adminToneClass } from "@/components/admin/admin-visual";
 import { attemptOptionalImageUpload } from "@/lib/admin-optional-image-upload";
+import { RegionalBatchSubmissionError, submitRegionalVariantBatch, type SubmissionBody } from "@/lib/admin-regional-variant-batch-client";
 import { buildAdminVariantImageSlug } from "@/lib/admin-regional-variant-batch";
+import type { CatalogPhysicalReleaseGroup } from "@/lib/types";
 
 type PlatformOption = { slug: string; name: string };
 type MarketOption = { value: string; label: string; shortLabel: string; flagCode: string; group: string; broadRegion: string };
@@ -35,8 +37,8 @@ type VariantGroup = {
   boxCode: string;
   releaseDate: string;
   releaseDateContext: string;
-  physicalContentStatus: string;
-  physicalProductType: string;
+  physicalContentStatus: NonNullable<CatalogPhysicalReleaseGroup["physicalContentStatus"]>;
+  physicalProductType: NonNullable<CatalogPhysicalReleaseGroup["physicalProductType"]>;
   physicalContents: string;
   digitalContents: string;
   widthCm: string;
@@ -131,7 +133,10 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
   const [groups, setGroups] = useState<VariantGroup[]>([emptyGroup(1)]);
   const [nextId, setNextId] = useState(2);
   const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState<{ completed: number; total: number } | null>(null);
+  const [resume, setResume] = useState<{ body: SubmissionBody; nextIndex: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [completionWarning, setCompletionWarning] = useState<string | null>(null);
   const [uploadWarnings, setUploadWarnings] = useState<string[]>([]);
   const [result, setResult] = useState<{ physicalVariantCount: number; regionalRecordCount: number } | null>(null);
 
@@ -174,7 +179,7 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
   }
 
   async function submit(publishNow: boolean) {
-    setLoading(true); setError(null); setUploadWarnings([]); setResult(null);
+    setLoading(true); setProgress(null); setResume(null); setError(null); setCompletionWarning(null); setUploadWarnings([]); setResult(null);
     try {
       const slugSeed = slugPart(baseSlug || title) || `juego-${Date.now()}`;
       const warnings: string[] = [];
@@ -200,15 +205,18 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
             `${IMAGE_ROLE_LABELS[role]} de ${group.label || `caja ${index + 1}`} pendiente`,
             async () => {
               const uploaded = await uploadImage(file, key);
-              return { key, placement: role === "contents" ? "CONTENTS" : "GALLERY", url: uploaded.url, thumbnailUrl: uploaded.url, width: uploaded.width, height: uploaded.height, caption: IMAGE_ROLE_LABELS[role], evidenceType: group.imageEvidenceType };
+              return { key, placement: (role === "contents" ? "CONTENTS" : "GALLERY") as "CONTENTS" | "GALLERY", url: uploaded.url, thumbnailUrl: uploaded.url, width: uploaded.width, height: uploaded.height, caption: IMAGE_ROLE_LABELS[role], evidenceType: group.imageEvidenceType };
             },
           ));
         }
         const imageEntries = imageAttempts.flatMap((attempt) => attempt.value ? [attempt.value] : []);
         warnings.push(...imageAttempts.flatMap((attempt) => attempt.warning ? [attempt.warning] : []));
         const front = imageEntries.find((image) => image.key.endsWith("-front"));
-        const dimensions = group.widthCm && group.heightCm && group.depthCm ? {
-          widthCm: numberOrNull(group.widthCm), heightCm: numberOrNull(group.heightCm), depthCm: numberOrNull(group.depthCm),
+        const widthCm = numberOrNull(group.widthCm);
+        const heightCm = numberOrNull(group.heightCm);
+        const depthCm = numberOrNull(group.depthCm);
+        const dimensions = widthCm != null && heightCm != null && depthCm != null ? {
+          widthCm, heightCm, depthCm,
           approximate: true, sourceLabel: "Alta manual de Region Atlas", notes: [],
         } : undefined;
         preparedGroups.push({
@@ -226,21 +234,49 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
           existingCatalogIds: Object.fromEntries(group.markets.map((market) => [market, group.existingCatalogIds[market] ?? ""])),
         });
       }
-      const response = await fetch("/api/admin/games/batch", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, platformSlug, physicalVariant, baseSlug: baseSlug || undefined,
-          coverUrl: uploadedCommonCover?.url ?? (coverUrl || null), year: year || null, releaseDate: releaseDate || null,
-          pegi: pegi || null, players: players || null, support: support || null, developerName: developerName || null,
-          publisherName: publisherName || null, genreNames: splitValues(genreNames), subgenreNames: splitValues(subgenreNames),
-          facetNames: splitValues(facetNames), description: description || null, publishNow, groups: preparedGroups }),
-      });
-      const data = await response.json();
+      const submissionBody: SubmissionBody = {
+        title, platformSlug, physicalVariant, baseSlug: baseSlug || undefined,
+        coverUrl: uploadedCommonCover?.url ?? (coverUrl || null), year: year || null, releaseDate: releaseDate || null,
+        pegi: pegi || null, players: players || null, support: support || null, developerName: developerName || null,
+        publisherName: publisherName || null, genreNames: splitValues(genreNames), subgenreNames: splitValues(subgenreNames),
+        facetNames: splitValues(facetNames), description: description || null, publishNow, groups: preparedGroups,
+      };
       setUploadWarnings(warnings);
-      if (!response.ok) { setError(data.error ?? "No se pudo crear el lote."); return; }
+      let data;
+      try {
+        data = await submitRegionalVariantBatch(submissionBody, (completed, total) => setProgress({ completed, total }));
+      } catch (caught) {
+        if (caught instanceof RegionalBatchSubmissionError && caught.retryable) {
+          setResume({ body: submissionBody, nextIndex: caught.rowIndex });
+        }
+        throw caught;
+      }
       setResult({ physicalVariantCount: data.physicalVariantCount, regionalRecordCount: data.regionalRecordCount });
-      if (data.redirect) router.push(data.redirect);
+      if (data.warning) setCompletionWarning(data.warning);
+      if (data.redirect && !data.warning) router.push(data.redirect);
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Error de red al guardar el lote.");
+    } finally { setLoading(false); }
+  }
+
+  async function resumeSubmission() {
+    if (!resume) return;
+    setLoading(true); setError(null);
+    try {
+      const data = await submitRegionalVariantBatch(
+        resume.body,
+        (completed, total) => setProgress({ completed, total }),
+        fetch,
+        resume.nextIndex,
+      );
+      setResume(null);
+      setResult({ physicalVariantCount: data.physicalVariantCount, regionalRecordCount: data.regionalRecordCount });
+      if (data.warning) setCompletionWarning(data.warning);
+      if (data.redirect && !data.warning) router.push(data.redirect);
+    } catch (caught) {
+      setResume(caught instanceof RegionalBatchSubmissionError && caught.retryable
+        ? { ...resume, nextIndex: caught.rowIndex } : null);
+      setError(caught instanceof Error ? caught.message : "Error al reanudar el lote.");
     } finally { setLoading(false); }
   }
 
@@ -288,8 +324,8 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
           <TextField label="Código de caja" value={group.boxCode} onChange={(value) => updateGroup(group.id, { boxCode: value })} />
           <TextField label="Fecha de esta caja" value={group.releaseDate} onChange={(value) => updateGroup(group.id, { releaseDate: value })} placeholder="2026-08-20" />
           <TextField label="Contexto de la fecha" value={group.releaseDateContext} onChange={(value) => updateGroup(group.id, { releaseDateContext: value })} className="lg:col-span-2" placeholder="Lanzamiento comercial en España" />
-          <label className="block space-y-1"><span className="text-[10px] uppercase tracking-wider text-muted">Estado físico</span><select className="input" value={group.physicalContentStatus} onChange={(event) => updateGroup(group.id, { physicalContentStatus: event.target.value })}><option value="PHYSICAL_FULL_GAME">Juego físico completo</option><option value="PHYSICAL_DOWNLOAD_REQUIRED">Descarga adicional necesaria</option><option value="GAME_KEY_CARD">Game-Key Card</option><option value="CODE_IN_BOX">Código en caja</option><option value="COLLECTOR_WITHOUT_GAME">Coleccionista sin juego</option><option value="PROMOTIONAL_NOT_FOR_RESALE">Promocional / NFR</option><option value="UNKNOWN_PHYSICAL_STATUS">Estado físico pendiente</option></select></label>
-          <label className="block space-y-1"><span className="text-[10px] uppercase tracking-wider text-muted">Tipo de soporte físico</span><select className="input" value={group.physicalProductType} onChange={(event) => updateGroup(group.id, { physicalProductType: event.target.value })}><option value="NATIVE_GAME_DISC">Disco nativo</option><option value="NATIVE_GAME_CARD">Tarjeta/cartucho nativo</option><option value="GAME_KEY_CARD">Game-Key Card</option><option value="PREVIOUS_GEN_DISC_WITH_UPGRADE">Disco generación anterior + mejora</option><option value="DOWNLOAD_CODE_IN_BOX">Código de descarga</option><option value="UNKNOWN_PHYSICAL_PRODUCT">Pendiente de identificar</option></select></label>
+          <label className="block space-y-1"><span className="text-[10px] uppercase tracking-wider text-muted">Estado físico</span><select className="input" value={group.physicalContentStatus} onChange={(event) => updateGroup(group.id, { physicalContentStatus: event.target.value as VariantGroup["physicalContentStatus"] })}><option value="PHYSICAL_FULL_GAME">Juego físico completo</option><option value="PHYSICAL_DOWNLOAD_REQUIRED">Descarga adicional necesaria</option><option value="GAME_KEY_CARD">Game-Key Card</option><option value="CODE_IN_BOX">Código en caja</option><option value="COLLECTOR_WITHOUT_GAME">Coleccionista sin juego</option><option value="PROMOTIONAL_NOT_FOR_RESALE">Promocional / NFR</option><option value="UNKNOWN_PHYSICAL_STATUS">Estado físico pendiente</option></select></label>
+          <label className="block space-y-1"><span className="text-[10px] uppercase tracking-wider text-muted">Tipo de soporte físico</span><select className="input" value={group.physicalProductType} onChange={(event) => updateGroup(group.id, { physicalProductType: event.target.value as VariantGroup["physicalProductType"] })}><option value="NATIVE_GAME_DISC">Disco nativo</option><option value="NATIVE_GAME_CARD">Tarjeta/cartucho nativo</option><option value="GAME_KEY_CARD">Game-Key Card</option><option value="PREVIOUS_GEN_DISC_WITH_UPGRADE">Disco generación anterior + mejora</option><option value="DOWNLOAD_CODE_IN_BOX">Código de descarga</option><option value="UNKNOWN_PHYSICAL_PRODUCT">Pendiente de identificar</option></select></label>
           <label className="block space-y-1"><span className="text-[10px] uppercase tracking-wider text-muted">Estado de identificación</span><select className="input" value={group.confidence} onChange={(event) => updateGroup(group.id, { confidence: event.target.value as VariantGroup["confidence"] })}><option value="CONFIRMED">Variante confirmada</option><option value="PENDING_IDENTIFIER">Confirmada, identificador pendiente</option></select></label>
           <TextField label="Contenido físico" value={group.physicalContents} onChange={(value) => updateGroup(group.id, { physicalContents: value })} className="lg:col-span-2" placeholder="Caja, Juego, Manual" />
           <TextField label="Contenido digital" value={group.digitalContents} onChange={(value) => updateGroup(group.id, { digitalContents: value })} className="lg:col-span-2" />
@@ -313,8 +349,11 @@ export function AdminRegionalVariantBatchForm({ platforms, marketOptions }: { pl
       </section>;
     })}</div>
     <button type="button" className="btn-secondary mt-4" onClick={() => { setGroups((current) => [...current, emptyGroup(nextId)]); setNextId((current) => current + 1); }}><Plus size={18} aria-hidden="true" /> Añadir caja física</button>
-    <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5"><p className="text-sm text-muted"><strong className="text-foreground">1</strong> ficha central V2 · <strong className="text-foreground">{groups.length}</strong> cajas físicas · <strong className="text-foreground">{regionalRecordCount}</strong> identidades regionales</p><div className="flex flex-wrap gap-2"><button type="button" className="btn-secondary" disabled={loading || !canSubmit} onClick={() => void submit(false)}>{loading ? "Guardando y subiendo imágenes…" : "Crear lote para revisar"}</button><button type="button" className="btn-primary" disabled={loading || !canSubmit} onClick={() => void submit(true)}>{loading ? "Publicando…" : "Crear y publicar ficha V2"}</button></div></div>
+    <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5"><p className="text-sm text-muted"><strong className="text-foreground">1</strong> ficha central V2 · <strong className="text-foreground">{groups.length}</strong> cajas físicas · <strong className="text-foreground">{regionalRecordCount}</strong> identidades regionales</p><div className="flex flex-wrap gap-2"><button type="button" className="btn-secondary" disabled={loading || Boolean(resume) || !canSubmit} onClick={() => void submit(false)}>{loading ? "Guardando y subiendo imágenes…" : "Crear lote para revisar"}</button><button type="button" className="btn-primary" disabled={loading || Boolean(resume) || !canSubmit} onClick={() => void submit(true)}>{loading ? "Publicando…" : "Crear y publicar ficha V2"}</button></div></div>
+    {loading && progress ? <p role="status" className="mt-3 text-sm text-muted">Identidades completadas: {progress.completed} de {progress.total}. No cierres esta página mientras continúa el lote.</p> : null}
+    {resume ? <button type="button" className="btn-primary mt-3" disabled={loading} onClick={() => void resumeSubmission()}>Continuar desde identidad {resume.nextIndex + 1} sin repetir las anteriores</button> : null}
     {error ? <p className="mt-4 rounded-md border border-danger/35 bg-danger/10 p-3 text-sm text-danger">{error}</p> : null}
+    {completionWarning ? <p className="mt-4 rounded-md border border-amber-500/35 bg-amber-500/10 p-3 text-sm text-foreground">{completionWarning}</p> : null}
     {result ? <p className="mt-4 rounded-md border border-success/35 bg-success/10 p-3 text-sm text-foreground">Ficha central creada con {result.physicalVariantCount} cajas físicas y {result.regionalRecordCount} identidades regionales.</p> : null}
     {uploadWarnings.length > 0 ? <div className="mt-4 rounded-md border border-amber-500/35 bg-amber-500/10 p-3 text-sm text-foreground"><p className="font-semibold">La ficha se guardó sin bloquearse; estas imágenes quedan pendientes:</p><ul className="mt-2 list-disc space-y-1 pl-5">{uploadWarnings.map((warning) => <li key={warning}>{warning}</li>)}</ul></div> : null}
   </Panel>;

@@ -6,7 +6,10 @@ import {
   type CatalogPhysicalVariantConfidence,
 } from "./catalog-edition-guide-types";
 import { slugify } from "./slug";
+import { catalogIdFromStaging } from "./pc-path-guess";
+import { decodeCatalogDisplayText } from "./catalog-presentation";
 import type { CatalogPhysicalReleaseGroup } from "./types";
+import type { CatalogGame } from "./types";
 import type { AdminInitialPriceFields } from "./admin-draft-types";
 
 export const GENERIC_MARKET_VALUES = ["EU_GENERIC", "ASIA_GENERIC"] as const;
@@ -58,6 +61,64 @@ export type ExpandedRegionalVariantRow = {
   initialPrices: AdminInitialPriceFields | null;
   existingCatalogId: string | null;
 };
+
+export function selectRegionalVariantBatchRow(
+  rows: ExpandedRegionalVariantRow[],
+  rowIndex: number | undefined,
+): { row: ExpandedRegionalVariantRow; rowIndex: number } | { error: string } {
+  if (rowIndex === undefined && rows.length !== 1) {
+    return { error: "El lote contiene varias identidades. Envíalas de una en una con rowIndex." };
+  }
+  const selected = rowIndex ?? 0;
+  if (!Number.isInteger(selected) || selected < 0 || selected >= rows.length) {
+    return { error: "rowIndex no válido para este lote." };
+  }
+  return { row: rows[selected], rowIndex: selected };
+}
+
+export function regionalVariantBatchCatalogId(
+  platformSlug: string,
+  row: ExpandedRegionalVariantRow,
+): string {
+  return row.existingCatalogId ?? catalogIdFromStaging({
+    platformSlug,
+    slug: row.slug,
+    region: row.region,
+  });
+}
+
+// Only used to reconcile an uncertain HTTP response. A matching ID alone is
+// never enough to treat a previously published game as this batch's result.
+export function matchesPublishedRegionalVariantRow(
+  game: CatalogGame,
+  input: { title: string; platformSlug: string; workId: string; row: ExpandedRegionalVariantRow },
+): boolean {
+  const { row } = input;
+  if (game.id !== regionalVariantBatchCatalogId(input.platformSlug, row)
+    || decodeCatalogDisplayText(game.title) !== decodeCatalogDisplayText(input.title.trim())
+    || game.platformSlug !== input.platformSlug
+    || game.workId !== input.workId
+    || game.region !== row.region
+    || (game.marketRegion ?? null) !== row.marketRegion
+    || (game.physicalVariant ?? null) !== row.physicalVariant
+    || JSON.stringify(game.physicalReleaseGroup ?? null) !== JSON.stringify(row.group)) {
+    return false;
+  }
+  return Object.entries(row.initialPrices ?? {}).every(([field, value]) =>
+    value == null || (game as unknown as Record<string, unknown>)[field] === value);
+}
+
+export function classifyRegionalBatchRowPublication(input: {
+  indexed: boolean;
+  overlayGame: CatalogGame | null;
+  staticGame: CatalogGame | null;
+  detailsReady: boolean;
+  identityMatches: boolean;
+}): "MISSING" | "INCOMPLETE" | "CONFLICT" | "MATCHING" {
+  if (!input.indexed && !input.overlayGame && !input.staticGame) return "MISSING";
+  if (!input.indexed || !input.overlayGame || !input.detailsReady) return "INCOMPLETE";
+  return input.identityMatches ? "MATCHING" : "CONFLICT";
+}
 
 export function buildAdminVariantImageSlug(input: {
   titleSlug: string;
