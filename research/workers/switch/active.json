@@ -1,39 +1,52 @@
 {
   "schemaVersion": 2,
-  "generation": 29,
+  "generation": 30,
   "workerId": "switch",
-  "state": "RESULT_READY",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/switch",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
   "resultOrderTemplateVersion": 11,
-  "currentItemResearchId": "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
+  "currentItemResearchId": null,
   "workPackage": {
-    "packageId": "switch-2026-09-23-001",
+    "packageId": "switch-2026-09-23-002",
     "grouping": {
-      "type": "independent",
-      "basis": "Primera entrada pending de Switch sin resultado previo tras consumir 1-2-Switch; no comparte saga con las siguientes entradas."
+      "type": "related-series",
+      "basis": "Dos entradas HIGH consecutivas de Switch para 3D Mini Golf: juego base y producto Code In Box. Cada producto mantiene su investigación y JSON independientes; no se presupone que compartan soporte, caja, región ni identificadores."
     },
     "items": [
       {
-        "queueId": "catalog:switch-2-hits-pack-sonic-forces-puyo-puyo-tetris",
+        "queueId": "catalog:switch-3d-mini-golf",
         "platform": "switch",
-        "title": "2 Hits Pack: Sonic Forces & Puyo Puyo Tetris",
+        "title": "3D Mini Golf",
         "catalogIds": [
-          "switch-2-hits-pack-sonic-forces-puyo-puyo-tetris"
+          "switch-3d-mini-golf"
         ],
-        "researchId": "2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23",
-        "orderPath": "research/workers/switch/orders/2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23.md",
-        "resultPath": "research/results/2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23.json",
-        "status": "RESULT_READY",
-        "checkpointPath": "research/workers/switch/checkpoints/2-hits-pack-sonic-forces-puyo-puyo-tetris-switch-2026-09-23.json"
+        "researchId": "3d-mini-golf-switch-2026-09-23",
+        "orderPath": "research/workers/switch/orders/3d-mini-golf-switch-2026-09-23.md",
+        "resultPath": "research/results/3d-mini-golf-switch-2026-09-23.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/switch/checkpoints/3d-mini-golf-switch-2026-09-23.json"
+      },
+      {
+        "queueId": "catalog:switch-3d-mini-golf-code-in-box",
+        "platform": "switch",
+        "title": "3D Mini Golf [Code In Box]",
+        "catalogIds": [
+          "switch-3d-mini-golf-code-in-box"
+        ],
+        "researchId": "3d-mini-golf-code-in-box-switch-2026-09-23",
+        "orderPath": "research/workers/switch/orders/3d-mini-golf-code-in-box-switch-2026-09-23.md",
+        "resultPath": "research/results/3d-mini-golf-code-in-box-switch-2026-09-23.json",
+        "status": "PENDING",
+        "checkpointPath": "research/workers/switch/checkpoints/3d-mini-golf-code-in-box-switch-2026-09-23.json"
       }
     ]
   },
   "lease": null,
-  "updatedAt": "2026-09-23T01:39:09Z",
-  "updatedBy": "chatgpt",
-  "note": "Resultado factual publicado para 2 Hits Pack: Sonic Forces / Puyo Puyo Tetris - Sega Collection; pendiente de validación e incorporación por Codex."
+  "updatedAt": "2026-09-23T08:03:35Z",
+  "updatedBy": "codex",
+  "note": "2 Hits Pack incorporado parcialmente mediante Admin y verificado; la entrada original permanece pending para segunda pasada. Nuevo paquete relacionado 3D Mini Golf preparado sin repetir búsquedas."
 }

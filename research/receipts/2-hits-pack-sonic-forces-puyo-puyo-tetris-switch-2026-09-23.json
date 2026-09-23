@@ -12,6 +12,7 @@
   "publishedRegions": ["PAL Europa"],
   "pricesPublished": [],
   "priceDecision": "NOT_PUBLISHED_NO_TWO_QUALIFYING_EXACT_REGIONAL_LISTINGS",
+  "sourcePerformanceDecision": "LEDGER_AGGREGATED_SWITCH_NO_UNVALIDATED_ROUTE_PROMOTION",
   "coverage": "partial",
   "queueStatus": "pending",
   "internalAssets": {
