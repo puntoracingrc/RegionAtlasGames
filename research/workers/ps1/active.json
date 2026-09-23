@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generation": 18,
+  "generation": 19,
   "workerId": "ps1",
-  "state": "RUNNING",
+  "state": "READY",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps1",
   "queuePath": "research/queue.json",
@@ -29,17 +29,13 @@
         "researchId": "1-on-1-ps1-2026-09-23",
         "orderPath": "research/workers/ps1/orders/1-on-1-ps1-2026-09-23.md",
         "resultPath": "research/results/1-on-1-ps1-2026-09-23.json",
-        "status": "PENDING",
+        "status": "CHECKPOINTED",
         "checkpointPath": "research/workers/ps1/checkpoints/1-on-1-ps1-2026-09-23.json"
       }
     ]
   },
-  "lease": {
-    "runId": "ps1-20260923T015302Z-1on1",
-    "claimedAt": "2026-09-23T01:53:02Z",
-    "expiresAt": "2026-09-23T02:43:02Z"
-  },
-  "updatedAt": "2026-09-23T01:53:02Z",
+  "lease": null,
+  "updatedAt": "2026-09-23T02:10:00Z",
   "updatedBy": "chatgpt",
-  "note": "Claimed 1 on 1 for external research under ORDER_TEMPLATE_VERSION 11."
+  "note": "Research evidence for 1 on 1 is checkpointed. Final ORDER_TEMPLATE_VERSION 11 result JSON assembly/validation remains; factual research should not be repeated unless needed for a validation gap."
 }
