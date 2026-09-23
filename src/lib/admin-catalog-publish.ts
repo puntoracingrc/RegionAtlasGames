@@ -28,7 +28,7 @@ import { getCatalogGame, listedCatalog } from "./catalog";
 import { catalogIdFromStaging, guessPcPath } from "./pc-path-guess";
 import { slugify } from "./slug";
 import { findCatalogIdentityCollision } from "./catalog-identity";
-import { applyDraftPatch, draftFromCatalogGame, recomputeCatalogId } from "./admin-draft-patch";
+import { applyDraftPatch, catalogIdAfterIdentityChange, draftFromCatalogGame, recomputeCatalogId } from "./admin-draft-patch";
 import { applyPricePatch, priceFieldsFromGame, type AdminPriceFields } from "./admin-price-patch";
 import { createAdminCompany } from "./admin-entity-catalog";
 import { addAffiliateOfferWhitelistGame } from "./affiliate-offers";
@@ -776,10 +776,12 @@ export async function updatePublishedCatalogGame(
   if ("error" in localizedDraft) return { error: localizedDraft.error };
   applyLocalizedDraftCover(draft, localizedDraft);
 
-  draft.catalogId = options.preserveCatalogId ? original : recomputeCatalogId(draft);
-
   const resolved = await getPublishedGameForAdmin(original);
   if (!resolved) return { error: "Juego no encontrado en el catálogo." };
+
+  draft.catalogId = options.preserveCatalogId
+    ? original
+    : catalogIdAfterIdentityChange(draftFromCatalogGame(resolved.game, resolved.details), draft);
 
   if (draft.catalogId !== original) {
     if (await catalogIdExistsInCatalog(draft.catalogId)) {

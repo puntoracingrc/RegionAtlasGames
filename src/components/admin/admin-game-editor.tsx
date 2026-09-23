@@ -1073,6 +1073,9 @@ export function AdminGameEditor({
                   })
                 }
               >
+                {!(["PAL España", "PAL Europa", "USA", "Japón"] as string[]).includes(draft.region) ? (
+                  <option value={draft.region}>{draft.region}</option>
+                ) : null}
                 <option value="PAL España">PAL España</option>
                 <option value="PAL Europa">PAL Europa</option>
                 <option value="USA">USA</option>
