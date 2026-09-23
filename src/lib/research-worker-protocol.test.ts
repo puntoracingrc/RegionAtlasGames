@@ -42,7 +42,6 @@ test("validated source routes are prioritized without becoming exclusive", () =>
   assert.match(orderTemplate, /Estas rutas aprendidas son prioritarias, no exclusivas/);
   assert.match(orderTemplate, /Agotar las recomendaciones no permite detener la investigación/);
 });
-
 test("result delivery reminds Codex to repair and resume without blocking other workers", () => {
   const prompt = readResearchInstruction("research/automation/CHATGPT_TASK_PROMPT.md");
   const protocol = readResearchInstruction("research/automation/PROTOCOL.md");

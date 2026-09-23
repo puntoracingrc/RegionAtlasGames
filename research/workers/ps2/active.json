@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "generation": 8,
+  "generation": 23,
   "workerId": "ps2",
-  "state": "READY",
+  "state": "PROCESSING",
   "repository": "puntoracingrc/RegionAtlasGames",
   "branch": "research-worker/ps2",
   "queuePath": "research/queue.json",
   "instructionsPath": "research/ORDER_TEMPLATE.md",
   "currentOrderTemplateVersion": 11,
-  "resultOrderTemplateVersion": null,
-  "currentItemResearchId": null,
+  "resultOrderTemplateVersion": 11,
+  "currentItemResearchId": "hack-gu-vol-2-reminisce-ps2-2026-09-22",
   "workPackage": {
     "packageId": "ps2-2026-09-22-003",
     "grouping": {
@@ -21,32 +21,27 @@
         "queueId": "platform-work:ps2:ps2-work-07d80321bb4e5575",
         "platform": "ps2",
         "title": ".Hack - G.U. Vol.2 - Reminisce",
-        "catalogIds": [
-          "ps2-us-slus-21488"
-        ],
+        "catalogIds": ["ps2-us-slus-21488"],
         "researchId": "hack-gu-vol-2-reminisce-ps2-2026-09-22",
         "orderPath": "research/workers/ps2/orders/hack-gu-vol-2-reminisce-ps2-2026-09-22.md",
         "resultPath": "research/results/hack-gu-vol-2-reminisce-ps2-2026-09-22.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/ps2/checkpoints/hack-gu-vol-2-reminisce-ps2-2026-09-22.json"
       },
       {
         "queueId": "platform-work:ps2:ps2-work-9433e7c2b4166344",
         "platform": "ps2",
         "title": ".Hack - G.U. Vol.3 - Redemption",
-        "catalogIds": [
-          "ps2-us-slus-21489"
-        ],
+        "catalogIds": ["ps2-us-slus-21489"],
         "researchId": "hack-gu-vol-3-redemption-ps2-2026-09-22",
         "orderPath": "research/workers/ps2/orders/hack-gu-vol-3-redemption-ps2-2026-09-22.md",
         "resultPath": "research/results/hack-gu-vol-3-redemption-ps2-2026-09-22.json",
-        "status": "PENDING",
+        "status": "RESULT_READY",
         "checkpointPath": "research/workers/ps2/checkpoints/hack-gu-vol-3-redemption-ps2-2026-09-22.json"
       }
     ]
   },
-  "lease": null,
-  "updatedAt": "2026-09-22T09:53:28Z",
+  "updatedAt": "2026-09-23T09:31:00Z",
   "updatedBy": "codex",
-  "note": "_summer## validado y publicado como ficha central V2 con Standard, First Print Limited Edition y Best Version. Resultado consumido para la primera pasada; se prepara el siguiente paquete relacionado de .Hack G.U. Vol.2 y Vol.3."
+  "note": "Vol.2 recibido y aparcado sin consumir: los tres productos confirmados coinciden con el paquete PS2 .hack corregido por el usuario, pero la canonicalización V2 de la familia sigue pendiente y la PR #358 no la completa. No publicar el bundle probable ni precios activos. Revisión durable en research/workers/ps2/reviews/hack-gu-vol-2-reminisce-ps2-2026-09-22.md. Vol.3 permanece intacto dentro del paquete; continuar otros workers."
 }

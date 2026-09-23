@@ -1,0 +1,2944 @@
+{
+  "researchId": "hack-gu-vol-2-reminisce-ps2-2026-09-22",
+  "triggerQueueEntry": {
+    "queueId": "platform-work:ps2:ps2-work-07d80321bb4e5575",
+    "platform": "ps2",
+    "catalogIds": [
+      "ps2-us-slus-21488"
+    ]
+  },
+  "researchedTitle": ".hack//G.U. vol. 2//Reminisce",
+  "platformsInvestigated": [
+    "ps2"
+  ],
+  "gameFacts": {
+    "officialTitle": {
+      "value": ".hack//G.U. vol. 2//Reminisce",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_retro_us"
+      ]
+    },
+    "originalTitle": {
+      "value": ".hack//G.U. Vol.2 君想フ声",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_press",
+        "s_retro_jp",
+        "s_yahoo_jp_standard"
+      ]
+    },
+    "alternateTitles": [
+      {
+        "value": ".hack//G.U. Vol. 2: Kimi Omou Koe",
+        "type": "romanized Japanese title",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "s_retro_jp",
+          "s_gamefaqs"
+        ]
+      }
+    ],
+    "developer": {
+      "value": "CyberConnect2",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_moby_game",
+        "s_gamefaqs",
+        "s_bandai_press"
+      ]
+    },
+    "publisher": {
+      "value": "Bandai Namco Games",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_press",
+        "s_gamefaqs"
+      ]
+    },
+    "series": {
+      "value": ".hack//G.U.",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_bnours",
+        "s_moby_game"
+      ]
+    },
+    "genres": [
+      {
+        "value": "Action RPG",
+        "confidence": "confirmed",
+        "sourceRefs": [
+          "s_moby_game",
+          "s_gamefaqs"
+        ]
+      }
+    ],
+    "players": {
+      "local": 1,
+      "online": 0,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_yahoo_jp_standard",
+        "s_gamefaqs"
+      ]
+    },
+    "modes": {
+      "value": [
+        "single-player",
+        "offline"
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_yahoo_jp_standard"
+      ]
+    },
+    "physicalMedia": {
+      "value": "DVD-ROM",
+      "discCount": 1,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_redump_region",
+        "s_yahoo_jp_standard"
+      ]
+    },
+    "initialPs2ReleaseDate": {
+      "value": "2006-09-28",
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_press",
+        "s_gamefaqs",
+        "s_retro_jp"
+      ]
+    }
+  },
+  "releases": [
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "Standard",
+      "market": "Japan",
+      "distributionMarkets": [
+        "Japan"
+      ],
+      "packagingLanguages": [
+        "Japanese"
+      ],
+      "softwareLanguages": [
+        "Japanese"
+      ],
+      "barcode": "4582224491117",
+      "productCode": "SLPS-25655",
+      "serial": "SLPS-25655",
+      "releaseDate": "2006-09-28",
+      "releaseType": "Standard retail edition",
+      "ratingSystem": "CERO A",
+      "regionalPublisher": "Bandai Namco Games",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "1 PlayStation 2 DVD-ROM game disc"
+      ],
+      "components": [
+        {
+          "component": "retailProduct",
+          "barcode": "4582224491117",
+          "productCode": "SLPS-25655",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_retro_jp",
+            "s_yahoo_jp_standard"
+          ]
+        },
+        {
+          "component": "retailCase",
+          "packagingLanguages": [
+            "Japanese"
+          ],
+          "observedMarketText": "FOR JAPAN ONLY",
+          "barcode": "4582224491117",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_yahoo_jp_standard"
+          ]
+        },
+        {
+          "component": "gameDisc",
+          "printedSerial": "SLPS-25655",
+          "internalSerial": "SLPS-25655",
+          "media": "DVD-ROM",
+          "softwareLanguages": [
+            "Japanese"
+          ],
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_redump_region",
+            "s_psx_jlist"
+          ]
+        },
+        {
+          "component": "instructionManual",
+          "confidence": "unresolved",
+          "sourceRefs": []
+        }
+      ],
+      "notes": [
+        "Readable Japanese packaging evidence shows barcode 4582224491117, Japanese text, FOR JAPAN ONLY, one-player support and DVD-ROM.",
+        "The manual is expected for a complete retail copy but its exact factory inclusion was not independently proven in the retained direct physical evidence."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_bandai_press",
+        "s_retro_jp",
+        "s_redump_region",
+        "s_yahoo_jp_standard"
+      ],
+      "fieldSourceRefs": {
+        "releaseTitle": [
+          "s_bandai_press",
+          "s_retro_jp",
+          "s_yahoo_jp_standard"
+        ],
+        "editionName": [
+          "s_retro_jp",
+          "s_gamefaqs"
+        ],
+        "market": [
+          "s_retro_jp",
+          "s_yahoo_jp_standard"
+        ],
+        "distributionMarkets": [
+          "s_yahoo_jp_standard"
+        ],
+        "packagingLanguages": [
+          "s_yahoo_jp_standard"
+        ],
+        "softwareLanguages": [
+          "s_redump_region",
+          "s_psx_jlist"
+        ],
+        "barcode": [
+          "s_retro_jp",
+          "s_yahoo_jp_standard"
+        ],
+        "productCode": [
+          "s_retro_jp",
+          "s_psx_jlist"
+        ],
+        "serial": [
+          "s_redump_region",
+          "s_psx_jlist"
+        ],
+        "releaseDate": [
+          "s_bandai_press",
+          "s_gamefaqs",
+          "s_retro_jp"
+        ],
+        "ratingSystem": [
+          "s_yahoo_jp_standard",
+          "s_retro_jp"
+        ],
+        "regionalPublisher": [
+          "s_bandai_press",
+          "s_retro_jp"
+        ],
+        "physicalContents": [
+          "s_redump_region",
+          "s_yahoo_jp_standard"
+        ]
+      }
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. vol. 2//Reminisce",
+      "editionName": "Standard",
+      "market": "USA",
+      "distributionMarkets": [
+        "USA"
+      ],
+      "packagingLanguages": [
+        "English"
+      ],
+      "softwareLanguages": [
+        "English"
+      ],
+      "barcode": "722674100649",
+      "productCode": "SLUS-21488",
+      "serial": "SLUS-21488",
+      "releaseDate": "2007-05-08",
+      "releaseType": "Standard retail edition",
+      "ratingSystem": "ESRB Teen",
+      "regionalPublisher": "Namco Bandai Games America",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "1 PlayStation 2 DVD-ROM game disc"
+      ],
+      "components": [
+        {
+          "component": "retailProduct",
+          "barcode": "722674100649",
+          "productCode": "SLUS-21488",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_retro_us",
+            "s_gamefaqs",
+            "s_ebay_us_sealed_1",
+            "s_ebay_us_sealed_2"
+          ]
+        },
+        {
+          "component": "retailCase",
+          "packagingLanguages": [
+            "English"
+          ],
+          "barcode": "722674100649",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_ebay_us_images"
+          ]
+        },
+        {
+          "component": "gameDisc",
+          "printedSerial": "SLUS-21488",
+          "internalSerial": "SLUS-21488",
+          "media": "DVD-ROM",
+          "softwareLanguages": [
+            "English"
+          ],
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_redump_region",
+            "s_psx_ulist"
+          ]
+        },
+        {
+          "component": "instructionManual",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_ebay_us_complete_1",
+            "s_ebay_us_complete_2"
+          ]
+        }
+      ],
+      "notes": [
+        "The retained US back-cover evidence shows UPC 722674100649, English packaging, ESRB Teen, DVD-ROM and 1 Player.",
+        "Two independent active complete listings explicitly include case, disc and manual."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_gamefaqs",
+        "s_retro_us",
+        "s_redump_region",
+        "s_ebay_us_complete_1",
+        "s_ebay_us_complete_2",
+        "s_ebay_us_images"
+      ],
+      "fieldSourceRefs": {
+        "releaseTitle": [
+          "s_gamefaqs",
+          "s_retro_us"
+        ],
+        "editionName": [
+          "s_gamefaqs",
+          "s_retro_us"
+        ],
+        "market": [
+          "s_retro_us",
+          "s_ebay_us_complete_1"
+        ],
+        "distributionMarkets": [
+          "s_retro_us"
+        ],
+        "packagingLanguages": [
+          "s_ebay_us_images"
+        ],
+        "softwareLanguages": [
+          "s_redump_region",
+          "s_psx_ulist"
+        ],
+        "barcode": [
+          "s_retro_us",
+          "s_ebay_us_images",
+          "s_ebay_us_sealed_1",
+          "s_ebay_us_sealed_2"
+        ],
+        "productCode": [
+          "s_gamefaqs",
+          "s_retro_us",
+          "s_psx_ulist"
+        ],
+        "serial": [
+          "s_redump_region",
+          "s_psx_ulist"
+        ],
+        "releaseDate": [
+          "s_gamefaqs",
+          "s_moby_releases"
+        ],
+        "ratingSystem": [
+          "s_gamefaqs",
+          "s_ebay_us_images"
+        ],
+        "regionalPublisher": [
+          "s_gamefaqs",
+          "s_retro_us"
+        ],
+        "physicalContents": [
+          "s_redump_region",
+          "s_ebay_us_complete_1",
+          "s_ebay_us_complete_2"
+        ]
+      }
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "PlayStation 2 the Best",
+      "market": "Japan",
+      "distributionMarkets": [
+        "Japan"
+      ],
+      "packagingLanguages": [],
+      "softwareLanguages": [
+        "Japanese"
+      ],
+      "barcode": "4582224492190",
+      "productCode": "SLPS-73266",
+      "serial": "SLPS-73266",
+      "releaseDate": "2009-11-26",
+      "releaseType": "Budget / PlayStation 2 the Best",
+      "ratingSystem": "CERO A",
+      "regionalPublisher": "Bandai Namco Games",
+      "regionalDistributor": null,
+      "physicalContents": [
+        "1 PlayStation 2 DVD-ROM game disc"
+      ],
+      "components": [
+        {
+          "component": "retailProduct",
+          "barcode": "4582224492190",
+          "productCode": "SLPS-73266",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_sie_best",
+            "s_playasia_best",
+            "s_solaris_best"
+          ]
+        },
+        {
+          "component": "retailCase",
+          "packagingLanguages": [],
+          "confidence": "unresolved",
+          "sourceRefs": [
+            "s_playasia_best"
+          ]
+        },
+        {
+          "component": "gameDisc",
+          "printedSerial": "SLPS-73266",
+          "internalSerial": "SLPS-73266",
+          "media": "DVD-ROM",
+          "softwareLanguages": [
+            "Japanese"
+          ],
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_psx_jlist",
+            "s_sie_best"
+          ]
+        },
+        {
+          "component": "instructionManual",
+          "confidence": "unresolved",
+          "sourceRefs": []
+        }
+      ],
+      "notes": [
+        "The PlayStation 2 the Best edition is separately identified from the 2006 Standard release.",
+        "A front cover was retained, but targeted searches did not produce a readable direct back-cover candidate; packaging language therefore remains unresolved."
+      ],
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_sie_best",
+        "s_playasia_best",
+        "s_solaris_best",
+        "s_psx_jlist"
+      ],
+      "fieldSourceRefs": {
+        "releaseTitle": [
+          "s_playasia_best",
+          "s_solaris_best"
+        ],
+        "editionName": [
+          "s_sie_best",
+          "s_playasia_best",
+          "s_solaris_best"
+        ],
+        "market": [
+          "s_playasia_best",
+          "s_solaris_best"
+        ],
+        "distributionMarkets": [
+          "s_playasia_best",
+          "s_solaris_best"
+        ],
+        "packagingLanguages": [],
+        "softwareLanguages": [
+          "s_psx_jlist"
+        ],
+        "barcode": [
+          "s_playasia_best",
+          "s_solaris_best"
+        ],
+        "productCode": [
+          "s_sie_best",
+          "s_psx_jlist",
+          "s_playasia_best"
+        ],
+        "serial": [
+          "s_psx_jlist"
+        ],
+        "releaseDate": [
+          "s_sie_best"
+        ],
+        "ratingSystem": [
+          "s_playasia_best",
+          "s_solaris_best"
+        ],
+        "regionalPublisher": [
+          "s_sie_best",
+          "s_solaris_best"
+        ],
+        "physicalContents": [
+          "s_psx_jlist"
+        ]
+      }
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "distributionMarkets": [
+        "Japan"
+      ],
+      "packagingLanguages": [],
+      "softwareLanguages": [
+        "Japanese"
+      ],
+      "barcode": null,
+      "productCode": null,
+      "serial": null,
+      "releaseDate": null,
+      "releaseType": "Promotional compilation bundle / outer box",
+      "ratingSystem": null,
+      "regionalPublisher": "Bandai",
+      "regionalDistributor": null,
+      "physicalContents": [
+        ".hack//G.U. Vol.1 game",
+        ".hack//G.U. Vol.2 game",
+        ".hack//G.U. Vol.3 game",
+        ".hack//G.U. Trilogy anime DVD"
+      ],
+      "components": [
+        {
+          "component": "outerBox",
+          "observedEditionText": "the complete works of .hack//G.U. saga-trilogy",
+          "observedMarking": "NOT FOR SALE",
+          "barcode": null,
+          "productCode": null,
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_yahoo_completeworks"
+          ]
+        },
+        {
+          "component": "vol2GameDisc",
+          "identity": "standard Japanese Vol.2 disc",
+          "printedSerial": "SLPS-25655",
+          "confidence": "confirmed",
+          "sourceRefs": [
+            "s_redump_dumper",
+            "s_redump_region"
+          ]
+        }
+      ],
+      "notes": [
+        "Redump identifies the Vol.2 disc as present in this edition.",
+        "Physical evidence on the outer set shows NOT FOR SALE and identifies Vol.1, Vol.2 and Vol.3.",
+        "A separate listing describes the three G.U. games plus a .hack//G.U. Trilogy anime DVD.",
+        "The bundle is retained as probable because no direct source in the checkpoint proves a product barcode, release date or a distinct bundle-level Vol.2 serial; none are invented."
+      ],
+      "confidence": "probable",
+      "sourceRefs": [
+        "s_redump_dumper",
+        "s_yahoo_completeworks",
+        "s_ebay_completeworks_3"
+      ],
+      "fieldSourceRefs": {
+        "releaseTitle": [
+          "s_yahoo_completeworks",
+          "s_ebay_completeworks_3"
+        ],
+        "editionName": [
+          "s_yahoo_completeworks"
+        ],
+        "market": [
+          "s_yahoo_completeworks"
+        ],
+        "distributionMarkets": [
+          "s_yahoo_completeworks"
+        ],
+        "packagingLanguages": [],
+        "softwareLanguages": [
+          "s_redump_dumper"
+        ],
+        "barcode": [],
+        "productCode": [],
+        "serial": [],
+        "releaseDate": [],
+        "ratingSystem": [],
+        "regionalPublisher": [
+          "s_yahoo_completeworks"
+        ],
+        "physicalContents": [
+          "s_yahoo_completeworks",
+          "s_ebay_completeworks_3",
+          "s_redump_dumper"
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "s_bandai_press",
+      "url": "https://www.bandainamcoent.co.jp/corporate/press/pdf/52-035.pdf",
+      "title": "Bandai Namco corporate press material",
+      "accessedAt": "2026-09-22",
+      "supports": "Official Bandai Namco material used for Japanese .hack//G.U. Vol.2 release and product context."
+    },
+    {
+      "sourceId": "s_bandai_bnours",
+      "url": "https://www.bandainamcoent.co.jp/corporate/bnours/vol02/pdf/02_03_11.pdf",
+      "title": "Bandai Namco corporate BnOURS material",
+      "accessedAt": "2026-09-22",
+      "supports": "Official Bandai Namco material used for .hack//G.U. series and Japanese release context."
+    },
+    {
+      "sourceId": "s_sie_best",
+      "url": "https://sonyinteractive.com/jp/press-releases/2009/ps2best-3/",
+      "title": "Sony Interactive Entertainment PlayStation 2 the Best announcement",
+      "accessedAt": "2026-09-22",
+      "supports": "Official PlayStation material supporting the 2009 PlayStation 2 the Best release."
+    },
+    {
+      "sourceId": "s_gamefaqs",
+      "url": "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/data",
+      "title": ".hack//G.U. Vol. 2//Reminisce release data",
+      "accessedAt": "2026-09-22",
+      "supports": "Secondary release database used for US/Japan dates and core release metadata."
+    },
+    {
+      "sourceId": "s_retro_jp",
+      "url": "https://www.retroplace.com/en/games/68373--hack-g-u-vol-2-kimi-omou-koe",
+      "title": "Retroplace Japanese release record",
+      "accessedAt": "2026-09-22",
+      "supports": "Specialist release record used for the Japanese Standard release identity and identifiers."
+    },
+    {
+      "sourceId": "s_retro_us",
+      "url": "https://www.retroplace.com/en/games/68375--hack-g-u-vol-2-reminisce",
+      "title": "Retroplace US release record",
+      "accessedAt": "2026-09-22",
+      "supports": "Specialist release record used for the USA Standard release identity and identifiers."
+    },
+    {
+      "sourceId": "s_redump_dumper",
+      "url": "https://redump.info/discs?advanced=1&dumper=Lowquillo9&letter=D&page=2",
+      "title": "Redump PS2 disc listing",
+      "accessedAt": "2026-09-22",
+      "supports": "Preservation listing used for disc identity and the Complete Works provenance note."
+    },
+    {
+      "sourceId": "s_redump_region",
+      "url": "https://redump.info/discs?letter=D&page=2&sort=region&system=PS2",
+      "title": "Redump PS2 region listing",
+      "accessedAt": "2026-09-22",
+      "supports": "Preservation listing used for PS2 disc identity and regional context."
+    },
+    {
+      "sourceId": "s_moby_game",
+      "url": "https://www.mobygames.com/game/33604/hackgu-vol-2reminisce/",
+      "title": "MobyGames .hack//G.U. Vol. 2//Reminisce",
+      "accessedAt": "2026-09-22",
+      "supports": "Secondary database supporting developer, genre and game identity."
+    },
+    {
+      "sourceId": "s_moby_releases",
+      "url": "https://www.mobygames.com/game/33604/hackgu-vol-2reminisce/releases/",
+      "title": "MobyGames releases",
+      "accessedAt": "2026-09-22",
+      "supports": "Secondary release listing supporting regional release chronology."
+    },
+    {
+      "sourceId": "s_pricecharting",
+      "url": "https://www.pricecharting.com/game/playstation-2/hack-gu-reminisce",
+      "title": "PriceCharting .hack G.U. Reminisce",
+      "accessedAt": "2026-09-22",
+      "supports": "Aggregate market context only; not used as a qualifying active comparable listing."
+    },
+    {
+      "sourceId": "s_psx_jlist",
+      "url": "https://psxdatacenter.com/psx2/jlist2.html",
+      "title": "PSX DataCenter Japanese PS2 list",
+      "accessedAt": "2026-09-22",
+      "supports": "Technical release list used to corroborate Japanese product codes."
+    },
+    {
+      "sourceId": "s_psx_ulist",
+      "url": "https://psxdatacenter.com/psx2/ulist2.html",
+      "title": "PSX DataCenter US PS2 list",
+      "accessedAt": "2026-09-22",
+      "supports": "Technical release list used to corroborate the US product code."
+    },
+    {
+      "sourceId": "s_rakuten",
+      "url": "https://books.rakuten.co.jp/search?g=006506003001&l-id=item-c-topic-05",
+      "title": "Rakuten Books search",
+      "accessedAt": "2026-09-22",
+      "supports": "Retail search context for Japanese physical releases; not used alone to confirm identifiers."
+    },
+    {
+      "sourceId": "s_furu1",
+      "url": "https://www.furu1.online/product/detail/10031369",
+      "title": "Furu1 product page",
+      "accessedAt": "2026-09-22",
+      "supports": "Japanese retail context for the physical product."
+    },
+    {
+      "sourceId": "s_jnl",
+      "url": "https://www.jnlgame.com/products/hack-g-u-vol-2-reminisce-ps2-playstation-2-pre-owned",
+      "title": "J&L Game pre-owned listing",
+      "accessedAt": "2026-09-22",
+      "supports": "Pre-owned US product context; not retained as a qualifying regional price observation."
+    },
+    {
+      "sourceId": "s_ebay_us_sealed_1",
+      "url": "https://www.ebay.com/itm/317719478538",
+      "title": "eBay item 317719478538",
+      "accessedAt": "2026-09-22",
+      "supports": "Active USA Standard sealed listing used as a qualifying price observation."
+    },
+    {
+      "sourceId": "s_ebay_us_sealed_2",
+      "url": "https://www.ebay.com/itm/156171688698",
+      "title": "eBay item 156171688698",
+      "accessedAt": "2026-09-22",
+      "supports": "Active USA Standard sealed listing used as a qualifying price observation."
+    },
+    {
+      "sourceId": "s_ebay_us_complete_1",
+      "url": "https://www.ebay.com/itm/146365583316",
+      "title": "eBay item 146365583316",
+      "accessedAt": "2026-09-22",
+      "supports": "Active USA Standard complete listing used as a qualifying price observation."
+    },
+    {
+      "sourceId": "s_ebay_us_complete_2",
+      "url": "https://www.ebay.com/itm/127991091088",
+      "title": "eBay item 127991091088",
+      "accessedAt": "2026-09-22",
+      "supports": "Active USA Standard complete listing used as a qualifying price observation."
+    },
+    {
+      "sourceId": "s_ebay_jp_sealed",
+      "url": "https://www.ebay.com/itm/196124106445",
+      "title": "eBay item 196124106445",
+      "accessedAt": "2026-09-22",
+      "supports": "Active Japan Standard sealed listing; only one exact comparable sealed observation was validated."
+    },
+    {
+      "sourceId": "s_ebay_jp_complete_1",
+      "url": "https://www.ebay.com/itm/397728366185",
+      "title": "eBay item 397728366185",
+      "accessedAt": "2026-09-22",
+      "supports": "Active Japan Standard complete listing used as a qualifying price observation."
+    },
+    {
+      "sourceId": "s_ebay_jp_complete_2",
+      "url": "https://www.ebay.com/itm/318328885367",
+      "title": "eBay item 318328885367",
+      "accessedAt": "2026-09-22",
+      "supports": "Active Japan Standard complete listing used as a qualifying price observation."
+    },
+    {
+      "sourceId": "s_playasia_best",
+      "url": "https://www.play-asia.com/en/hackgu-vol2-kimi-omou-koe-playstation2-the-best/13/703lft",
+      "title": "Play-Asia PlayStation 2 the Best product page",
+      "accessedAt": "2026-09-22",
+      "supports": "Exact Japan PlayStation 2 the Best product page; prior observation supplied edition identity, front image and one active price candidate. A later retry was inaccessible."
+    },
+    {
+      "sourceId": "s_solaris_best",
+      "url": "https://solarisjapan.com/fr/products/hack-g-u-vol-2-kimi-omou-koe-playstation2-the-best",
+      "title": "Solaris Japan PlayStation 2 the Best product page",
+      "accessedAt": "2026-09-22",
+      "supports": "Exact-edition Japanese retail context for the PlayStation 2 the Best release."
+    },
+    {
+      "sourceId": "s_ebay_completeworks_1",
+      "url": "https://www.ebay.com/itm/406197298492",
+      "title": "eBay item 406197298492",
+      "accessedAt": "2026-09-22",
+      "supports": "Complete Works promotional bundle context; currently out of stock and excluded from active price sampling."
+    },
+    {
+      "sourceId": "s_ebay_completeworks_2",
+      "url": "https://www.ebay.com/itm/355998096145",
+      "title": "eBay item 355998096145",
+      "accessedAt": "2026-09-22",
+      "supports": "Complete Works promotional bundle context; currently out of stock and excluded from active price sampling."
+    },
+    {
+      "sourceId": "s_ebay_completeworks_3",
+      "url": "https://www.ebay.com/itm/355258361292",
+      "title": "eBay item 355258361292",
+      "accessedAt": "2026-09-22",
+      "supports": "Complete Works promotional bundle context and physical contents description."
+    },
+    {
+      "sourceId": "s_yahoo_completeworks",
+      "url": "https://auctions.yahoo.co.jp/jp/auction/k1206264314",
+      "title": "Yahoo! Auctions item k1206264314",
+      "accessedAt": "2026-09-22",
+      "supports": "Physical image evidence for the Complete Works promotional outer bundle, including NOT FOR SALE and Vol.1/Vol.2/Vol.3 markings."
+    },
+    {
+      "sourceId": "s_yahoo_jp_standard",
+      "url": "https://auctions.yahoo.co.jp/jp/auction/r1202660596",
+      "title": "Yahoo! Auctions item r1202660596",
+      "accessedAt": "2026-09-22",
+      "supports": "Readable Japanese Standard front/back physical image evidence including barcode, Japan-only text, player count and DVD-ROM marking."
+    },
+    {
+      "sourceId": "s_ebay_us_images",
+      "url": "https://www.ebay.com/itm/178354532649",
+      "title": "eBay item 178354532649",
+      "accessedAt": "2026-09-22",
+      "supports": "Readable USA Standard front/back image evidence including ESRB Teen, Bandai Namco Games branding, UPC 722674100649, English packaging, DVD-ROM and 1 Player."
+    }
+  ],
+  "images": [
+    {
+      "sourceRefs": [
+        "s_ebay_us_images"
+      ],
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. vol. 2//Reminisce",
+      "editionName": "Standard",
+      "market": "USA",
+      "pageUrl": "https://www.ebay.com/itm/178354532649",
+      "imageUrl": "https://i.ebayimg.com/images/g/WPoAAeSwe4RqaizO/s-l500.webp",
+      "component": "front",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "US Standard front cover",
+        "ESRB Teen marking",
+        "Bandai Namco Games branding"
+      ],
+      "observedText": [
+        "Teen",
+        "Bandai Namco Games"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "s_ebay_us_images"
+      ],
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. vol. 2//Reminisce",
+      "editionName": "Standard",
+      "market": "USA",
+      "pageUrl": "https://www.ebay.com/itm/178354532649",
+      "imageUrl": "https://i.ebayimg.com/images/g/s3sAAeSw2Mxqaizb/s-l500.webp",
+      "component": "back",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "UPC 722674100649",
+        "English packaging",
+        "ESRB Teen",
+        "DVD-ROM",
+        "1 Player",
+        ".hack//ROOTS bonus text"
+      ],
+      "observedText": [
+        "722674100649",
+        "DVD-ROM",
+        "1 Player",
+        ".hack//ROOTS"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "s_yahoo_jp_standard"
+      ],
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "Standard",
+      "market": "Japan",
+      "pageUrl": "https://auctions.yahoo.co.jp/jp/auction/r1202660596",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0110/user/f472380336aee7e1f396fe42037ea073e5c888f60b735a4560cfb06d505c48bc/i-img828x1142-17595740686946uyuxqf33.jpg",
+      "component": "front",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Japanese Vol.2 Standard front cover",
+        "CERO A marking",
+        "Bandai branding"
+      ],
+      "observedText": [
+        "CERO A",
+        "BANDAI"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "s_yahoo_jp_standard"
+      ],
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "Standard",
+      "market": "Japan",
+      "pageUrl": "https://auctions.yahoo.co.jp/jp/auction/r1202660596",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0110/user/f472380336aee7e1f396fe42037ea073e5c888f60b735a4560cfb06d505c48bc/i-img828x1142-17595740687500jjwzuh33.jpg",
+      "component": "back",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Barcode 4582224491117",
+        "Japanese packaging text",
+        "FOR JAPAN ONLY",
+        "1 player",
+        "DVD-ROM"
+      ],
+      "observedText": [
+        "4582224491117",
+        "FOR JAPAN ONLY",
+        "DVD-ROM"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "s_playasia_best"
+      ],
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "PlayStation 2 the Best",
+      "market": "Japan",
+      "pageUrl": "https://www.play-asia.com/en/hackgu-vol2-kimi-omou-koe-playstation2-the-best/13/703lft",
+      "imageUrl": "https://s.pacn.ws/1/p/9b/pa.167753.1.jpg?v=ktaoc7&width=120",
+      "component": "front",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "PlayStation 2 the Best branding",
+        "Japanese Vol.2 cover"
+      ],
+      "observedText": [
+        "PlayStation 2 the Best"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "s_yahoo_completeworks"
+      ],
+      "platform": "ps2",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "pageUrl": "https://auctions.yahoo.co.jp/jp/auction/k1206264314",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0111/user/e8f1eb33a91cb710152f3378ecc917972fced3b37b67faf67aa5db97c6835964/i-img600x600-17620036514032cuqhki33.jpg",
+      "component": "front",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Complete Works outer box",
+        "NOT FOR SALE marking"
+      ],
+      "observedText": [
+        "the complete works of .hack//G.U. saga-trilogy",
+        "NOT FOR SALE"
+      ],
+      "confidence": "confirmed"
+    },
+    {
+      "sourceRefs": [
+        "s_yahoo_completeworks"
+      ],
+      "platform": "ps2",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "pageUrl": "https://auctions.yahoo.co.jp/jp/auction/k1206264314",
+      "imageUrl": "https://auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0111/user/e8f1eb33a91cb710152f3378ecc917972fced3b37b67faf67aa5db97c6835964/i-img600x600-17620036514118wppgi433.jpg",
+      "component": "back",
+      "status": "IMAGE_EVIDENCE_READ",
+      "observedFacts": [
+        "Back of promotional outer box",
+        "Vol.1, Vol.2 and Vol.3 markings",
+        "NOT FOR SALE marking"
+      ],
+      "observedText": [
+        "Vol.1",
+        "Vol.2",
+        "Vol.3",
+        "NOT FOR SALE"
+      ],
+      "confidence": "confirmed"
+    }
+  ],
+  "regionalPrices": [
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. vol. 2//Reminisce",
+      "editionName": "Standard",
+      "market": "USA",
+      "mediaType": "optical",
+      "conditionBucket": "sealed",
+      "currency": "USD",
+      "observations": [
+        {
+          "sourceId": "s_ebay_us_sealed_1",
+          "listingId": "317719478538",
+          "marketplace": "eBay",
+          "listingUrl": "https://www.ebay.com/itm/317719478538",
+          "accessedAt": "2026-09-22",
+          "listingStatus": "active",
+          "sellerId": "collect716",
+          "askingPriceWithoutShipping": 79.0,
+          "shippingPrice": 23.59,
+          "currency": "USD",
+          "conditionBucket": "sealed",
+          "regionEvidence": "UPC 0722674100649 / MPN 722674100649 on USA product record",
+          "editionEvidence": "Brand New; New Sealed",
+          "includedContents": [
+            "sealed retail copy"
+          ]
+        },
+        {
+          "sourceId": "s_ebay_us_sealed_2",
+          "listingId": "156171688698",
+          "marketplace": "eBay",
+          "listingUrl": "https://www.ebay.com/itm/156171688698",
+          "accessedAt": "2026-09-22",
+          "listingStatus": "active",
+          "sellerId": "DreamSymphony",
+          "askingPriceWithoutShipping": 80.0,
+          "shippingPrice": 23.92,
+          "currency": "USD",
+          "conditionBucket": "sealed",
+          "regionEvidence": "UPC 0722674100649 / MPN 722674100649; PS2; ESRB Teen",
+          "editionEvidence": "Brand New in original shrink wrap; SEALED",
+          "includedContents": [
+            "sealed retail copy"
+          ]
+        }
+      ],
+      "sampleSize": 2,
+      "calculationMethod": "median of askingPriceWithoutShipping from independent active comparable listings; shipping excluded",
+      "marketMin": 79.0,
+      "marketMax": 80.0,
+      "proposedBasePrice": 79.5,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_ebay_us_sealed_1",
+        "s_ebay_us_sealed_2"
+      ],
+      "unresolvedReason": null
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. vol. 2//Reminisce",
+      "editionName": "Standard",
+      "market": "USA",
+      "mediaType": "optical",
+      "conditionBucket": "complete",
+      "currency": "USD",
+      "observations": [
+        {
+          "sourceId": "s_ebay_us_complete_1",
+          "listingId": "146365583316",
+          "marketplace": "eBay",
+          "listingUrl": "https://www.ebay.com/itm/146365583316",
+          "accessedAt": "2026-09-22",
+          "listingStatus": "active",
+          "sellerId": "Infinite Rare Entertainment",
+          "askingPriceWithoutShipping": 29.95,
+          "shippingPrice": 69.95,
+          "currency": "USD",
+          "conditionBucket": "complete",
+          "regionEvidence": "UPC 0722674100649 / MPN 722674100649 on USA product record",
+          "editionEvidence": "Complete; Very Good",
+          "includedContents": [
+            "case",
+            "disc",
+            "manual"
+          ]
+        },
+        {
+          "sourceId": "s_ebay_us_complete_2",
+          "listingId": "127991091088",
+          "marketplace": "eBay",
+          "listingUrl": "https://www.ebay.com/itm/127991091088",
+          "accessedAt": "2026-09-22",
+          "listingStatus": "active",
+          "sellerId": "Sampayo.Inc",
+          "askingPriceWithoutShipping": 89.98,
+          "shippingPrice": 15.64,
+          "currency": "USD",
+          "conditionBucket": "complete",
+          "regionEvidence": "UPC 0722674100649 / MPN 722674100649 on USA product record",
+          "editionEvidence": "Complete See Pics; description states manual included",
+          "includedContents": [
+            "case",
+            "disc",
+            "manual"
+          ]
+        }
+      ],
+      "sampleSize": 2,
+      "calculationMethod": "median of askingPriceWithoutShipping from independent active comparable listings; shipping excluded",
+      "marketMin": 29.95,
+      "marketMax": 89.98,
+      "proposedBasePrice": 59.965,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_ebay_us_complete_1",
+        "s_ebay_us_complete_2"
+      ],
+      "unresolvedReason": null
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "Standard",
+      "market": "Japan",
+      "mediaType": "optical",
+      "conditionBucket": "sealed",
+      "currency": "USD",
+      "observations": [
+        {
+          "sourceId": "s_ebay_jp_sealed",
+          "listingId": "196124106445",
+          "marketplace": "eBay",
+          "listingUrl": "https://www.ebay.com/itm/196124106445",
+          "accessedAt": "2026-09-22",
+          "listingStatus": "active",
+          "sellerId": "ncsxshop",
+          "askingPriceWithoutShipping": 68.98,
+          "shippingPrice": 5.98,
+          "currency": "USD",
+          "conditionBucket": "sealed",
+          "regionEvidence": "SLPS-25655; UPC 4582224491117; Japan; NTSC-J",
+          "editionEvidence": "Brand New / factory sealed",
+          "includedContents": [
+            "sealed retail copy"
+          ]
+        }
+      ],
+      "sampleSize": 1,
+      "calculationMethod": "median of askingPriceWithoutShipping from independent active comparable listings; shipping excluded",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "s_ebay_jp_sealed"
+      ],
+      "unresolvedReason": "Only one exact-region active sealed listing was validated; two independent comparables are required."
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "Standard",
+      "market": "Japan",
+      "mediaType": "optical",
+      "conditionBucket": "complete",
+      "currency": "USD",
+      "observations": [
+        {
+          "sourceId": "s_ebay_jp_complete_1",
+          "listingId": "397728366185",
+          "marketplace": "eBay",
+          "listingUrl": "https://www.ebay.com/itm/397728366185",
+          "accessedAt": "2026-09-22",
+          "listingStatus": "active",
+          "sellerId": "Kensi-49CultureJapan",
+          "askingPriceWithoutShipping": 23.33,
+          "shippingPrice": 0.0,
+          "currency": "USD",
+          "conditionBucket": "complete",
+          "regionEvidence": "Japan import; prior item metadata SLPS-25655 / UPC 4582224491117",
+          "editionEvidence": "CIB; manual included",
+          "includedContents": [
+            "case",
+            "disc",
+            "manual"
+          ]
+        },
+        {
+          "sourceId": "s_ebay_jp_complete_2",
+          "listingId": "318328885367",
+          "marketplace": "eBay",
+          "listingUrl": "https://www.ebay.com/itm/318328885367",
+          "accessedAt": "2026-09-22",
+          "listingStatus": "active",
+          "sellerId": "Dashey's Games and More",
+          "askingPriceWithoutShipping": 10.39,
+          "shippingPrice": 13.06,
+          "currency": "USD",
+          "conditionBucket": "complete",
+          "regionEvidence": "Listing says Japan/Japanese; physical photo shows Japanese Vol.2 君想フ声 CERO A cover",
+          "editionEvidence": "Seller states complete; photo shows case, disc and manual",
+          "includedContents": [
+            "case",
+            "disc",
+            "manual"
+          ]
+        }
+      ],
+      "sampleSize": 2,
+      "calculationMethod": "median of askingPriceWithoutShipping from independent active comparable listings; shipping excluded",
+      "marketMin": 10.39,
+      "marketMax": 23.33,
+      "proposedBasePrice": 16.86,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "confirmed",
+      "sourceRefs": [
+        "s_ebay_jp_complete_1",
+        "s_ebay_jp_complete_2"
+      ],
+      "unresolvedReason": null
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "PlayStation 2 the Best",
+      "market": "Japan",
+      "mediaType": "optical",
+      "conditionBucket": "sealed",
+      "currency": "USD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median of askingPriceWithoutShipping from independent active comparable listings; shipping excluded",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No two active exact-edition sealed listings were validated."
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "PlayStation 2 the Best",
+      "market": "Japan",
+      "mediaType": "optical",
+      "conditionBucket": "complete",
+      "currency": "USD",
+      "observations": [
+        {
+          "sourceId": "s_playasia_best",
+          "listingId": null,
+          "marketplace": "Play-Asia",
+          "listingUrl": "https://www.play-asia.com/en/hackgu-vol2-kimi-omou-koe-playstation2-the-best/13/703lft",
+          "accessedAt": "2026-09-22",
+          "listingStatus": "active",
+          "sellerId": "Play-Asia",
+          "askingPriceWithoutShipping": 23.99,
+          "shippingPrice": null,
+          "currency": "USD",
+          "conditionBucket": "complete",
+          "regionEvidence": "Japan version and exact Best release",
+          "editionEvidence": "PlayStation2 the Best",
+          "includedContents": []
+        }
+      ],
+      "sampleSize": 1,
+      "calculationMethod": "median of askingPriceWithoutShipping from independent active comparable listings; shipping excluded",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "s_playasia_best"
+      ],
+      "unresolvedReason": "Only one exact-edition complete listing was retained; no second comparable active listing was validated."
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "mediaType": "optical",
+      "conditionBucket": "sealed",
+      "currency": "USD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median of askingPriceWithoutShipping from independent active comparable listings; shipping excluded",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [],
+      "unresolvedReason": "No active sealed listing was validated for the exact promotional bundle."
+    },
+    {
+      "platform": "ps2",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "mediaType": "optical",
+      "conditionBucket": "complete",
+      "currency": "USD",
+      "observations": [],
+      "sampleSize": 0,
+      "calculationMethod": "median of askingPriceWithoutShipping from independent active comparable listings; shipping excluded",
+      "marketMin": null,
+      "marketMax": null,
+      "proposedBasePrice": null,
+      "proposedBasePriceEur": null,
+      "exchangeRate": null,
+      "exchangeRateDate": null,
+      "exchangeRateSource": null,
+      "confidence": "unresolved",
+      "sourceRefs": [
+        "s_ebay_completeworks_1",
+        "s_ebay_completeworks_2",
+        "s_ebay_completeworks_3"
+      ],
+      "unresolvedReason": "Checked bundle listings were out of stock or not fully comparable for factory contents, so none qualifies for active-price sampling."
+    }
+  ],
+  "queryLedger": [
+    {
+      "queryId": "q01",
+      "queryType": "general",
+      "query": "\".hack//G.U. Vol.2\" \"The Complete Works of .hack//G.U. Saga-Trilogy\"",
+      "provider": null,
+      "targetFields": [
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q02",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-25655\" \".hack\" \"complete works\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q03",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-73266\" \".hack//G.U.\" \"The Best\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q04",
+      "queryType": "marketplace",
+      "query": "\"722674100649\" \".hack G.U. Vol.2\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q05",
+      "queryType": "marketplace",
+      "query": "\"4582224491117\" \".hack G.U. Vol.2\" ebay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q06",
+      "queryType": "marketplace",
+      "query": "\"4582224492190\" \".hack G.U. Vol.2\" ebay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q07",
+      "queryType": "general",
+      "query": "\"The Complete Works of .hack//G.U. Saga-Trilogy\" PS2",
+      "provider": null,
+      "targetFields": [
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q08",
+      "queryType": "general",
+      "query": "\"The Complete Works of .hack//G.U. Saga-Trilogy\" barcode",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q09",
+      "queryType": "general",
+      "query": "\".hack//G.U. saga-trilogy\" PS2 box",
+      "provider": null,
+      "targetFields": [
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q10",
+      "queryType": "general",
+      "query": "\"コンプリートセット\" \".hack//G.U.\" \"saga-trilogy\"",
+      "provider": null,
+      "targetFields": [
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q11",
+      "queryType": "exact_identifier",
+      "query": "\".hack//G.U. Saga-Trilogy\" \"SLPS-25655\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q12",
+      "queryType": "marketplace",
+      "query": "\"SLPS-73266\" \"Yahoo!オークション\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q13",
+      "queryType": "exact_identifier",
+      "query": "\"4582224492190\" \".hack\" PS2",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q14",
+      "queryType": "image",
+      "query": "image: \".hack//G.U. Vol.2 Kimi Omou Koe PlayStation2 the Best SLPS-73266 front back\"",
+      "provider": null,
+      "targetFields": [
+        "front_back_images",
+        "identifiers",
+        "regional_release_identity",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_playasia_best"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q15",
+      "queryType": "image",
+      "query": "image: \"The Complete Works of .hack//G.U. Saga-Trilogy box PS2 Japan front back\"",
+      "provider": null,
+      "targetFields": [
+        "front_back_images",
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_yahoo_completeworks"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q16",
+      "queryType": "exact_identifier",
+      "query": "\".hack//G.U. vol. 2//Reminisce\" SLUS-21488 UPC 722674100649",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_retro_us",
+        "s_gamefaqs"
+      ],
+      "discoveredIdentifiers": [
+        "SLUS-21488",
+        "722674100649"
+      ],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q17",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-25655\" \".hack//G.U.\" 4582224491117",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_retro_jp",
+        "s_psx_jlist"
+      ],
+      "discoveredIdentifiers": [
+        "SLPS-25655",
+        "4582224491117"
+      ],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q18",
+      "queryType": "exact_identifier",
+      "query": "\"SLPS-73266\" 4582224492190 \".hack//G.U.\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_sie_best",
+        "s_playasia_best",
+        "s_solaris_best"
+      ],
+      "discoveredIdentifiers": [
+        "SLPS-73266",
+        "4582224492190"
+      ],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q19",
+      "queryType": "general",
+      "query": "\"The Complete Works of .hack//G.U. Saga-Trilogy\"",
+      "provider": null,
+      "targetFields": [
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q20",
+      "queryType": "marketplace",
+      "query": "\"SLUS-21488\" \".hack G.U. Vol.2\" \"complete\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_us_complete_1",
+        "s_ebay_us_complete_2"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q21",
+      "queryType": "marketplace",
+      "query": "\"SLPS-25655\" \".hack G.U. Vol.2\" \"complete\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_jp_complete_1",
+        "s_ebay_jp_complete_2"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q22",
+      "queryType": "marketplace",
+      "query": "\"SLPS-73266\" \".hack G.U. Vol.2\" \"complete\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q23",
+      "queryType": "source_specific",
+      "query": "\"SLPS-73266\" site:sonyinteractive.com \"2009\" \".hack//G.U.\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "edition_identity",
+        "release_date"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_sie_best"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q24",
+      "queryType": "exact_identifier",
+      "query": "\"4582224492190\" \"SLPS-73266\" \"PlayStation 2 the Best\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [
+        "SLPS-73266",
+        "4582224492190"
+      ],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q25",
+      "queryType": "marketplace",
+      "query": "\"The Complete Works of .hack//G.U. Saga-Trilogy\" eBay",
+      "provider": null,
+      "targetFields": [
+        "active_market_price",
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_completeworks_1",
+        "s_ebay_completeworks_2",
+        "s_ebay_completeworks_3"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q26",
+      "queryType": "general",
+      "query": "\"the complete works of .hack//G.U. saga-trilogy\" \"NOT FOR SALE\"",
+      "provider": null,
+      "targetFields": [
+        "physical_contents",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_yahoo_completeworks"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q27",
+      "queryType": "marketplace",
+      "query": "\"hack gu vol 2 reminisce\" \"SLUS-21488\" \"complete\" \"eBay\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_us_complete_1",
+        "s_ebay_us_complete_2"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q28",
+      "queryType": "marketplace",
+      "query": "\"hack gu vol 2 reminisce\" \"SLUS-21488\" \"Brand New\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_us_sealed_1",
+        "s_ebay_us_sealed_2"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q29",
+      "queryType": "marketplace",
+      "query": "\"hack gu vol 2 reminisce\" \"SLUS-21488\" \"case manual\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_us_complete_1",
+        "s_ebay_us_complete_2"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q30",
+      "queryType": "marketplace",
+      "query": "\"hack gu vol 2\" \"SLPS-25655\" \"CIB\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_jp_complete_1",
+        "s_ebay_jp_complete_2"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q31",
+      "queryType": "marketplace",
+      "query": "\"hack gu vol 2\" \"SLPS-25655\" \"Brand New\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_jp_sealed"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q32",
+      "queryType": "marketplace",
+      "query": "\"hack gu vol 2\" \"SLPS-73266\" \"CIB\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_playasia_best"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q33",
+      "queryType": "marketplace",
+      "query": "\"hack gu vol 2\" \"SLPS-73266\" \"Brand New\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q34",
+      "queryType": "exact_identifier",
+      "query": "\"SLUS-21488\" \"PRE-OWNED GAME DISC WITH GAME CASE AND GAME MANUAL\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_jnl"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q35",
+      "queryType": "exact_identifier",
+      "query": "\"SLUS-21488\" \"case manual\" \"$\" \".hack G.U. Vol. 2 Reminisce\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q36",
+      "queryType": "exact_identifier",
+      "query": "\"722674100649\" \"case manual\" \".hack G.U. Vol. 2 Reminisce\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q37",
+      "queryType": "exact_identifier",
+      "query": "\"722674100649\" \".hack G.U. Vol.2 Reminisce\" \"Pre-Owned\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q38",
+      "queryType": "exact_identifier",
+      "query": "\"722674100649\" \".hack G.U. Vol.2 Reminisce\" \"Brand New\"",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q39",
+      "queryType": "marketplace",
+      "query": "\"4582224491117\" \".hack//G.U.\" \"Brand New\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_jp_sealed"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q40",
+      "queryType": "marketplace",
+      "query": "\"SLPS-25655\" \".hack//G.U.\" \"Brand New\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_ebay_jp_sealed"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q41",
+      "queryType": "marketplace",
+      "query": "\"4582224492190\" \".hack//G.U.\" \"Brand New\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_playasia_best",
+        "s_solaris_best"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    },
+    {
+      "queryId": "q42",
+      "queryType": "marketplace",
+      "query": "\"SLPS-73266\" \".hack//G.U.\" \"complete\" eBay",
+      "provider": null,
+      "targetFields": [
+        "identifiers",
+        "regional_release_identity",
+        "active_market_price",
+        "edition_identity"
+      ],
+      "resultCount": null,
+      "usefulResultRefs": [
+        "s_playasia_best"
+      ],
+      "discoveredIdentifiers": [],
+      "notes": "Exact query preserved from the checkpoint. Provider and result count were not preserved; null is used rather than inferring them."
+    }
+  ],
+  "sourceAttempts": [
+    {
+      "attemptId": "a01",
+      "sourceName": "Bandai Namco corporate press material",
+      "domain": "bandainamcoent.co.jp",
+      "sourceType": "official_publisher_document",
+      "platform": "ps2",
+      "targetFields": [
+        "game_identity",
+        "regional_release_identity",
+        "release_date"
+      ],
+      "queryRefs": [],
+      "url": "https://www.bandainamcoent.co.jp/corporate/press/pdf/52-035.pdf",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.originalTitle",
+        "gameFacts.developer",
+        "releases[0].releaseDate"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a02",
+      "sourceName": "Bandai Namco corporate BnOURS material",
+      "domain": "bandainamcoent.co.jp",
+      "sourceType": "official_publisher_document",
+      "platform": "ps2",
+      "targetFields": [
+        "game_identity",
+        "regional_release_identity",
+        "release_date"
+      ],
+      "queryRefs": [],
+      "url": "https://www.bandainamcoent.co.jp/corporate/bnours/vol02/pdf/02_03_11.pdf",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.series"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a03",
+      "sourceName": "Sony Interactive Entertainment PlayStation 2 the Best announcement",
+      "domain": "sonyinteractive.com",
+      "sourceType": "official_platform_announcement",
+      "platform": "ps2",
+      "targetFields": [
+        "edition_identity",
+        "identifiers",
+        "release_date",
+        "front_back_images",
+        "active_market_price"
+      ],
+      "queryRefs": [
+        "q03",
+        "q18",
+        "q23",
+        "q24"
+      ],
+      "url": "https://sonyinteractive.com/jp/press-releases/2009/ps2best-3/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[2].editionName",
+        "releases[2].releaseDate",
+        "releases[2].productCode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a04",
+      "sourceName": ".hack//G.U. Vol. 2//Reminisce release data",
+      "domain": "gamefaqs.gamespot.com",
+      "sourceType": "specialist_database",
+      "platform": "ps2",
+      "targetFields": [
+        "game_identity",
+        "regional_release_identity",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q16"
+      ],
+      "url": "https://gamefaqs.gamespot.com/ps2/929996-hack-gu-vol-2-reminisce/data",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.officialTitle",
+        "gameFacts.developer",
+        "releases[1].releaseDate"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a05",
+      "sourceName": "Retroplace Japanese release record",
+      "domain": "retroplace.com",
+      "sourceType": "specialist_database",
+      "platform": "ps2",
+      "targetFields": [
+        "game_identity",
+        "regional_release_identity",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q17"
+      ],
+      "url": "https://www.retroplace.com/en/games/68373--hack-g-u-vol-2-kimi-omou-koe",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].barcode",
+        "releases[0].productCode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a06",
+      "sourceName": "Retroplace US release record",
+      "domain": "retroplace.com",
+      "sourceType": "specialist_database",
+      "platform": "ps2",
+      "targetFields": [
+        "game_identity",
+        "regional_release_identity",
+        "release_date"
+      ],
+      "queryRefs": [
+        "q16"
+      ],
+      "url": "https://www.retroplace.com/en/games/68375--hack-g-u-vol-2-reminisce",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1].barcode",
+        "releases[1].productCode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a07",
+      "sourceName": "Redump PS2 disc listing",
+      "domain": "redump.info",
+      "sourceType": "preservation_database",
+      "platform": "ps2",
+      "targetFields": [
+        "identifiers",
+        "physical_contents",
+        "software_languages",
+        "regional_release_identity"
+      ],
+      "queryRefs": [
+        "q01",
+        "q02",
+        "q11",
+        "q19"
+      ],
+      "url": "https://redump.info/discs?advanced=1&dumper=Lowquillo9&letter=D&page=2",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[3].physicalContents",
+        "releases[3].components[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a08",
+      "sourceName": "Redump PS2 region listing",
+      "domain": "redump.info",
+      "sourceType": "preservation_database",
+      "platform": "ps2",
+      "targetFields": [
+        "identifiers",
+        "physical_contents",
+        "software_languages",
+        "regional_release_identity"
+      ],
+      "queryRefs": [
+        "q16",
+        "q17"
+      ],
+      "url": "https://redump.info/discs?letter=D&page=2&sort=region&system=PS2",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.physicalMedia",
+        "releases[0].serial",
+        "releases[1].serial"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a09",
+      "sourceName": "MobyGames .hack//G.U. Vol. 2//Reminisce",
+      "domain": "mobygames.com",
+      "sourceType": "secondary_database",
+      "platform": "ps2",
+      "targetFields": [
+        "game_identity",
+        "regional_release_identity",
+        "release_date"
+      ],
+      "queryRefs": [],
+      "url": "https://www.mobygames.com/game/33604/hackgu-vol-2reminisce/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "gameFacts.developer",
+        "gameFacts.genres"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a10",
+      "sourceName": "MobyGames releases",
+      "domain": "mobygames.com",
+      "sourceType": "secondary_database",
+      "platform": "ps2",
+      "targetFields": [
+        "game_identity",
+        "regional_release_identity",
+        "release_date"
+      ],
+      "queryRefs": [],
+      "url": "https://www.mobygames.com/game/33604/hackgu-vol-2reminisce/releases/",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1].releaseDate"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a11",
+      "sourceName": "PriceCharting .hack G.U. Reminisce",
+      "domain": "pricecharting.com",
+      "sourceType": "price_aggregator",
+      "platform": "ps2",
+      "targetFields": [
+        "active_market_price"
+      ],
+      "queryRefs": [],
+      "url": "https://www.pricecharting.com/game/playstation-2/hack-gu-reminisce",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Aggregate price context only; it does not satisfy the active-listing price rule."
+    },
+    {
+      "attemptId": "a12",
+      "sourceName": "PSX DataCenter Japanese PS2 list",
+      "domain": "psxdatacenter.com",
+      "sourceType": "technical_release_list",
+      "platform": "ps2",
+      "targetFields": [
+        "identifiers",
+        "physical_contents",
+        "software_languages",
+        "regional_release_identity"
+      ],
+      "queryRefs": [
+        "q02",
+        "q03",
+        "q17",
+        "q18"
+      ],
+      "url": "https://psxdatacenter.com/psx2/jlist2.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].productCode",
+        "releases[2].productCode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a13",
+      "sourceName": "PSX DataCenter US PS2 list",
+      "domain": "psxdatacenter.com",
+      "sourceType": "technical_release_list",
+      "platform": "ps2",
+      "targetFields": [
+        "identifiers",
+        "physical_contents",
+        "software_languages",
+        "regional_release_identity"
+      ],
+      "queryRefs": [
+        "q16"
+      ],
+      "url": "https://psxdatacenter.com/psx2/ulist2.html",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[1].productCode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a14",
+      "sourceName": "Rakuten Books search",
+      "domain": "books.rakuten.co.jp",
+      "sourceType": "retailer_search",
+      "platform": "ps2",
+      "targetFields": [
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "queryRefs": [],
+      "url": "https://books.rakuten.co.jp/search?g=006506003001&l-id=item-c-topic-05",
+      "accessStatus": "SEARCH_RESULT_ONLY",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Search/category context was retained but not used as sole proof of a product fact."
+    },
+    {
+      "attemptId": "a15",
+      "sourceName": "Furu1 product page",
+      "domain": "furu1.online",
+      "sourceType": "retailer_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "queryRefs": [],
+      "url": "https://www.furu1.online/product/detail/10031369",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Retail context only; no unique confirmed claim in the final result depends solely on this page."
+    },
+    {
+      "attemptId": "a16",
+      "sourceName": "J&L Game pre-owned listing",
+      "domain": "jnlgame.com",
+      "sourceType": "retailer_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "regional_release_identity",
+        "active_market_price"
+      ],
+      "queryRefs": [
+        "q34"
+      ],
+      "url": "https://www.jnlgame.com/products/hack-g-u-vol-2-reminisce-ps2-playstation-2-pre-owned",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Pre-owned context was retained but not used as a qualifying independent price observation."
+    },
+    {
+      "attemptId": "a17",
+      "sourceName": "eBay item 317719478538",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "active_market_price",
+        "regional_release_identity",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q04",
+        "q28",
+        "q38"
+      ],
+      "url": "https://www.ebay.com/itm/317719478538",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[0].observations[0]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a18",
+      "sourceName": "eBay item 156171688698",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "active_market_price",
+        "regional_release_identity",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q04",
+        "q28",
+        "q38"
+      ],
+      "url": "https://www.ebay.com/itm/156171688698",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[0].observations[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a19",
+      "sourceName": "eBay item 146365583316",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "active_market_price",
+        "regional_release_identity",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q20",
+        "q27",
+        "q29",
+        "q34",
+        "q35",
+        "q36",
+        "q37"
+      ],
+      "url": "https://www.ebay.com/itm/146365583316",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[1].observations[0]",
+        "releases[1].components[3]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a20",
+      "sourceName": "eBay item 127991091088",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "active_market_price",
+        "regional_release_identity",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q20",
+        "q27",
+        "q29",
+        "q35",
+        "q36",
+        "q37"
+      ],
+      "url": "https://www.ebay.com/itm/127991091088",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[1].observations[1]",
+        "releases[1].components[3]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a21",
+      "sourceName": "eBay item 196124106445",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "active_market_price",
+        "regional_release_identity",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q05",
+        "q31",
+        "q39",
+        "q40"
+      ],
+      "url": "https://www.ebay.com/itm/196124106445",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[2].observations[0]"
+      ],
+      "limitation": "Only one exact comparable sealed observation was validated, so the price state remains unresolved."
+    },
+    {
+      "attemptId": "a22",
+      "sourceName": "eBay item 397728366185",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "active_market_price",
+        "regional_release_identity",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q21",
+        "q30"
+      ],
+      "url": "https://www.ebay.com/itm/397728366185",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[3].observations[0]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a23",
+      "sourceName": "eBay item 318328885367",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "active_market_price",
+        "regional_release_identity",
+        "physical_contents"
+      ],
+      "queryRefs": [
+        "q21",
+        "q30"
+      ],
+      "url": "https://www.ebay.com/itm/318328885367",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "regionalPrices[3].observations[1]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a24",
+      "sourceName": "Play-Asia PlayStation 2 the Best product page",
+      "domain": "play-asia.com",
+      "sourceType": "retailer_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "edition_identity",
+        "identifiers",
+        "release_date",
+        "front_back_images",
+        "active_market_price"
+      ],
+      "queryRefs": [
+        "q03",
+        "q06",
+        "q13",
+        "q14",
+        "q18",
+        "q22",
+        "q24",
+        "q32",
+        "q33",
+        "q41",
+        "q42"
+      ],
+      "url": "https://www.play-asia.com/en/hackgu-vol2-kimi-omou-koe-playstation2-the-best/13/703lft",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[2].editionName",
+        "images[4]",
+        "regionalPrices[5].observations[0]"
+      ],
+      "limitation": "A later retry was technically inaccessible; the earlier recorded observation is retained."
+    },
+    {
+      "attemptId": "a25",
+      "sourceName": "Solaris Japan PlayStation 2 the Best product page",
+      "domain": "solarisjapan.com",
+      "sourceType": "retailer_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "edition_identity",
+        "identifiers",
+        "release_date",
+        "front_back_images",
+        "active_market_price"
+      ],
+      "queryRefs": [
+        "q03",
+        "q13",
+        "q18",
+        "q24",
+        "q41"
+      ],
+      "url": "https://solarisjapan.com/fr/products/hack-g-u-vol-2-kimi-omou-koe-playstation2-the-best",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[2].editionName",
+        "releases[2].barcode"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a26",
+      "sourceName": "eBay item 406197298492",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "physical_contents",
+        "edition_identity",
+        "active_market_price",
+        "front_back_images"
+      ],
+      "queryRefs": [
+        "q25"
+      ],
+      "url": "https://www.ebay.com/itm/406197298492",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Currently out of stock; excluded from active price sampling."
+    },
+    {
+      "attemptId": "a27",
+      "sourceName": "eBay item 355998096145",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "physical_contents",
+        "edition_identity",
+        "active_market_price",
+        "front_back_images"
+      ],
+      "queryRefs": [
+        "q25"
+      ],
+      "url": "https://www.ebay.com/itm/355998096145",
+      "accessStatus": "OPENED",
+      "outcome": "CONTEXT_ONLY",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Currently out of stock; excluded from active price sampling."
+    },
+    {
+      "attemptId": "a28",
+      "sourceName": "eBay item 355258361292",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "physical_contents",
+        "edition_identity",
+        "active_market_price",
+        "front_back_images"
+      ],
+      "queryRefs": [
+        "q25"
+      ],
+      "url": "https://www.ebay.com/itm/355258361292",
+      "accessStatus": "OPENED",
+      "outcome": "CANDIDATE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[3].physicalContents"
+      ],
+      "limitation": "Used for bundle-content context; not a qualifying active comparable price observation."
+    },
+    {
+      "attemptId": "a29",
+      "sourceName": "Yahoo! Auctions item k1206264314",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "physical_contents",
+        "edition_identity",
+        "active_market_price",
+        "front_back_images"
+      ],
+      "queryRefs": [
+        "q12",
+        "q15",
+        "q26"
+      ],
+      "url": "https://auctions.yahoo.co.jp/jp/auction/k1206264314",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[3].components[0]",
+        "images[5]",
+        "images[6]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a30",
+      "sourceName": "Yahoo! Auctions item r1202660596",
+      "domain": "auctions.yahoo.co.jp",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "front_back_images",
+        "identifiers",
+        "packaging_languages",
+        "regional_release_identity"
+      ],
+      "queryRefs": [
+        "q17"
+      ],
+      "url": "https://auctions.yahoo.co.jp/jp/auction/r1202660596",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "releases[0].barcode",
+        "releases[0].packagingLanguages",
+        "images[2]",
+        "images[3]"
+      ],
+      "limitation": null
+    },
+    {
+      "attemptId": "a31",
+      "sourceName": "Play-Asia PlayStation 2 the Best product page retry",
+      "domain": "play-asia.com",
+      "sourceType": "retailer_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "edition_identity",
+        "front_back_images",
+        "active_market_price"
+      ],
+      "queryRefs": [
+        "q14",
+        "q32",
+        "q33",
+        "q41",
+        "q42"
+      ],
+      "url": "https://www.play-asia.com/en/hackgu-vol2-kimi-omou-koe-playstation2-the-best/13/703lft",
+      "accessStatus": "BLOCKED",
+      "outcome": "TECHNICAL_FAILURE",
+      "useful": false,
+      "supportedClaimRefs": [],
+      "limitation": "Latest retry was technically inaccessible. This is not evidence of absence and does not invalidate the earlier retained observation."
+    },
+    {
+      "attemptId": "a32",
+      "sourceName": "eBay item 178354532649",
+      "domain": "ebay.com",
+      "sourceType": "marketplace_listing",
+      "platform": "ps2",
+      "targetFields": [
+        "front_back_images",
+        "identifiers",
+        "packaging_languages",
+        "regional_release_identity"
+      ],
+      "queryRefs": [
+        "q16",
+        "q27",
+        "q29"
+      ],
+      "url": "https://www.ebay.com/itm/178354532649",
+      "accessStatus": "OPENED",
+      "outcome": "CONFIRMED_EVIDENCE",
+      "useful": true,
+      "supportedClaimRefs": [
+        "images[0]",
+        "images[1]",
+        "releases[1].barcode",
+        "releases[1].packagingLanguages"
+      ],
+      "limitation": null
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "catalog title stylization",
+      "catalogValue": ".Hack - G.U. Vol.2 - Reminisce",
+      "researchedValue": ".hack//G.U. vol. 2//Reminisce",
+      "status": "formatting difference",
+      "note": "The existing catalog title is a normalized style; external release sources use the .hack//G.U. stylization. No identity conflict was found."
+    }
+  ],
+  "unresolved": [
+    {
+      "field": "Japan PlayStation 2 the Best packagingLanguages",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "PlayStation 2 the Best",
+      "market": "Japan",
+      "reason": "No readable direct back-cover candidate was found after targeted image searches."
+    },
+    {
+      "field": "Japan PlayStation 2 the Best back cover",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "PlayStation 2 the Best",
+      "market": "Japan",
+      "reason": "Front cover was retained, but a readable direct back-cover URL was not established."
+    },
+    {
+      "field": "Complete Works bundle barcode/productCode/releaseDate/ratingSystem/packagingLanguages",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "reason": "No direct retained source proves these bundle-level fields; they are intentionally left null or empty."
+    },
+    {
+      "field": "Complete Works factory contents exactness",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "reason": "Physical imagery proves the promotional outer set and Vol.1/Vol.2/Vol.3 markings; another listing describes the anime DVD, but a primary factory-contents document was not retained."
+    },
+    {
+      "field": "regionalPrices",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "Standard",
+      "market": "Japan",
+      "conditionBucket": "sealed",
+      "reason": "Only one exact-region active sealed listing was validated."
+    },
+    {
+      "field": "regionalPrices",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "PlayStation 2 the Best",
+      "market": "Japan",
+      "conditionBucket": "sealed",
+      "reason": "No two active exact-edition sealed listings were validated."
+    },
+    {
+      "field": "regionalPrices",
+      "releaseTitle": ".hack//G.U. Vol.2 君想フ声",
+      "editionName": "PlayStation 2 the Best",
+      "market": "Japan",
+      "conditionBucket": "complete",
+      "reason": "Only one exact-edition complete listing was retained."
+    },
+    {
+      "field": "regionalPrices",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "conditionBucket": "sealed",
+      "reason": "No active sealed listing was validated."
+    },
+    {
+      "field": "regionalPrices",
+      "releaseTitle": "The Complete Works of .hack//G.U. Saga-Trilogy",
+      "editionName": "Promotional box set",
+      "market": "Japan",
+      "conditionBucket": "complete",
+      "reason": "Checked listings were out of stock or not fully comparable for factory contents."
+    }
+  ],
+  "coveredQueueEntries": [
+    {
+      "queueId": "platform-work:ps2:ps2-work-07d80321bb4e5575",
+      "platform": "ps2",
+      "catalogIds": [
+        "ps2-us-slus-21488"
+      ],
+      "justification": "Covers the assigned PS2 work with documented USA Standard, Japan Standard, Japan PlayStation 2 the Best, and a probable Japan promotional Complete Works bundle; unresolved fields are retained explicitly."
+    }
+  ],
+  "researchDate": "2026-09-22"
+}
