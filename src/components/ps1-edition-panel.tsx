@@ -51,11 +51,15 @@ export function Ps1EditionPanel({ game, details }: { game: CatalogGame; details?
     return asset.stored && asset.url && game.canonicalSerials?.some((code) => filename.startsWith(`${code}-`));
   });
   const sources = [...new Map(profile.sources.map((source) => [source.url, source])).values()];
+  // A confirmed V2 box supersedes an older PS1-only review flag. Preserve the
+  // legacy warning for records whose physical identity is still unresolved.
+  const marketNeedsReview = profile.status === "review"
+    && !(game.regionalStatus === "resolved" && game.physicalReleaseGroup?.confidence === "CONFIRMED");
 
   return (
     <Panel>
       <PanelTitle>Edición, idiomas y documentación</PanelTitle>
-      {profile.status === "review" ? (
+      {marketNeedsReview ? (
         <p className="text-sm leading-6 text-muted">
           El mercado de esta ficha está pendiente de confirmar. La información disponible todavía
           no permite asociarla a una única edición. Los códigos de disco, la caja y el manual
@@ -97,8 +101,8 @@ export function Ps1EditionPanel({ game, details }: { game: CatalogGame; details?
           ))}
         </dl>
       )}
-      {profile.status === "review" ? <Ps1RelatedEditions game={game} editions={related} /> : null}
-      {profile.status === "review" ? <Ps1PendingReview game={game} /> : null}
+      {marketNeedsReview ? <Ps1RelatedEditions game={game} editions={related} /> : null}
+      {marketNeedsReview ? <Ps1PendingReview game={game} /> : null}
       {languages?.discrepancy ? (
         <p className="mt-4 text-xs leading-5 text-muted">Las fuentes no enumeran los idiomas de la misma forma. Esta ficha conserva el detalle de textos y voces cuando está documentado.</p>
       ) : null}
@@ -125,7 +129,7 @@ export function Ps1EditionPanel({ game, details }: { game: CatalogGame; details?
           </div>
         </details>
       ) : null}
-      {profile.status !== "review" ? <Ps1RelatedEditions game={game} editions={related} /> : null}
+      {!marketNeedsReview ? <Ps1RelatedEditions game={game} editions={related} /> : null}
       {contextGames.length > 0 ? (
         <details className="mt-5 border-t border-border pt-4">
           <summary className="cursor-pointer text-sm font-semibold">Historia y relaciones del juego</summary>
