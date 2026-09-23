@@ -27,13 +27,19 @@ const isEbaySource = (url?: string) => {
 export function Ps2EditionPanel({ game, details }: { game: CatalogGame; details?: GameDetails }) {
   const profile = details?.ps2Edition;
   if (game.platformSlug !== "ps2" || !profile) return null;
-  const graphics = profile.graphics.filter((asset) => asset.stored && asset.url && !asset.identifierDifference);
-  const sources = [...new Map(profile.sources.filter((source) => !isEbaySource(source.url)).map((source) => [source.url, source])).values()];
-  const hasEbaySources = profile.sources.some((source) => isEbaySource(source.url)) ||
+  // Admin overlays can contain only the fields edited there. Do not assume a
+  // partial PS2 profile has the arrays present in the static research record.
+  const profileGraphics = Array.isArray(profile.graphics) ? profile.graphics : [];
+  const profileSources = Array.isArray(profile.sources) ? profile.sources : [];
+  const components = Array.isArray(profile.components) ? profile.components : [];
+  const findings = Array.isArray(profile.findings) ? profile.findings : [];
+  const graphics = profileGraphics.filter((asset) => asset.stored && asset.url && !asset.identifierDifference);
+  const sources = [...new Map(profileSources.filter((source) => !isEbaySource(source.url)).map((source) => [source.url, source])).values()];
+  const hasEbaySources = profileSources.some((source) => isEbaySource(source.url)) ||
     graphics.some((asset) => isEbaySource(asset.sourceUrl)) ||
-    profile.findings?.some((finding) => finding.evidence.some((evidence) => isEbaySource(evidence.sourceUrl)));
+    findings.some((finding) => (finding.evidence ?? []).some((evidence) => isEbaySource(evidence.sourceUrl)));
   const related = relatedPs2Editions(game);
-  const languageConflict = profile.findings?.some((f) => /contradicci[oó]n|texto de la ficha puede ser incompleto|afirmaci[oó]n textual puede ser incompleta/i.test(`${f.observation} ${f.engineRule}`));
+  const languageConflict = findings.some((f) => /contradicci[oó]n|texto de la ficha puede ser incompleto|afirmaci[oó]n textual puede ser incompleta/i.test(`${f.observation} ${f.engineRule}`));
   const language = profile.languages;
   const releaseNeedsReview = profile.sourceWarnings?.includes("release_date_precedes_ps2_retail_launch");
   return <Panel>
@@ -43,10 +49,10 @@ export function Ps2EditionPanel({ game, details }: { game: CatalogGame; details?
         <div><dt className="font-semibold">Mercado del software</dt><dd className="mt-1"><RegionFlag region={game.region} showLabel /></dd></div>
         <div><dt className="font-semibold">Familia regional</dt><dd className="mt-1 text-muted">{game.regionFamily}</dd></div>
         {profile.editionLabels?.length ? <div><dt className="font-semibold">Presentación documentada</dt><dd className="mt-1 text-muted">{profile.editionLabels.join(" · ")}</dd></div> : null}
-        {language?.all.length ? <div><dt className="font-semibold">Idiomas declarados{languageConflict ? " · por contrastar" : ""}</dt><dd className="mt-1 text-muted" title={languageNames(language.all)}>{languageSummary(language.all)}</dd></div> : null}
-        {language?.text.length ? <div><dt className="font-semibold">Textos y menús según la ficha</dt><dd className="mt-1 text-muted">{languageNames(language.text)}</dd></div> : null}
-        {language?.audio.length ? <div><dt className="font-semibold">Voces según la ficha</dt><dd className="mt-1 text-muted">{languageNames(language.audio)}</dd></div> : null}
-        {profile.components.length ? <div className="sm:col-span-2"><dt className="font-semibold">Códigos documentados de disco</dt><dd className="mt-2 flex flex-wrap gap-2">{profile.components.map((piece) => <code key={`${piece.serial}:${piece.number}`} className="break-all rounded bg-foreground/5 px-2 py-1 text-xs">{profile.components.length > 1 ? `${piece.number}: ` : ""}{piece.serial}{piece.title ? ` · ${piece.title}` : ""}</code>)}</dd></div> : null}
+        {language?.all?.length ? <div><dt className="font-semibold">Idiomas declarados{languageConflict ? " · por contrastar" : ""}</dt><dd className="mt-1 text-muted" title={languageNames(language.all)}>{languageSummary(language.all)}</dd></div> : null}
+        {language?.text?.length ? <div><dt className="font-semibold">Textos y menús según la ficha</dt><dd className="mt-1 text-muted">{languageNames(language.text)}</dd></div> : null}
+        {language?.audio?.length ? <div><dt className="font-semibold">Voces según la ficha</dt><dd className="mt-1 text-muted">{languageNames(language.audio)}</dd></div> : null}
+        {components.length ? <div className="sm:col-span-2"><dt className="font-semibold">Códigos documentados de disco</dt><dd className="mt-2 flex flex-wrap gap-2">{components.map((piece) => <code key={`${piece.serial}:${piece.number}`} className="break-all rounded bg-foreground/5 px-2 py-1 text-xs">{components.length > 1 ? `${piece.number}: ` : ""}{piece.serial}{piece.title ? ` · ${piece.title}` : ""}</code>)}</dd></div> : null}
         {profile.regionalReleaseDate?.raw ? <div><dt className="font-semibold">{releaseNeedsReview ? "Lanzamiento por contrastar" : "Lanzamiento documentado"}</dt><dd className="mt-1 text-muted">{releaseNeedsReview ? "La fecha de la fuente es anterior al lanzamiento de PS2 y necesita revisión." : <>{profile.regionalReleaseDate.iso ? new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${profile.regionalReleaseDate.iso}T12:00:00Z`)) : profile.regionalReleaseDate.raw}<span className="block text-xs">Según la ficha de PSX Data Center; las reediciones de la galería pueden tener otra fecha.</span></>}</dd></div> : null}
         {Object.entries(profile.softwareMetadata ?? {}).filter(([key]) => METADATA_LABELS[key]).map(([key, value]) => <div key={key}><dt className="font-semibold">{METADATA_LABELS[key]}</dt><dd className="mt-1 text-muted">{displayValue(value)}</dd></div>)}
       </dl>
@@ -54,8 +60,8 @@ export function Ps2EditionPanel({ game, details }: { game: CatalogGame; details?
     </>}
     {language?.discrepancy || languageConflict ? <p className="mt-4 rounded-lg bg-amber-500/10 p-3 text-sm">Las fuentes no coinciden en todos los idiomas. Consulta los detalles y las imágenes antes de atribuirlos a una edición concreta.</p> : null}
     <RelatedEditions game={game} editions={related} />
-    {profile.findings?.length ? <details className="mt-5 border-t border-border pt-4"><summary className="cursor-pointer text-sm font-semibold">Detalles para coleccionistas ({profile.findings.length})</summary><ul className="mt-3 space-y-4 text-sm">{profile.findings.map((finding) => {
-      const referenceUrl = finding.evidence.find((evidence) => !isEbaySource(evidence.sourceUrl))?.sourceUrl;
+    {findings.length ? <details className="mt-5 border-t border-border pt-4"><summary className="cursor-pointer text-sm font-semibold">Detalles para coleccionistas ({findings.length})</summary><ul className="mt-3 space-y-4 text-sm">{findings.map((finding) => {
+      const referenceUrl = (finding.evidence ?? []).find((evidence) => !isEbaySource(evidence.sourceUrl))?.sourceUrl;
       return <li key={finding.id}><p className="font-semibold">{finding.title}</p><p className="mt-1 leading-6 text-muted">{finding.observation}</p><p className="mt-1 leading-6 text-muted">{finding.engineRule}</p>{referenceUrl ? <a href={referenceUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-xs underline">Referencia documental</a> : null}</li>;
     })}</ul></details> : null}
     {graphics.length ? <details className="mt-5 border-t border-border pt-4"><summary className="cursor-pointer text-sm font-semibold">Portadas, contraportadas y componentes ({graphics.length})</summary>
@@ -67,7 +73,8 @@ export function Ps2EditionPanel({ game, details }: { game: CatalogGame; details?
         const ebayPhoto = isEbaySource(asset.sourceUrl);
         const edition = (asset.label ?? "").replace(/\bFRONT\b|\bBACK\b/gi, "").replace(/^[\s-]+|[\s-]+$/g, "")
           .split("·").map((part) => part.trim()).filter((part) => !ebayPhoto || !/^(?:eBay|Ejemplar fotografiado)$/i.test(part)).join(" · ");
-        return <figure key={`${asset.assetId}:${asset.group}:${asset.marketHints.join("-")}`} className="min-w-0 rounded-lg border border-border p-2"><a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar ${side.toLowerCase()} de ${game.title}`}><Image unoptimized src={src} width={asset.width ?? 400} height={asset.height ?? 560} alt={`${side} de ${game.title} · ${asset.marketHints.join(" / ")}`} className="h-44 w-full object-contain" /></a><figcaption className="mt-2 break-words text-xs text-muted">{side}{edition ? ` · ${edition}` : ""} · {asset.marketHints.join(" / ") || "Mercado por confirmar"}{!ebayPhoto ? <> · <a href={asset.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">Fuente</a></> : null}{asset.thumbnailOnly ? <span className="block">Miniatura; original completo no disponible.</span> : null}</figcaption></figure>;
+        const markets = asset.marketHints ?? [];
+        return <figure key={`${asset.assetId}:${asset.group}:${markets.join("-")}`} className="min-w-0 rounded-lg border border-border p-2"><a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Ampliar ${side.toLowerCase()} de ${game.title}`}><Image unoptimized src={src} width={asset.width ?? 400} height={asset.height ?? 560} alt={`${side} de ${game.title} · ${markets.join(" / ")}`} className="h-44 w-full object-contain" /></a><figcaption className="mt-2 break-words text-xs text-muted">{side}{edition ? ` · ${edition}` : ""} · {markets.join(" / ") || "Mercado por confirmar"}{!ebayPhoto ? <> · <a href={asset.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">Fuente</a></> : null}{asset.thumbnailOnly ? <span className="block">Miniatura; original completo no disponible.</span> : null}</figcaption></figure>;
       })}</div>
     </details> : null}
     {hasEbaySources ? <p className="mt-5 border-t border-border pt-4 text-xs text-muted">Fotografías de ejemplares publicadas en <a href="https://www.ebay.es/" target="_blank" rel="noopener noreferrer" className="underline">eBay</a>.</p> : null}

@@ -31,5 +31,6 @@ export function ps2GraphicLabel(asset: Ps2EditionDetails["graphics"][number]): s
   if (asset.layout === "listing_front_photo") return "Fotografía de portada";
   if (asset.layout === "listing_back_photo") return "Fotografía de contraportada";
   if (asset.layout === "full_cover_candidate") return "Escaneo de carátula";
-  return asset.roles.includes("front_cover") ? "Portada" : asset.roles.includes("back_cover") ? "Contraportada" : "Componente";
+  const roles = asset.roles ?? [];
+  return roles.includes("front_cover") ? "Portada" : roles.includes("back_cover") ? "Contraportada" : "Componente";
 }
